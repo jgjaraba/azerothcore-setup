@@ -23,3 +23,4 @@ Download [patch-Z.mpq (regular client)](client_patches/regular_client/patch-Z.mp
 * [Bagnon](https://github.com/RichSteini/Bagnon-3.3.5)
 * [DungeonClear](https://github.com/jrad7/mod-dungeon-clear-addon)
 * [MultiBot-Chatless](https://github.com/Wishmaster117/MultiBot-Chatless)
+* [PlayerbotManager](https://github.com/Lichborne-AC/PlayerbotManager)
