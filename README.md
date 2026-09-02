@@ -12,7 +12,7 @@ My configs and scripts for AzerothCore
 
 ### 2. Install server patch
 
-Download [patch-Z.mpq](client_patches/patch-Z.mpq)
+Download [patch-Z.mpq (regular client)](client_patches/regular_client/patch-Z.mpq) or [patch-Z.mpq (hd client)](client_patches/hd_client/patch-Z.mpq)
 
 #### 2.1. Optional patchs
 * [Classic Dungeon Maps](https://github.com/Trimitor/WDM-patch)

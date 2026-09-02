@@ -21,10 +21,10 @@ WHERE `entry` = 90001;
 ````sql
 UPDATE `tmp_currency_token`
 SET
-    `entry`          = 90002, #CHECK UNUSED ID
+    `entry`          = 90005, #CHECK UNUSED ID
     `class`          = 15,
     `subclass`       = 0,
-    `name`           = 'Molten Core Curio', #SET NAME
+    `name`           = 'Naxxramas Curio', #SET NAME
     `Quality`        = 4, #SET QUALITY 4 EPIC, 3 RARE, 2 UNCOMMON, 1 COMMON, 0 POOR
     `area`           = 0,
     `Map`            = 0,
@@ -35,7 +35,7 @@ SET
     `BagFamily`      = 0,
     `SellPrice`      = 0,
     `InventoryType`  = 0,
-    `displayid`      = 21583, #SET DISPLAYID
+    `displayid`      = 35350, #SET DISPLAYID
     `AllowableClass` = -1,
     `AllowableRace`  = -1,
     `ItemLevel`      = 1,
@@ -43,7 +43,7 @@ SET
     `maxcount`       = 0,
     `stackable`      = 200,
     `bonding`        = 1,
-    `description`    = 'A fire-scarred relic recovered from the depths of Blackrock Mountain. A collector of rare artifacts might find value in it.', #SET DESCRIPTION
+    `description`    = 'A desecrated relic recovered from the necropolis. It remains deathly cold no matter how long it is held. A collector of rare artifacts might find value in it.', #SET DESCRIPTION
     `VerifiedBuild`  = 0;
 ````
 
@@ -61,7 +61,7 @@ DROP TEMPORARY TABLE `tmp_currency_token`;
 
 ````sql
 DELETE FROM `item_template_locale`
-WHERE `ID` = 90002
+WHERE `ID` = 90005
   AND `locale` = 'esES';
 
 INSERT INTO `item_template_locale`
@@ -74,10 +74,10 @@ INSERT INTO `item_template_locale`
 )
 VALUES
 (
-    90002,
+    90005,
     'esES',
-    'Curiosidad del Núcleo de Magma',
-    'Una reliquia marcada por el fuego, recuperada de las profundidades de la Montaña Roca Negra. Un coleccionista de artefactos extraños podría encontrarle valor.',
+    'Curiosidad de Naxxramas',
+    'UUna reliquia profanada recuperada de la necrópolis. Permanece gélida al tacto sin importar cuánto tiempo se sostenga. Un coleccionista de artefactos extraños podría encontrarle valor.',
     0
 );
 ````
