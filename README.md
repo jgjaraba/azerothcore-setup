@@ -18,8 +18,9 @@ Download [patch-Z.mpq (regular client)](client_patches/regular_client/patch-Z.mp
 * [Classic Dungeon Maps](https://github.com/Trimitor/WDM-patch)
 
 ### 3. Addons
-* [Questie](https://github.com/Aldori15/Questie)
-* [AtlasLoot](https://github.com/Wrath-AddOns/AtlasLoot_ChromieCraft)
+
+* [Questie](https://github.com/Aldori15/Questie) / [Questie experimental build](addons/Questie-335.zip)
+* [AtlasLoot](https://github.com/Wrath-AddOns/AtlasLoot_ChromieCraft) / [AtlasLoot experimental build](addons/Atlasloot.zip)
 * [Bagnon](https://github.com/RichSteini/Bagnon-3.3.5)
 * [DungeonClear](https://github.com/jrad7/mod-dungeon-clear-addon)
 * [MultiBot-Chatless](https://github.com/Wishmaster117/MultiBot-Chatless)
