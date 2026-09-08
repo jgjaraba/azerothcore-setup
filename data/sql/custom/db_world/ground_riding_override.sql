@@ -19,145 +19,121 @@
 -- ============================================================================
 
 USE `acore_world`;
--- ============================================================================
--- 1. Riding trainers
--- ============================================================================
 
 -- Apprentice Riding:
-
 UPDATE `trainer_spell`
-SET `ReqLevel` = 20
+SET `ReqLevel` = 30
 WHERE `SpellID` = 33388
-  AND `ReqLevel` = 40;
 
 -- Journeyman Riding:
-
--- UPDATE `trainer_spell`
--- SET `ReqLevel` = 40
--- WHERE `SpellID` = 33391
---   AND `ReqLevel` = 60;
+UPDATE `trainer_spell`
+SET `ReqLevel` = 60
+WHERE `SpellID` = 33391
 
 
--- ============================================================================
--- 2. Monturas raciales lentas (Riding 75)
--- ============================================================================
+USE `acore_world`;
+
+START TRANSACTION;
 
 UPDATE `item_template`
 SET `RequiredLevel` = 30
-WHERE `entry` IN (
-    2411,   -- Black Stallion
-    2414,   -- Pinto
-    5655,   -- Chestnut Mare
-    5656,   -- Brown Horse
-    5864,   -- Gray Ram
-    5872,   -- Brown Ram
-    5873,   -- White Ram
-    8563,   -- Red Mechanostrider
-    8595,   -- Blue Mechanostrider
-    13321,  -- Green Mechanostrider
-    13322,  -- Unpainted Mechanostrider
-    13323,  -- Purple Mechanostrider
-    13324,  -- Red and Blue Mechanostrider
-    8629,   -- Striped Nightsaber
-    8631,   -- Striped Frostsaber
-    8632,   -- Spotted Frostsaber
-    47100,  -- Striped Dawnsaber
-    1132,   -- Timber Wolf
-    5665,   -- Dire Wolf
-    5668,   -- Brown Wolf
-    8588,   -- Emerald Raptor
-    8591,   -- Turquoise Raptor
-    8592,   -- Violet Raptor
-    13331,  -- Red Skeletal Horse
-    13332,  -- Blue Skeletal Horse
-    13333,  -- Brown Skeletal Horse
-    15277,  -- Gray Kodo
-    15290   -- Brown Kodo
-)
-AND `RequiredSkill` = 762
-AND `RequiredSkillRank` = 75
-AND `RequiredLevel` = 40;
+WHERE `RequiredSkill` = 762
+  AND `RequiredSkillRank` = 75
+  AND `RequiredLevel` <> 30;
 
+UPDATE `item_template`
+SET `RequiredLevel` = 60
+WHERE `RequiredSkill` = 762
+  AND `RequiredSkillRank` = 150
+  AND `RequiredLevel` <> 60;
 
--- ============================================================================
--- 3. Monturas raciales rápidas (Riding 150)
--- ============================================================================
-
--- UPDATE `item_template`
--- SET `RequiredLevel` = 40
--- WHERE `entry` IN (
---     -- Alliance
---     12302,  -- Frostsaber
---     12303,  -- Nightsaber
---     18766,  -- Swift Frostsaber
---     18767,  -- Swift Mistsaber
---     18768,  -- Swift Dawnsaber
---     18902,  -- Swift Stormsaber
---
---     13326,  -- White Mechanostrider Mod A
---     13327,  -- Icy Blue Mechanostrider Mod A
---     18772,  -- Swift Green Mechanostrider
---     18773,  -- Swift White Mechanostrider
---     18774,  -- Swift Yellow Mechanostrider
---
---     12353,  -- White Stallion
---     12354,  -- Palomino
---     18776,  -- Swift Palomino
---     18777,  -- Swift Brown Steed
---     18778,  -- Swift White Steed
---
---     13328,  -- Black Ram
---     13329,  -- Frost Ram
---     18785,  -- Swift White Ram
---     18786,  -- Swift Brown Ram
---     18787,  -- Swift Gray Ram
---
---     -- Horde
---     8586,   -- Mottled Red Raptor
---     13317,  -- Ivory Raptor
---     18788,  -- Swift Blue Raptor
---     18789,  -- Swift Olive Raptor
---     18790,  -- Swift Orange Raptor
---
---     13334,  -- Green Skeletal Warhorse
---     18791,  -- Purple Skeletal Warhorse
---
---     15292,  -- Green Kodo
---     15293,  -- Teal Kodo
---     18793,  -- Great White Kodo
---     18794,  -- Great Brown Kodo
---     18795,  -- Great Gray Kodo
---
---     12330,  -- Red Wolf
---     12351,  -- Arctic Wolf
---     18796,  -- Swift Brown Wolf
---     18797,  -- Swift Timber Wolf
---     18798   -- Swift Gray Wolf
--- )
--- AND `RequiredSkill` = 762
--- AND `RequiredSkillRank` = 150
--- AND `RequiredLevel` = 60;
-
-
--- ============================================================================
--- 4. Verificación
--- ============================================================================
-
+-- Verification summary
 SELECT
-    `SpellID`,
-    `MoneyCost`,
-    `ReqSkillLine`,
-    `ReqSkillRank`,
-    `ReqLevel`
-FROM `trainer_spell`
-WHERE `SpellID` IN (33388, 33391, 34090, 34091)
-ORDER BY `SpellID`;
-
-SELECT
+    `RequiredSkill`,
     `RequiredSkillRank`,
     `RequiredLevel`,
     COUNT(*) AS `Items`
 FROM `item_template`
 WHERE `RequiredSkill` = 762
-GROUP BY `RequiredSkillRank`, `RequiredLevel`
-ORDER BY `RequiredSkillRank`, `RequiredLevel`;
+  AND `RequiredSkillRank` IN (75, 150)
+GROUP BY
+    `RequiredSkill`,
+    `RequiredSkillRank`,
+    `RequiredLevel`
+ORDER BY
+    `RequiredSkillRank`,
+    `RequiredLevel`;
+
+-- This should return zero rows
+SELECT
+    `entry`,
+    `Name`,
+    `RequiredLevel`,
+    `RequiredSkill`,
+    `RequiredSkillRank`
+FROM `item_template`
+WHERE `RequiredSkill` = 762
+  AND (
+    (`RequiredSkillRank` = 75  AND `RequiredLevel` <> 30)
+        OR (`RequiredSkillRank` = 150 AND `RequiredLevel` <> 60)
+    )
+ORDER BY
+    `RequiredSkillRank`,
+    `RequiredLevel`,
+    `entry`;
+
+COMMIT;
+
+USE acore_world;
+
+START TRANSACTION;
+
+-- ============================================================
+-- Individual Progression
+-- Normalize newly-unlocked racial mounts
+--
+-- Apprentice / 60%:
+--   Level 30
+--   Riding 75
+--   10 gold
+--
+-- Journeyman / 100%:
+--   Level 60
+--   Riding 150
+--   100 gold
+-- ============================================================
+
+
+-- ------------------------------------------------------------
+-- 60% racial mounts
+-- ------------------------------------------------------------
+
+UPDATE `item_template`
+SET
+    `Quality` = 3,
+    `BuyPrice` = 100000,
+    `RequiredLevel` = 30,
+    `RequiredSkill` = 762,
+    `RequiredSkillRank` = 75
+WHERE `entry` IN (
+                  46099, -- Horn of the Black Wolf
+                  46100, -- White Kodo
+                  46308  -- Black Skeletal Horse
+    );
+
+
+-- ------------------------------------------------------------
+-- 100% racial mounts
+-- ------------------------------------------------------------
+
+UPDATE `item_template`
+SET
+    `Quality` = 4,
+    `BuyPrice` = 1000000,
+    `RequiredLevel` = 60,
+    `RequiredSkill` = 762,
+    `RequiredSkillRank` = 150
+WHERE `entry` = 47101; -- Ochre Skeletal Warhorse
+
+
+COMMIT;
