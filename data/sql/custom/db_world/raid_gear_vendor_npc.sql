@@ -359,11 +359,10 @@ INSERT INTO `creature_template_model`
     `VerifiedBuild`
 )
 VALUES
-    (@NPC_MC,   0, @DISPLAY_DARK_RIDER, 1, 1, -1),
-    (@NPC_BWL,  0, @DISPLAY_DARK_RIDER, 1, 1, -1),
-    (@NPC_AQ40, 0, @DISPLAY_DARK_RIDER, 1, 1, -1),
-    (@NPC_NAXX, 0, @DISPLAY_DARK_RIDER, 1, 1, -1);
-
+    (@NPC_MC,   0, @DISPLAY_DARK_RIDER, 1, 1, 0),
+    (@NPC_BWL,  0, @DISPLAY_DARK_RIDER, 1, 1, 0),
+    (@NPC_AQ40, 0, @DISPLAY_DARK_RIDER, 1, 1, 0),
+    (@NPC_NAXX, 0, @DISPLAY_DARK_RIDER, 1, 1, 0);
 
 -- ============================================================================
 -- SPANISH LOCALIZATION
