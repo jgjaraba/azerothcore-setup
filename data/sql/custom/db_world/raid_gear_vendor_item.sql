@@ -1,7 +1,11 @@
-DELETE FROM npc_vendor
-WHERE entry IN (90200, 90201, 90202, 90203);
+USE `acore_world`;
 
-INSERT INTO npc_vendor
+START TRANSACTION;
+
+DELETE FROM `npc_vendor`
+WHERE `entry` IN (90200, 90201, 90202, 90203);
+
+INSERT INTO `npc_vendor`
 (
     entry,
     slot,
@@ -481,3 +485,5 @@ VALUES
 (90203, 106, 23004, 0, 0, 96010, 0),
 (90203, 107, 23005, 0, 0, 96010, 0),
 (90203, 108, 23006, 0, 0, 96010, 0);
+
+COMMIT;
