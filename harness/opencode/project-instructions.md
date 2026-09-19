@@ -137,3 +137,99 @@ This is a development and validation environment.
 Never modify production systems implicitly.
 
 Never push Git changes automatically.
+
+## Inspection tool policy
+
+For read-only repository and source inspection, prefer OpenCode's structured
+read, glob, grep and directory-listing tools over Bash.
+
+Avoid Bash loops, `find`, arbitrary Python one-liners, `cat`, or `sed` merely
+to enumerate or read project files when structured tools can perform the same
+operation.
+
+Small read-only shell commands and pipelines using allowlisted inspection tools
+such as Git, `rg`, `grep`, `printf`, `sort`, `wc`, or version queries are
+acceptable when they are clearer or more efficient.
+
+Prefer the generated environment state and direct read-only Git commands for
+multi-repository state inspection.
+
+Use Bash when command execution semantics are actually required, such as Git
+state inspection, builds, tests, database operations, trusted project scripts,
+or other explicit execution tasks.
+
+Do not use Bash redirection, Python, or other shell mechanisms to bypass edit
+or permission boundaries.
+
+Commands that can modify repository state, databases, runtime configuration,
+installed files, system packages, or processes should remain subject to the
+configured approval policy.
+
+## Project path discipline
+
+The known project roots are:
+
+- `/home/dev/azerothcore`
+- `/home/dev/azerothcore-setup`
+
+For project discovery and inspection, stay inside those explicit roots.
+
+Do not run glob, grep, list, read, `find`, or similar discovery operations
+rooted at `~`, `/home/dev`, or another parent directory merely to locate
+project files.
+
+Do not search the whole home directory for a file whose project path is already
+known or can be derived from the generated environment state or project
+documentation.
+
+Use:
+
+- the current AzerothCore workspace for core/module paths;
+- `/home/dev/azerothcore-setup` for private project assets;
+- `docs/project/generated/ENVIRONMENT.md` for repository/module discovery.
+
+Request broader external-directory access only when the task genuinely requires
+a resource outside these project roots.
+
+## Feature branch and publication policy
+
+Implementation work is performed only on user-created feature branches.
+
+The user owns repository and publication operations.
+
+At task startup:
+
+- inspect the current branch, HEAD and working-tree state of every repository
+  that may be modified;
+- record the relevant repository baselines in the durable execution plan;
+- do not create, switch, rename, delete, merge or rebase branches;
+- do not modify an implementation repository while it is on its protected/base
+  branch;
+- identify and preserve all pre-existing working-tree changes.
+
+For multi-repository tasks, each repository that will receive task-owned changes
+must already be on an appropriate user-created feature branch.
+
+The `azerothcore-setup` repository is also part of this rule whenever the task
+creates or modifies durable plans, project documentation, scripts, SQL or other
+project-owned assets there.
+
+The agent must not:
+
+- stage files;
+- create commits;
+- push;
+- open or merge pull requests;
+- modify Git history.
+
+At task completion, provide a human handoff containing:
+
+- every repository modified;
+- the current branch of each repository;
+- task-owned files changed;
+- pre-existing changes preserved;
+- validation actually performed;
+- remaining validation or in-game testing;
+- confirmation that no staging, commit, push or PR was performed.
+
+Leave the working trees ready for human inspection and commit.
