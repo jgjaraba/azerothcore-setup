@@ -5,17 +5,31 @@
 This document records verified behavior of every SQL file in
 `data/sql/custom/db_world/` as of the 2026-09-19 audit. The generated environment
 inventory is authoritative for current filenames and working-tree state. These
-are project-owned data overlays, not module migrations. `apply-db-world.sh`
-lexically sorts and streams them to `acore_world`, stops at the first error, and
-does not back up or make the batch atomic.
+are project-owned data overlays, not module migrations. `manifest.txt` is the
+authoritative, exact ordered inventory. `apply-db-world.sh` validates the
+manifest before database access, streams the listed files to `acore_world` in
+that order, stops at the first error, and does not back up or make the batch
+atomic. `--validate` checks manifest coverage without invoking MySQL.
 
-The observed lexical order is **not** a valid dependency order:
-`forsaken_paladin_phase1_1.sql`, then `forsaken_paladin_phase1.sql`, then
-`race_class_5_2.sql`. The trainer file runs last and deletes polished trainer
-spawns, models, and equipment. Raid files likewise run `_item`, `_loot`, `_npc`,
-then the defining `raid_gear_vendor.sql`. Locale can affect an unspecified sort
-order. Do not use the installer as evidence that documented chains have been
-applied correctly. Inspection `SELECT`s are observational, not validation gates.
+The current manifest order is:
+
+1. `ground_riding_override.sql`
+2. `increase_world_boe_drop_rate.sql`
+3. `race_class_5_2.sql`
+4. `raid_gear_vendor.sql`
+5. `raid_gear_vendor_npc.sql`
+6. `raid_gear_vendor_item.sql`
+7. `raid_gear_vendor_loot.sql`
+8. `rebalance_items.sql`
+9. `remove_regular_mounts_ip_requisites.sql`
+10. `transmog_currency_loot.sql`
+
+The raid group is ordered by its verified object dependencies: curio item
+definitions, vendor templates/spawns, vendor inventory, then curio loot.
+Historical Forsaken Paladin polish files cited by the earlier audit are not in
+the current SQL inventory; `race_class_5_2.sql` has no current custom-SQL
+successor or predecessor. Inspection `SELECT`s remain observational, not
+validation gates.
 
 All listed custom IDs, DBC records, and effective database state require
 collision/availability checks; repository inspection cannot prove they exist in
@@ -24,9 +38,9 @@ than upstream module behavior; generated state records its current Git status.
 
 ## Feature chains
 
-- **Forsaken Paladin:** `race_class_5_2.sql`, then
-  `forsaken_paladin_phase1.sql`, then `forsaken_paladin_phase1_1.sql` (trainers,
-  creation data, then trainer polish/spawns).
+- **Forsaken Paladin:** current inventory contains only `race_class_5_2.sql`.
+  If a future creation-data or trainer-polish SQL file is restored, register it
+  after `race_class_5_2.sql` in `manifest.txt` after verifying its SQL.
 - **Individual Progression overlay:** `ground_riding_override.sql` and
   `remove_regular_mounts_ip_requisites.sql` after Individual Progression mount
   SQL/data.
@@ -39,49 +53,19 @@ than upstream module behavior; generated state records its current Git status.
 
 ## Per-file manifest
 
-### `forsaken_paladin_phase1.sql`
-
-- **Verified purpose/tables:** enables race `5`/class `2` creation with
-  `playercreateinfo`, six `playercreateinfo_action` rows, and
-  `charstartoutfit_dbc` IDs `9000`/`9001`.
-- **Dependencies/assumptions:** current creation/outfit schemas, valid starting
-  items/spells and Deathknell coordinates, and free outfit IDs. It is the base
-  for the later food correction.
-- **Rerun/update safety:** targeted delete/insert in a transaction is
-  value-idempotent but destructive for those IDs; positional outfit inserts are
-  schema-sensitive. Core/module data reloads can overwrite it.
-- **Verification:** query exactly one creation row, six action rows, and two
-  outfits; create an Undead Paladin and inspect location, abilities, gear, food,
-  and water.
-
 ### `race_class_5_2.sql`
 
 - **Verified purpose/tables:** clones source templates `2129`/`2123` into
   trainers `90210`/`90211` and writes `creature_template`, model/equipment,
-  default trainer, and locale data. It first removes existing trainer spawns
-  and addons; the later Paladin-polish file recreates them.
+  default trainer, and locale data. It first removes existing trainer spawns.
 - **Dependencies/assumptions:** source templates, equipment source `23779`,
   trainer IDs `4`/`6`, unused custom entries, and matching schema/order for
   temporary-table `SELECT *` cloning.
 - **Rerun/update safety:** deletes all data for both entries before recreation;
   absent sources can yield incomplete results after deletion. Re-running picks
-  up source-template changes. Must precede Paladin polish.
+  up source-template changes.
 - **Verification:** verify templates, trainer mappings, locales, models and
   equipment, then inspect trainer spell lists in game.
-
-### `forsaken_paladin_phase1_1.sql`
-
-- **Verified purpose/tables:** replaces starting food with `4604`, creates final
-  trainer spawns `5300690`/`5300691`, custom model/equipment, and kneeling;
-  touches outfits, `creature`, addon, model, and equipment tables.
-- **Dependencies/assumptions:** both preceding Paladin files, item IDs
-  `4604`/`1903`/`2813`/`6187`, free GUIDs, and current `bytes1` kneeling meaning.
-- **Rerun/update safety:** largely delete/reinsert idempotent, but removes every
-  spawn for entries `90210`/`90211`, not only known GUIDs. Its verification
-  queries are outside its transaction.
-- **Verification:** query final outfits/trainers/spawns/addons and inspect new
-  character creation plus Deathknell/Brill trainer model, equipment, position,
-  and animation.
 
 ### `ground_riding_override.sql`
 
@@ -219,8 +203,8 @@ than upstream module behavior; generated state records its current Git status.
 
 - Establish a durable custom-ID/DBC registry for item `90001`–`90005`, creature
   `90200`–`90211`, display `90100`, text/menu IDs, GUIDs, and ExtendedCost IDs.
-- Replace implicit lexical installation with an explicit post-module overlay
-  order or manifest before treating the SQL batch as reproducible.
+- Keep `manifest.txt` complete and update its explicit post-module overlay order
+  whenever SQL is added, removed, or gains a dependency.
 - Resolve the curio `BagFamily` contradiction and the Transmog token target/
   effective runtime-cost configuration with database and live-stack validation.
 - Preserve non-secret deployment inputs for module SQL, DBC/client patches, and
