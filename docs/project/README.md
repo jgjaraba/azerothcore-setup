@@ -54,6 +54,23 @@ Prefer information in this order:
 
 If two sources disagree, investigate the discrepancy.
 
+## Evidence vocabulary
+
+- **TRACKED** — directly represented by version-controlled source, SQL,
+  templates, scripts, or an accepted ADR. It does not prove deployment.
+- **OBSERVED** — measured from the current local checkout, build/install tree,
+  runtime configuration, or DEV database. It does not prove intent,
+  reproducibility, or gameplay correctness.
+- **VALIDATED** — behavior demonstrated by a recorded build, test, or live-stack
+  scenario against a stated baseline.
+- **INFERRED** — a conclusion strongly suggested by evidence but not directly
+  established. State its basis and do not present it as a project fact.
+- **UNKNOWN** — an important fact not established by available evidence.
+
+Current branches, revisions, and working-tree state belong in
+`generated/ENVIRONMENT.md`. Durable component documents describe stable
+contracts and must date any material OBSERVED deployment finding.
+
 ## Documentation policy
 
 Store:

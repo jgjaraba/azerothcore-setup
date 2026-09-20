@@ -123,7 +123,8 @@ than upstream module behavior; generated state records its current Git status.
 ### `raid_gear_vendor_item.sql`
 
 - **Verified purpose/tables:** populates vendors `90200`–`90203` in `npc_vendor`
-  with raid gear and ExtendedCost IDs `93010`–`96050`.
+  with raid gear and the specific ExtendedCost IDs recorded in
+  `../CUSTOM-IDENTIFIERS.md`.
 - **Dependencies/assumptions:** vendor entries, all item templates and
   client/server extended-cost records exist; entries are reserved for this
   catalog.
@@ -201,12 +202,12 @@ than upstream module behavior; generated state records its current Git status.
 
 ## Cross-cutting open issues and recommendations
 
-- Establish a durable custom-ID/DBC registry for item `90001`–`90005`, creature
-  `90200`–`90211`, display `90100`, text/menu IDs, GUIDs, and ExtendedCost IDs.
+- Maintain `../CUSTOM-IDENTIFIERS.md`; its current project IDs require broader
+  collision checks and its DBC/client contracts remain unverified.
 - Keep `manifest.txt` complete and update its explicit post-module overlay order
   whenever SQL is added, removed, or gains a dependency.
-- Resolve the curio `BagFamily` contradiction and the Transmog token target/
-  effective runtime-cost configuration with database and live-stack validation.
+- Resolve the curio `BagFamily` contradiction and live Transmog token usability.
+  Effective DEV token settings are observed, but no token-consumption test exists.
 - Preserve non-secret deployment inputs for module SQL, DBC/client patches, and
   runtime settings; current custom world SQL alone cannot reconstruct them.
 

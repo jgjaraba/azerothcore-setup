@@ -99,8 +99,9 @@ per-service/tier costs. The installed ignored configuration is project-specific
 runtime state, not semantic documentation. Entry `390011` installation is
 destructive for that reserved entry; no migration path was found.
 
-**Open questions.** The local module deployment mechanism and current NPC data
-state were not inspected against a database.
+**Observed deployment state (2026-09-20).** One `creature_template` row for
+entry `390011` exists in local DEV. This does not establish installation
+provenance, configuration usability, or in-game behavior.
 
 ### Dungeon Clear
 
