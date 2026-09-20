@@ -56,6 +56,9 @@ Canonical home for project-owned assets such as:
   dependency chains, assumptions, and update/validation concerns.
 - `components/client-assets.md` — DBC resources, client patch distribution, and
   addon inventory.
+- `CUSTOM-IDENTIFIERS.md` — evidence-backed project identifier inventory and
+  its collision-check boundary.
+- `debt/REGISTER.md` — durable architectural, operational, and update risks.
 
 ## Verified integration model
 
@@ -70,6 +73,55 @@ Canonical home for project-owned assets such as:
   the `db_world` subtree to the local world database.
 - Client customizations are distributed from the control repository as DBC
   resources and separate regular and HD client MPQ patches.
+
+## End-to-end dependency chain
+
+The local DEV stack is assembled through the following dependency chain:
+
+```text
+core lineage -> module revisions -> CMake configuration -> static worldserver
+integration -> installed binaries and effective configuration -> core/module
+database data -> project world-SQL overlays -> server DBC -> client MPQs/addons
+-> live validation
+```
+
+**VERIFIED.** The observed build cache selects static modules; core CMake
+collects their source into a single static `modules` library and generates its
+loader. Playerbots additionally enables `MOD_PLAYERBOTS` compilation paths.
+Consequently, a core or static-module source change is not a runtime-plugin
+replacement: it requires a compatible rebuild/install and server restart.
+
+**UNKNOWN.** No build or live validation proves that the currently observed
+core, module, database, client, and addon revisions are mutually compatible.
+
+## Core lineage boundary
+
+**VERIFIED.** The core origin is a Grimfeather AzerothCore fork. Its current
+history contains recurrent upstream/AzerothCore and Playerbots merge history,
+and its source/build metadata contains Playerbots-specific compilation support.
+The Playerbots ecosystem therefore depends on more than an ordinary separately
+loaded module. Exact divergence from official AzerothCore and a supported
+revision matrix remain UNKNOWN; inspect generated repository state and relevant
+Git history before updating this boundary.
+
+## Reproducibility boundary
+
+- **Source:** repository revisions are inventoried, but no compatibility lock
+  manifest exists.
+- **Build:** the current cache exposes toolchain/options; a clean-build recipe is
+  not tracked.
+- **Database:** the custom-world manifest exists; full cross-database deployment
+  and recovery do not.
+- **Runtime:** effective non-secret settings and secret provisioning are ignored
+  deployment state.
+- **Client:** DBC/MPQ/addon assets are tracked, but complete provenance and
+  parity are not established.
+- **Operations:** lifecycle and world-SQL scripts exist; complete update,
+  backup, rollback, and validation workflow does not.
+
+This table records architecture, not proof that any missing input is unavailable
+elsewhere. See the component documents and debt register for evidence and open
+questions.
 
 ## Operational boundaries
 

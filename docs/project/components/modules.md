@@ -89,6 +89,15 @@ acquisition, and gossip filtering. This is not established upstream behavior;
 the source and all related SQL must be deployed together if retained. Generated
 environment state is authoritative for its repository status and local IDE data.
 
+**Observed deployment boundary (2026-09-20).** DEV contains
+`mod_morphsummon_appearance_catalog` (90 enabled appearances, 11 defaults),
+`mod_morphsummon_unlock_requirements` (79 rows for items `91001`–`91079`), and
+the matching character unlock table. All 79 item templates exist, but the
+observed character unlock table is empty. This establishes deployed schema/data,
+not successful unlock behavior, provenance, or safe rerun semantics. The
+catalog, requirements, item/loot definitions, character schema, module source,
+and effective configuration form one update/deployment unit.
+
 **Compatibility and unresolved questions.** The pending SQL copies current
 schema/data and needs ID-collision and rerun checks. The base module is tied by
 its documentation to a specific core era. No build, migration, or in-game
@@ -157,11 +166,15 @@ item. It becomes a cost only when ignored runtime configuration explicitly
 enables token charging and selects it; the template defaults do not establish
 that deployment state.
 
+**Observed effective setting (2026-09-20).** The ignored DEV configuration sets
+`RequireToken = 1`, `TokenEntry = 90001`, and `TokenAmount = 2`; module source
+loads these exact keys. This establishes intended runtime charging parameters,
+not successful token consumption or live usability.
+
 **Compatibility and unresolved questions.** Module SQL/migrations must precede
 use, and subscription migration may require `mod-acore-subscriptions`. NPC-text
 ownership is core-version-sensitive. No direct coupling to MorphSummon or
-Individual Progression was found. Effective token settings and live usability
-remain unverified.
+Individual Progression was found. Live usability remains unverified.
 
 ## Cross-cutting update safety
 
