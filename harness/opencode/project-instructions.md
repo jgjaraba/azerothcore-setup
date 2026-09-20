@@ -161,9 +161,15 @@ or other explicit execution tasks.
 Do not use Bash redirection, Python, or other shell mechanisms to bypass edit
 or permission boundaries.
 
-Commands that can modify repository state, databases, runtime configuration,
-installed files, system packages, or processes should remain subject to the
-configured approval policy.
+For implementation tasks, database, build, runtime, installed-file and
+process mutations inside the authorized disposable DEV VM may execute
+autonomously according to the policy below.
+
+Research/documentation and audit/read-only tasks remain read-only unless their
+explicit scope says otherwise.
+
+Do not use shell wrappers, scripting languages, environment indirection or
+other mechanisms to bypass a configured permission boundary.
 
 ## Project path discipline
 
@@ -233,3 +239,219 @@ At task completion, provide a human handoff containing:
 - confirmation that no staging, commit, push or PR was performed.
 
 Leave the working trees ready for human inspection and commit.
+
+## Autonomous DEV execution policy
+
+This machine is a disposable AzerothCore development VM protected by external
+snapshots.
+
+For implementation tasks, optimize for complete end-to-end validation rather
+than preserving the initial DEV runtime state.
+
+### Task modes
+
+Every task must identify exactly one execution mode in its durable plan:
+
+- `implementation`;
+- `research/documentation`;
+- `audit/read-only`.
+
+Research/documentation and audit/read-only tasks remain read-only unless their
+explicit task scope authorizes a particular mutation.
+
+### Authorized DEV boundary
+
+The local development boundary consists of:
+
+- `/home/dev/azerothcore`;
+- `/home/dev/azerothcore/modules/*`;
+- `/home/dev/azerothcore-setup`;
+- `/home/dev/azerothcore/env/dist`;
+- local databases:
+  - `acore_auth`;
+  - `acore_characters`;
+  - `acore_world`;
+  - `acore_playerbots`.
+
+Production systems must never be discovered or accessed.
+
+Do not remotely administer or copy project state to another machine through
+SSH, SCP, SFTP, rsync or equivalent mechanisms.
+
+Do not connect MySQL tooling to a remote host.
+
+### Repository write boundary
+
+A repository may receive implementation changes only when:
+
+- the task explicitly includes it in writable scope; and
+- the user has already placed it on the intended feature branch.
+
+Before mutation, record:
+
+- repository path;
+- branch;
+- initial HEAD;
+- initial working-tree state.
+
+If a repository intended for modification is unexpectedly on a protected/base
+branch, stop before modifying it and report `BLOCKED`.
+
+Preserve pre-existing working-tree changes.
+
+The human owns branch management, staging, history and publication.
+
+The agent must not:
+
+- create, switch, rename or delete branches;
+- stage changes;
+- commit;
+- push or pull;
+- merge or rebase;
+- cherry-pick or revert;
+- reset or clean repositories;
+- create or merge pull requests.
+
+### Implementation freedom
+
+Within the authorized scope of an implementation task, `ac-build` may
+autonomously:
+
+- edit source and project-owned files;
+- edit effective DEV configuration;
+- modify `/home/dev/azerothcore/env/dist`;
+- configure and regenerate the build;
+- compile core and modules;
+- install build outputs;
+- execute local MySQL queries and migrations;
+- insert, update and delete DEV data;
+- create, alter, truncate or drop DEV tables when technically justified;
+- create and restore DEV database dumps;
+- create and remove temporary test data/files;
+- start, stop and restart authserver/worldserver;
+- use normal user-level process control when needed;
+- inspect logs;
+- repeat implementation and validation cycles.
+
+The VM is disposable. Restoring the original runtime/database state at task end
+is not mandatory unless the task requires it.
+
+Changes must nevertheless be deliberate and related to the active task.
+
+### Database policy
+
+Database mutations are authorized only against:
+
+- `acore_auth`;
+- `acore_characters`;
+- `acore_world`;
+- `acore_playerbots`.
+
+Use the configured local DEV login path and never expose credentials, tokens,
+passwords or connection strings.
+
+Prefer version-controlled SQL or module migrations for durable changes.
+
+Ad-hoc SQL is acceptable for investigation and validation. Record material SQL
+mutations and whether their resulting state remains at handoff.
+
+The VM snapshot is the catastrophic rollback mechanism. A database dump is
+optional when it materially improves debugging or task-level rollback; do not
+create backups mechanically before every disposable mutation.
+
+### Build and installation policy
+
+Implementation tasks may configure, build, rebuild and install autonomously.
+
+Use the actual build/install layout verified from current project state rather
+than relying on stale assumptions.
+
+Static-module source changes require compatible rebuild/install before runtime
+validation.
+
+Successful compilation is not runtime validation.
+
+### Runtime policy
+
+Prefer the tracked local lifecycle scripts when appropriate:
+
+- `/home/dev/azerothcore-setup/scripts/start.sh`;
+- `/home/dev/azerothcore-setup/scripts/status.sh`;
+- `/home/dev/azerothcore-setup/scripts/stop.sh`.
+
+Direct user-level process control is allowed when required to debug or recover
+a stuck DEV process.
+
+System-wide service management and sudo remain explicit human approval
+boundaries.
+
+Successful server startup is not functional feature validation.
+
+### Delegated subagents
+
+`ac-research`, `ac-architecture` and `ac-review` remain read-only evidence and
+review agents.
+
+They must not:
+
+- modify files;
+- mutate databases;
+- build/install;
+- modify runtime state;
+- start/stop processes;
+- mutate Git state.
+
+`ac-build` owns implementation and DEV execution.
+
+### Runtime failure diagnosis
+
+Runtime validation must fail fast.
+
+If a lifecycle startup command such as `start.sh` fails:
+
+1. check the resulting lifecycle status;
+2. inspect only recent and relevant portions of the affected logs;
+3. inspect the relevant process state and listening ports;
+4. perform a small number of targeted diagnostics based on concrete evidence;
+5. either correct an in-scope DEV problem and retry deliberately, or report
+   `FAIL` / `BLOCKED`.
+
+Do not enter an open-ended investigation loop after a failed startup.
+
+Prefer recent log windows, timestamps, or output produced by the current
+invocation over reading complete append-only historical log files.
+
+Historical log lines must not be treated as evidence of the current process
+state without corroboration from current status, PID, socket, or timestamp
+evidence.
+
+### Validation vocabulary
+
+Every reported validation item must use one of:
+
+- `PASS`;
+- `FAIL`;
+- `NOT RUN`;
+- `NOT APPLICABLE`;
+- `BLOCKED`.
+
+`PASS` requires actual execution or direct observation.
+
+Never convert an unexecuted check into an implied success.
+
+### DEV mutation log
+
+For implementation tasks maintain a chronological durable record of material
+environment mutations, including:
+
+- configure/build/install operations;
+- runtime artifacts changed;
+- effective configuration changes;
+- database migrations and ad-hoc mutation SQL;
+- destructive/reconstructive database operations;
+- temporary test state;
+- server stop/start/restart actions;
+- unusual process manipulation.
+
+The final handoff must describe the resulting DEV state and whether restoring
+the pre-task VM snapshot is advisable before unrelated development.
