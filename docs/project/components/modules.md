@@ -169,9 +169,10 @@ Treat core, Playerbots ecosystem modules, module SQL across their respective
 databases, ignored runtime configuration, and client/addon protocols as one
 explicit compatibility exercise. Module base SQL is not necessarily reversible
 or automatically installed. Reapply project world overlays only after checking
-their source data and required module data; the current lexical custom-SQL
-installer does not encode dependency order. No tracked workflow currently
-backs up, updates, rebuilds, migrates, validates, or rolls back this full set.
+their source data and required module data; the custom SQL manifest encodes
+project-file order but remains a post-module overlay. No tracked workflow
+currently backs up, updates, rebuilds, migrates, validates, or rolls back this
+full set.
 
 ## Evidence
 
