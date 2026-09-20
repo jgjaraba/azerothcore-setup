@@ -1,22 +1,31 @@
 ---
-description: Persist durable state for the current AzerothCore task
+description: Checkpoint a durable AzerothCore task
 agent: ac-build
 ---
 
 Checkpoint the current task.
 
-Update its durable active execution plan with only information needed by a
-fresh future session:
+$ARGUMENTS
 
-- verified findings;
-- decisions;
-- implementation changes;
-- validation actually performed;
-- unresolved issues;
-- next exact action.
+Do not stage, commit, push, switch branches, merge, rebase or alter Git history.
 
-Do not store conversation transcripts, chain-of-thought or temporary
-speculation.
+Update the active durable plan with:
 
-Update component documentation or an ADR only when durable project knowledge
-has actually changed.
+- current task mode;
+- repositories and branches;
+- initial/current HEADs;
+- task-owned changed files;
+- preserved pre-existing changes;
+- implementation/research completed;
+- important evidence discovered;
+- database mutations performed;
+- build/install operations performed;
+- runtime/configuration mutations performed;
+- current authserver/worldserver state when relevant;
+- validation completed with PASS/FAIL/NOT RUN/NOT APPLICABLE/BLOCKED;
+- unresolved review findings;
+- risks/open questions;
+- exact next action.
+
+The checkpoint must contain enough information for another session to continue
+without relying on hidden conversation state.

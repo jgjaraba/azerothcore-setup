@@ -4,7 +4,7 @@ mode: primary
 permission:
   edit:
     "*": allow
-    "~/azerothcore-setup/**": ask
+    "~/azerothcore-setup/**": allow
     "~/azerothcore-setup/docs/project/**": allow
     "~/azerothcore-setup/plans/**": allow
   task:
