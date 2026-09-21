@@ -1,0 +1,138 @@
+diff --git a/src/server/game/Entities/Unit/Unit.cpp b/src/server/game/Entities/Unit/Unit.cpp
+index 5a38de66e..221bef435 100644
+--- a/src/server/game/Entities/Unit/Unit.cpp
++++ b/src/server/game/Entities/Unit/Unit.cpp
+@@ -12813,7 +12813,10 @@ void Unit::AddComboPoints(Unit* target, int8 count)
+         }
+ 
+         m_comboTarget = target;
+-        m_comboPoints = count;
++        if (HasPlayerOwnedComboPoints())
++            m_comboPoints = std::max<int8>(std::min<int8>(m_comboPoints + count, 5), 0);
++        else
++            m_comboPoints = count;
+         target->AddComboPointHolder(this);
+     }
+     else
+@@ -12826,7 +12829,7 @@ void Unit::AddComboPoints(Unit* target, int8 count)
+ 
+ void Unit::ClearComboPoints()
+ {
+-    if (!m_comboTarget)
++    if (!m_comboTarget && !HasPlayerOwnedComboPoints())
+     {
+         return;
+     }
+@@ -12837,8 +12840,29 @@ void Unit::ClearComboPoints()
+ 
+     m_comboPoints = 0;
+     SendComboPoints();
+-    m_comboTarget->RemoveComboPointHolder(this);
+-    m_comboTarget = nullptr;
++
++    if (m_comboTarget)
++    {
++        m_comboTarget->RemoveComboPointHolder(this);
++        m_comboTarget = nullptr;
++    }
++}
++
++void Unit::OnComboTargetRemoved()
++{
++    if (!HasPlayerOwnedComboPoints())
++    {
++        ClearComboPoints();
++        return;
++    }
++
++    if (m_comboTarget)
++    {
++        m_comboTarget->RemoveComboPointHolder(this);
++        m_comboTarget = nullptr;
++    }
++
++    SendComboPoints();
+ }
+ 
+ void Unit::SendComboPoints()
+@@ -12848,8 +12872,11 @@ void Unit::SendComboPoints()
+         return;
+     }
+ 
+-    PackedGuid const packGUID = m_comboTarget ? m_comboTarget->GetPackGUID() : PackedGuid();
+-    if (Player* playerMe = ToPlayer())
++    Player* playerMe = ToPlayer();
++    PackedGuid const packGUID = (playerMe && HasPlayerOwnedComboPoints())
++                                    ? PackedGuid(playerMe->GetGuidValue(UNIT_FIELD_TARGET))
++                                    : (m_comboTarget ? m_comboTarget->GetPackGUID() : PackedGuid());
++    if (playerMe)
+     {
+         WorldPacket data(SMSG_UPDATE_COMBO_POINTS, packGUID.size() + 1);
+         data << packGUID;
+@@ -12883,7 +12910,7 @@ void Unit::ClearComboPointHolders()
+ {
+     while (!m_ComboPointHolders.empty())
+     {
+-        (*m_ComboPointHolders.begin())->ClearComboPoints(); // this also removes it from m_comboPointHolders
++        (*m_ComboPointHolders.begin())->OnComboTargetRemoved(); // this also removes it from m_comboPointHolders
+     }
+ }
+ 
+@@ -12925,9 +12952,7 @@ void Unit::UpdateReactives(uint32 p_time)
+                     break;
+                 case REACTIVE_OVERPOWER:
+                     if (IsClass(CLASS_WARRIOR, CLASS_CONTEXT_ABILITY_REACTIVE))
+-                    {
+                         ClearComboPoints();
+-                    }
+                     break;
+                 case REACTIVE_WOLVERINE_BITE:
+                     if (IsHunterPet())
+diff --git a/src/server/game/Entities/Unit/Unit.h b/src/server/game/Entities/Unit/Unit.h
+index ba0a98d46..ebec88755 100644
+--- a/src/server/game/Entities/Unit/Unit.h
++++ b/src/server/game/Entities/Unit/Unit.h
+@@ -1016,15 +1016,25 @@ public:
+     [[nodiscard]] uint32 GetLastExtraAttackSpell() const { return _lastExtraAttackSpell; }
+     void AddExtraAttacks(uint32 count);
+ 
+-    // Combot points system
+-    [[nodiscard]] uint8 GetComboPoints(Unit const* who = nullptr) const { return (who && m_comboTarget != who) ? 0 : m_comboPoints; }
+-    [[nodiscard]] uint8 GetComboPoints(ObjectGuid const& guid) const { return (m_comboTarget && m_comboTarget->GetGUID() == guid) ? m_comboPoints : 0; }
++    // Combo points system
++    [[nodiscard]] bool HasPlayerOwnedComboPoints() const { return IsPlayer() && (IsClass(CLASS_ROGUE) || IsClass(CLASS_DRUID)); }
++    [[nodiscard]] uint8 GetComboPoints(Unit const* who = nullptr) const
++    {
++        return (who && m_comboTarget != who && !HasPlayerOwnedComboPoints()) ? 0 : m_comboPoints;
++    }
++    [[nodiscard]] uint8 GetComboPoints(ObjectGuid const& guid) const
++    {
++        if (m_comboTarget && m_comboTarget->GetGUID() == guid)
++            return m_comboPoints;
++        return HasPlayerOwnedComboPoints() ? m_comboPoints : 0;
++    }
+     [[nodiscard]] Unit* GetComboTarget() const { return m_comboTarget; }
+     [[nodiscard]] ObjectGuid const GetComboTargetGUID() const { return m_comboTarget ? m_comboTarget->GetGUID() : ObjectGuid::Empty; }
+ 
+     void AddComboPoints(Unit* target, int8 count);
+     void AddComboPoints(int8 count) { AddComboPoints(nullptr, count); }
+     void ClearComboPoints();
++    void OnComboTargetRemoved();
+ 
+     void AddComboPointHolder(Unit* unit) { m_ComboPointHolders.insert(unit); }
+     void RemoveComboPointHolder(Unit* unit) { m_ComboPointHolders.erase(unit); }
+diff --git a/src/server/game/Handlers/MiscHandler.cpp b/src/server/game/Handlers/MiscHandler.cpp
+index 97c40e936..bf6b3aac5 100644
+--- a/src/server/game/Handlers/MiscHandler.cpp
++++ b/src/server/game/Handlers/MiscHandler.cpp
+@@ -538,6 +538,10 @@ void WorldSession::HandleSetSelectionOpcode(WorldPacket& recv_data)
+ 
+     _player->SetSelection(guid);
+ 
++    // Player-owned combo points are displayed on the current target.
++    if (_player->HasPlayerOwnedComboPoints())
++        _player->SendComboPoints();
++
+     // Change target of current autoshoot spell
+     if (guid)
+     {
