@@ -455,3 +455,176 @@ environment mutations, including:
 
 The final handoff must describe the resulting DEV state and whether restoring
 the pre-task VM snapshot is advisable before unrelated development.
+
+<!-- ENGINEERING_AUTONOMY_POLICY_BEGIN -->
+
+## Engineering Autonomy and Stop Policy
+
+Agents are expected to work autonomously inside the already-approved DEV scope.
+
+The default workflow is:
+
+`inspect -> infer from evidence -> implement -> validate -> review -> fix -> checkpoint`
+
+Do NOT use:
+
+`inspect -> encounter minor uncertainty -> stop for human input`
+
+### Routine technical uncertainty is not a blocker
+
+The following MUST normally be resolved autonomously:
+
+- unknown, renamed, or stale SQL column assumptions;
+- failed read-only SELECT, SHOW, or DESCRIBE queries;
+- differences between expected and actual table schemas;
+- locating the correct creature/gameobject/template identifier column;
+- resolving effective creature or gameobject loot-template IDs;
+- locating the correct AzerothCore table for an already-approved behavior;
+- SQL syntax errors;
+- SQL codestyle failures;
+- manifest ordering;
+- project-owned duplicate data;
+- condition-key corrections;
+- locale-table mapping;
+- DBC record-layout inspection;
+- selecting between technically equivalent safe implementations;
+- ordinary review findings that do not alter approved gameplay or narrative.
+
+For routine schema uncertainty:
+
+1. use `DESCRIBE` or `SHOW CREATE TABLE`;
+2. inspect nearby canonical database rows;
+3. inspect AzerothCore source when semantics remain unclear;
+4. correct the query or implementation;
+5. retry;
+6. continue the current task.
+
+A failed query is evidence to investigate, not a reason to stop.
+
+### Automatic recovery loop
+
+When a routine command fails:
+
+1. classify the failure;
+2. inspect actual repository/schema/runtime state;
+3. correct the assumption;
+4. retry the operation;
+5. continue.
+
+Examples:
+
+`Unknown column`
+-> `DESCRIBE`
+-> use the actual column
+-> continue.
+
+Unexpected loot reference
+-> inspect `creature_template` / `gameobject_template` and canonical rows
+-> resolve effective loot template
+-> continue.
+
+Condition insertion failure
+-> inspect the `conditions` schema and canonical examples
+-> correct source keys
+-> continue.
+
+Do not escalate these situations to the human.
+
+### Current evidence overrides stale assumptions
+
+Never preserve an earlier schema assumption when current DEV evidence contradicts it.
+
+The current repository, current DEV schema, and inspected AzerothCore source are authoritative.
+
+Correcting a stale assumption is ordinary engineering work.
+
+### Human escalation threshold
+
+Ask the human only when at least one of these applies:
+
+#### Narrative or gameplay choice
+
+- materially different story direction;
+- progression or balance change;
+- solo/group design change.
+
+#### Major architecture deviation
+
+- new AzerothCore core C++ modification;
+- Individual Progression modification;
+- Playerbots modification;
+- modification of another module;
+- new custom client models/textures/assets;
+- fundamental deviation from the approved behavior.
+
+#### Risk boundary
+
+- production mutation;
+- destructive or unbounded modification outside project-owned data;
+- credentials or secrets;
+- unrelated user changes.
+
+#### Genuine contradiction
+
+Verified evidence proves the approved behavior cannot be implemented safely or correctly without changing its intended design.
+
+Everything else should normally be resolved autonomously.
+
+### Do not manufacture human decisions
+
+When evidence clearly favors one safe solution, choose it.
+
+When several implementations are technically equivalent, choose the simplest and most update-safe one.
+
+When a previous assumption is wrong, correct it.
+
+When a weak implementation detail is unnecessary, remove or replace it within the approved behavior.
+
+Do not ask the human merely to approve routine engineering work.
+
+### Execution-window behavior
+
+If execution/tool budget becomes constrained:
+
+- finish the smallest coherent stage;
+- validate completed work;
+- checkpoint durable state;
+- set an exact `Next exact action`;
+- stop cleanly.
+
+Do not abandon already-authorized work merely because the entire task does not fit into one response.
+
+A trivially recoverable query or schema error is not a valid early stop.
+
+### Approved DEV autonomy
+
+Within an already-authorized task agents may:
+
+- inspect schemas and source;
+- correct failed queries;
+- modify project files;
+- apply project-owned SQL to DEV;
+- reapply SQL for idempotency validation;
+- generate permitted DBC records;
+- install server-side generated DEV assets;
+- restart DEV services;
+- inspect logs;
+- delegate review;
+- fix ordinary review findings;
+- update durable task state.
+
+Task-specific restrictions still apply.
+
+Production remains forbidden unless explicitly authorized.
+
+Commit, push, merge, and rebase remain forbidden unless explicitly authorized.
+
+### Core principle
+
+**Uncertainty requires investigation, not human escalation.**
+
+**A failed query is evidence to inspect, not a reason to stop.**
+
+**Do not manufacture a human decision where none exists.**
+
+<!-- ENGINEERING_AUTONOMY_POLICY_END -->

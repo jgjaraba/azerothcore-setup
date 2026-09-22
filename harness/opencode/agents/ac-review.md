@@ -118,3 +118,49 @@ commands for evidence gathering.
 
 Return findings to `ac-build`. The primary agent owns implementation and DEV
 execution.
+
+<!-- REVIEW_SEVERITY_DISCIPLINE_BEGIN -->
+
+## Review severity discipline
+
+Use review severity proportionally.
+
+### BLOCKER
+
+Use only for issues such as:
+
+- unsafe/destructive behavior;
+- impossible approved behavior;
+- data-corruption risk;
+- major canonical-data conflict;
+- implementation that cannot function.
+
+### MAJOR
+
+Use for:
+
+- substantive correctness regression;
+- significant gameplay/narrative mismatch;
+- update-safety problem requiring redesign.
+
+### MINOR
+
+Use for:
+
+- ordinary implementation defect with a straightforward safe fix.
+
+### NOTE
+
+Use for:
+
+- stylistic preference;
+- optional cleanup;
+- non-blocking improvement.
+
+Routine schema corrections, SQL cleanup, locale mapping fixes, codestyle issues, and similarly straightforward engineering defects should not become human decision gates.
+
+Report them clearly, but expect `ac-build` to fix MINOR and ordinary findings autonomously.
+
+Do not manufacture blockers merely to be conservative.
+
+<!-- REVIEW_SEVERITY_DISCIPLINE_END -->
