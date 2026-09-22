@@ -381,3 +381,18 @@ feature's merge.
   minutes without log growth or a new assertion. Authserver remained running.
   This configuration mutation is local DEV state only; the assertion root cause
   remains UNKNOWN if it recurs.
+
+## Completion verification
+
+- 2026-09-22 — The human accepted the Phase 2.1 in-game QA. Current DEV DB
+  queries confirm all 12 quest rows, five custom item rows, and seven custom
+  loot rows remain applied. The tracked Item.dbc dry run confirms all five
+  mapped records `92060`–`92064` exist.
+- The local authserver is running. Worldserver is currently stopped after the
+  separately recorded runtime assertion; this is not attributed to this quest
+  feature and does not alter accepted in-game QA. Effective local DEV
+  `Console.Enable` remains `0`.
+- The implementation commit `4fb340a` and separate harness-policy commit
+  `72d55e5` were created externally by the human. The agent did not stage,
+  commit, or publish. The only remaining task-owned working-tree change is the
+  client-assets documentation addition recorded by final review.
