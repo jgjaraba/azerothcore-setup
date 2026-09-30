@@ -15,14 +15,15 @@ The current manifest order is:
 
 1. `ground_riding_override.sql`
 2. `increase_world_boe_drop_rate.sql`
-3. `race_class_5_2.sql`
-4. `raid_gear_vendor.sql`
-5. `raid_gear_vendor_npc.sql`
-6. `raid_gear_vendor_item.sql`
-7. `raid_gear_vendor_loot.sql`
-8. `rebalance_items.sql`
-9. `remove_regular_mounts_ip_requisites.sql`
-10. `transmog_currency_loot.sql`
+3. `forsaken_paladin.sql`
+4. `forsaken_paladin_quests.sql`
+5. `raid_gear_vendor.sql`
+6. `raid_gear_vendor_npc.sql`
+7. `raid_gear_vendor_item.sql`
+8. `raid_gear_vendor_loot.sql`
+9. `rebalance_items.sql`
+10. `remove_regular_mounts_ip_requisites.sql`
+11. `transmog_currency_loot.sql`
 
 The raid group is ordered by its verified object dependencies: curio item
 definitions, vendor templates/spawns, vendor inventory, then curio loot.
@@ -38,9 +39,13 @@ than upstream module behavior; generated state records its current Git status.
 
 ## Feature chains
 
-- **Forsaken Paladin:** current inventory contains only `race_class_5_2.sql`.
-  If a future creation-data or trainer-polish SQL file is restored, register it
-  after `race_class_5_2.sql` in `manifest.txt` after verifying its SQL.
+- **Forsaken Paladin:** `forsaken_paladin.sql` is the sole baseline owner for
+  Undead Paladin creation data, outfits, trainers, models, equipment, locales,
+  addons, and the two fixed trainer spawns.
+- **Forsaken Paladin quests:** `forsaken_paladin_quests.sql` follows the
+  baseline and owns the custom class quests, quest locales, items, additive
+  component loot/conditions/registrations, and the additive questgiver flag on
+  the existing quest actors.
 - **Individual Progression overlay:** `ground_riding_override.sql` and
   `remove_regular_mounts_ip_requisites.sql` after Individual Progression mount
   SQL/data.
@@ -53,19 +58,39 @@ than upstream module behavior; generated state records its current Git status.
 
 ## Per-file manifest
 
-### `race_class_5_2.sql`
+### `forsaken_paladin.sql`
 
-- **Verified purpose/tables:** clones source templates `2129`/`2123` into
-  trainers `90210`/`90211` and writes `creature_template`, model/equipment,
-  default trainer, and locale data. It first removes existing trainer spawns.
-- **Dependencies/assumptions:** source templates, equipment source `23779`,
-  trainer IDs `4`/`6`, unused custom entries, and matching schema/order for
-  temporary-table `SELECT *` cloning.
-- **Rerun/update safety:** deletes all data for both entries before recreation;
-  absent sources can yield incomplete results after deletion. Re-running picks
-  up source-template changes.
-- **Verification:** verify templates, trainer mappings, locales, models and
-  equipment, then inspect trainer spell lists in game.
+- **Verified purpose/tables:** creates Undead Paladin `playercreateinfo` and
+  action rows, start outfits `9000`/`9001`, trainers `90210`/`90211`, their
+  models/equipment/default trainer/locales, kneeling addons, and fixed spawns
+  `5300690` Abraham West (Brill) and `5300691` Pancratius Ward (Deathknell).
+- **Dependencies/assumptions:** source templates `2129`/`2123`, trainer IDs
+  `4`/`6`, project-owned entries/GUIDs/outfits, and the current creature schema
+  where the authoritative template field is `id`.
+- **Rerun/update safety:** a transaction deletes and recreates only its owned
+  creation rows, outfits, template rows, and fixed entry/GUID spawn pairs;
+  explicit column lists avoid schema-order-dependent cloning.
+- **Verification:** apply twice; query creation rows/outfits, exact spawn and
+  trainer mapping counts, templates/models/equipment/locales/addons, then
+  inspect trainer spell lists in game.
+
+### `forsaken_paladin_quests.sql`
+
+- **Verified purpose/tables:** creates the Undead Paladin Redemption quests
+  `91010`–`91016`, level-20 weapon quests `91020`–`91024`, custom items
+  `92060`–`92064`, enUS/esES text, quest relations, and additive component loot
+  for Agamand Weapon Rack `105172`, Rot Hides, Thule Ravenclaw, and Syndicate
+  Watchmen.
+- **Dependencies/assumptions:** `forsaken_paladin.sql` supplies trainers
+  `90210`/`90211`; existing actors `2307`/`4605` and source loot IDs remain
+  valid. The script bitwise-adds NPC questgiver flag `2` without removing their
+  existing services.
+- **Rerun/update safety:** a transaction deletes only its exact quest, item,
+  locale, loot, condition, and registration keys before recreation. It leaves
+  canonical loot untouched.
+- **Verification:** apply twice; check counts/fields for quests, locales, exact
+  loot conditions and registrations, then restart and perform the documented
+  human in-game chain and group-loot QA.
 
 ### `ground_riding_override.sql`
 

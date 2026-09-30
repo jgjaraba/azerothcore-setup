@@ -1,6 +1,7 @@
 ground_riding_override.sql
 increase_world_boe_drop_rate.sql
-race_class_5_2.sql
+forsaken_paladin.sql
+forsaken_paladin_quests.sql
 raid_gear_vendor.sql
 raid_gear_vendor_npc.sql
 raid_gear_vendor_item.sql

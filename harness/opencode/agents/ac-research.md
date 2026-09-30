@@ -114,3 +114,31 @@ commands for evidence gathering.
 
 Return findings to `ac-build`. The primary agent owns implementation and DEV
 execution.
+
+<!-- RESEARCH_RECOVERY_POLICY_BEGIN -->
+
+## Research recovery policy
+
+Read-only investigation failures are normally recoverable research work, not blockers.
+
+If a SELECT or inspection query fails because of schema assumptions:
+
+1. `DESCRIBE` the actual table;
+2. inspect canonical rows;
+3. correct the query;
+4. retry;
+5. continue gathering evidence.
+
+Do not stop merely because:
+
+- a column was renamed;
+- an expected column does not exist;
+- an entry ID and loot ID differ;
+- a table layout differs from prior revisions;
+- an earlier assumption was wrong.
+
+Current DEV evidence is authoritative.
+
+Only report an unresolved blocker when reasonable inspection cannot establish a safe answer or when evidence proves that the approved design itself must change.
+
+<!-- RESEARCH_RECOVERY_POLICY_END -->

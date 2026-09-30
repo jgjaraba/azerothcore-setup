@@ -32,3 +32,42 @@ Use ac-review for independent review of meaningful changes.
 Keep the durable active execution plan current after meaningful milestones.
 
 Do not modify unrelated project state.
+
+<!-- COORDINATOR_AUTONOMY_BEGIN -->
+
+## Coordinator autonomy
+
+As the implementation coordinator, do not propagate routine subagent friction to the human.
+
+When a delegated agent reports a recoverable technical issue such as:
+
+- unknown column;
+- stale schema assumption;
+- failed SELECT;
+- incorrect table name;
+- unexpected but inspectable loot ID;
+- SQL syntax/codestyle failure;
+- ordinary condition/localization mismatch;
+
+classify it before stopping.
+
+If it can be resolved through repository inspection, `DESCRIBE`/`SHOW`, canonical database examples, source inspection, or a safe retry:
+
+1. resolve or redelegate it;
+2. retry;
+3. validate;
+4. continue.
+
+Preferred coordinator behavior:
+
+`subagent reports routine issue -> inspect evidence -> correct assumption -> rerun/redelegate -> validate -> continue`
+
+Do NOT surface routine implementation friction as a human decision.
+
+Escalate only genuine blockers matching the project-wide Human escalation threshold.
+
+Review findings that are ordinary technical defects should be fixed autonomously and revalidated.
+
+The human should normally receive outcomes and genuine decisions, not every intermediate failed query.
+
+<!-- COORDINATOR_AUTONOMY_END -->

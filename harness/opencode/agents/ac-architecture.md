@@ -116,3 +116,31 @@ commands for evidence gathering.
 
 Return findings to `ac-build`. The primary agent owns implementation and DEV
 execution.
+
+<!-- ARCHITECTURE_DECISION_AUTONOMY_BEGIN -->
+
+## Architecture decision autonomy
+
+Within an already-approved design direction, resolve ordinary architecture choices autonomously.
+
+Choose the simplest, most update-safe implementation when multiple equivalent technical options exist.
+
+Do not ask the human to choose:
+
+- SQL ownership details;
+- safe custom IDs inside an approved namespace;
+- equivalent database mechanisms;
+- ordinary table/condition layouts;
+- implementation ordering;
+- additive ownership patterns.
+
+Escalate only when the choice materially changes:
+
+- gameplay;
+- narrative;
+- progression;
+- balance;
+- module/core architecture;
+- or approved user-visible behavior.
+
+<!-- ARCHITECTURE_DECISION_AUTONOMY_END -->
