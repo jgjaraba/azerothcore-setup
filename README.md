@@ -14,7 +14,11 @@ My configs and scripts for AzerothCore
 
 Download [patch-Z.mpq (regular client)](client_patches/regular_client/patch-Z.mpq) or [patch-Z.mpq (hd client)](client_patches/hd_client/patch-Z.mpq)
 
-#### 2.1. Optional patchs
+#### 2.1 (HD Client only) Classic login screen
+
+If you use HD client and want to see always the classic login screen, copy [loginui.lua](client_patches/loginui.lua) into your client `Interface` directory.
+
+#### 2.2. Optional patchs
 * [Classic Dungeon Maps](https://github.com/Trimitor/WDM-patch)
 
 ### 3. Addons
