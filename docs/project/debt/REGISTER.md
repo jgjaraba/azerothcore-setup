@@ -72,21 +72,19 @@ priority order and does not track task-specific open issues.
   records, making server/client data behavior unsafe to assume.
 - **Action trigger:** Before any custom item, DBC, MPQ, or MorphSummon change.
 
-## DEBT-008: Custom world SQL manifest is incomplete
+## DEBT-008: Custom world SQL manifest was incomplete — resolved
 
-- **Type:** Verified operational blocker.
-- **Evidence:** `scripts/apply-db-world.sh --validate` exits `1` and aborts
-  before any database access because eight `data/sql/custom/db_world/*.sql`
-  files are absent from `manifest.txt`: the four `dungeon_gear_vendor*` files,
-  `spells_override.sql`, `single_minded_fury.sql`, `reagent_bank_npc.sql` and
-  `rebalance_drop_rate.sql`. The drift was introduced by feature commits that
-  added SQL without updating the manifest (ADR-0002 requires both in the same
-  change).
-- **Consequence:** The project world-SQL installer cannot run at all, so no
-  project overlay can be deployed or revalidated until the manifest is
-  complete. The fail-closed behavior itself is correct.
-- **Repair:** add the `dungeon_gear_vendor.sql` → `_npc` → `_item` → `_loot`
-  chain in that order, then the four independent files, and re-run
-  `--validate`. Confirm each new file is idempotent before applying it to DEV.
-- **Action trigger:** Before running `apply-db-world.sh`, and whenever custom
-  world SQL is added or removed.
+- **Type:** Resolved operational blocker; manifest drift remains a regression
+  risk.
+- **Evidence:** Eight omissions previously caused `--validate` to fail before
+  database access. `scripts/apply-db-world.sh --validate` now passes, verifying
+  coverage and existence of all 19 SQL files exactly once. Review of the SQL
+  dependencies established the dungeon vendor currency → NPC → inventory → loot
+  order; the other newly registered files have no ordering dependency on one
+  another at the custom-SQL object level. The omissions arose when feature SQL
+  was added without updating the manifest, contrary to ADR-0002.
+- **Consequence:** No current blocker after successful manifest validation.
+  Future unregistered SQL still makes the installer fail closed.
+- **Repair:** Completed; keep the manifest in the same change as every custom
+  world SQL addition/removal and run `scripts/apply-db-world.sh --validate`.
+- **Action trigger:** Whenever custom world SQL is added or removed.

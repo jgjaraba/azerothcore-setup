@@ -2,11 +2,11 @@ USE `acore_world`;
 
 -- dungeon_gear_vendor_npc.sql
 -- Adapted from raid_gear_vendor_npc.sql in jgjaraba/azerothcore-setup.
--- Matches dungeon_gear_item.sql: creature entries 90300-90325.
+-- Matches dungeon_gear_vendor_item.sql: creature entries 90300-90325.
 -- New spawn GUIDs 900010-900035; gossip/text IDs 92100-92125.
 -- Uses the same custom Dark Rider display 90100: required in server/client DBC.
 -- Inventory/currency/ExtendedCost creation belongs to the companion files/DBC.
--- Apply before dungeon_gear_item.sql and restart worldserver to load new spawns.
+-- Apply before dungeon_gear_vendor_item.sql and restart worldserver to load new spawns.
 --
 -- Coordinates and orientations supplied by the user on 2026-10-01.
 -- World map IDs 0/1, template IDs and spawn GUIDs remain unchanged.

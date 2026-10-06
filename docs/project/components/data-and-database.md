@@ -71,7 +71,9 @@ comments or blank lines.
 To add or remove custom world SQL, update `manifest.txt` in the same change and
 place the file according to its verified dependencies. The manifest is a
 post-module overlay: Individual Progression mount overrides and Naxx40 curio
-loot require that module's data to be installed first. The installer does not
+loot require that module's data to be installed first; dungeon currency vendor
+SQL also relies on its required DBC records being installed on server and
+client. The installer does not
 create a database backup, wrap the full batch in a transaction, or install
 custom character or auth SQL.
 

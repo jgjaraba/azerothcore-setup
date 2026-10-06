@@ -15,7 +15,7 @@ These are project-owned data overlays, not module migrations. Run
 at all, which is the intended fail-closed behavior rather than a bug to work
 around. Known inventory drift is tracked in [`../debt/REGISTER.md`](../debt/REGISTER.md).
 
-The manifest order recorded at the time of writing is:
+The current manifest order is:
 
 1. `ground_riding_override.sql`
 2. `increase_world_boe_drop_rate.sql`
@@ -25,12 +25,26 @@ The manifest order recorded at the time of writing is:
 6. `raid_gear_vendor_npc.sql`
 7. `raid_gear_vendor_item.sql`
 8. `raid_gear_vendor_loot.sql`
-9. `rebalance_items.sql`
-10. `remove_regular_mounts_ip_requisites.sql`
-11. `transmog_currency_loot.sql`
+9. `dungeon_gear_vendor.sql`
+10. `dungeon_gear_vendor_npc.sql`
+11. `dungeon_gear_vendor_item.sql`
+12. `dungeon_gear_vendor_loot.sql`
+13. `rebalance_items.sql`
+14. `remove_regular_mounts_ip_requisites.sql`
+15. `spells_override.sql`
+16. `single_minded_fury.sql`
+17. `reagent_bank_npc.sql`
+18. `rebalance_drop_rate.sql`
+19. `transmog_currency_loot.sql`
 
 The raid group is ordered by its verified object dependencies: curio item
 definitions, vendor templates/spawns, vendor inventory, then curio loot.
+The dungeon group follows the same dependency order: currency items, NPC
+templates/spawns, vendor inventory, then currency loot. The dungeon NPC SQL
+expects its external display ID and the vendor SQL requires ExtendedCost DBC
+records on both server and client. `reagent_bank_npc.sql` is a post-module
+customization of the module-owned NPC template `190012` and uses an existing
+creature model as its source.
 Historical Forsaken Paladin polish files cited by the earlier audit are not in
 the current SQL inventory; `race_class_5_2.sql` has no current custom-SQL
 successor or predecessor. Inspection `SELECT`s remain observational, not
@@ -57,9 +71,19 @@ repository when it matters.
 - **Raid curios/vendors:** `raid_gear_vendor.sql`, `raid_gear_vendor_npc.sql`,
   `raid_gear_vendor_item.sql`, then `raid_gear_vendor_loot.sql` (definitions
   before inventory and loot use).
+- **Dungeon curios/vendors:** `dungeon_gear_vendor.sql`,
+  `dungeon_gear_vendor_npc.sql`, `dungeon_gear_vendor_item.sql`, then
+  `dungeon_gear_vendor_loot.sql`. The NPC templates must precede inventory use;
+  currencies and NPC templates precede the final loot references.
+- **Individual Progression overlay:** `remove_regular_mounts_ip_requisites.sql`
+  removes module-installed conditions and must follow that module's mount data.
 - **Independent changes:** `increase_world_boe_drop_rate.sql`,
-  `rebalance_items.sql`, and `transmog_currency_loot.sql`; verify current
-  core/module source data first.
+  `rebalance_items.sql`, `spells_override.sql`, `single_minded_fury.sql`,
+  `rebalance_drop_rate.sql`, and `transmog_currency_loot.sql`; verify current
+  core/module source data first. `ground_riding_override.sql` also requires
+  Individual Progression mount data as described below.
+- **Module overlay:** `reagent_bank_npc.sql` requires the Reagent Bank module's
+  NPC template `190012` and the source creature model to exist beforehand.
 
 ## Per-file manifest
 

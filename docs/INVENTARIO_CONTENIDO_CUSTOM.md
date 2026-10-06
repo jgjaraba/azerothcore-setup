@@ -5,6 +5,13 @@
 **Rama y versión analizadas:** `main`, commit [`c288958ceb7c`](https://github.com/jgjaraba/azerothcore-setup/commit/c288958ceb7c382f34123fbba6946101879f66c3), fechado el 1 de octubre de 2026 a las 17:40:24 UTC.  
 **Ámbito principal:** `data/sql/custom/db_world/`: 18 archivos SQL y `manifest.txt`.
 
+**Nota de vigencia:** el inventario y su sección de manifiesto son una captura
+histórica del commit indicado arriba; no describen el inventario operativo
+actual. Desde esa captura se añadieron SQL, incluido `reagent_bank_npc.sql`.
+El manifiesto vigente y su orden se mantienen en
+[`docs/project/components/custom-world-sql.md`](project/components/custom-world-sql.md);
+valídalo con `scripts/apply-db-world.sh --validate`.
+
 Este documento inventaría lo que los archivos **definen o modifican**, no certifica que esté instalado en DEV o producción. Se han leído los 18 SQL completos y extraído sus sentencias, identificadores y relaciones. Como comprobación auxiliar se han consultado el instalador, los DBC `Item`/`ItemExtendedCost` versionados y documentación de dependencias. No se ha accedido a la base de datos del servidor, ejecutado los SQL sobre ella ni inspeccionado el contenido de los MPQ.
 
 Los enlaces apuntan al commit analizado para que el inventario pueda reproducirse aunque cambie `main`.
@@ -96,7 +103,7 @@ Fuentes: [raid_gear_vendor.sql](https://github.com/jgjaraba/azerothcore-setup/bl
 
 ### 3.2. Jinetes Oscuros de mazmorras
 
-Mismo reparto en cuatro archivos y mismo modelo/comportamiento básico que los vendedores de bandas. En el repositorio, el catálogo se llama **`dungeon_gear_vendor_item.sql`**. Ese es su nombre real, aunque algunos comentarios todavía mencionan `dungeon_gear_item.sql`.
+Mismo reparto en cuatro archivos y mismo modelo/comportamiento básico que los vendedores de bandas. En el repositorio, el catálogo se llama **`dungeon_gear_vendor_item.sql`**. Ese es su nombre real; el comentario erróneo en el SQL NPC se corrigió después de la captura histórica descrita aquí.
 
 Cada una de las 26 rutas o alas tiene moneda propia, vendedor propio y un jefe final designado. La recompensa es **1 token por jugador elegible al saquear al jefe final**, con 100 % de probabilidad, `MinCount = MaxCount = 1`, `Flags = 2048` y `BagFamily = 0`.
 
@@ -379,7 +386,7 @@ Estas observaciones describen lo encontrado; no se ha modificado el repositorio.
 |---|---|
 | 7 SQL sin entrada en `manifest.txt` | El instalador se detiene antes de MySQL, aunque los otros 11 estén enumerados. |
 | Monedas y costes de mazmorras ausentes de los DBC de Git | Los SQL y los binarios versionados no representan aún el mismo conjunto de contenido. |
-| `dungeon_gear_vendor_item.sql` frente a `dungeon_gear_item.sql` en comentarios | Para localizar/incluir el archivo hay que usar el nombre real del repositorio. |
+| `dungeon_gear_vendor_item.sql` frente a `dungeon_gear_item.sql` en comentarios | Inconsistencia histórica de comentario, corregida en el SQL NPC vigente. |
 | Comentario de raid loot con `BagFamily = 8192`, creación con `0` | No atribuir distribución automática al conjunto actual por ese comentario. |
 | Transmog usa Mayordomo criatura y Kel'Thuzad `15990` | No equivale al tratamiento de cofre/IDs Naxx40 del sistema de curiosidades de banda. |
 | Limpieza de monturas anuncia dos objetivos pero ejecuta uno | Solo está implementado el borrado de cuatro condiciones concretas. |

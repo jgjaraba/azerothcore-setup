@@ -1,6 +1,6 @@
 # Validación de los vendedores de mazmorras
 
-1. Importa `dungeon_gear_vendor_npc.sql` y `dungeon_gear_item.sql` y reinicia **worldserver**. El modelo 90100 debe estar instalado en servidor y cliente; las compras requieren también las monedas y los registros `ItemExtendedCost` del catálogo.
+1. Importa `dungeon_gear_vendor.sql`, `dungeon_gear_vendor_npc.sql` y `dungeon_gear_vendor_item.sql` en ese orden; aplica después `dungeon_gear_vendor_loot.sql` y reinicia **worldserver**. El modelo 90100 debe estar instalado en servidor y cliente; las compras requieren también las monedas y los registros `ItemExtendedCost` del catálogo.
 2. Entra con una cuenta GM. Ejecuta `.gm on` para revisar las posiciones sin que los enemigos interfieran.
 3. Usa los comandos siguientes en el **chat del juego**, uno cada vez. `.go creature` recibe el **GUID de aparición**, no el ID de plantilla.
 4. Comprueba que cada NPC pisa el suelo, se ve completo, queda accesible, permite hablar/comerciar y no tapa una puerta ni activa el portal al acercarte. Prueba también el acceso normal con `.gm off` cuando hayas comprobado que la zona es segura.
