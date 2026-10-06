@@ -1290,6 +1290,6 @@ VALUES
 
 -- Extra
 (90325,  65, 12833, 0, 0, 97035, 0), -- Plans: Hammer of the Titans | Maleki the Pallid
-(90325,  66, 13335, 0, 0, 97035, 0); -- Deathcharger's Reins | Baron Rivendare
+(90325,  66, 13335, 0, 0, 99035, 0); -- Deathcharger's Reins | Baron Rivendare
 
 COMMIT;

@@ -1,7 +1,7 @@
 # Technical debt register
 
 This register tracks durable, evidence-backed risks. It does not assert a
-priority order or replace task-specific open issues in active plans.
+priority order and does not track task-specific open issues.
 
 ## DEBT-001: No ecosystem compatibility baseline
 
@@ -71,3 +71,20 @@ priority order or replace task-specific open issues in active plans.
 - **Consequence:** Database item rows can lack matching installed server DBC
   records, making server/client data behavior unsafe to assume.
 - **Action trigger:** Before any custom item, DBC, MPQ, or MorphSummon change.
+
+## DEBT-008: Custom world SQL manifest was incomplete — resolved
+
+- **Type:** Resolved operational blocker; manifest drift remains a regression
+  risk.
+- **Evidence:** Eight omissions previously caused `--validate` to fail before
+  database access. `scripts/apply-db-world.sh --validate` now passes, verifying
+  coverage and existence of all 19 SQL files exactly once. Review of the SQL
+  dependencies established the dungeon vendor currency → NPC → inventory → loot
+  order; the other newly registered files have no ordering dependency on one
+  another at the custom-SQL object level. The omissions arose when feature SQL
+  was added without updating the manifest, contrary to ADR-0002.
+- **Consequence:** No current blocker after successful manifest validation.
+  Future unregistered SQL still makes the installer fail closed.
+- **Repair:** Completed; keep the manifest in the same change as every custom
+  world SQL addition/removal and run `scripts/apply-db-world.sh --validate`.
+- **Action trigger:** Whenever custom world SQL is added or removed.

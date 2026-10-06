@@ -12,8 +12,9 @@ documentation.
 **OBSERVED (2026-09-20, read-only local DEV queries).** The configured local
 login path reached four databases: `acore_auth`, `acore_characters`,
 `acore_world`, and `acore_playerbots`. The world `version` row identifies the
-local core revision and `ACDB 335.17-dev`; current revisions remain generated
-environment state, not durable semantic documentation.
+local core revision and `ACDB 335.17-dev`; the current revision is a fact to
+read from the database or the repository on demand, not durable semantic
+documentation.
 
 Playerbots is a first-class fourth database dependency. Its module repository
 contains creation/grant and update SQL, and the observed database has its own
@@ -53,21 +54,26 @@ the safe recovery classification of its tables is unestablished.
 The current custom SQL inventory is entirely under
 `data/sql/custom/db_world/`. It contains world-data customizations such as
 class/race changes, riding overrides, vendor content, item and loot changes,
-and transmog currency loot. Current filenames and working-tree state are
-generated in `../generated/ENVIRONMENT.md` and must be checked before changes.
+quest chains, and transmog currency loot.
 
 `data/sql/custom/db_world/manifest.txt` is the authoritative ordered inventory
-of project custom world SQL. `scripts/apply-db-world.sh` validates the manifest
-before database access: every listed file must exist exactly once and every
-`*.sql` file must be listed. It then streams each file in manifest order to the
-`acore_world` database using the local `azeroth-dev` MySQL login path and stops
-at the first failed file. The manifest uses one top-level SQL filename per line,
-without comments or blank lines. `--validate` performs only manifest validation.
+of project custom world SQL — not the directory listing. `manifest.txt` must
+list every `*.sql` file in the directory exactly once; run
+`scripts/apply-db-world.sh --validate` to prove that, because an omission makes
+the installer refuse to touch the database. Known inventory drift is tracked
+in [`../debt/REGISTER.md`](../debt/REGISTER.md).
+
+The installer streams each listed file in manifest order to the `acore_world`
+database using the local `azeroth-dev` MySQL login path and stops at the first
+failed file. The manifest uses one top-level SQL filename per line, without
+comments or blank lines.
 
 To add or remove custom world SQL, update `manifest.txt` in the same change and
 place the file according to its verified dependencies. The manifest is a
 post-module overlay: Individual Progression mount overrides and Naxx40 curio
-loot require that module's data to be installed first. The installer does not
+loot require that module's data to be installed first; dungeon currency vendor
+SQL also relies on its required DBC records being installed on server and
+client. The installer does not
 create a database backup, wrap the full batch in a transaction, or install
 custom character or auth SQL.
 

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "default_agent": "ac-build",
+  "share": "disabled",
+  "instructions": ["AGENTS.md"],
+  "permission": {
+    "external_directory": {
+      "/home/dev/azerothcore-setup/**": "allow",
+      "/home/dev/azerothcore/**": "allow"
+    },
+    "edit": "allow",
+    "bash": {
+      "*": "allow",
+      "sudo": "allow",
+      "sudo *": "allow",
+      "git reset --hard*": "allow",
+      "git clean -fd*": "allow",
+      "git commit*": "deny",
+      "git --* commit": "deny",
+      "git --* commit *": "deny",
+      "*/git commit": "deny",
+      "*/git commit *": "deny",
+      "sudo* git commit": "deny",
+      "sudo* git commit *": "deny",
+      "git -c * commit": "deny",
+      "git -c * commit *": "deny",
+      "git -C * commit": "deny",
+      "git -C * commit *": "deny",
+      "git push*": "deny",
+      "git --* push": "deny",
+      "git --* push *": "deny",
+      "*/git push": "deny",
+      "*/git push *": "deny",
+      "sudo* git push": "deny",
+      "sudo* git push *": "deny",
+      "git -c * push": "deny",
+      "git -c * push *": "deny",
+      "git -C * push": "deny",
+      "git -C * push *": "deny"
+    }
+  }
+}

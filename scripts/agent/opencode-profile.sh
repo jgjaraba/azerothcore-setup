@@ -2,11 +2,11 @@
 
 set -euo pipefail
 
-SETUP="${AZEROTHCORE_SETUP_ROOT:-$HOME/azerothcore-setup}"
-POLICY="$SETUP/harness/opencode/model-profiles.env"
+SETUP="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+POLICY="$SETUP/scripts/agent/model-profiles.env"
 
 [[ -f "$POLICY" ]] || {
-    echo "ERROR: model policy not found: $POLICY" >&2
+    echo "ERROR: model profile file not found: $POLICY" >&2
     exit 1
 }
 
@@ -19,84 +19,38 @@ case "$profile" in
     go)
         BUILD="$AC_GO_BUILD"
         RESEARCH="$AC_GO_RESEARCH"
-        ARCHITECTURE="$AC_GO_ARCHITECTURE"
         REVIEW="$AC_GO_REVIEW"
         ;;
-
     openai|fallback)
         BUILD="$AC_OPENAI_BUILD"
         RESEARCH="$AC_OPENAI_RESEARCH"
-        ARCHITECTURE="$AC_OPENAI_ARCHITECTURE"
         REVIEW="$AC_OPENAI_REVIEW"
         ;;
-
     status)
-        cat <<STATUS
-OpenCode Go
------------
-ac-build:        $AC_GO_BUILD
-ac-research:     $AC_GO_RESEARCH
-ac-architecture: $AC_GO_ARCHITECTURE
-ac-review:       $AC_GO_REVIEW
-
-OpenAI fallback
----------------
-ac-build:        $AC_OPENAI_BUILD
-ac-research:     $AC_OPENAI_RESEARCH
-ac-architecture: $AC_OPENAI_ARCHITECTURE
-ac-review:       $AC_OPENAI_REVIEW
-STATUS
+        printf 'OpenCode Go\n-----------\nac-build:    %s\nac-research: %s\nac-review:   %s\n\n' \
+            "$AC_GO_BUILD" "$AC_GO_RESEARCH" "$AC_GO_REVIEW"
+        printf 'OpenAI fallback\n---------------\nac-build:    %s\nac-research: %s\nac-review:   %s\n' \
+            "$AC_OPENAI_BUILD" "$AC_OPENAI_RESEARCH" "$AC_OPENAI_REVIEW"
         exit 0
         ;;
-
     *)
-        echo "Usage:" >&2
-        echo "  $0 go" >&2
-        echo "  $0 openai" >&2
-        echo "  $0 status" >&2
+        echo "Usage: $0 [go|openai|status]" >&2
         exit 2
         ;;
 esac
 
-RUNTIME_CONFIG="$(
-python3 - \
-    "$BUILD" \
-    "$RESEARCH" \
-    "$ARCHITECTURE" \
-    "$REVIEW" <<'PY'
+export OPENCODE_CONFIG_CONTENT="$(python3 - "$BUILD" "$RESEARCH" "$REVIEW" <<'PY'
 import json
 import sys
 
-build, research, architecture, review = sys.argv[1:]
-
-print(json.dumps({
-    "agent": {
-        "ac-build": {
-            "model": build
-        },
-        "ac-research": {
-            "model": research
-        },
-        "ac-architecture": {
-            "model": architecture
-        },
-        "ac-review": {
-            "model": review
-        }
-    }
-}))
+build, research, review = sys.argv[1:]
+print(json.dumps({"agent": {
+    "ac-build": {"model": build},
+    "ac-research": {"model": research},
+    "ac-review": {"model": review},
+}}))
 PY
 )"
 
-export OPENCODE_CONFIG_CONTENT="$RUNTIME_CONFIG"
-
-echo "OpenCode model profile: $profile"
-echo "  ac-build:        $BUILD"
-echo "  ac-research:     $RESEARCH"
-echo "  ac-architecture: $ARCHITECTURE"
-echo "  ac-review:       $REVIEW"
-echo
-
-cd "$HOME/azerothcore"
-
+cd "$SETUP"
 exec opencode --agent ac-build

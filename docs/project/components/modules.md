@@ -3,8 +3,9 @@
 ## Scope and source of truth
 
 This is the semantic catalog for independently versioned repositories below
-`~/azerothcore/modules/`. `generated/ENVIRONMENT.md` is authoritative for the
-current module inventory, remotes, branches, revisions, and working-tree state.
+`~/azerothcore/modules/`. Read it together with the live module directory and
+`git status` in each module repository: those are authoritative for the current
+module inventory, remotes, branches, revisions, and working-tree state.
 Local runtime configuration values are ignored deployment state; this document
 records configuration surfaces, not assumed effective values.
 
@@ -86,8 +87,8 @@ implementation in `src/morphsummon.cpp`; base world and character SQL are under
 **Project-specific customization.** A pending non-upstream customization adds
 appearance-unlock character/world tables, custom item IDs `91001`–`91079`, loot
 acquisition, and gossip filtering. This is not established upstream behavior;
-the source and all related SQL must be deployed together if retained. Generated
-environment state is authoritative for its repository status and local IDE data.
+the source and all related SQL must be deployed together if retained. Inspect
+the module repository directly for its current status and local IDE data.
 
 **Observed deployment boundary (2026-09-20).** DEV contains
 `mod_morphsummon_appearance_catalog` (90 enabled appearances, 11 defaults),
@@ -191,4 +192,4 @@ full set.
 
 Module READMEs, configuration templates, `src/` loaders/registrations, and
 `data/sql/` were inspected on 2026-09-19. This document deliberately defers
-transient Git facts to the regenerated environment inventory.
+transient Git facts to the live module repositories.

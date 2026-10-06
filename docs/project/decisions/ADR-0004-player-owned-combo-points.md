@@ -115,9 +115,9 @@ returns 0 after a target switch until the first builder updates `m_comboTarget`;
 this is already strictly better than the current reset behavior, and the API
 remains compatible.
 
-Because the module repository is read-only for this task, a targeted one-line
-update was not applied. If the module is unblocked in the future, the
-following change removes the stale target-bound assumption:
+The module repository was outside that task's writable scope, so a targeted
+one-line update was not applied. If the module becomes editable, the following
+change removes the stale target-bound assumption:
 
 ```cpp
 if (!target || (target->GetGUID() != bot->GetComboTargetGUID() &&
@@ -134,12 +134,11 @@ A reported Feral Druid regression (combo points not carrying to a new target)
 was traced to a stale worldserver process still running the pre-Druid binary,
 not to a source-code defect. After terminating the stale process and starting
 a fresh instance with the current patch, both Rogue and Feral Druid target
-switching behaved as designed.
+switching behaved as designed. See `../LEARNINGS.md` for the general rule.
 
 ## References
 
 - `patches/core/player-owned-combo-points.patch`
 - `patches/core/README.md`
-- Completed plan: `~/azerothcore-setup/plans/completed/player-owned-combo-points.PLAN.md`
 - Upstream context: AzerothCore PR #9816 introduced the current Unit-level
   target-owned combo-point system.

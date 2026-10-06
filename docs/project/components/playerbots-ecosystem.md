@@ -14,9 +14,9 @@ individual-progression ~ Playerbots-derived core lineage
 
 Arrows are consumer-to-provider. The Individual Progression relationship is a
 documented compatible-core/runtime relationship with bot-specific behavior, not
-the same direct Playerbots-internal C++ integration used by Dungeon Clear and
-MultiBot Bridge. Current revisions and worktree status are generated facts in
-`../generated/ENVIRONMENT.md`.
+the same direct Playerbot-internal C++ integration used by Dungeon Clear and
+MultiBot Bridge. Read current revisions and worktree status from the module
+repositories themselves.
 
 ## Shared persistence and deployment
 

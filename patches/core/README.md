@@ -134,7 +134,7 @@ Then rebuild and reinstall worldserver, and restart the servers.
 
 3. Start authserver/worldserver and check for startup errors.
 
-4. In-game manual test matrices (see the completed execution plan):
+4. In-game manual test matrices:
 
    **Rogue:**
    - 1 point on A → select B
