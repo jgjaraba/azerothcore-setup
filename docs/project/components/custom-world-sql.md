@@ -2,16 +2,20 @@
 
 ## Boundary and installation
 
-This document records verified behavior of every SQL file in
-`data/sql/custom/db_world/` as of the 2026-09-19 audit. The generated environment
-inventory is authoritative for current filenames and working-tree state. These
-are project-owned data overlays, not module migrations. `manifest.txt` is the
-authoritative, exact ordered inventory. `apply-db-world.sh` validates the
-manifest before database access, streams the listed files to `acore_world` in
-that order, stops at the first error, and does not back up or make the batch
-atomic. `--validate` checks manifest coverage without invoking MySQL.
+This document records the verified behavior of the project-owned SQL features.
+`manifest.txt` is the authoritative, exact ordered inventory.
+`apply-db-world.sh` validates the manifest before database access, streams the
+listed files to `acore_world` in that order, stops at the first error, and does
+not back up or make the batch atomic. `--validate` checks manifest coverage
+without invoking MySQL.
 
-The current manifest order is:
+These are project-owned data overlays, not module migrations. Run
+`apply-db-world.sh --validate` before assuming the inventory is complete: a
+`.sql` file that is not listed makes the installer refuse to touch the database
+at all, which is the intended fail-closed behavior rather than a bug to work
+around. Known inventory drift is tracked in [`../debt/REGISTER.md`](../debt/REGISTER.md).
+
+The manifest order recorded at the time of writing is:
 
 1. `ground_riding_override.sql`
 2. `increase_world_boe_drop_rate.sql`
@@ -35,7 +39,8 @@ validation gates.
 All listed custom IDs, DBC records, and effective database state require
 collision/availability checks; repository inspection cannot prove they exist in
 a deployed database. The Transmog token customization is project-owned rather
-than upstream module behavior; generated state records its current Git status.
+than upstream module behavior; its current Git status is read from the
+repository when it matters.
 
 ## Feature chains
 

@@ -1,7 +1,7 @@
 # Technical debt register
 
 This register tracks durable, evidence-backed risks. It does not assert a
-priority order or replace task-specific open issues in active plans.
+priority order and does not track task-specific open issues.
 
 ## DEBT-001: No ecosystem compatibility baseline
 
@@ -71,3 +71,22 @@ priority order or replace task-specific open issues in active plans.
 - **Consequence:** Database item rows can lack matching installed server DBC
   records, making server/client data behavior unsafe to assume.
 - **Action trigger:** Before any custom item, DBC, MPQ, or MorphSummon change.
+
+## DEBT-008: Custom world SQL manifest is incomplete
+
+- **Type:** Verified operational blocker.
+- **Evidence:** `scripts/apply-db-world.sh --validate` exits `1` and aborts
+  before any database access because eight `data/sql/custom/db_world/*.sql`
+  files are absent from `manifest.txt`: the four `dungeon_gear_vendor*` files,
+  `spells_override.sql`, `single_minded_fury.sql`, `reagent_bank_npc.sql` and
+  `rebalance_drop_rate.sql`. The drift was introduced by feature commits that
+  added SQL without updating the manifest (ADR-0002 requires both in the same
+  change).
+- **Consequence:** The project world-SQL installer cannot run at all, so no
+  project overlay can be deployed or revalidated until the manifest is
+  complete. The fail-closed behavior itself is correct.
+- **Repair:** add the `dungeon_gear_vendor.sql` → `_npc` → `_item` → `_loot`
+  chain in that order, then the four independent files, and re-run
+  `--validate`. Confirm each new file is idempotent before applying it to DEV.
+- **Action trigger:** Before running `apply-db-world.sh`, and whenever custom
+  world SQL is added or removed.

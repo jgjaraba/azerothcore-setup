@@ -24,14 +24,14 @@ That makes continuity vulnerable to:
 `~/azerothcore-setup` is the canonical control repository for project-owned
 state.
 
-It stores durable project documentation, execution plans, custom assets,
-automation and the canonical coding-agent harness.
+It stores durable project documentation, custom assets, automation and the
+OpenCode project configuration used directly from this repository.
 
 `~/azerothcore` remains the upstream-oriented development working tree.
 
-Agent-specific files required inside the AzerothCore checkout may be installed
-from the canonical harness, but the installed copies are not the source of
-truth.
+OpenCode is launched from `azerothcore-setup`. Its `opencode.jsonc`,
+`AGENTS.md`, and `.opencode/agents/` are the active configuration; no private
+configuration is copied into the AzerothCore checkout.
 
 The upstream `AGENTS.md` and `.agents/` hierarchy are preserved and are not
 replaced by private project configuration.
@@ -65,8 +65,8 @@ machine configuration.
 
 ### Negative / trade-offs
 
-- A small installation/bootstrap layer is required.
-- Agents must be given controlled access to `~/azerothcore-setup`.
+- OpenCode is launched from the project control repository.
+- Agents need trusted access to the sibling AzerothCore repository.
 - Documentation discipline is required for long-running work.
 
 ## References

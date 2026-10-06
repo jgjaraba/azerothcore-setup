@@ -3,18 +3,20 @@
 ## Status
 
 Bootstrap audit completed on 2026-09-18. A source-level module and custom-world
-SQL component audit completed on 2026-09-19. Mechanically detectable repository
-revisions and working-tree state remain in `generated/ENVIRONMENT.md`.
+SQL component audit completed on 2026-09-19. A DEV environment knowledge pass
+completed on 2026-09-20.
+
+Mechanically detectable facts — branches, revisions, working-tree state,
+running processes — are not recorded here. Inspect the live repositories and
+the live machine instead.
 
 ## Purpose
 
 This document describes the stable architecture of the custom AzerothCore
 environment.
 
-Detailed subsystem knowledge belongs in `components/`.
-
-Runtime and repository facts that can be detected automatically belong in
-`generated/ENVIRONMENT.md`.
+Detailed subsystem knowledge belongs in `components/`. Feature design contracts
+belong in `features/`. Reusable gotchas belong in `LEARNINGS.md`.
 
 ## Repository roles
 
@@ -36,9 +38,9 @@ Canonical home for project-owned assets such as:
 - custom SQL;
 - client assets and patches;
 - DBC resources;
+- core source patches;
 - operational scripts;
 - durable project documentation;
-- execution plans;
 - coding-agent harness configuration.
 
 ## Component map
@@ -56,15 +58,19 @@ Canonical home for project-owned assets such as:
   dependency chains, assumptions, and update/validation concerns.
 - `components/client-assets.md` — DBC resources, client patch distribution, and
   addon inventory.
+- `features/` — durable design contracts for custom content, such as the
+  Forsaken Paladin quest chains.
+- `LEARNINGS.md` — verified operational and engineering gotchas.
 - `CUSTOM-IDENTIFIERS.md` — evidence-backed project identifier inventory and
   its collision-check boundary.
+- `decisions/` — architectural decision records.
 - `debt/REGISTER.md` — durable architectural, operational, and update risks.
 
 ## Verified integration model
 
 - The local core checkout, project control repository, and independently
   versioned modules retain separate repository histories. Current branches and
-  revisions are generated environment state.
+  revisions are read from the live repositories.
 - The observed CMake configuration uses static modules and installs into
   `~/azerothcore/env/dist`. Runtime configuration and module configuration
   files in that install tree are intentionally ignored by the core repository.
@@ -101,8 +107,8 @@ history contains recurrent upstream/AzerothCore and Playerbots merge history,
 and its source/build metadata contains Playerbots-specific compilation support.
 The Playerbots ecosystem therefore depends on more than an ordinary separately
 loaded module. Exact divergence from official AzerothCore and a supported
-revision matrix remain UNKNOWN; inspect generated repository state and relevant
-Git history before updating this boundary.
+revision matrix remain UNKNOWN; inspect the live repositories and relevant Git
+history before updating this boundary.
 
 ## Reproducibility boundary
 
@@ -155,10 +161,12 @@ Persistent customizations should be:
 
 ## Environment boundaries
 
-The current agent-enabled environment is intended for development and
-validation.
+The current agent-enabled environment is a disposable development VM intended
+for development and validation.
 
-Production systems must not be modified implicitly by an automated agent.
+Nothing on this machine is production. Production systems must not be modified
+implicitly by an automated agent, and the DEV VM is not expected to preserve its
+previous state between tasks.
 
 ## Verification principle
 
@@ -168,7 +176,8 @@ validated must correspond to validation that was actually performed.
 ## Audit boundary
 
 The bootstrap audit established the current development topology and explicitly
-identified the absence of tracked update and recovery automation. The later
-component audit inspected module source/data and project custom world SQL, but
-did not connect to databases, inspect credentials, run the servers, or validate
-in-game behavior.
+identified the absence of tracked update and recovery automation. A later
+component audit inspected module source/data and project custom world SQL. A
+later environment pass inspected the four DEV databases and the installed
+runtime. None of them demonstrated full in-game behavior, and no later
+inspection should be read as evidence that they did.

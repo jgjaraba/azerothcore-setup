@@ -1,6 +1,19 @@
 # azerothcore-setup
 My configs and scripts for AzerothCore
 
+## OpenCode workspace and project knowledge
+
+- [`docs/project/README.md`](docs/project/README.md) — the durable knowledge
+  base for this project. Read it first; it indexes the architecture, component
+  and feature documentation, ADRs, identifier registry, debt register and
+  durable learnings.
+- OpenCode runs directly from this repository: `cd ~/azerothcore-setup && opencode`.
+  Its project configuration is `opencode.jsonc`, agents are in `.opencode/agents/`,
+  and durable instructions are in `AGENTS.md`.
+- `scripts/agent/validate-opencode.sh` checks the active project configuration.
+
+## Client setup
+
 ### 1. Download WotLK client
 **Regular Client**
 
