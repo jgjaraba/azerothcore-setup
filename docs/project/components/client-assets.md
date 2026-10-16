@@ -37,6 +37,7 @@ deployed; do not infer that from the SQL alone.
 | Raid/transmog items | Item DBC entries `90001`–`90005` | Present in tracked `dbc/Item.dbc`; deployment unverified |
 | Forsaken Paladin trainers | Current template/equipment data | Server/client DBC contract unverified |
 | Forsaken Paladin quest items | Item.dbc entries `92060`–`92064` | Present in tracked `dbc/Item.dbc` and required server-side; package into both regular and HD patch-Z archives without discarding existing custom records |
+| Orc Mage / Troll Warlock | `CharBaseInfo.dbc` rows `(2, 8)` and `(8, 9)`; `CharStartOutfit.dbc` rows `35`/`36` and `157`/`158` | Present in tracked DBCs and both patch-Z archives; server outfit supplied by `charstartoutfit_dbc` overlay |
 | Pending MorphSummon feature | Item DBC entries `91001`–`91079`, if retained | Unverified; not upstream behavior |
 
 Regular and HD patch parity for these contracts has not been inspected.

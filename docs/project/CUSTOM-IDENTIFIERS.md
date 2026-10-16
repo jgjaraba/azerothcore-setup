@@ -49,6 +49,10 @@ reusing them. A durable range-allocation policy remains undecided.
   `dbc/forsaken_paladin_item_dbc_mapping.csv`. Observed in DEV. Their server
   Item.dbc and both client patch-Z variants must retain existing custom records
   and include these five IDs.
+- **`charstartoutfit_dbc` records `9002`–`9005`:** Orc Mage (`9002`/`9003`) and
+  Troll Warlock (`9004`/`9005`) start-outfit overlays, defined by
+  `orc_mage_troll_warlock.sql`. Project-owned IDs; collision-checked against the
+  current maximum `charstartoutfit_dbc.ID`.
 
 The ExtendedCost values remain a set rather than an asserted contiguous
 allocation: the vendor catalog consumes specific IDs and repository inspection

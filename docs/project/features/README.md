@@ -12,6 +12,9 @@ Current features:
 - [`forsaken-paladin-class-quests.md`](forsaken-paladin-class-quests.md) — the
   Undead Paladin class-quest chains, their item/DBC contract and their loot
   conditions.
+- [`orc-mage-troll-warlock.md`](orc-mage-troll-warlock.md) — the Orc Mage and
+  Troll Warlock playable combinations and the reuse of the existing class
+  quests.
 
 Identifier ownership for these features is recorded in
 [`../CUSTOM-IDENTIFIERS.md`](../CUSTOM-IDENTIFIERS.md); the module and database
