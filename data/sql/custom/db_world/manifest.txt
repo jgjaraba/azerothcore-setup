@@ -19,3 +19,4 @@ reagent_bank_npc.sql
 rebalance_drop_rate.sql
 transmog_currency_loot.sql
 soul_shard_stacks.sql
+cata_race_class_combos.sql

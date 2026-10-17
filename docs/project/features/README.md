@@ -15,6 +15,9 @@ Current features:
 - [`orc-mage-troll-warlock.md`](orc-mage-troll-warlock.md) — the Orc Mage and
   Troll Warlock playable combinations and the reuse of the existing class
   quests.
+- [`cata-race-class-combos.md`](cata-race-class-combos.md) — the Blood Elf
+  Warrior, Night Elf Mage, Draenei Rogue, Tauren Priest, and Gnome Hunter
+  playable combinations and the Dwarf Hunter quest extension for Gnomes.
 
 Identifier ownership for these features is recorded in
 [`../CUSTOM-IDENTIFIERS.md`](../CUSTOM-IDENTIFIERS.md); the module and database

@@ -38,6 +38,7 @@ The current manifest order is:
 19. `rebalance_drop_rate.sql`
 20. `transmog_currency_loot.sql`
 21. `soul_shard_stacks.sql`
+22. `cata_race_class_combos.sql`
 
 The raid group is ordered by its verified object dependencies: curio item
 definitions, vendor templates/spawns, vendor inventory, then curio loot.
@@ -73,6 +74,13 @@ repository when it matters.
   existing Troll Mage and Orc Warlock class quests available to the new races.
   It depends on the existing source outfit rows (`317`/`318` and `20`/`46`)
   being present.
+- **Cataclysm race/class combos:** `cata_race_class_combos.sql` owns the
+  creation data, action bars, and start outfits for Blood Elf Warrior,
+  Night Elf Mage, Draenei Rogue, Tauren Priest, and Gnome Hunter, plus the
+  race-mask update that lets Gnome Hunters take the Dwarf Hunter pet-taming
+  chain. Start outfits are imported from the tracked client
+  `dbc/CharStartOutfit.dbc` source IDs `161`/`162`, `75`/`76`, `187`/`188`,
+  `109`/`110`, and `125`/`126` respectively.
 - **Individual Progression overlay:** `ground_riding_override.sql` and
   `remove_regular_mounts_ip_requisites.sql` after Individual Progression mount
   SQL/data.
@@ -147,6 +155,29 @@ repository when it matters.
 - **Verification:** apply twice; query the four outfit rows, the two
   `playercreateinfo` rows, the action bars, and the updated quest race masks,
   then restart and inspect the server log for player-create/outfit errors.
+
+### `cata_race_class_combos.sql`
+
+- **Verified purpose/tables:** creates `playercreateinfo`,
+  `playercreateinfo_action`, `charstartoutfit_dbc`, `playercreateinfo_skills`,
+  and `skillraceclassinfo_dbc` rows for Blood Elf Warrior (`10`/`1`),
+  Night Elf Mage (`4`/`8`), Draenei Rogue (`11`/`4`), Tauren Priest
+  (`6`/`5`), and Gnome Hunter (`7`/`3`). Also extends the Dwarf Hunter quest
+  chain `3108`, `6074`–`6076`, `6064`, `6084`–`6086` to allow Gnomes via
+  guarded race-mask OR.
+- **Dependencies/assumptions:** the tracked Cataclysm client
+  `dbc/CharStartOutfit.dbc` contains the source outfit records
+  `161`/`162` (Blood Elf Warrior), `75`/`76` (Night Elf Mage),
+  `187`/`188` (Draenei Rogue), `109`/`110` (Tauren Priest), and
+  `125`/`126` (Gnome Hunter); project-owned outfit IDs `9006`–`9015`
+  and `skillraceclassinfo_dbc` IDs `200000`–`200001` are unused.
+- **Rerun/update safety:** a transaction deletes and recreates only its owned
+  creation/action/outfit/skill rows; quest updates are guarded bitwise ORs and
+  are idempotent.
+- **Verification:** apply twice; query the ten outfit rows, the five
+  `playercreateinfo` rows, action bars, skill rows, and updated quest race
+  masks; restart and confirm `Loaded 70 Player Create Definitions`; create and
+  log in with each new combination.
 
 ### `ground_riding_override.sql`
 
