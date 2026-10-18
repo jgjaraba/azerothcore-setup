@@ -49,6 +49,17 @@ reusing them. A durable range-allocation policy remains undecided.
   `dbc/forsaken_paladin_item_dbc_mapping.csv`. Observed in DEV. Their server
   Item.dbc and both client patch-Z variants must retain existing custom records
   and include these five IDs.
+- **`charstartoutfit_dbc` records `9002`–`9015`:** Orc Mage (`9002`/`9003`),
+  Troll Warlock (`9004`/`9005`), Blood Elf Warrior (`9006`/`9007`), Night Elf
+  Mage (`9008`/`9009`), Draenei Rogue (`9010`/`9011`), Tauren Priest
+  (`9012`/`9013`), and Gnome Hunter (`9014`/`9015`) start-outfit overlays.
+  Defined by `orc_mage_troll_warlock.sql` and `cata_race_class_combos.sql`.
+  Project-owned IDs; collision-checked against the current maximum
+  `charstartoutfit_dbc.ID`.
+- **`skillraceclassinfo_dbc` records `200000`–`200001`:** Gnome Hunter weapon
+  skill availability (Guns `46` and Axes `44`). Defined by
+  `cata_race_class_combos.sql`; collision-checked against the empty
+  `skillraceclassinfo_dbc` table.
 
 The ExtendedCost values remain a set rather than an asserted contiguous
 allocation: the vendor catalog consumes specific IDs and repository inspection

@@ -21,21 +21,24 @@ The current manifest order is:
 2. `increase_world_boe_drop_rate.sql`
 3. `forsaken_paladin.sql`
 4. `forsaken_paladin_quests.sql`
-5. `raid_gear_vendor.sql`
-6. `raid_gear_vendor_npc.sql`
-7. `raid_gear_vendor_item.sql`
-8. `raid_gear_vendor_loot.sql`
-9. `dungeon_gear_vendor.sql`
-10. `dungeon_gear_vendor_npc.sql`
-11. `dungeon_gear_vendor_item.sql`
-12. `dungeon_gear_vendor_loot.sql`
-13. `rebalance_items.sql`
-14. `remove_regular_mounts_ip_requisites.sql`
-15. `spells_override.sql`
-16. `single_minded_fury.sql`
-17. `reagent_bank_npc.sql`
-18. `rebalance_drop_rate.sql`
-19. `transmog_currency_loot.sql`
+5. `orc_mage_troll_warlock.sql`
+6. `raid_gear_vendor.sql`
+7. `raid_gear_vendor_npc.sql`
+8. `raid_gear_vendor_item.sql`
+9. `raid_gear_vendor_loot.sql`
+10. `dungeon_gear_vendor.sql`
+11. `dungeon_gear_vendor_npc.sql`
+12. `dungeon_gear_vendor_item.sql`
+13. `dungeon_gear_vendor_loot.sql`
+14. `rebalance_items.sql`
+15. `remove_regular_mounts_ip_requisites.sql`
+16. `spells_override.sql`
+17. `single_minded_fury.sql`
+18. `reagent_bank_npc.sql`
+19. `rebalance_drop_rate.sql`
+20. `transmog_currency_loot.sql`
+21. `soul_shard_stacks.sql`
+22. `cata_race_class_combos.sql`
 
 The raid group is ordered by its verified object dependencies: curio item
 definitions, vendor templates/spawns, vendor inventory, then curio loot.
@@ -65,6 +68,19 @@ repository when it matters.
   baseline and owns the custom class quests, quest locales, items, additive
   component loot/conditions/registrations, and the additive questgiver flag on
   the existing quest actors.
+- **Orc Mage / Troll Warlock:** `orc_mage_troll_warlock.sql` owns the
+  `playercreateinfo`, `playercreateinfo_action`, and `charstartoutfit_dbc`
+  overlays for the two combinations, plus the race-mask updates that make the
+  existing Troll Mage and Orc Warlock class quests available to the new races.
+  It depends on the existing source outfit rows (`317`/`318` and `20`/`46`)
+  being present.
+- **Cataclysm race/class combos:** `cata_race_class_combos.sql` owns the
+  creation data, action bars, and start outfits for Blood Elf Warrior,
+  Night Elf Mage, Draenei Rogue, Tauren Priest, and Gnome Hunter, plus the
+  race-mask update that lets Gnome Hunters take the Dwarf Hunter pet-taming
+  chain. Start outfits are imported from the tracked client
+  `dbc/CharStartOutfit.dbc` source IDs `161`/`162`, `75`/`76`, `187`/`188`,
+  `109`/`110`, and `125`/`126` respectively.
 - **Individual Progression overlay:** `ground_riding_override.sql` and
   `remove_regular_mounts_ip_requisites.sql` after Individual Progression mount
   SQL/data.
@@ -79,9 +95,10 @@ repository when it matters.
   removes module-installed conditions and must follow that module's mount data.
 - **Independent changes:** `increase_world_boe_drop_rate.sql`,
   `rebalance_items.sql`, `spells_override.sql`, `single_minded_fury.sql`,
-  `rebalance_drop_rate.sql`, and `transmog_currency_loot.sql`; verify current
-  core/module source data first. `ground_riding_override.sql` also requires
-  Individual Progression mount data as described below.
+  `rebalance_drop_rate.sql`, `transmog_currency_loot.sql`, and
+  `soul_shard_stacks.sql`; verify current core/module source data first.
+  `ground_riding_override.sql` also requires Individual Progression mount data
+  as described below.
 - **Module overlay:** `reagent_bank_npc.sql` requires the Reagent Bank module's
   NPC template `190012` and the source creature model to exist beforehand.
 
@@ -120,6 +137,47 @@ repository when it matters.
 - **Verification:** apply twice; check counts/fields for quests, locales, exact
   loot conditions and registrations, then restart and perform the documented
   human in-game chain and group-loot QA.
+
+### `orc_mage_troll_warlock.sql`
+
+- **Verified purpose/tables:** creates Orc Mage (`2`/`8`) and Troll Warlock
+  (`8`/`9`) `playercreateinfo` and action rows, start outfits `9002`/`9003` and
+  `9004`/`9005`, and extends the existing Troll Mage quest `3086` and Orc
+  Warlock quests `3090`, `1506`, `1501`, `1504`, `10790` to the new races via
+  guarded race-mask updates.
+- **Dependencies/assumptions:** the source `charstartoutfit_dbc` rows
+  `317`/`318` (Troll Mage) and `20`/`46` (Orc Warlock) exist; project-owned
+  outfit IDs `9002`–`9005` are unused; the targeted quest race/class masks are
+  correct before the update.
+- **Rerun/update safety:** a transaction deletes and recreates only its owned
+  creation/action/outfit rows, and the quest updates are guarded bitwise ORs
+  that are idempotent. Source outfit rows are read but not modified.
+- **Verification:** apply twice; query the four outfit rows, the two
+  `playercreateinfo` rows, the action bars, and the updated quest race masks,
+  then restart and inspect the server log for player-create/outfit errors.
+
+### `cata_race_class_combos.sql`
+
+- **Verified purpose/tables:** creates `playercreateinfo`,
+  `playercreateinfo_action`, `charstartoutfit_dbc`, `playercreateinfo_skills`,
+  and `skillraceclassinfo_dbc` rows for Blood Elf Warrior (`10`/`1`),
+  Night Elf Mage (`4`/`8`), Draenei Rogue (`11`/`4`), Tauren Priest
+  (`6`/`5`), and Gnome Hunter (`7`/`3`). Also extends the Dwarf Hunter quest
+  chain `3108`, `6074`–`6076`, `6064`, `6084`–`6086` to allow Gnomes via
+  guarded race-mask OR.
+- **Dependencies/assumptions:** the tracked Cataclysm client
+  `dbc/CharStartOutfit.dbc` contains the source outfit records
+  `161`/`162` (Blood Elf Warrior), `75`/`76` (Night Elf Mage),
+  `187`/`188` (Draenei Rogue), `109`/`110` (Tauren Priest), and
+  `125`/`126` (Gnome Hunter); project-owned outfit IDs `9006`–`9015`
+  and `skillraceclassinfo_dbc` IDs `200000`–`200001` are unused.
+- **Rerun/update safety:** a transaction deletes and recreates only its owned
+  creation/action/outfit/skill rows; quest updates are guarded bitwise ORs and
+  are idempotent.
+- **Verification:** apply twice; query the ten outfit rows, the five
+  `playercreateinfo` rows, action bars, skill rows, and updated quest race
+  masks; restart and confirm `Loaded 70 Player Create Definitions`; create and
+  log in with each new combination.
 
 ### `ground_riding_override.sql`
 
@@ -253,6 +311,17 @@ repository when it matters.
   unresolved.
 - **Verification:** confirm MySQL syntax and entry-to-loot-ID mapping; query all
   drops and item flags/locales; group-test representative bosses and token use.
+
+### `soul_shard_stacks.sql`
+
+- **Verified purpose/tables:** sets `item_template.stackable = 10` and
+  `item_template.maxcount = 40` for Soul Shard `6265`.
+- **Dependencies/assumptions:** Soul Shard `6265` exists in `item_template` with
+  the expected base values (`stackable = 1`, `maxcount = 32`).
+- **Rerun/update safety:** guarded `UPDATE` statements are idempotent; each only
+  changes the row when the current value matches the base value.
+- **Verification:** query `item_template` for `entry = 6265`; confirm
+  `stackable = 10` and `maxcount = 40`; test looting/creating shards in-game.
 
 ## Cross-cutting open issues and recommendations
 
