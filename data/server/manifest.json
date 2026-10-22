@@ -1,0 +1,2585 @@
+{
+  "files": {
+    "turtle-crypt/dbc/AreaTable.dbc": {
+      "kind": "dbc-delta",
+      "path": "dbc/AreaTable.dbc",
+      "sha256": "1c80b23670a5dacf9088502b0f07061da8b7ef7f0f1bfe137eb38ff9c61e9d1d",
+      "size": 199
+    },
+    "turtle-crypt/dbc/AreaTrigger.dbc": {
+      "kind": "dbc-delta",
+      "path": "dbc/AreaTrigger.dbc",
+      "sha256": "8f6dd639657363ff4732ff1b0ed4fdb413ce862b74528ca92011c32fead4f56b",
+      "size": 101
+    },
+    "turtle-crypt/dbc/Map.dbc": {
+      "kind": "dbc-delta",
+      "path": "dbc/Map.dbc",
+      "sha256": "a0b60c8b24e24a725915829b7c9964f81fee8538411eb6f5e163d14da00835af",
+      "size": 333
+    },
+    "turtle-crypt/dbc/MapDifficulty.dbc": {
+      "kind": "dbc-delta",
+      "path": "dbc/MapDifficulty.dbc",
+      "sha256": "a38986f6496d1d338ca444e1dda2141837c33494ea67cc626ffd40cddfd54c35",
+      "size": 113
+    },
+    "turtle-crypt/dbc/WorldMapArea.dbc": {
+      "kind": "dbc-delta",
+      "path": "dbc/WorldMapArea.dbc",
+      "sha256": "27a4b13221c64c6ffada16ddcbb8c6cfd4c78c989cf4e2df97884d77b3c5c254",
+      "size": 79
+    },
+    "turtle-crypt/maps/8005234.map": {
+      "kind": "copy",
+      "path": "maps/8005234.map",
+      "sha256": "37b4ed1a7de009f3afa2c788409f9df1216a1e56e6bd969180b18c363e01145a",
+      "size": 66630
+    },
+    "turtle-crypt/maps/8005235.map": {
+      "kind": "copy",
+      "path": "maps/8005235.map",
+      "sha256": "e01d862593e6d7f2b4139520e0060ed9b72cf371626c4441129716eb34798662",
+      "size": 93278
+    },
+    "turtle-crypt/maps/8005236.map": {
+      "kind": "copy",
+      "path": "maps/8005236.map",
+      "sha256": "104b86420e248ad830d6b20460b90b43ca0ab9ae10c29962bf79df9f6cfafb01",
+      "size": 67926
+    },
+    "turtle-crypt/maps/8005334.map": {
+      "kind": "copy",
+      "path": "maps/8005334.map",
+      "sha256": "bbcfd8eef2ea758baa66805d6eae4a4dbac5b726c86b5d61bac0b446d86c761c",
+      "size": 79382
+    },
+    "turtle-crypt/maps/8005335.map": {
+      "kind": "copy",
+      "path": "maps/8005335.map",
+      "sha256": "b08a9a2e0d2ae3508e04507ad0d0211c3359098e1f99923ab1b73f97dea84bf4",
+      "size": 71606
+    },
+    "turtle-crypt/maps/8005336.map": {
+      "kind": "copy",
+      "path": "maps/8005336.map",
+      "sha256": "5340b2bc4d93bae164a6902b52a2d2ab5556f67eade20768a2e6e541a0bc10e5",
+      "size": 66118
+    },
+    "turtle-crypt/mmaps/800.mmap": {
+      "kind": "copy",
+      "path": "mmaps/800.mmap",
+      "sha256": "3a64036ad33ce1e92ba5e1c4f19dc7c96cf775f631e9f7ac0e89a962a73afa15",
+      "size": 28
+    },
+    "turtle-crypt/mmaps/8005234.mmtile": {
+      "kind": "copy",
+      "path": "mmaps/8005234.mmtile",
+      "sha256": "6a6e9f585af2016bbd7969c145c7c5874d9c1a1794b3105e0818dab2654be470",
+      "size": 3088952
+    },
+    "turtle-crypt/mmaps/8005235.mmtile": {
+      "kind": "copy",
+      "path": "mmaps/8005235.mmtile",
+      "sha256": "20da70c08443295bcf916be3c1c8974b01534efa8de08b92d044d143cbe4e20e",
+      "size": 5714852
+    },
+    "turtle-crypt/mmaps/8005236.mmtile": {
+      "kind": "copy",
+      "path": "mmaps/8005236.mmtile",
+      "sha256": "93e0ca1ace60f1c5a02d69bf54c59606999bd62155e3a0be7e19e8c938d34126",
+      "size": 5204068
+    },
+    "turtle-crypt/mmaps/8005334.mmtile": {
+      "kind": "copy",
+      "path": "mmaps/8005334.mmtile",
+      "sha256": "6bd7ed3994663353d9438ed23991af66c620494150bede858aef42bb4874ec34",
+      "size": 3529208
+    },
+    "turtle-crypt/mmaps/8005335.mmtile": {
+      "kind": "copy",
+      "path": "mmaps/8005335.mmtile",
+      "sha256": "06556de74f30e60caab6ee5442b9eed8746173cd4abb931bbdf15488f3e275c4",
+      "size": 3566056
+    },
+    "turtle-crypt/mmaps/8005336.mmtile": {
+      "kind": "copy",
+      "path": "mmaps/8005336.mmtile",
+      "sha256": "d1b451b198fc45ff0a57bd2e1acaf674e69dc6cf9cbdf1547c4c6593066d5aae",
+      "size": 2706788
+    },
+    "turtle-crypt/vmaps/800.vmtree": {
+      "kind": "copy",
+      "path": "vmaps/800.vmtree",
+      "sha256": "ba881642916c5466d5cc7e6b6ce4786750cd594df47f17f6ac7888513cf25e2c",
+      "size": 81781
+    },
+    "turtle-crypt/vmaps/800_34_52.vmtile": {
+      "kind": "copy",
+      "path": "vmaps/800_34_52.vmtile",
+      "sha256": "174fcf5a867524ea5b21de4dc9dd24120aef5def80cb4f1a3bd6b66971f7d349",
+      "size": 94333
+    },
+    "turtle-crypt/vmaps/800_34_53.vmtile": {
+      "kind": "copy",
+      "path": "vmaps/800_34_53.vmtile",
+      "sha256": "b19bdf3d587e37c957709c60a1af9f102a3c24db9a96d385d7eda08943e5cb9b",
+      "size": 87070
+    },
+    "turtle-crypt/vmaps/800_35_52.vmtile": {
+      "kind": "copy",
+      "path": "vmaps/800_35_52.vmtile",
+      "sha256": "42417d04b2d4df5591ac2e2efe4710744feb1683f18c92e3cf3ed5d080edd190",
+      "size": 154893
+    },
+    "turtle-crypt/vmaps/800_35_53.vmtile": {
+      "kind": "copy",
+      "path": "vmaps/800_35_53.vmtile",
+      "sha256": "f7f1120b69fbcdd6d4eb4de9edbb64e30c646dadf86ac5c24ff476b286bf3483",
+      "size": 90625
+    },
+    "turtle-crypt/vmaps/800_36_52.vmtile": {
+      "kind": "copy",
+      "path": "vmaps/800_36_52.vmtile",
+      "sha256": "713085dce9a94145fd8c4b42cf70d2e7000a75e2dbf7be2b05f587964456d063",
+      "size": 90867
+    },
+    "turtle-crypt/vmaps/800_36_53.vmtile": {
+      "kind": "copy",
+      "path": "vmaps/800_36_53.vmtile",
+      "sha256": "69f41adb20f6e66fce560d4d5297089e88f189ed36b684d26cd0406439f32fb2",
+      "size": 16020
+    },
+    "turtle-crypt/vmaps/Abandonedorcbarracks.wmo.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Abandonedorcbarracks.wmo.vmo",
+      "sha256": "8588b7960f4e047cc4ef37894165a5a164c2c1c228d8026f75cd04fd2ca87df0",
+      "size": 216516
+    },
+    "turtle-crypt/vmaps/Altarofstorms.wmo.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Altarofstorms.wmo.vmo",
+      "sha256": "24226bf6c68e9fc8f969702a7489c8a8e94347238096532f55d087c68e7f97ed",
+      "size": 251832
+    },
+    "turtle-crypt/vmaps/Arathifarmhouse02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Arathifarmhouse02.m2.vmo",
+      "sha256": "6241d9f35f61719dfeeee19749c6c15b5d3792b986ee3e648d9e64683e2a9d2f",
+      "size": 3284
+    },
+    "turtle-crypt/vmaps/Ashenvaletreelog01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Ashenvaletreelog01.m2.vmo",
+      "sha256": "655ef9bc4fe47c5c18fa3302bd92150286bad2effc3e9f9f953f66700d1a5435",
+      "size": 1396
+    },
+    "turtle-crypt/vmaps/Ashenvaletreelog02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Ashenvaletreelog02.m2.vmo",
+      "sha256": "2f9f650e877680ba2c19124cf944918b77d1b84dea7ef9f8520c1bd27ea498b3",
+      "size": 2280
+    },
+    "turtle-crypt/vmaps/Badlandsbones02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Badlandsbones02.m2.vmo",
+      "sha256": "5a2f9ae9bc46891070514b649af84727fcf76b9475f156a1bf5d1bae83ff19a0",
+      "size": 9900
+    },
+    "turtle-crypt/vmaps/Badlandssunkenwagon.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Badlandssunkenwagon.m2.vmo",
+      "sha256": "431c155e4ee6415997c8857ee406f9afdf6d874fd6f8d0864245d1cae3a91f38",
+      "size": 3736
+    },
+    "turtle-crypt/vmaps/Barrel01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Barrel01.m2",
+      "sha256": "a87248d5b927d895d547fd3fc4da6697bdd1f8feddfb530d972285fa5bdd769b",
+      "size": 848
+    },
+    "turtle-crypt/vmaps/Barrel01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Barrel01.m2.vmo",
+      "sha256": "a87248d5b927d895d547fd3fc4da6697bdd1f8feddfb530d972285fa5bdd769b",
+      "size": 848
+    },
+    "turtle-crypt/vmaps/Barrel02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Barrel02.m2.vmo",
+      "sha256": "f0e993f74fc2f50c3fd7c9defe88f38388ff1eff545a8d2f304e96d35c3ffcd0",
+      "size": 1120
+    },
+    "turtle-crypt/vmaps/Beerkeg01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Beerkeg01.m2",
+      "sha256": "1cb8a8f569202aafb5ef0e5c0e1d8f34ebea68fd22b98951c733a99daced1333",
+      "size": 4000
+    },
+    "turtle-crypt/vmaps/Bigcandle.m2": {
+      "kind": "copy",
+      "path": "vmaps/Bigcandle.m2",
+      "sha256": "2ca0e68e516887940ed9d0da96899937ff081a7a88829cdb84b9c42bfc416ed7",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Blastedlandsashtree03.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Blastedlandsashtree03.m2.vmo",
+      "sha256": "b813d84dedd5e83801920f5e5c55b4d80bb096d5c1b770b199f3d8eab8a11436",
+      "size": 2392
+    },
+    "turtle-crypt/vmaps/Blastedlandsblastedcow.m2": {
+      "kind": "copy",
+      "path": "vmaps/Blastedlandsblastedcow.m2",
+      "sha256": "732b7fb81ff2594577fe3430405107683fb7a24a6f5d40299986938e9e84f566",
+      "size": 4324
+    },
+    "turtle-crypt/vmaps/Blastedlandsblastedmule.m2": {
+      "kind": "copy",
+      "path": "vmaps/Blastedlandsblastedmule.m2",
+      "sha256": "de6694216ec829f3259ab9fc2661c75d58f96fed0b6eda084088f73786eaf995",
+      "size": 3232
+    },
+    "turtle-crypt/vmaps/Blastedlandsblastedtree01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Blastedlandsblastedtree01.m2.vmo",
+      "sha256": "2ef25e47c6a60558be360fd4a4ea2e2859187f68fb21977aa802c49e698500b5",
+      "size": 1548
+    },
+    "turtle-crypt/vmaps/Blastedlandsblastedtree03.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Blastedlandsblastedtree03.m2.vmo",
+      "sha256": "bf488078042334c331498e22a139af72361155f7aeec5494089bddbd1ded77c2",
+      "size": 2960
+    },
+    "turtle-crypt/vmaps/Blastedlandsbone01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Blastedlandsbone01.m2",
+      "sha256": "56e77aae0ce21fb5126cffb68f5746067ae9bbd9cd4153706d3ca34d8736e1e9",
+      "size": 680
+    },
+    "turtle-crypt/vmaps/Blastedlandsbone01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Blastedlandsbone01.m2.vmo",
+      "sha256": "56e77aae0ce21fb5126cffb68f5746067ae9bbd9cd4153706d3ca34d8736e1e9",
+      "size": 680
+    },
+    "turtle-crypt/vmaps/Blastedlandsrock01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Blastedlandsrock01.m2.vmo",
+      "sha256": "65a43b1ad3f9d2d896ab1c127334b88ae435a4d9a535b6247ea272fce1588d7f",
+      "size": 872
+    },
+    "turtle-crypt/vmaps/Blastedlandsroot01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Blastedlandsroot01.m2.vmo",
+      "sha256": "db275ace3704e901a0655ca938f482f94a91021b256cbbb31143ce6a6e784eca",
+      "size": 420
+    },
+    "turtle-crypt/vmaps/Blastedlandsroot03.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Blastedlandsroot03.m2.vmo",
+      "sha256": "5e031c78cdacc3ab50dc62037cc260d61e56cb809d110e4cef38871e6e33aac5",
+      "size": 396
+    },
+    "turtle-crypt/vmaps/Bloodymeat01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Bloodymeat01.m2",
+      "sha256": "e1a8750085e65ad09026ef70bc53f4c53c7e9faa09866eaae00cd9d3007d44d5",
+      "size": 520
+    },
+    "turtle-crypt/vmaps/Bloodymeat02.m2": {
+      "kind": "copy",
+      "path": "vmaps/Bloodymeat02.m2",
+      "sha256": "3cdb1b8b1e3865e3cc4a5b5c97c9a946cd91a93715e151b138f7fec4543dd720",
+      "size": 520
+    },
+    "turtle-crypt/vmaps/Boarskull.m2": {
+      "kind": "copy",
+      "path": "vmaps/Boarskull.m2",
+      "sha256": "295e44f5755444c171e6602ec7a3272305d2b6e1072967fe72858a97b8a93315",
+      "size": 576
+    },
+    "turtle-crypt/vmaps/Bottle01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Bottle01.m2",
+      "sha256": "a817b7b1fd8b06dd364fdd5eac3ed698756d2756f8abcb0b6db829267d38aad1",
+      "size": 520
+    },
+    "turtle-crypt/vmaps/Bottlesmoke.m2": {
+      "kind": "copy",
+      "path": "vmaps/Bottlesmoke.m2",
+      "sha256": "d66646ab2656c324f719fcfbf0ff4bda65ec8df3355e57481f817d345e8f6411",
+      "size": 544
+    },
+    "turtle-crypt/vmaps/Brillcoffins.m2": {
+      "kind": "copy",
+      "path": "vmaps/Brillcoffins.m2",
+      "sha256": "edfb709751d94e81cfd33322ccd8b8363f4730b7d9fe27ea27d54db18f2eefe4",
+      "size": 872
+    },
+    "turtle-crypt/vmaps/Brokenbarrel02.m2": {
+      "kind": "copy",
+      "path": "vmaps/Brokenbarrel02.m2",
+      "sha256": "46cd3e6e80061208f92e8292cbfbd7cb6005b4c0b75030424eb97d02499ed319",
+      "size": 1640
+    },
+    "turtle-crypt/vmaps/Brokenbarrel02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Brokenbarrel02.m2.vmo",
+      "sha256": "46cd3e6e80061208f92e8292cbfbd7cb6005b4c0b75030424eb97d02499ed319",
+      "size": 1640
+    },
+    "turtle-crypt/vmaps/Brokencart.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Brokencart.m2.vmo",
+      "sha256": "c4a19c98971b9f1f54a871feafd2eba888156ac8d11a1a9d76253d3d94fb5b15",
+      "size": 7600
+    },
+    "turtle-crypt/vmaps/Brokengatechain01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Brokengatechain01.m2",
+      "sha256": "d306e3ff0f1cd787d4305c767952eca7adc8633382c01f2af1687d9de37eb4e6",
+      "size": 1028
+    },
+    "turtle-crypt/vmaps/Brokengatechain02.m2": {
+      "kind": "copy",
+      "path": "vmaps/Brokengatechain02.m2",
+      "sha256": "ff2046b6ddc90aa0689d3c3490b01938e205e0d72a300d4e90097e76d62c74c3",
+      "size": 1064
+    },
+    "turtle-crypt/vmaps/Bucket.m2": {
+      "kind": "copy",
+      "path": "vmaps/Bucket.m2",
+      "sha256": "0dbcd770188b73fb32dd1fe9e5ff09049232913d289ceda82be0eb713285cc35",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Burnedbeam.m2": {
+      "kind": "copy",
+      "path": "vmaps/Burnedbeam.m2",
+      "sha256": "58a8827458856f0cb7c62c5260a21434c6d1a61a6b8d24ab1f754c549dc12d8a",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Burnedbeam.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Burnedbeam.m2.vmo",
+      "sha256": "58a8827458856f0cb7c62c5260a21434c6d1a61a6b8d24ab1f754c549dc12d8a",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Burningmidtree03.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Burningmidtree03.m2.vmo",
+      "sha256": "a771b4c321e2f7426bd2d287eff0f8291916faa82d6175c769fe4ac98249c9ea",
+      "size": 1848
+    },
+    "turtle-crypt/vmaps/Butterchurner.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Butterchurner.m2.vmo",
+      "sha256": "1bc303573dd9213cb45185d91c7b34b3e7fd7de06e64d0715cfb6812ec1b4331",
+      "size": 1304
+    },
+    "turtle-crypt/vmaps/Cage02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Cage02.m2.vmo",
+      "sha256": "98e11fec4fe3be456ca85e7dae8a39667f1b59de2653c8c0c24a01719c92122c",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Cage03.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Cage03.m2.vmo",
+      "sha256": "193eb7af0a8377d4679dabf2ad01124cd80d7c8d3593af0155b1596866d81c4a",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Candelabratall02.m2": {
+      "kind": "copy",
+      "path": "vmaps/Candelabratall02.m2",
+      "sha256": "721ea158221045a1d29a3c42fcfb5fdfa5d34f9517a25ddfccd83dde399fa755",
+      "size": 2288
+    },
+    "turtle-crypt/vmaps/Candleoff01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Candleoff01.m2",
+      "sha256": "89ffb05cc2463eef1f79dcc4e927af3a49b814edcff0cbb31479f7b51207f4b1",
+      "size": 340
+    },
+    "turtle-crypt/vmaps/Candleoff02.m2": {
+      "kind": "copy",
+      "path": "vmaps/Candleoff02.m2",
+      "sha256": "e5bf4df54b3bc6ae277434dbb219029d82142cfe92e18a98b709934d4f474e98",
+      "size": 684
+    },
+    "turtle-crypt/vmaps/Candleoff03.m2": {
+      "kind": "copy",
+      "path": "vmaps/Candleoff03.m2",
+      "sha256": "5f4d07ebf3679c002ca86658c2ea95004eb94c9141c339abe8cabffb4d504342",
+      "size": 520
+    },
+    "turtle-crypt/vmaps/Carnosaurskull.m2": {
+      "kind": "copy",
+      "path": "vmaps/Carnosaurskull.m2",
+      "sha256": "4b14d3be6545991b0f1244597113e47bbd83e1e1519927d4d022986012e7feee",
+      "size": 576
+    },
+    "turtle-crypt/vmaps/Catapult.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Catapult.m2.vmo",
+      "sha256": "10cd75264e50dc89d05457d80372346562a75271e8f182b7662e10f747a4d6be",
+      "size": 16648
+    },
+    "turtle-crypt/vmaps/Catapultbeam.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Catapultbeam.m2.vmo",
+      "sha256": "db2a99df996831948924c60410b07e96240f9488ec2dce72c4b6b9211b6235aa",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Cauldronempty.m2": {
+      "kind": "copy",
+      "path": "vmaps/Cauldronempty.m2",
+      "sha256": "bf00a46be4dd10fe01cd8468b62bd7017b3c43cdfeecf911a15010152f1225ef",
+      "size": 1712
+    },
+    "turtle-crypt/vmaps/Cauldronempty.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Cauldronempty.m2.vmo",
+      "sha256": "bf00a46be4dd10fe01cd8468b62bd7017b3c43cdfeecf911a15010152f1225ef",
+      "size": 1712
+    },
+    "turtle-crypt/vmaps/Cavekoboldbucket.m2": {
+      "kind": "copy",
+      "path": "vmaps/Cavekoboldbucket.m2",
+      "sha256": "894764fa93b1f5a71851599e5417d6d8e1476fd741ea8cdf0e2712967dbe2bad",
+      "size": 960
+    },
+    "turtle-crypt/vmaps/Cavekoboldbucket.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Cavekoboldbucket.m2.vmo",
+      "sha256": "894764fa93b1f5a71851599e5417d6d8e1476fd741ea8cdf0e2712967dbe2bad",
+      "size": 960
+    },
+    "turtle-crypt/vmaps/Cavekobolddredge.m2": {
+      "kind": "copy",
+      "path": "vmaps/Cavekobolddredge.m2",
+      "sha256": "1bafd2a4990c2f8989a9f1ec3908cb1c0f56b19a9131a10358dd6ac8dd01ed34",
+      "size": 3996
+    },
+    "turtle-crypt/vmaps/Cavekoboldminemachine.m2": {
+      "kind": "copy",
+      "path": "vmaps/Cavekoboldminemachine.m2",
+      "sha256": "55c0962adc89184f5bae3303736776a4ffbdec1f04d33c1ec32b2eb4aafa4789",
+      "size": 1680
+    },
+    "turtle-crypt/vmaps/Caveminecar01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Caveminecar01.m2",
+      "sha256": "a20da8cdbb7f25da775093d2382c45995e6db2d06dcb386f791754f4152bbff5",
+      "size": 1688
+    },
+    "turtle-crypt/vmaps/Caveminewheelbarrow01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Caveminewheelbarrow01.m2",
+      "sha256": "ec15b2b9651fd535882929eef1b2784f1e8a952190cde8e696b418855c6b1d0e",
+      "size": 2276
+    },
+    "turtle-crypt/vmaps/Caveminewheelbarrow01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Caveminewheelbarrow01.m2.vmo",
+      "sha256": "ec15b2b9651fd535882929eef1b2784f1e8a952190cde8e696b418855c6b1d0e",
+      "size": 2276
+    },
+    "turtle-crypt/vmaps/Cemetarygate01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Cemetarygate01.m2.vmo",
+      "sha256": "8d8f6b6522547bdbc17862a1dcf271e151a010abfd2bbcaf987ad47201c67b57",
+      "size": 5528
+    },
+    "turtle-crypt/vmaps/Chainedskeleton01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Chainedskeleton01.m2",
+      "sha256": "4c3a040604ec305c938dc5d5dabb3476add5063d3179127c9a6b44a143531181",
+      "size": 1052
+    },
+    "turtle-crypt/vmaps/Chainedskeleton02.m2": {
+      "kind": "copy",
+      "path": "vmaps/Chainedskeleton02.m2",
+      "sha256": "205e2afb358997d403c304bab9616040dd7765150b0c6ad101444cf8146024fc",
+      "size": 1052
+    },
+    "turtle-crypt/vmaps/Chainedskeleton03.m2": {
+      "kind": "copy",
+      "path": "vmaps/Chainedskeleton03.m2",
+      "sha256": "c4358d4f0748e6321252ef071223efaf9b122660f496912d66b2716fb5f29b3f",
+      "size": 1304
+    },
+    "turtle-crypt/vmaps/Chainedskeleton04.m2": {
+      "kind": "copy",
+      "path": "vmaps/Chainedskeleton04.m2",
+      "sha256": "1597761f21b195430db35511999b1a6007fbbaad862cb3113268a9e33ed07467",
+      "size": 1268
+    },
+    "turtle-crypt/vmaps/Coffin.m2": {
+      "kind": "copy",
+      "path": "vmaps/Coffin.m2",
+      "sha256": "7c83e3fbc5c68de8c51d6332280a3dc731b6bf78d3d01da6172ad0941d1c6f48",
+      "size": 1868
+    },
+    "turtle-crypt/vmaps/Coffin.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Coffin.m2.vmo",
+      "sha256": "7c83e3fbc5c68de8c51d6332280a3dc731b6bf78d3d01da6172ad0941d1c6f48",
+      "size": 1868
+    },
+    "turtle-crypt/vmaps/Coffinlid.m2": {
+      "kind": "copy",
+      "path": "vmaps/Coffinlid.m2",
+      "sha256": "d91809727ce5f5a1b6f465eb90b31a33b18d8f07a0660b989a77122688a8e5ec",
+      "size": 872
+    },
+    "turtle-crypt/vmaps/Coffinlid.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Coffinlid.m2.vmo",
+      "sha256": "d91809727ce5f5a1b6f465eb90b31a33b18d8f07a0660b989a77122688a8e5ec",
+      "size": 872
+    },
+    "turtle-crypt/vmaps/Crate01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Crate01.m2",
+      "sha256": "7c222ef09f708ed397ab0c1bb85edc80ebf2c4eba89ae58f84ba775dfecc17be",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Crate01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Crate01.m2.vmo",
+      "sha256": "7c222ef09f708ed397ab0c1bb85edc80ebf2c4eba89ae58f84ba775dfecc17be",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Crate02.m2": {
+      "kind": "copy",
+      "path": "vmaps/Crate02.m2",
+      "sha256": "8659ab37cb288f3877941070a58db4c9ccc020c582482ff74d4e740e4ffd7eed",
+      "size": 624
+    },
+    "turtle-crypt/vmaps/Crate02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Crate02.m2.vmo",
+      "sha256": "8659ab37cb288f3877941070a58db4c9ccc020c582482ff74d4e740e4ffd7eed",
+      "size": 624
+    },
+    "turtle-crypt/vmaps/Crate03.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Crate03.m2.vmo",
+      "sha256": "bb8136667c643622081205a36e9c9e6f676ac57c4f63baede4a8fa710b0cd163",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Crategrain01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Crategrain01.m2",
+      "sha256": "9d8752687f78dcffb5fa8b6ecaad74283c9213aa4f98f97cf96f0a4a670ab739",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Crategrain01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Crategrain01.m2.vmo",
+      "sha256": "9d8752687f78dcffb5fa8b6ecaad74283c9213aa4f98f97cf96f0a4a670ab739",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Darkhaypilemedium01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Darkhaypilemedium01.m2",
+      "sha256": "1699b9672c1abae671a86a49a279d426f7bfe594e9c0d0a5027df72cbf8fd515",
+      "size": 824
+    },
+    "turtle-crypt/vmaps/Darkironkeg01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Darkironkeg01.m2",
+      "sha256": "55cd11dc1eee05450e5b693b74b968837a2c15b4a5f33d8a5dbc2453882c15ee",
+      "size": 2232
+    },
+    "turtle-crypt/vmaps/Darkironkegbroken01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Darkironkegbroken01.m2",
+      "sha256": "dd4ecb535e35e88d0cae46a79740cc34709995f357732912bb478e561c679667",
+      "size": 2448
+    },
+    "turtle-crypt/vmaps/Darkironkegbroken02.m2": {
+      "kind": "copy",
+      "path": "vmaps/Darkironkegbroken02.m2",
+      "sha256": "c7f1efe2cba24b9769c1a7e2805268f3171b00ea9690a6312cc8f8da66c5903d",
+      "size": 4332
+    },
+    "turtle-crypt/vmaps/Darkironkegstand01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Darkironkegstand01.m2",
+      "sha256": "eac8f877a59168d9aab96be62ce5fc6b22b083648c45a7710b8576ebc5a858eb",
+      "size": 1576
+    },
+    "turtle-crypt/vmaps/Darkironkegwstand01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Darkironkegwstand01.m2",
+      "sha256": "805e2084bf5ae003891b2afc128f17661f3d59a487c87cc46bd1739518a32054",
+      "size": 1280
+    },
+    "turtle-crypt/vmaps/Deadminecargoboxes.m2": {
+      "kind": "copy",
+      "path": "vmaps/Deadminecargoboxes.m2",
+      "sha256": "d612b00cd4c37f0e31d0b316ae59a1470327695133f43e5343b9f9223ead1e1f",
+      "size": 3144
+    },
+    "turtle-crypt/vmaps/Deadminecargonetboxes.m2": {
+      "kind": "copy",
+      "path": "vmaps/Deadminecargonetboxes.m2",
+      "sha256": "3c50b605fb989fd41d754a80d1a713a5668687d358e075ad9fdefd1f086d4ca1",
+      "size": 568
+    },
+    "turtle-crypt/vmaps/Deadminecargonethangshort.m2": {
+      "kind": "copy",
+      "path": "vmaps/Deadminecargonethangshort.m2",
+      "sha256": "3740d34c7a7a55323860c3b1264b3aa2d2c9ca0aa1aac765a96ec72cae31df3f",
+      "size": 984
+    },
+    "turtle-crypt/vmaps/Deadminelumberpilesmall.m2": {
+      "kind": "copy",
+      "path": "vmaps/Deadminelumberpilesmall.m2",
+      "sha256": "279d974587648515c8441ec59e5f334b8a4ac7291a17148dbbf23341e7e4e7d7",
+      "size": 1144
+    },
+    "turtle-crypt/vmaps/Deadmule.m2": {
+      "kind": "copy",
+      "path": "vmaps/Deadmule.m2",
+      "sha256": "301752d537bd84b15114e4668fe15dd285200decd442780794cc4cc49e5722a1",
+      "size": 2204
+    },
+    "turtle-crypt/vmaps/Deadwindpasscliffrock01Dnr.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Deadwindpasscliffrock01Dnr.m2.vmo",
+      "sha256": "1186f98a45cef0cea37ab16e6d19b0e511d81be33ae6f47ccde3a08f0e9a6df2",
+      "size": 1144
+    },
+    "turtle-crypt/vmaps/Deadwindpasscliffrock02Dnr.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Deadwindpasscliffrock02Dnr.m2.vmo",
+      "sha256": "7a6af4d1323802764d7fa4cb34c4e730c539a5e70c4dcc5d1ca69802ac2f6b50",
+      "size": 1168
+    },
+    "turtle-crypt/vmaps/Deadwindpasscliffrock03Dnr.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Deadwindpasscliffrock03Dnr.m2.vmo",
+      "sha256": "524212c120e600243c6dc1552ab7b75f9e2ef7e0b8373ca9d2d08ae1989867ea",
+      "size": 1144
+    },
+    "turtle-crypt/vmaps/Deadwindpasscliffrock04Dnr.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Deadwindpasscliffrock04Dnr.m2.vmo",
+      "sha256": "1ec21df70892019170ff0993bda4099e34502360962054fc4812f7877174fbb1",
+      "size": 1204
+    },
+    "turtle-crypt/vmaps/Deadwindpasscliffrock05Dnr.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Deadwindpasscliffrock05Dnr.m2.vmo",
+      "sha256": "e9a5a6a9c280ab6bd2710d558f50070f3207abe5f99dd4911a42cdc6cc3e7c93",
+      "size": 1180
+    },
+    "turtle-crypt/vmaps/Deadwindpassgroundrock01Dnr.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Deadwindpassgroundrock01Dnr.m2.vmo",
+      "sha256": "1cf5be344620c7c1180d56d392fe90127d9bc331ea1a016d67b32fae3c5d4954",
+      "size": 1008
+    },
+    "turtle-crypt/vmaps/Deadwindpassgroundrock02Dnr.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Deadwindpassgroundrock02Dnr.m2.vmo",
+      "sha256": "ba7cd3899a291f98685b683148b4a91fca7fa8012d42b6173516642b19b319a5",
+      "size": 1144
+    },
+    "turtle-crypt/vmaps/Deadwindpassgroundrock03Dnr.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Deadwindpassgroundrock03Dnr.m2.vmo",
+      "sha256": "8dd0ec5da2ec61f22e3a1060249e4128ee0f08a6d21e59554ad44f6b361fbdff",
+      "size": 1144
+    },
+    "turtle-crypt/vmaps/Deadwindpassmidtree01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Deadwindpassmidtree01.m2.vmo",
+      "sha256": "58ab8ba85e61d13e64597fa0a0bf64703851ba18688588297ff132fb9d53fe27",
+      "size": 4348
+    },
+    "turtle-crypt/vmaps/Deadwindpassmidtree02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Deadwindpassmidtree02.m2.vmo",
+      "sha256": "0893018df104976f35c2b211aff3a274df289d0fcdeb5ffe4d2c58477f262d78",
+      "size": 4248
+    },
+    "turtle-crypt/vmaps/Deadwindrockbridge.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Deadwindrockbridge.m2.vmo",
+      "sha256": "835b01cb0cef4e3a671d97af6bef532a39b9faa8dc9946b5a8c52cb9e037f811",
+      "size": 1068
+    },
+    "turtle-crypt/vmaps/Deadwindtotem01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Deadwindtotem01.m2.vmo",
+      "sha256": "a8addc6b4fbbd17f78a60c346d1f6e31f075265a63b19cec72ca84e4e6e2d988",
+      "size": 840
+    },
+    "turtle-crypt/vmaps/Deadwindtotem02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Deadwindtotem02.m2.vmo",
+      "sha256": "15dd474147c1e9977136ce13541b8adc29e7b7a25035a98bf06a976fa4b7f260",
+      "size": 1280
+    },
+    "turtle-crypt/vmaps/Deadwindtotem03.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Deadwindtotem03.m2.vmo",
+      "sha256": "928ade7c080487175d1fd31cf8ed3247b9552ea948e9cd9e3ea9da5c785559d1",
+      "size": 1380
+    },
+    "turtle-crypt/vmaps/Deadwindtotem04.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Deadwindtotem04.m2.vmo",
+      "sha256": "2c83a2851c543d500551ba0742c2fc354dced7d914b80a620ef80eec491de969",
+      "size": 1692
+    },
+    "turtle-crypt/vmaps/Dirtmound01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Dirtmound01.m2.vmo",
+      "sha256": "e874be2ec864109467d5528b7b5917857d025527f2ca4259b1d4f548617341ae",
+      "size": 1044
+    },
+    "turtle-crypt/vmaps/Doghouse.m2": {
+      "kind": "copy",
+      "path": "vmaps/Doghouse.m2",
+      "sha256": "bf281deb10c167f785f7cd6eac2f4c9ede4fb60d0d66232bc461f3dc8b1233bb",
+      "size": 760
+    },
+    "turtle-crypt/vmaps/Dragonbonesbody.m2": {
+      "kind": "copy",
+      "path": "vmaps/Dragonbonesbody.m2",
+      "sha256": "d62afdbac49d81bfa205f68d1762c3cc86dfd5bb5e979ff1244ec24c00599da9",
+      "size": 7672
+    },
+    "turtle-crypt/vmaps/Duskscarecrow.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Duskscarecrow.m2.vmo",
+      "sha256": "4544892d837eb04eaf0e2c9020136cc9cd5189822b9870c3283d6c888d35a7dd",
+      "size": 1124
+    },
+    "turtle-crypt/vmaps/Duskwood_Barn.wmo.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Duskwood_Barn.wmo.vmo",
+      "sha256": "063a2971275f51dec30e6296ba7b4a0bfd354333eb75511c494fbf2d1ff89860",
+      "size": 88032
+    },
+    "turtle-crypt/vmaps/Duskwood_Human_Farm.wmo.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Duskwood_Human_Farm.wmo.vmo",
+      "sha256": "b21af387b92bc553ad26b83afb40f74aaa5e53f5ace4ad37c3cd48020e3e087d",
+      "size": 41732
+    },
+    "turtle-crypt/vmaps/Duskwoodabandoned_Human_Farm.wmo.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Duskwoodabandoned_Human_Farm.wmo.vmo",
+      "sha256": "b5e3557fd0b56d3504dc18c5c1b51f3b30d076a653a85a0a5e5db74862c26f9b",
+      "size": 42036
+    },
+    "turtle-crypt/vmaps/Duskwoodbench.m2": {
+      "kind": "copy",
+      "path": "vmaps/Duskwoodbench.m2",
+      "sha256": "7de7b307d01f29a9820fba8f5aad6cbd3fbdb7c184eab293ccf56c8335da7ede",
+      "size": 2168
+    },
+    "turtle-crypt/vmaps/Duskwoodbench.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Duskwoodbench.m2.vmo",
+      "sha256": "7de7b307d01f29a9820fba8f5aad6cbd3fbdb7c184eab293ccf56c8335da7ede",
+      "size": 2168
+    },
+    "turtle-crypt/vmaps/Duskwoodboarhead01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Duskwoodboarhead01.m2",
+      "sha256": "7885f6b8d8141d4520aaee461d80f2f9fbb335376d79d0e604e32092f2120efa",
+      "size": 1592
+    },
+    "turtle-crypt/vmaps/Duskwoodbrowntree.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Duskwoodbrowntree.m2.vmo",
+      "sha256": "0d2413f865a1bfcda542e09d74ae0e71e4ed684e6e25eb6e8654780814efe904",
+      "size": 616
+    },
+    "turtle-crypt/vmaps/Duskwoodchapel.wmo.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Duskwoodchapel.wmo.vmo",
+      "sha256": "a04be08af6dbfdcb061fc2a4285e3dcc6155661c7669f9f71c6c483c90ca559f",
+      "size": 97828
+    },
+    "turtle-crypt/vmaps/Duskwoodfallentree02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Duskwoodfallentree02.m2.vmo",
+      "sha256": "08f5cbe8f4f2f55529cc325cb30ce891caa8cccbc648302f4476279a40d9e377",
+      "size": 1536
+    },
+    "turtle-crypt/vmaps/Duskwoodfencebottom.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Duskwoodfencebottom.m2.vmo",
+      "sha256": "d6f75bdbd79d01af7847f97d81f2c7041347ad730be87ebb8acdce37a6297376",
+      "size": 844
+    },
+    "turtle-crypt/vmaps/Duskwoodfencebottombroken.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Duskwoodfencebottombroken.m2.vmo",
+      "sha256": "b3ab9ae15af0d2ca6afe8706875400bb34a6e0033a337e6384d524d1e00ad1ba",
+      "size": 856
+    },
+    "turtle-crypt/vmaps/Duskwoodfencerail.m2": {
+      "kind": "copy",
+      "path": "vmaps/Duskwoodfencerail.m2",
+      "sha256": "162bf99927d1d18b96608c339259ce89f0cf365ad955b7018a11a88ba3e63d03",
+      "size": 1072
+    },
+    "turtle-crypt/vmaps/Duskwoodfencerail.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Duskwoodfencerail.m2.vmo",
+      "sha256": "162bf99927d1d18b96608c339259ce89f0cf365ad955b7018a11a88ba3e63d03",
+      "size": 1072
+    },
+    "turtle-crypt/vmaps/Duskwoodfencetop.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Duskwoodfencetop.m2.vmo",
+      "sha256": "a4a3116d973e20f91c8feb034b17541f17b1a2bc704de79d3a6bbfd035e096ac",
+      "size": 856
+    },
+    "turtle-crypt/vmaps/Duskwoodfencetopbroken.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Duskwoodfencetopbroken.m2.vmo",
+      "sha256": "5d58767cd075984c0f83c2683c814cac81b46ae7c869972e2d273495a9d217a6",
+      "size": 880
+    },
+    "turtle-crypt/vmaps/Duskwoodfootlocker01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Duskwoodfootlocker01.m2",
+      "sha256": "1004e8d05459b89ef152005293b48729590eea6f16907a3061575d83b06f503e",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Duskwoodgate01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Duskwoodgate01.m2.vmo",
+      "sha256": "ce9bbccd24c44043cbb8d13b42d7d359ef6edec8e2464cc9f6fcdc2f9ff271a5",
+      "size": 520
+    },
+    "turtle-crypt/vmaps/Duskwoodgraveframe.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Duskwoodgraveframe.m2.vmo",
+      "sha256": "2d02c4410e4c58e39fac06cac24186f4e977765de4f0a95fbf3af26ebec98311",
+      "size": 5308
+    },
+    "turtle-crypt/vmaps/Duskwoodhaystack.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Duskwoodhaystack.m2.vmo",
+      "sha256": "797884654769fa867d6fb033b5c2d3d11d9a5d75172342e8f80950db6b759c09",
+      "size": 1332
+    },
+    "turtle-crypt/vmaps/Duskwoodhaywagon.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Duskwoodhaywagon.m2.vmo",
+      "sha256": "c1e3ff6562ab0521ed159d730bf5039ef3b8deab0fc29bad42c51a59ff5d061b",
+      "size": 12416
+    },
+    "turtle-crypt/vmaps/Duskwoodhearse.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Duskwoodhearse.m2.vmo",
+      "sha256": "cd6e00fcf886408926848de2eac9210bcede37fe83fc257a186864454bcb697e",
+      "size": 3996
+    },
+    "turtle-crypt/vmaps/Duskwoodlamppost.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Duskwoodlamppost.m2.vmo",
+      "sha256": "d143dd03023b659e836b95cd4b2c5aa69e91c033a8d72968f8d9c420944f18a9",
+      "size": 1064
+    },
+    "turtle-crypt/vmaps/Duskwoodlamppostbroken.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Duskwoodlamppostbroken.m2.vmo",
+      "sha256": "d143dd03023b659e836b95cd4b2c5aa69e91c033a8d72968f8d9c420944f18a9",
+      "size": 1064
+    },
+    "turtle-crypt/vmaps/Duskwoodtable01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Duskwoodtable01.m2",
+      "sha256": "710408bfe385920a2b63c8822309e2575ec0aaae6340b0d04fac156f9a85dc62",
+      "size": 1948
+    },
+    "turtle-crypt/vmaps/Duskwoodtable01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Duskwoodtable01.m2.vmo",
+      "sha256": "710408bfe385920a2b63c8822309e2575ec0aaae6340b0d04fac156f9a85dc62",
+      "size": 1948
+    },
+    "turtle-crypt/vmaps/Duskwoodtree06.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Duskwoodtree06.m2.vmo",
+      "sha256": "e6996a8ec1cf724c5ab6c17d3df91b4811643a857904f6ee27b56a31cd7ece81",
+      "size": 1692
+    },
+    "turtle-crypt/vmaps/Duskwoodtree07.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Duskwoodtree07.m2.vmo",
+      "sha256": "4d8e6a1aa2685efa873a744c2e4ef2d21e94f99fc344afdc80ed09514c9da4a1",
+      "size": 2008
+    },
+    "turtle-crypt/vmaps/Duskwoodtreecanopy01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Duskwoodtreecanopy01.m2.vmo",
+      "sha256": "3e6b53d83524469a3ed6b1e6cab6d26859d17aae82ba644ff0d89ab47f53d8fb",
+      "size": 1632
+    },
+    "turtle-crypt/vmaps/Duskwoodtreecanopy02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Duskwoodtreecanopy02.m2.vmo",
+      "sha256": "8b1e04bbc7aa803df8cb94675073179f083ae3fbee8862c2afc27504a6cf73c8",
+      "size": 1632
+    },
+    "turtle-crypt/vmaps/Duskwoodtreespookless01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Duskwoodtreespookless01.m2.vmo",
+      "sha256": "74896e3f98f3e91d1192c438de9718f1b04cb506b513fe1ba79f011c16918d97",
+      "size": 1564
+    },
+    "turtle-crypt/vmaps/Duskwoodtreespookless02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Duskwoodtreespookless02.m2.vmo",
+      "sha256": "c076911cf9793dd1b7690ab4450c8841160f320b2233968068b3addfd6a03a88",
+      "size": 1564
+    },
+    "turtle-crypt/vmaps/Duskwoodtreestump02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Duskwoodtreestump02.m2.vmo",
+      "sha256": "a7c71f9b0e0dc426024fa4d75c4ed26c12ea4ac859ffb9fc0fcfba8f9985a824",
+      "size": 1260
+    },
+    "turtle-crypt/vmaps/Duskwoodwardrobe01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Duskwoodwardrobe01.m2",
+      "sha256": "6effb2a8bdae7b662ab46e48f073a8a6e5f5bd25c30cbf1c6cb5a010e94443a6",
+      "size": 576
+    },
+    "turtle-crypt/vmaps/Duskwoodwardrobe02.m2": {
+      "kind": "copy",
+      "path": "vmaps/Duskwoodwardrobe02.m2",
+      "sha256": "b129b35c95af52e90091895974996b84d5addce40398c0e1fe83fdfb19d28e2f",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Elwynnstonefence.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Elwynnstonefence.m2.vmo",
+      "sha256": "b56c54c8eaa4d4efb5fd71cb499312031ab7146c410543d48704e5cc4305df96",
+      "size": 2032
+    },
+    "turtle-crypt/vmaps/Elwynnstonefencepost.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Elwynnstonefencepost.m2.vmo",
+      "sha256": "19f8fafe38c92e9c5d13f7f1496094ee01d301854858bb38906d457d4a61935e",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Excavationrailingrail.m2": {
+      "kind": "copy",
+      "path": "vmaps/Excavationrailingrail.m2",
+      "sha256": "0a00fb3439a526eef0d54589ec2858c7037096681d4c9334f3a4d0661f255407",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Excavationwaterwagon.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Excavationwaterwagon.m2.vmo",
+      "sha256": "eee7c228930b644846e3b1e392225e41eccf62eb7edc69ad5cb26d66ac7a0749",
+      "size": 1788
+    },
+    "turtle-crypt/vmaps/Feedtroph01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Feedtroph01.m2.vmo",
+      "sha256": "bcf405407ad3f37f32301c5b0389544011774f76b9bd4bf97671f4a2d38c88a8",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Felwoodmushroom02.m2": {
+      "kind": "copy",
+      "path": "vmaps/Felwoodmushroom02.m2",
+      "sha256": "76becf316ccc5271dcac1e3c32e640659e3c0ae5d70278c03be226c234140da3",
+      "size": 1512
+    },
+    "turtle-crypt/vmaps/Felwoodmushroomanim.m2": {
+      "kind": "copy",
+      "path": "vmaps/Felwoodmushroomanim.m2",
+      "sha256": "aa18a8292d3e846fd0bbd9b19ed1eb9a5887147ab7ad846487922a1234a91745",
+      "size": 980
+    },
+    "turtle-crypt/vmaps/Feralastree01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Feralastree01.m2.vmo",
+      "sha256": "367a9ded396b4769d23697c8f6e3c33c351d2498e76b1506bad8fe22d1f63e71",
+      "size": 1580
+    },
+    "turtle-crypt/vmaps/Feralastree02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Feralastree02.m2.vmo",
+      "sha256": "92ded9b84f4d08a5924470d56d24b22112514974ddf053e761b8b8ac62319186",
+      "size": 6016
+    },
+    "turtle-crypt/vmaps/Feralastree03.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Feralastree03.m2.vmo",
+      "sha256": "409aa2d39fad02e49439f37fb08d90205ad52b1fb201bff46055e0cf690306e1",
+      "size": 1224
+    },
+    "turtle-crypt/vmaps/Feralastree04.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Feralastree04.m2.vmo",
+      "sha256": "7ece38aabebad7a3369544f0a76bd93c5d78b23a242110f8285b2babb6de622e",
+      "size": 13572
+    },
+    "turtle-crypt/vmaps/Feralastree05.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Feralastree05.m2.vmo",
+      "sha256": "f9c871a3d1580639aec2b018049d59b7d24ec10c9e1ba21d8de6ab96a214d77e",
+      "size": 1524
+    },
+    "turtle-crypt/vmaps/Feralastreeroots01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Feralastreeroots01.m2.vmo",
+      "sha256": "1e6a514841e8cb91fece4eab408893894248c97d7bc61e4118d0f9535feb77f8",
+      "size": 2940
+    },
+    "turtle-crypt/vmaps/Feralastreeroots02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Feralastreeroots02.m2.vmo",
+      "sha256": "622fc85ca69af3cdf7b5eb9b0ac0dddc426795c84f1c04a0d2a085f89a7b79e2",
+      "size": 2220
+    },
+    "turtle-crypt/vmaps/Feralastreeroots04.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Feralastreeroots04.m2.vmo",
+      "sha256": "7223f52833c7fe3ea26846381ba6504a6f453eaba604db9f1d52a2ce11195fbe",
+      "size": 28296
+    },
+    "turtle-crypt/vmaps/Freestandingtorch01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Freestandingtorch01.m2.vmo",
+      "sha256": "5f81e1897c5206f0d428d61b9cc0783ac645acbc99883cc8f7517b967faf00df",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Freestandingtorch02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Freestandingtorch02.m2.vmo",
+      "sha256": "5f81e1897c5206f0d428d61b9cc0783ac645acbc99883cc8f7517b967faf00df",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Gatepost.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Gatepost.m2.vmo",
+      "sha256": "81311e2dd7d296d56616f92c3b72eca6f76258dbe0786a251d3be0b5bbf78376",
+      "size": 668
+    },
+    "turtle-crypt/vmaps/Gatesegment01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Gatesegment01.m2.vmo",
+      "sha256": "7f928ba2048f81e4567005abdfd6133541924355854ef9357c2afbefdb8208c3",
+      "size": 1180
+    },
+    "turtle-crypt/vmaps/Gatesegment02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Gatesegment02.m2.vmo",
+      "sha256": "54d190e541c17832a84b8f644798a7fe03ce62a7a60feb99f3f55874c73fd8d9",
+      "size": 1168
+    },
+    "turtle-crypt/vmaps/Gatesegment03.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Gatesegment03.m2.vmo",
+      "sha256": "d1163b7e2a895407dcf3cb6e0e500f328a389396c25768424c1984691d44964e",
+      "size": 1612
+    },
+    "turtle-crypt/vmaps/Gemminecar02.m2": {
+      "kind": "copy",
+      "path": "vmaps/Gemminecar02.m2",
+      "sha256": "abe1c299fc18d75a2e8a628458a0ea2c051f94cf0dd0559d5321d62f51b6aa4f",
+      "size": 1848
+    },
+    "turtle-crypt/vmaps/Generalaltar01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Generalaltar01.m2",
+      "sha256": "ad64db3a3d9ef58b0f3032cff4cf1ac8d4a8aed6e4a005f373481192abb6ac43",
+      "size": 824
+    },
+    "turtle-crypt/vmaps/Generalbookstackshort01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Generalbookstackshort01.m2",
+      "sha256": "866127852b479f7f38e246bc617e45f7d987a9c392ed109684b9cd0130720041",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Generalbookstacktall01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Generalbookstacktall01.m2",
+      "sha256": "3be7adc6ab73d872d13db4b88e07d9837be95f3e439a8a8c97821accbe913355",
+      "size": 816
+    },
+    "turtle-crypt/vmaps/Generalchairhighend01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Generalchairhighend01.m2",
+      "sha256": "8b42a95fd93eaa8dd40a0be2106d0db419a4dda7135138f3d647b5c4d87946d2",
+      "size": 1740
+    },
+    "turtle-crypt/vmaps/Generalchairloend01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Generalchairloend01.m2",
+      "sha256": "b0de1d2217187fb2c3a9a75d6bb09928f63ea67d92496a695a574cce57e7ec69",
+      "size": 1020
+    },
+    "turtle-crypt/vmaps/Generalironmaiden01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Generalironmaiden01.m2",
+      "sha256": "19221a639b743216c054b46578af79d56cbcb487efab2bec036ef4ae1ecd30c7",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Generallantern01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Generallantern01.m2.vmo",
+      "sha256": "fe844944f33b8e81d9c83743795efcb8412592ebfed943e7f5639856ae26b954",
+      "size": 960
+    },
+    "turtle-crypt/vmaps/Generallantern02.m2": {
+      "kind": "copy",
+      "path": "vmaps/Generallantern02.m2",
+      "sha256": "356090725baa31e8a7ba4709c8c6882dd07c5fd9df1861b6f56a5c6dce408ce3",
+      "size": 960
+    },
+    "turtle-crypt/vmaps/Generallantern02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Generallantern02.m2.vmo",
+      "sha256": "356090725baa31e8a7ba4709c8c6882dd07c5fd9df1861b6f56a5c6dce408ce3",
+      "size": 960
+    },
+    "turtle-crypt/vmaps/Generallantern03.m2": {
+      "kind": "copy",
+      "path": "vmaps/Generallantern03.m2",
+      "sha256": "c335ef7107b3c68edc99ee009b1abc10d739971885957a287b0094ac686ac80a",
+      "size": 960
+    },
+    "turtle-crypt/vmaps/Generalrack01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Generalrack01.m2",
+      "sha256": "6d6c93a547a44810f95537de419ab87ba3af2204aa07edd38fa5a2111aa790c2",
+      "size": 2984
+    },
+    "turtle-crypt/vmaps/Generalscribestation01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Generalscribestation01.m2",
+      "sha256": "12a93ddf27720997198333b848c00b1f1344d44b081e3676427bcaa2cf6c0050",
+      "size": 576
+    },
+    "turtle-crypt/vmaps/Generalstocks01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Generalstocks01.m2",
+      "sha256": "901e3a4daf72b780c49f3c2372a6432bc7ba9adb5f81eefdb78407f8e5ed7262",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Generaltorch01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Generaltorch01.m2",
+      "sha256": "461ef42756e12fd98cc95a19259669215dd11da17b66184d54b507953ddbf4d7",
+      "size": 544
+    },
+    "turtle-crypt/vmaps/Generaltorch01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Generaltorch01.m2.vmo",
+      "sha256": "461ef42756e12fd98cc95a19259669215dd11da17b66184d54b507953ddbf4d7",
+      "size": 544
+    },
+    "turtle-crypt/vmaps/Globe01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Globe01.m2",
+      "sha256": "6f0e6bde5c87217b014803ddc122371048b7f2a697b5670ce85fdec7636682dc",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Gnolltent02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Gnolltent02.m2.vmo",
+      "sha256": "592368c469b7210056d2c60c5dbc051d10c09bc3d16c0877e92793f50ca3d8f5",
+      "size": 712
+    },
+    "turtle-crypt/vmaps/Gnolltent03.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Gnolltent03.m2.vmo",
+      "sha256": "dc653be840a7c0a71bc4adda4ba6b661bdda16c55eb11e5c31c9f60e4285b099",
+      "size": 644
+    },
+    "turtle-crypt/vmaps/Goblet02.m2": {
+      "kind": "copy",
+      "path": "vmaps/Goblet02.m2",
+      "sha256": "a6bc4465cb801e45e4e95aaf1d18735d6d54b150f2b89fc1df46cad3b0add0a0",
+      "size": 824
+    },
+    "turtle-crypt/vmaps/Gryphonroost01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Gryphonroost01.m2",
+      "sha256": "8d246e9c843664d217833e0a0faad2fb03b36b6cebe7ea6acdf2e570b5c17cf8",
+      "size": 1008
+    },
+    "turtle-crypt/vmaps/Hammock01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Hammock01.m2",
+      "sha256": "9e2ebf5a5afca1e91b27e3063ad4e1736ba449ffeefc9c5e387ec2955d726c75",
+      "size": 4056
+    },
+    "turtle-crypt/vmaps/Hammock02.m2": {
+      "kind": "copy",
+      "path": "vmaps/Hammock02.m2",
+      "sha256": "52dabbfd2998e082c02da08933654174e8082387aeeec76dc8830186b7eccf85",
+      "size": 644
+    },
+    "turtle-crypt/vmaps/Harness.m2": {
+      "kind": "copy",
+      "path": "vmaps/Harness.m2",
+      "sha256": "51edf5fbb68cf13589b3eddf4ad76fa7a2d3f6e27137b4001a4cf00eff10b1a1",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Harness.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Harness.m2.vmo",
+      "sha256": "51edf5fbb68cf13589b3eddf4ad76fa7a2d3f6e27137b4001a4cf00eff10b1a1",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Huruinedbuilding_Collapsed.wmo.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Huruinedbuilding_Collapsed.wmo.vmo",
+      "sha256": "35cbc7281a469872e562b3be7f1b2f71133114950517df3a8f9b307ebd486ea3",
+      "size": 317138
+    },
+    "turtle-crypt/vmaps/Huruinedbuildingssm01_Winecellar.wmo.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Huruinedbuildingssm01_Winecellar.wmo.vmo",
+      "sha256": "ee0cb79de4c9a9360cc442df93500199b0d12950cd32ec80ea0e2052ecba13e4",
+      "size": 214584
+    },
+    "turtle-crypt/vmaps/Huruinedbuildingssmall01.wmo.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Huruinedbuildingssmall01.wmo.vmo",
+      "sha256": "c148294f1e9bd1a691c0bb42e35954901270cb0809a9c07fa94c35c60e54d6ac",
+      "size": 20264
+    },
+    "turtle-crypt/vmaps/Inntablesmall.m2": {
+      "kind": "copy",
+      "path": "vmaps/Inntablesmall.m2",
+      "sha256": "536d04d0a12f3738b2aae1c80f2c1f7fce1f761c9d3a8c47bbf32aaf4ea8ec91",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Jar01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Jar01.m2.vmo",
+      "sha256": "881a966bcc018f591d1ad826d3452ac7a4f271706a128e96e0843da184823667",
+      "size": 1368
+    },
+    "turtle-crypt/vmaps/Jar02.m2": {
+      "kind": "copy",
+      "path": "vmaps/Jar02.m2",
+      "sha256": "355cfab595760ca1e18b12228f2dc6bddd86cb97fe92f0b8432eda9251362316",
+      "size": 1260
+    },
+    "turtle-crypt/vmaps/Jar02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Jar02.m2.vmo",
+      "sha256": "355cfab595760ca1e18b12228f2dc6bddd86cb97fe92f0b8432eda9251362316",
+      "size": 1260
+    },
+    "turtle-crypt/vmaps/Jar03.m2": {
+      "kind": "copy",
+      "path": "vmaps/Jar03.m2",
+      "sha256": "19e5fcc28c30ccbe2e0b8cd6379108aff7ce4b532da51a7ea5e52b7a30b92e29",
+      "size": 804
+    },
+    "turtle-crypt/vmaps/Jar03.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Jar03.m2.vmo",
+      "sha256": "19e5fcc28c30ccbe2e0b8cd6379108aff7ce4b532da51a7ea5e52b7a30b92e29",
+      "size": 804
+    },
+    "turtle-crypt/vmaps/Jarorc01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Jarorc01.m2",
+      "sha256": "f6a2bfb04b8935a475dc0f4d85a325eafc46fa0946698733942d6e30e0fc3b57",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Jarorc01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Jarorc01.m2.vmo",
+      "sha256": "f6a2bfb04b8935a475dc0f4d85a325eafc46fa0946698733942d6e30e0fc3b57",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Jarorc02.m2": {
+      "kind": "copy",
+      "path": "vmaps/Jarorc02.m2",
+      "sha256": "b92dd9e0f68f60750e0442c9f5f7c1dacff04820faeb5644c888fabc9e8d3524",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Jarorc02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Jarorc02.m2.vmo",
+      "sha256": "b92dd9e0f68f60750e0442c9f5f7c1dacff04820faeb5644c888fabc9e8d3524",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Jarorc03.m2": {
+      "kind": "copy",
+      "path": "vmaps/Jarorc03.m2",
+      "sha256": "40f64238868de4e9114941b4bc92b6dd5c66824b718e4c773752ce25cc62ae60",
+      "size": 1280
+    },
+    "turtle-crypt/vmaps/Jarorc03.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Jarorc03.m2.vmo",
+      "sha256": "40f64238868de4e9114941b4bc92b6dd5c66824b718e4c773752ce25cc62ae60",
+      "size": 1280
+    },
+    "turtle-crypt/vmaps/Jarorc04.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Jarorc04.m2.vmo",
+      "sha256": "8b25d19c319e843b204899b7450c0be012f4cd2e8fcc2e255d37cb3cb5730e27",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Jarorc05.m2": {
+      "kind": "copy",
+      "path": "vmaps/Jarorc05.m2",
+      "sha256": "f57b2e6c57aa80841443e3da7dbf3b6355feff278f179df069d5312cb2876187",
+      "size": 576
+    },
+    "turtle-crypt/vmaps/Jarorc05.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Jarorc05.m2.vmo",
+      "sha256": "f57b2e6c57aa80841443e3da7dbf3b6355feff278f179df069d5312cb2876187",
+      "size": 576
+    },
+    "turtle-crypt/vmaps/Jarorc06.m2": {
+      "kind": "copy",
+      "path": "vmaps/Jarorc06.m2",
+      "sha256": "d0ed6ddaabd875d04533fd3a0a17cb92613af09e03342f1309c1af667ba52122",
+      "size": 576
+    },
+    "turtle-crypt/vmaps/Jarorc06.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Jarorc06.m2.vmo",
+      "sha256": "d0ed6ddaabd875d04533fd3a0a17cb92613af09e03342f1309c1af667ba52122",
+      "size": 576
+    },
+    "turtle-crypt/vmaps/Jug01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Jug01.m2.vmo",
+      "sha256": "ce0c26b202894f11275145f0f479880851466f96a26827900948ee9e55b40d34",
+      "size": 904
+    },
+    "turtle-crypt/vmaps/Jug02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Jug02.m2.vmo",
+      "sha256": "ce0c26b202894f11275145f0f479880851466f96a26827900948ee9e55b40d34",
+      "size": 904
+    },
+    "turtle-crypt/vmaps/Kalidartreelog01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Kalidartreelog01.m2.vmo",
+      "sha256": "1057eb6c69cd7171ea045409d6d1f39eae1e5e1dac3e13db95e9c42c158e92df",
+      "size": 2236
+    },
+    "turtle-crypt/vmaps/Karazahnbarrel01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Karazahnbarrel01.m2",
+      "sha256": "9c7ccb3782f082ff2ba0ffc938a01235f11b18b1786e5d73d4e31bf9072d4119",
+      "size": 1640
+    },
+    "turtle-crypt/vmaps/Karazahnbarrel01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Karazahnbarrel01.m2.vmo",
+      "sha256": "9c7ccb3782f082ff2ba0ffc938a01235f11b18b1786e5d73d4e31bf9072d4119",
+      "size": 1640
+    },
+    "turtle-crypt/vmaps/Karazahnbarrel02.m2": {
+      "kind": "copy",
+      "path": "vmaps/Karazahnbarrel02.m2",
+      "sha256": "02dfadccf79bc6b1f25b796fd982a9fa2ad65d40bc249a5466fc45f46e42eaa7",
+      "size": 1552
+    },
+    "turtle-crypt/vmaps/Karazahnbarrel02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Karazahnbarrel02.m2.vmo",
+      "sha256": "02dfadccf79bc6b1f25b796fd982a9fa2ad65d40bc249a5466fc45f46e42eaa7",
+      "size": 1552
+    },
+    "turtle-crypt/vmaps/Karazahnbookshelfsmall.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Karazahnbookshelfsmall.m2.vmo",
+      "sha256": "c08dfca8991bb909f91287751053e1e145ea3a18630388d86554bcb92a6f6083",
+      "size": 624
+    },
+    "turtle-crypt/vmaps/Karazahncrate01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Karazahncrate01.m2",
+      "sha256": "10b307f3776f12a267fd489a76c12a4c19cd3554dabb257e59cac8c5d45bb0eb",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Karazahncrate01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Karazahncrate01.m2.vmo",
+      "sha256": "10b307f3776f12a267fd489a76c12a4c19cd3554dabb257e59cac8c5d45bb0eb",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Karazahncrate02.m2": {
+      "kind": "copy",
+      "path": "vmaps/Karazahncrate02.m2",
+      "sha256": "775b1d46ad494a4c59490c00826feda0304d6e490910c74f62b42258a53cf136",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Karazahncrate02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Karazahncrate02.m2.vmo",
+      "sha256": "775b1d46ad494a4c59490c00826feda0304d6e490910c74f62b42258a53cf136",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Karazahnrockrubble01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Karazahnrockrubble01.m2.vmo",
+      "sha256": "4fa0abc9653eb236ad44ad49be48956648ae58d22d006880a883c41cd42a80c0",
+      "size": 5352
+    },
+    "turtle-crypt/vmaps/Karazahnrockrubble02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Karazahnrockrubble02.m2.vmo",
+      "sha256": "6c77b4d5e2bcd3197dc91c5d624c2b700e9ad359a1350c06891160bb663c16f9",
+      "size": 3744
+    },
+    "turtle-crypt/vmaps/Kharazan.wmo.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Kharazan.wmo.vmo",
+      "sha256": "750b8211b48bdcd420d1c6328bb9658819041c052494a485d99451c7c1d3a212",
+      "size": 463640
+    },
+    "turtle-crypt/vmaps/Kn_Brokencart02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Kn_Brokencart02.m2.vmo",
+      "sha256": "d963a445397ce56730796039837121405e375684adf4c87d50f1c8ed24d42868",
+      "size": 1760
+    },
+    "turtle-crypt/vmaps/Kn_Grainsack01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Kn_Grainsack01.m2",
+      "sha256": "58ecf766ebd0b4e43b853386ee86c93560e8207460e0753b93e8828863c35a3e",
+      "size": 340
+    },
+    "turtle-crypt/vmaps/Kn_Grainsack02.m2": {
+      "kind": "copy",
+      "path": "vmaps/Kn_Grainsack02.m2",
+      "sha256": "33faae8edc27726aa699f43760f1b7ac974a037e63d29fb6a15fc6118c9236d0",
+      "size": 476
+    },
+    "turtle-crypt/vmaps/Kn_Spilledsack01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Kn_Spilledsack01.m2",
+      "sha256": "11e3377367c336d8401228fa72d23ca664b80b27983075d28b16f22b15ce9336",
+      "size": 544
+    },
+    "turtle-crypt/vmaps/Kn_Spilledsack01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Kn_Spilledsack01.m2.vmo",
+      "sha256": "11e3377367c336d8401228fa72d23ca664b80b27983075d28b16f22b15ce9336",
+      "size": 544
+    },
+    "turtle-crypt/vmaps/Kotobeastbone04.m2": {
+      "kind": "copy",
+      "path": "vmaps/Kotobeastbone04.m2",
+      "sha256": "bc17541de90300f050b56ca7d3efc232b066be2a0037b205dcc1e187c71a8e40",
+      "size": 6008
+    },
+    "turtle-crypt/vmaps/Lightskeletonlaying01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Lightskeletonlaying01.m2",
+      "sha256": "d59d47a652f30b711d2e9889ab3f2c656ab38610ca6807f1f9f4223a42bb87f3",
+      "size": 1392
+    },
+    "turtle-crypt/vmaps/Lightskeletonlaying02.m2": {
+      "kind": "copy",
+      "path": "vmaps/Lightskeletonlaying02.m2",
+      "sha256": "60f8c282ebed92533c1e43b5d5c9d9ad19245afc8c78c54d5312f6535ce22351",
+      "size": 1416
+    },
+    "turtle-crypt/vmaps/Lightskeletonlaying03.m2": {
+      "kind": "copy",
+      "path": "vmaps/Lightskeletonlaying03.m2",
+      "sha256": "1a7dedc4166cc5dcdb15685f872f88fb5495858d96488e40c99eb205cff74450",
+      "size": 848
+    },
+    "turtle-crypt/vmaps/Lightskeletonsitting01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Lightskeletonsitting01.m2",
+      "sha256": "6e9271c5bd69fe2688deae3228254491bf67a5334fad0b068c4ea841aebd01e4",
+      "size": 1052
+    },
+    "turtle-crypt/vmaps/Lightskeletonsitting02.m2": {
+      "kind": "copy",
+      "path": "vmaps/Lightskeletonsitting02.m2",
+      "sha256": "f6cdb78ad107918d5c8963f1a4ac619b9025b9e521b7bb441b23a995e4d93300",
+      "size": 824
+    },
+    "turtle-crypt/vmaps/Lightskeletonsitting03.m2": {
+      "kind": "copy",
+      "path": "vmaps/Lightskeletonsitting03.m2",
+      "sha256": "bdce41b58a95b06df13fa7d7553e3fc61147274dfc10b6dcd9f1b315d6a2f2d0",
+      "size": 824
+    },
+    "turtle-crypt/vmaps/Lightskeletonsitting04.m2": {
+      "kind": "copy",
+      "path": "vmaps/Lightskeletonsitting04.m2",
+      "sha256": "6f2968f3fc6e1532e0facb5189e99e02f47b0ba3e69bd2ebcdccbdde99253c75",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Md_Goldmine_1Room.wmo.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Md_Goldmine_1Room.wmo.vmo",
+      "sha256": "3019c101de13d2693900bb8490bfc63eea0efeef9e6b7404dc6e13b850b46247",
+      "size": 74260
+    },
+    "turtle-crypt/vmaps/Md_Mushroomcave05.wmo.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Md_Mushroomcave05.wmo.vmo",
+      "sha256": "33709bceb95d6ff7413ce807fb7b64fa3c7b5d6449077331466080e486451e89",
+      "size": 301192
+    },
+    "turtle-crypt/vmaps/Md_Mushroomden.wmo.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Md_Mushroomden.wmo.vmo",
+      "sha256": "178fb4071e3281d532e1c90d52b702528c5414da05276ece247572c1d2f3c457",
+      "size": 42896
+    },
+    "turtle-crypt/vmaps/Md_Ogremound.wmo.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Md_Ogremound.wmo.vmo",
+      "sha256": "3e70946e6200d5209666a042ad41fb7b6207cb905d20516b5de585a179ec4c31",
+      "size": 421648
+    },
+    "turtle-crypt/vmaps/Md_Ogremound1Room.wmo.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Md_Ogremound1Room.wmo.vmo",
+      "sha256": "61cb98feef600af50c0dd86e00795144f1976838a3cd89f917f51aee86a916d5",
+      "size": 64976
+    },
+    "turtle-crypt/vmaps/Mediumbrazier01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Mediumbrazier01.m2",
+      "sha256": "a08e7e466849daa8cd441a352c02250b5deb374db74b736d5ffad1a3ff771a92",
+      "size": 624
+    },
+    "turtle-crypt/vmaps/Moonbrookhearse.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Moonbrookhearse.m2.vmo",
+      "sha256": "f3a25c0546dd363c47898e2ecb93dcf4035c7f2f9fec2a9284c7a27644255002",
+      "size": 828
+    },
+    "turtle-crypt/vmaps/Ogrebannerboar.m2": {
+      "kind": "copy",
+      "path": "vmaps/Ogrebannerboar.m2",
+      "sha256": "174122099f6e2275a7053b5c6b6a157a881cfffc9beb683f7121b619b8462922",
+      "size": 1220
+    },
+    "turtle-crypt/vmaps/Ogrebannerboar.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Ogrebannerboar.m2.vmo",
+      "sha256": "174122099f6e2275a7053b5c6b6a157a881cfffc9beb683f7121b619b8462922",
+      "size": 1220
+    },
+    "turtle-crypt/vmaps/Ogresmokevent01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Ogresmokevent01.m2",
+      "sha256": "294b55f14bcff0491074dc10c757192301f6968bdee11cc08fcbd647843b0d46",
+      "size": 1204
+    },
+    "turtle-crypt/vmaps/Oildrum01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Oildrum01.m2",
+      "sha256": "8334796b8faaa2bdd9571bf4c3d80e1b9c79b94eb6b64b5d7cfcc17ffb6db08c",
+      "size": 1232
+    },
+    "turtle-crypt/vmaps/Orcbarrel01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Orcbarrel01.m2",
+      "sha256": "1f82bc1467bdbe3c280771e1ae33236baf40445d97615391d1e3e4217b82b2a8",
+      "size": 1232
+    },
+    "turtle-crypt/vmaps/Orcbarrel01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Orcbarrel01.m2.vmo",
+      "sha256": "1f82bc1467bdbe3c280771e1ae33236baf40445d97615391d1e3e4217b82b2a8",
+      "size": 1232
+    },
+    "turtle-crypt/vmaps/Orcbarrel03.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Orcbarrel03.m2.vmo",
+      "sha256": "cea1608da76105ceb3e6174a8947190a798831413c18d7600f48a4a951c002cb",
+      "size": 2184
+    },
+    "turtle-crypt/vmaps/Orccrate01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Orccrate01.m2",
+      "sha256": "ccae49c39568cdd236efdfecd28acc2c3724b987b8ef1beb34366940f2d96832",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Orccrate01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Orccrate01.m2.vmo",
+      "sha256": "ccae49c39568cdd236efdfecd28acc2c3724b987b8ef1beb34366940f2d96832",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Orccrate02.m2": {
+      "kind": "copy",
+      "path": "vmaps/Orccrate02.m2",
+      "sha256": "7c222ef09f708ed397ab0c1bb85edc80ebf2c4eba89ae58f84ba775dfecc17be",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Orccrate02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Orccrate02.m2.vmo",
+      "sha256": "7c222ef09f708ed397ab0c1bb85edc80ebf2c4eba89ae58f84ba775dfecc17be",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Orccrate03.m2": {
+      "kind": "copy",
+      "path": "vmaps/Orccrate03.m2",
+      "sha256": "07a2ff3cf84bd6190c3f2c31ee3cdc2a5fcbd575a2d9c7ed31679cebf3aef4e3",
+      "size": 520
+    },
+    "turtle-crypt/vmaps/Orccrate03.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Orccrate03.m2.vmo",
+      "sha256": "07a2ff3cf84bd6190c3f2c31ee3cdc2a5fcbd575a2d9c7ed31679cebf3aef4e3",
+      "size": 520
+    },
+    "turtle-crypt/vmaps/Orccrate06.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Orccrate06.m2.vmo",
+      "sha256": "868b20a89bf3825d2d233976b786f2532c416d9020c9f0baaf71d88b9a099242",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Orccrate07.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Orccrate07.m2.vmo",
+      "sha256": "2cfc68ca10d344f8d6f4de7c299e7f5f0367d395201bf95b6ba561eea63b56fa",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Orccrate08.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Orccrate08.m2.vmo",
+      "sha256": "17062e4ff3673b7e41ad19570c93adec33108546cc9c348d8d31c5abdfc9898f",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Orccrate09.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Orccrate09.m2.vmo",
+      "sha256": "7bc5608876c1e8933ff057303095dca647c65f696c2e4a99650bd47d0633ecb7",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Orccrate10.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Orccrate10.m2.vmo",
+      "sha256": "0141edbb176c66b000f2211fa372c8ff45027067aeb60425512111918199b666",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Orccratebroken01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Orccratebroken01.m2.vmo",
+      "sha256": "ca61fa749844977b36ed175832066178963369639590ecfaf1453f806f0e562a",
+      "size": 7664
+    },
+    "turtle-crypt/vmaps/Orccratebroken02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Orccratebroken02.m2.vmo",
+      "sha256": "0f672b48edd6cef60decaeb3b55cdb0eb5aa218d985fbc0243ab5cee22df52d3",
+      "size": 5768
+    },
+    "turtle-crypt/vmaps/Orccratebroken03.m2": {
+      "kind": "copy",
+      "path": "vmaps/Orccratebroken03.m2",
+      "sha256": "ac4b78aac11af1f3202fd40378eb23f74fd120ed59844e850d73792d23a0f34c",
+      "size": 3000
+    },
+    "turtle-crypt/vmaps/Orcjug01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Orcjug01.m2",
+      "sha256": "25b87c353ffb3b23b47c49dfc8eb906fe519e99eeab573e2bb1255acbd65676d",
+      "size": 1492
+    },
+    "turtle-crypt/vmaps/Orcjug01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Orcjug01.m2.vmo",
+      "sha256": "25b87c353ffb3b23b47c49dfc8eb906fe519e99eeab573e2bb1255acbd65676d",
+      "size": 1492
+    },
+    "turtle-crypt/vmaps/Orcjug02.m2": {
+      "kind": "copy",
+      "path": "vmaps/Orcjug02.m2",
+      "sha256": "ec5107cba65dd24d17f844231d7672b47d4c0c87bb824fcd1c788be796e189c8",
+      "size": 1480
+    },
+    "turtle-crypt/vmaps/Orcjug02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Orcjug02.m2.vmo",
+      "sha256": "ec5107cba65dd24d17f844231d7672b47d4c0c87bb824fcd1c788be796e189c8",
+      "size": 1480
+    },
+    "turtle-crypt/vmaps/Orcshield01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Orcshield01.m2.vmo",
+      "sha256": "08677e28151e7c23010e0782da0c711aad53b7e33db02d23450d8e44415b7066",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Orcshield02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Orcshield02.m2.vmo",
+      "sha256": "c25e93d9ba5fa27fd3245bb39af2b4c187598ef6c3fbe5fe681f7020e28c799c",
+      "size": 1008
+    },
+    "turtle-crypt/vmaps/Orcshield03.m2": {
+      "kind": "copy",
+      "path": "vmaps/Orcshield03.m2",
+      "sha256": "1851363a719f0edf50971f9fcbd7dbc31680df8b6c6cc119cc60420fe4f0d894",
+      "size": 1008
+    },
+    "turtle-crypt/vmaps/Orcshield03.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Orcshield03.m2.vmo",
+      "sha256": "1851363a719f0edf50971f9fcbd7dbc31680df8b6c6cc119cc60420fe4f0d894",
+      "size": 1008
+    },
+    "turtle-crypt/vmaps/Orcspear01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Orcspear01.m2",
+      "sha256": "c968bb325e679c63e534063ae11cc4ff8c9d67b94170e6b53c7121199517b04f",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Orcspear02.m2": {
+      "kind": "copy",
+      "path": "vmaps/Orcspear02.m2",
+      "sha256": "4cce822574ed08d91fdd58f23c8c8ead18f35fd26cc783ed5f3823152fec8683",
+      "size": 996
+    },
+    "turtle-crypt/vmaps/Orcspear03.m2": {
+      "kind": "copy",
+      "path": "vmaps/Orcspear03.m2",
+      "sha256": "a112d6f9fb683613dba1bf79fd3fea4201399b0ee637119a519af603d8488589",
+      "size": 928
+    },
+    "turtle-crypt/vmaps/Orcspear03.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Orcspear03.m2.vmo",
+      "sha256": "a112d6f9fb683613dba1bf79fd3fea4201399b0ee637119a519af603d8488589",
+      "size": 928
+    },
+    "turtle-crypt/vmaps/Orcsword02.m2": {
+      "kind": "copy",
+      "path": "vmaps/Orcsword02.m2",
+      "sha256": "b456940e8df0b4a06fdec4dee55faa581ff245bccd932f160397d753a53eaa5f",
+      "size": 1144
+    },
+    "turtle-crypt/vmaps/Orcsword03.m2": {
+      "kind": "copy",
+      "path": "vmaps/Orcsword03.m2",
+      "sha256": "fe5798271891ae814de3ec92c9072927e8fdec636952f6d6e58993aa32b47201",
+      "size": 972
+    },
+    "turtle-crypt/vmaps/Orcsword03.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Orcsword03.m2.vmo",
+      "sha256": "fe5798271891ae814de3ec92c9072927e8fdec636952f6d6e58993aa32b47201",
+      "size": 972
+    },
+    "turtle-crypt/vmaps/Orctoolrackburningsteppes.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Orctoolrackburningsteppes.m2.vmo",
+      "sha256": "e3c5f940b28a307f13afa9ad1aaae7e5fb68d08035368dda75fb19fd9815fc56",
+      "size": 520
+    },
+    "turtle-crypt/vmaps/Orcwagon01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Orcwagon01.m2.vmo",
+      "sha256": "a557c28c5b9daf0c727fd16770253112969943a7f46963deb73ea576d83a2419",
+      "size": 2496
+    },
+    "turtle-crypt/vmaps/Outhouse.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Outhouse.m2.vmo",
+      "sha256": "aa1c57a1f15d8937a86d0f6ff16c525c8dd7b4c6f8083282ecf3334ba48dcf28",
+      "size": 1484
+    },
+    "turtle-crypt/vmaps/Plow.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Plow.m2.vmo",
+      "sha256": "73463125257fef02171227fb1aacd071b7141d682703cd51709f5adc588deef5",
+      "size": 2484
+    },
+    "turtle-crypt/vmaps/Rawmeatrack01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Rawmeatrack01.m2.vmo",
+      "sha256": "6cf40b4f621bd5cece56365ffcf7881130eb756c252edb3774a4605dfc72296a",
+      "size": 1576
+    },
+    "turtle-crypt/vmaps/Redridgebridgebrick01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Redridgebridgebrick01.m2.vmo",
+      "sha256": "93e71ca8c4c9c10bdbbacd269f6dde4a6e3d35551c2371b9b860da10e655cce4",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Redridgebridgebrick02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Redridgebridgebrick02.m2.vmo",
+      "sha256": "319f46d8584ed05c0b39fd1fa98b2ef4f1b77e71190af99247b8079b985aa4ed",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Redridgebridgebrick03.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Redridgebridgebrick03.m2.vmo",
+      "sha256": "33c865df8b4c96733333f9c71b99a782e870931e5b4c573d658b2aa6f732b32c",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Replacecrate01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Replacecrate01.m2",
+      "sha256": "fa62e677de1fb4686adc1e107badc57479bde44b78e935bc08ef9812c71fe364",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Replacecrate01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Replacecrate01.m2.vmo",
+      "sha256": "fa62e677de1fb4686adc1e107badc57479bde44b78e935bc08ef9812c71fe364",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Replacecrate02.m2": {
+      "kind": "copy",
+      "path": "vmaps/Replacecrate02.m2",
+      "sha256": "1c385c37789b5efb961de8837a797550fa1afe3d6ab0fc7565df44afc82e9717",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Replacecrate03.m2": {
+      "kind": "copy",
+      "path": "vmaps/Replacecrate03.m2",
+      "sha256": "80ba8a335ec43b2f9c997ef2dfcd1989d75cc4d462d503ad329786e22b924188",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Rockarch01Dnr.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Rockarch01Dnr.m2.vmo",
+      "sha256": "daa9c011aaabbd09901d52189b0b4bdab4efeba3d9aa457bbb57bbcbdc3b77f4",
+      "size": 3056
+    },
+    "turtle-crypt/vmaps/Rockarch02Dnr.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Rockarch02Dnr.m2.vmo",
+      "sha256": "dff8ea42e19a076151a0d2036849080a4f4a98256216454ae679a01fee889f16",
+      "size": 3784
+    },
+    "turtle-crypt/vmaps/Rockarch03Dnr.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Rockarch03Dnr.m2.vmo",
+      "sha256": "c7abd034ff99e4e41d579aefd75f0c09c0e637488deb9afd66153f4c1a73d53f",
+      "size": 3056
+    },
+    "turtle-crypt/vmaps/Ropebridge.wmo.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Ropebridge.wmo.vmo",
+      "sha256": "cf9fbcc4503d094801d50c9cb5ca005516856b53e741f4859cbdb5e20074e81c",
+      "size": 24936
+    },
+    "turtle-crypt/vmaps/Roundtable.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Roundtable.m2.vmo",
+      "sha256": "b985e85146331104ea33dc26af2c0e1de39346f11f0d56920f4b84de29171d6b",
+      "size": 1344
+    },
+    "turtle-crypt/vmaps/Sack01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Sack01.m2",
+      "sha256": "c67b71e3a138ec8802d3aac69d3f9946408f29cca5bd603fff7d125d7a3ce042",
+      "size": 1256
+    },
+    "turtle-crypt/vmaps/Sack01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Sack01.m2.vmo",
+      "sha256": "c67b71e3a138ec8802d3aac69d3f9946408f29cca5bd603fff7d125d7a3ce042",
+      "size": 1256
+    },
+    "turtle-crypt/vmaps/Sack02.m2": {
+      "kind": "copy",
+      "path": "vmaps/Sack02.m2",
+      "sha256": "ccdd6262059b23c2b09703fb53107336d673962a1eb1b15e5d8d474bcecba7e3",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Sack02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Sack02.m2.vmo",
+      "sha256": "ccdd6262059b23c2b09703fb53107336d673962a1eb1b15e5d8d474bcecba7e3",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Sarcophagus.m2": {
+      "kind": "copy",
+      "path": "vmaps/Sarcophagus.m2",
+      "sha256": "421467e4d5a071ff2d81d82cfae99cffc2da64b1b976163cf1acd0b882c22828",
+      "size": 1748
+    },
+    "turtle-crypt/vmaps/Shack.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Shack.m2.vmo",
+      "sha256": "efefab1bc4d9b82ae720117aa97b8dbd6f2bff2fc75530d9480220587dd69047",
+      "size": 1976
+    },
+    "turtle-crypt/vmaps/Shadowfangbench01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Shadowfangbench01.m2",
+      "sha256": "6b6ed37f13941fde677ab85c85cd79f4cd2118b06b7bebf274f3698fa899a4ee",
+      "size": 3492
+    },
+    "turtle-crypt/vmaps/Shadowfangbench02.m2": {
+      "kind": "copy",
+      "path": "vmaps/Shadowfangbench02.m2",
+      "sha256": "3719f21a6e03c757376f2107b686323692db9d80032d4112cbcc9d2ceb399f76",
+      "size": 3216
+    },
+    "turtle-crypt/vmaps/Shadowfangchair01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Shadowfangchair01.m2",
+      "sha256": "28d834169611c4f43efbcfbf9dfcc4dfb480b1f9cf737a8d0dcc33a7b83bfa84",
+      "size": 1056
+    },
+    "turtle-crypt/vmaps/Shadowfangchair01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Shadowfangchair01.m2.vmo",
+      "sha256": "28d834169611c4f43efbcfbf9dfcc4dfb480b1f9cf737a8d0dcc33a7b83bfa84",
+      "size": 1056
+    },
+    "turtle-crypt/vmaps/Shadowfangchair02.m2": {
+      "kind": "copy",
+      "path": "vmaps/Shadowfangchair02.m2",
+      "sha256": "2e74d5bada7cdb7d9e2e9f6a65d7b6551bf1215e35de594f70b1dd3192a1bd4f",
+      "size": 1420
+    },
+    "turtle-crypt/vmaps/Shadowfangchair02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Shadowfangchair02.m2.vmo",
+      "sha256": "2e74d5bada7cdb7d9e2e9f6a65d7b6551bf1215e35de594f70b1dd3192a1bd4f",
+      "size": 1420
+    },
+    "turtle-crypt/vmaps/Shadowfangtable01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Shadowfangtable01.m2",
+      "sha256": "8314f9b8b09e83685de14f58e9f2dda791a9ab1681c6552cfa8d1b5afa8f09d8",
+      "size": 3864
+    },
+    "turtle-crypt/vmaps/Shadowfangtable01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Shadowfangtable01.m2.vmo",
+      "sha256": "8314f9b8b09e83685de14f58e9f2dda791a9ab1681c6552cfa8d1b5afa8f09d8",
+      "size": 3864
+    },
+    "turtle-crypt/vmaps/Shadowfangtable02.m2": {
+      "kind": "copy",
+      "path": "vmaps/Shadowfangtable02.m2",
+      "sha256": "bef72fb90ca978c392631eb84b5cba624ef82f955765fc93d4b127c97ab83088",
+      "size": 4252
+    },
+    "turtle-crypt/vmaps/Shadowfangtable02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Shadowfangtable02.m2.vmo",
+      "sha256": "bef72fb90ca978c392631eb84b5cba624ef82f955765fc93d4b127c97ab83088",
+      "size": 4252
+    },
+    "turtle-crypt/vmaps/Sink01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Sink01.m2",
+      "sha256": "db9897d88bf22d0e255efbb2c7a8ba637f3cef0d61fdd80bca846df06f6076b8",
+      "size": 2532
+    },
+    "turtle-crypt/vmaps/Skeletalservant01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Skeletalservant01.m2",
+      "sha256": "88d4643d71012231e846b0c07350fb60dad690599c2372f533b69610743e4007",
+      "size": 576
+    },
+    "turtle-crypt/vmaps/Skeletalservant02.m2": {
+      "kind": "copy",
+      "path": "vmaps/Skeletalservant02.m2",
+      "sha256": "eac61eaa351eae2ecf862343e0dfcbfeca3bf4ec6da2e0cf1c51dee218484f57",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Skeletalservant03.m2": {
+      "kind": "copy",
+      "path": "vmaps/Skeletalservant03.m2",
+      "sha256": "bcea9ff68837dbb178bd382a0b443c9fe31f95ab47a631f8fea241a6f1944156",
+      "size": 576
+    },
+    "turtle-crypt/vmaps/Skulltiki.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Skulltiki.m2.vmo",
+      "sha256": "cc5e72d147be7904c6266f440b047fbb6a482e5a5778cf468bde17ac656a3472",
+      "size": 5080
+    },
+    "turtle-crypt/vmaps/Stalagtite01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Stalagtite01.m2",
+      "sha256": "a10312ecae858fd453963beff2cbcf18ac2edce8d1013de171e2a4f0964e16f3",
+      "size": 4200
+    },
+    "turtle-crypt/vmaps/Stormwindarcherytarget01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Stormwindarcherytarget01.m2",
+      "sha256": "eedd81bf3c1a6f68c11dc7871797cf6f0cb2db3e818d80d8e3266274b4277fff",
+      "size": 1180
+    },
+    "turtle-crypt/vmaps/Stormwindcrate01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Stormwindcrate01.m2",
+      "sha256": "036a2ba7875e3920ace0044ed175f69f396af99fc9f74cad7e252757c1a3f777",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Stormwindcrate01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Stormwindcrate01.m2.vmo",
+      "sha256": "036a2ba7875e3920ace0044ed175f69f396af99fc9f74cad7e252757c1a3f777",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Stormwindwoodendummy01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Stormwindwoodendummy01.m2",
+      "sha256": "79cbe861cd64b78badb63f52faad33e553edcf7c704d466de477738f0a5cc5c5",
+      "size": 1096
+    },
+    "turtle-crypt/vmaps/Strangleruinstair.wmo.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Strangleruinstair.wmo.vmo",
+      "sha256": "7ddd4fb3062259a9b0636824e72dbea66bab42f162231528357380b84a4547f3",
+      "size": 7464
+    },
+    "turtle-crypt/vmaps/Stranglethorn_Ruins02.wmo.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Stranglethorn_Ruins02.wmo.vmo",
+      "sha256": "9a6e9c0b8912c764391248d5ea84f1c07be491a95dfbbcea5dc812f69a88ae75",
+      "size": 179864
+    },
+    "turtle-crypt/vmaps/Stranglethorn_Ruins17.wmo.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Stranglethorn_Ruins17.wmo.vmo",
+      "sha256": "318912666227d911d7dd762e3db444727ba00806732829db9e5d96690c40c676",
+      "size": 42776
+    },
+    "turtle-crypt/vmaps/Stranglethornruins02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Stranglethornruins02.m2.vmo",
+      "sha256": "dbca329befdfe1ecebe5fec77251f15db3a71cead969e367722a8c5d074ef5ed",
+      "size": 5720
+    },
+    "turtle-crypt/vmaps/Stranglethornruins05.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Stranglethornruins05.m2.vmo",
+      "sha256": "43d2dfa93649a372ca4f9e0fead563fee9037ca8fdc3a9ab7a7f0d777eac5b6e",
+      "size": 576
+    },
+    "turtle-crypt/vmaps/Stranglethornruins06.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Stranglethornruins06.m2.vmo",
+      "sha256": "785001266c17b8e6c66594ff3fd899cc112791d1b4e86904c52722a8c44fa497",
+      "size": 520
+    },
+    "turtle-crypt/vmaps/Stranglethornruins07.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Stranglethornruins07.m2.vmo",
+      "sha256": "eb2538d7a5d558fe49a497aa81037efda3d9c295d4d85849531b4c631747189d",
+      "size": 2152
+    },
+    "turtle-crypt/vmaps/Stranglethornruins08.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Stranglethornruins08.m2.vmo",
+      "sha256": "5ffc85899a6db63eaab79b358e7d30c2d913f524c12e5d63fab59dbeb23e4e2e",
+      "size": 1708
+    },
+    "turtle-crypt/vmaps/Stranglethornruins09.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Stranglethornruins09.m2.vmo",
+      "sha256": "445ebae35ff8ab6de5cc692bacdd529c3358a17facba0c1fe180e18b5992a3aa",
+      "size": 2096
+    },
+    "turtle-crypt/vmaps/Stranglethornruins15.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Stranglethornruins15.m2.vmo",
+      "sha256": "3e0cb3029cbaa508c3248ca5d183445346b7e349338df749c3814a3efdbb6808",
+      "size": 896
+    },
+    "turtle-crypt/vmaps/Stranglethornruins16.wmo.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Stranglethornruins16.wmo.vmo",
+      "sha256": "0d979b27609364ab359f0c5507984ddd6a932d6e9cb7c1ee0e2334316a0a7e0e",
+      "size": 2484
+    },
+    "turtle-crypt/vmaps/Stranglethornruins17.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Stranglethornruins17.m2.vmo",
+      "sha256": "003b1d9b1ecfdeee50c46e298911715b803538b8ace4b37c908c039b1ad15150",
+      "size": 896
+    },
+    "turtle-crypt/vmaps/Stranglethornruins18.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Stranglethornruins18.m2.vmo",
+      "sha256": "2688986c524800ccf4b0ef28a4efd5d9345ce6d13a3e5f17801bace6f8f8dccf",
+      "size": 772
+    },
+    "turtle-crypt/vmaps/Stranglethornruins19.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Stranglethornruins19.m2.vmo",
+      "sha256": "529d6e6d8e1e948c527c843bed8c93135698f551f6673fcdc97b60ddd5b3d9c3",
+      "size": 1068
+    },
+    "turtle-crypt/vmaps/Stranglethornruins21.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Stranglethornruins21.m2.vmo",
+      "sha256": "1055d6444979bdee037ff53620f393b5769a7d4337573418e18d270e5236a2e2",
+      "size": 2460
+    },
+    "turtle-crypt/vmaps/Stranglethorntree01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Stranglethorntree01.m2.vmo",
+      "sha256": "b39cb8b36ff044165edeca27d851e6d84cb571edbdddae484e005e523ca8ec17",
+      "size": 1516
+    },
+    "turtle-crypt/vmaps/Stranglethorntree04.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Stranglethorntree04.m2.vmo",
+      "sha256": "5e80e4d017d89f2f07004a578ac3b3a3bdedb4527b4bd945eb80ce3aca0ecd53",
+      "size": 2008
+    },
+    "turtle-crypt/vmaps/Swampbeastbone01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Swampbeastbone01.m2",
+      "sha256": "2e31088430f421de9bbd530b0a188d458769538bdb5c74c4d9d8ef2ad5d739fe",
+      "size": 11964
+    },
+    "turtle-crypt/vmaps/Swampsorrowcanopytree01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Swampsorrowcanopytree01.m2.vmo",
+      "sha256": "c6f1ff23ee981fbfcdfc930cf0891e11d3ddc1f02547916a5af4b5deda0787f0",
+      "size": 2488
+    },
+    "turtle-crypt/vmaps/Swampsorrowcanopytree06.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Swampsorrowcanopytree06.m2.vmo",
+      "sha256": "4d4c619fd127f16fada30e2e62979d2c7069d10c4e6fec005b65cf6e1dc6e626",
+      "size": 2448
+    },
+    "turtle-crypt/vmaps/Swampsorrowrock01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Swampsorrowrock01.m2.vmo",
+      "sha256": "1b83b63eab0d7423ce43352a715ef34b6bddf728da14e5f1db6e33001c714fa6",
+      "size": 872
+    },
+    "turtle-crypt/vmaps/Tallbraziernoomni01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Tallbraziernoomni01.m2",
+      "sha256": "3d267ea8015ac43e59899a5796fca229ce4130d9e8eb129cbb53fae3762aa459",
+      "size": 624
+    },
+    "turtle-crypt/vmaps/Tallstriderskull.m2": {
+      "kind": "copy",
+      "path": "vmaps/Tallstriderskull.m2",
+      "sha256": "cf90b5ac8c24d2caa93c86a0db49d0bcfa40fbf7b8a7d551b70813351c29e108",
+      "size": 464
+    },
+    "turtle-crypt/vmaps/Tauren_Weaponaxe01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Tauren_Weaponaxe01.m2",
+      "sha256": "4505173e6cec67e9346e7b0fa9fd48d030949f3a0e2779da7982c0acc2d92058",
+      "size": 1556
+    },
+    "turtle-crypt/vmaps/Tauren_Weaponspear.m2": {
+      "kind": "copy",
+      "path": "vmaps/Tauren_Weaponspear.m2",
+      "sha256": "1e638bbbd1648950a6b63037b0e1c384b03eb689e1a749fa41431e8b54855db8",
+      "size": 1032
+    },
+    "turtle-crypt/vmaps/Taurensack01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Taurensack01.m2",
+      "sha256": "3db8980d5bd6841a925ef9dbc755b29c34126006545b158a4b14e148b6e88275",
+      "size": 804
+    },
+    "turtle-crypt/vmaps/Taurensack01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Taurensack01.m2.vmo",
+      "sha256": "3db8980d5bd6841a925ef9dbc755b29c34126006545b158a4b14e148b6e88275",
+      "size": 804
+    },
+    "turtle-crypt/vmaps/Taurensack02.m2": {
+      "kind": "copy",
+      "path": "vmaps/Taurensack02.m2",
+      "sha256": "5e956c9136d41b885f53f043e72ece80b900b0057865dd9443d3643796937620",
+      "size": 792
+    },
+    "turtle-crypt/vmaps/Taurensack02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Taurensack02.m2.vmo",
+      "sha256": "5e956c9136d41b885f53f043e72ece80b900b0057865dd9443d3643796937620",
+      "size": 792
+    },
+    "turtle-crypt/vmaps/Taurensack03.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Taurensack03.m2.vmo",
+      "sha256": "e29444e955bd073eea1a614231cf7d9a358c5cb9794e2a9cc5e42746d8fee23b",
+      "size": 340
+    },
+    "turtle-crypt/vmaps/Tigerskull.m2": {
+      "kind": "copy",
+      "path": "vmaps/Tigerskull.m2",
+      "sha256": "ad61db1132223c7a3160c934e8c3b19bedff6c4d7008545365ad05a7e14e14f5",
+      "size": 576
+    },
+    "turtle-crypt/vmaps/Tombstonemonument01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Tombstonemonument01.m2.vmo",
+      "sha256": "61b8bbdd9fbc5e503adddd12c8b459cbff04979b385bdfaced8a3ee4d9b9ca01",
+      "size": 1996
+    },
+    "turtle-crypt/vmaps/Tombstonemonument02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Tombstonemonument02.m2.vmo",
+      "sha256": "120f460864ed5eade91904485bb5eb2dfd6bd897adbb25ea4ba7df4acb3f55e8",
+      "size": 1096
+    },
+    "turtle-crypt/vmaps/Torch.m2": {
+      "kind": "copy",
+      "path": "vmaps/Torch.m2",
+      "sha256": "fca0f0a38e6c980390b995e14c862b49805c0a3db6605b1981723dc3c8a51a68",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Torch_Out.m2": {
+      "kind": "copy",
+      "path": "vmaps/Torch_Out.m2",
+      "sha256": "fca0f0a38e6c980390b995e14c862b49805c0a3db6605b1981723dc3c8a51a68",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Travois.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Travois.m2.vmo",
+      "sha256": "feb6577e75eff820d0acbfb9c544426875c56e619c635673d9b2f52d34b3e100",
+      "size": 10388
+    },
+    "turtle-crypt/vmaps/Troll_Hotel01.wmo.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Troll_Hotel01.wmo.vmo",
+      "sha256": "edd64d0aabfc0a5f3c6a91bdb010ec09d9acd59d8d0ab83952c6ccc314f7135e",
+      "size": 183384
+    },
+    "turtle-crypt/vmaps/Trolldungeondrum03.m2": {
+      "kind": "copy",
+      "path": "vmaps/Trolldungeondrum03.m2",
+      "sha256": "649ba131114dfdcdbd4cad241ec0609c16dcd5bb97b50cddeac5bd3d85db99a7",
+      "size": 1768
+    },
+    "turtle-crypt/vmaps/Trolldungeonfountain.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Trolldungeonfountain.m2.vmo",
+      "sha256": "bb8b26d39865c2c7e09d14843ab5950b14b7281d9767ab7fd590db0d2846c757",
+      "size": 7840
+    },
+    "turtle-crypt/vmaps/Trolldungeonpottery01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Trolldungeonpottery01.m2",
+      "sha256": "d83cfa0e6846e4a8abbfc3396826974a891f85485a704ef7d2c86f249f7cb2bc",
+      "size": 1800
+    },
+    "turtle-crypt/vmaps/Trolldungeonpottery01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Trolldungeonpottery01.m2.vmo",
+      "sha256": "d83cfa0e6846e4a8abbfc3396826974a891f85485a704ef7d2c86f249f7cb2bc",
+      "size": 1800
+    },
+    "turtle-crypt/vmaps/Trolldungeonpottery02.m2": {
+      "kind": "copy",
+      "path": "vmaps/Trolldungeonpottery02.m2",
+      "sha256": "94a89d309441f78f5da25b2d347d45658c00206b6defce22221283a63ba14acf",
+      "size": 1188
+    },
+    "turtle-crypt/vmaps/Trolldungeonpottery02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Trolldungeonpottery02.m2.vmo",
+      "sha256": "94a89d309441f78f5da25b2d347d45658c00206b6defce22221283a63ba14acf",
+      "size": 1188
+    },
+    "turtle-crypt/vmaps/Trolldungeonpottery03.m2": {
+      "kind": "copy",
+      "path": "vmaps/Trolldungeonpottery03.m2",
+      "sha256": "5f446411f6dec1bd4c2b946a28549228967a153d6b1af3bca7a70dffe3c2709d",
+      "size": 996
+    },
+    "turtle-crypt/vmaps/Trolldungeonpottery03.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Trolldungeonpottery03.m2.vmo",
+      "sha256": "5f446411f6dec1bd4c2b946a28549228967a153d6b1af3bca7a70dffe3c2709d",
+      "size": 996
+    },
+    "turtle-crypt/vmaps/Trolldungeonring.m2": {
+      "kind": "copy",
+      "path": "vmaps/Trolldungeonring.m2",
+      "sha256": "d913599cdb45e1615f18501d8a9d2cbee550785014f66756102d2193ab4bdf85",
+      "size": 1992
+    },
+    "turtle-crypt/vmaps/Trolldungeonsacks.m2": {
+      "kind": "copy",
+      "path": "vmaps/Trolldungeonsacks.m2",
+      "sha256": "98ae794ddd10b63de39708bdf387362e5e5a837e4f9c144671d3cad7667a26d2",
+      "size": 1708
+    },
+    "turtle-crypt/vmaps/Trolldungeonsacks.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Trolldungeonsacks.m2.vmo",
+      "sha256": "98ae794ddd10b63de39708bdf387362e5e5a837e4f9c144671d3cad7667a26d2",
+      "size": 1708
+    },
+    "turtle-crypt/vmaps/Trollhut01.wmo.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Trollhut01.wmo.vmo",
+      "sha256": "01e8cc08944cf96cec14445e122bf1a7522d0b0fd0d68b13e5eaf324ccddd6e0",
+      "size": 46832
+    },
+    "turtle-crypt/vmaps/Trollhutsmall01.wmo.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Trollhutsmall01.wmo.vmo",
+      "sha256": "23637195e48939ca1616c328a9f9b132ba000371b8ed1ce6a1637c927dfed9af",
+      "size": 53584
+    },
+    "turtle-crypt/vmaps/Trollruinsdrum01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Trollruinsdrum01.m2",
+      "sha256": "752718a85e06bfe70d5d074ecd577935e711d398aa339f2c576360e03a61ec4c",
+      "size": 984
+    },
+    "turtle-crypt/vmaps/Trollruinsdrum01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Trollruinsdrum01.m2.vmo",
+      "sha256": "752718a85e06bfe70d5d074ecd577935e711d398aa339f2c576360e03a61ec4c",
+      "size": 984
+    },
+    "turtle-crypt/vmaps/Trollshrine.m2": {
+      "kind": "copy",
+      "path": "vmaps/Trollshrine.m2",
+      "sha256": "c3ab264beb475d158e059749d95e11088ca45112dd2d41d90cb40c0dc03645d5",
+      "size": 1256
+    },
+    "turtle-crypt/vmaps/Trollshrine.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Trollshrine.m2.vmo",
+      "sha256": "c3ab264beb475d158e059749d95e11088ca45112dd2d41d90cb40c0dc03645d5",
+      "size": 1256
+    },
+    "turtle-crypt/vmaps/Trollskullpile.m2": {
+      "kind": "copy",
+      "path": "vmaps/Trollskullpile.m2",
+      "sha256": "56bf3785ee141249dfe8a2ba34e36bef191c0c235ea1bbc928d7e33054fb45d8",
+      "size": 664
+    },
+    "turtle-crypt/vmaps/Trollskullpile.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Trollskullpile.m2.vmo",
+      "sha256": "56bf3785ee141249dfe8a2ba34e36bef191c0c235ea1bbc928d7e33054fb45d8",
+      "size": 664
+    },
+    "turtle-crypt/vmaps/Trolltablet.m2": {
+      "kind": "copy",
+      "path": "vmaps/Trolltablet.m2",
+      "sha256": "c5632ef7d02d07e6e45e87d2e739896a155b1e4c79a4b01b31ebd11345a119ae",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Trolltentsand01.wmo.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Trolltentsand01.wmo.vmo",
+      "sha256": "0a1c2e020bbf5606b151db5d582bbcaef9e834f9031a59a2c7ef21b4a73a5450",
+      "size": 17740
+    },
+    "turtle-crypt/vmaps/Trollziggurat.wmo.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Trollziggurat.wmo.vmo",
+      "sha256": "3228aa7f36816829ca49c42d662191529f6e0dea84852690e99f9fe0506ad46c",
+      "size": 67820
+    },
+    "turtle-crypt/vmaps/Tw800Crypt.wmo.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Tw800Crypt.wmo.vmo",
+      "sha256": "71bf1c30a628d430921e0ce5ab1d1758c6d09da7a64c45cbde08d1850402eb7f",
+      "size": 1143250
+    },
+    "turtle-crypt/vmaps/Warlockshrine.m2": {
+      "kind": "copy",
+      "path": "vmaps/Warlockshrine.m2",
+      "sha256": "70a0c5e4044ad8dbed65b7c9d6c8a9c48c98415389a407c26b2dd083ae8fff32",
+      "size": 2280
+    },
+    "turtle-crypt/vmaps/Watertroughlarge01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Watertroughlarge01.m2.vmo",
+      "sha256": "d3ce44ea069510f67fa52b333bf8e185b63bfb3b2bdda0b00ef42ef75be24c43",
+      "size": 1916
+    },
+    "turtle-crypt/vmaps/Watertroughsmall01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Watertroughsmall01.m2.vmo",
+      "sha256": "664a92d76e0dd3a55ca50dc62f072d0c01271de5b7e77fd0cfb89bd96035ac6a",
+      "size": 1904
+    },
+    "turtle-crypt/vmaps/Well.m2": {
+      "kind": "copy",
+      "path": "vmaps/Well.m2",
+      "sha256": "fbf07ad29d3f693a1141134262e085e2055eb6e0b73e7456725e100cdec82560",
+      "size": 1612
+    },
+    "turtle-crypt/vmaps/Well.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Well.m2.vmo",
+      "sha256": "fbf07ad29d3f693a1141134262e085e2055eb6e0b73e7456725e100cdec82560",
+      "size": 1612
+    },
+    "turtle-crypt/vmaps/Westfallbarrel01.m2": {
+      "kind": "copy",
+      "path": "vmaps/Westfallbarrel01.m2",
+      "sha256": "e794806d689c6fcefd421bb28d09279119ea8e76e2841aefa281b1906b448bfb",
+      "size": 1232
+    },
+    "turtle-crypt/vmaps/Westfallbarrel01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Westfallbarrel01.m2.vmo",
+      "sha256": "e794806d689c6fcefd421bb28d09279119ea8e76e2841aefa281b1906b448bfb",
+      "size": 1232
+    },
+    "turtle-crypt/vmaps/Westfallchair.m2": {
+      "kind": "copy",
+      "path": "vmaps/Westfallchair.m2",
+      "sha256": "929405baffd487fb703aa57eaa487c381af08a3ed4c045bd0770d1f6c53aac3f",
+      "size": 576
+    },
+    "turtle-crypt/vmaps/Westfallchair.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Westfallchair.m2.vmo",
+      "sha256": "929405baffd487fb703aa57eaa487c381af08a3ed4c045bd0770d1f6c53aac3f",
+      "size": 576
+    },
+    "turtle-crypt/vmaps/Westfallcrate.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Westfallcrate.m2.vmo",
+      "sha256": "a56299efa3483cdf2db1754b5fb1b300f1ae646b900d98644f2c46ec579f0ddf",
+      "size": 1156
+    },
+    "turtle-crypt/vmaps/Westfallfence.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Westfallfence.m2.vmo",
+      "sha256": "34a4429f9ebb40d07e085579f04751ab409e24ca7fbaf5ead26b62486a5fba9f",
+      "size": 1080
+    },
+    "turtle-crypt/vmaps/Westfallfenceend.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Westfallfenceend.m2.vmo",
+      "sha256": "54db9c71f64db11cb01bc649fe24877bf908a9c6e5eba8167f476f42566225a5",
+      "size": 576
+    },
+    "turtle-crypt/vmaps/Westfallfencepost.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Westfallfencepost.m2.vmo",
+      "sha256": "e256090d04d524a82b0fe8031fcf10d9dfae6acad17d8c122f29690832821e9f",
+      "size": 600
+    },
+    "turtle-crypt/vmaps/Westfallscarecrow.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Westfallscarecrow.m2.vmo",
+      "sha256": "8ade83f8428e6493db4eff5f968942d7444df27ed9a3022b7eff5e1949992250",
+      "size": 1124
+    },
+    "turtle-crypt/vmaps/Westfallshed.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Westfallshed.m2.vmo",
+      "sha256": "e614e3484aad77919c39dd67340855f9474c63889c69169f80d786af70fd0cf8",
+      "size": 520
+    },
+    "turtle-crypt/vmaps/Westfallskeleton.m2": {
+      "kind": "copy",
+      "path": "vmaps/Westfallskeleton.m2",
+      "sha256": "aa11ceb8327ad6ed3866fcc5c52ad6a4c50f286bc661b6e73b77ab03c9e11fd5",
+      "size": 712
+    },
+    "turtle-crypt/vmaps/Westfallskeleton.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Westfallskeleton.m2.vmo",
+      "sha256": "aa11ceb8327ad6ed3866fcc5c52ad6a4c50f286bc661b6e73b77ab03c9e11fd5",
+      "size": 712
+    },
+    "turtle-crypt/vmaps/Westfalltable.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Westfalltable.m2.vmo",
+      "sha256": "03166b69f16eff745dd566bade36fb97b4d4f65a5179d4abcedde7764536bb8d",
+      "size": 1180
+    },
+    "turtle-crypt/vmaps/Westfallwagon01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Westfallwagon01.m2.vmo",
+      "sha256": "955ea8e18cc1ab9a96038c9b88adc3aa450cf2c5d20023438aefa58705bfff12",
+      "size": 8996
+    },
+    "turtle-crypt/vmaps/Westfallwindmill.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Westfallwindmill.m2.vmo",
+      "sha256": "b1c8d3076b73399753e1657e86bf9e21ea414b69d9e609cd0b4ef2271e4c7297",
+      "size": 8560
+    },
+    "turtle-crypt/vmaps/Woodcross01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Woodcross01.m2.vmo",
+      "sha256": "72774f2e68abb396a4261ea01ae0f06c5540739828a5cfc7ba037bde11e2a2da",
+      "size": 1444
+    },
+    "turtle-crypt/vmaps/Woodcross02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Woodcross02.m2.vmo",
+      "sha256": "3ac1de007b4a3872dc183e0ae6915aece74ecbef0ab444b602ffa7a41323bfe2",
+      "size": 1628
+    },
+    "turtle-crypt/vmaps/Zulgurub.wmo.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Zulgurub.wmo.vmo",
+      "sha256": "b8e86387472ce26a028d07995832920922fc11756d17bb2b4c72a735d19076bc",
+      "size": 602868
+    },
+    "turtle-crypt/vmaps/Zulgurubruins04.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Zulgurubruins04.m2.vmo",
+      "sha256": "3d7ed3eb1adda34a0ca52abed525b54787897fe1c91f98cdbf4602ac7ba093d2",
+      "size": 7000
+    },
+    "turtle-crypt/vmaps/Zulgurubtree01.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Zulgurubtree01.m2.vmo",
+      "sha256": "02327fd92006a7883d4dba98bdd68ec9daf0903a2d9e583685db1d547611b3ca",
+      "size": 956
+    },
+    "turtle-crypt/vmaps/Zulgurubtree02.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Zulgurubtree02.m2.vmo",
+      "sha256": "f68ae21acbe6022e5855b959bfcc09728a4c569fc34000da26005d17e25d8993",
+      "size": 916
+    },
+    "turtle-crypt/vmaps/Zulgurubtree03.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Zulgurubtree03.m2.vmo",
+      "sha256": "13ec5b576d43eb5e1669ba59f35ce21f6f3358b075c35effe38ad462cbcc23b0",
+      "size": 760
+    },
+    "turtle-crypt/vmaps/Zulgurubtree04.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Zulgurubtree04.m2.vmo",
+      "sha256": "9ea422ddc8800a15c7b6813e48f161b6de53f7c782eece1546009a206d2cf0ec",
+      "size": 532
+    },
+    "turtle-crypt/vmaps/Zulgurubtree05.m2.vmo": {
+      "kind": "copy",
+      "path": "vmaps/Zulgurubtree05.m2.vmo",
+      "sha256": "0677203f5be8467720503d7743ccf533c2dcfef9c5b221ae27ec5e7a30b8f772",
+      "size": 464
+    }
+  },
+  "schema": 1
+}

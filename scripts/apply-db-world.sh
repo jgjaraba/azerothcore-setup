@@ -2,13 +2,25 @@
 
 set -euo pipefail
 
-SQL_DIR="${SQL_DIR:-/home/dev/azerothcore-setup/data/sql/custom/db_world}"
+SETUP_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
+SQL_DIR="${SQL_DIR:-$SETUP_ROOT/data/sql/custom/db_world}"
 MANIFEST="${MANIFEST:-$SQL_DIR/manifest.txt}"
 DATABASE="acore_world"
-LOGIN_PATH="azeroth-dev"
+LOGIN_PATH="${LOGIN_PATH:-azeroth-dev}"
+SERVER_DATA_MANIFEST="${SERVER_DATA_MANIFEST:-$SETUP_ROOT/data/server/manifest.json}"
+DATA_DIR="${DATA_DIR:-/home/dev/azerothcore/env/dist/bin}"
+STATE_DIR=""
+VALIDATE=0
+WITH_SERVER_DATA=0
+OFFLINE=0
+DATA_OPTIONS=0
+SERVER_HELPER="$SETUP_ROOT/tools/apply_project_server_data.py"
 
 usage() {
-    echo "Usage: $(basename "$0") [--validate]"
+    echo "Usage: $(basename "$0") [--validate] [--with-server-data [--data-dir PATH] [--state-dir PATH] [--offline]]"
+    echo "Default: SQL only. --validate never accesses the database or target data."
+    echo "Server-data installation requires --state-dir and --offline (server stopped, exclusive access)."
+    echo "SQL files apply sequentially; server-data rollback/recover is file-only, not SQL rollback."
 }
 
 validate_manifest() {
@@ -103,7 +115,21 @@ validate_manifest() {
     return 0
 }
 
-if (( $# > 1 )) || { (( $# == 1 )) && [[ "$1" != "--validate" ]]; }; then
+while (( $# )); do
+    case "$1" in
+        --validate) VALIDATE=1; shift ;;
+        --with-server-data) WITH_SERVER_DATA=1; shift ;;
+        --offline) OFFLINE=1; DATA_OPTIONS=1; shift ;;
+        --data-dir|--state-dir)
+            if (( $# < 2 )) || [[ -z "$2" || "$2" == --* ]]; then usage; exit 1; fi
+            if [[ "$1" == --data-dir ]]; then DATA_DIR="$2"; else STATE_DIR="$2"; fi
+            DATA_OPTIONS=1
+            shift 2 ;;
+        *) usage; exit 1 ;;
+    esac
+done
+if (( DATA_OPTIONS && ! WITH_SERVER_DATA )); then usage; exit 1; fi
+if (( WITH_SERVER_DATA && ! VALIDATE )) && { [[ -z "$STATE_DIR" ]] || (( ! OFFLINE )); }; then
     usage
     exit 1
 fi
@@ -122,9 +148,22 @@ if ! validate_manifest; then
     exit 1
 fi
 
-if (( $# == 1 )); then
+if (( WITH_SERVER_DATA )); then
+    python3 "$SERVER_HELPER" validate --manifest "$SERVER_DATA_MANIFEST"
+fi
+
+if (( VALIDATE )); then
     echo "Manifest validation passed."
     exit 0
+fi
+
+if (( WITH_SERVER_DATA )); then
+    # Capture exact originals and merged DBC hashes before any SQL. The offline
+    # contract extends across both phases; install refuses a changed plan.
+    SERVER_PLAN=$(mktemp)
+    trap 'rm -f -- "$SERVER_PLAN"' EXIT
+    python3 "$SERVER_HELPER" check --manifest "$SERVER_DATA_MANIFEST" \
+        --data-dir "$DATA_DIR" --state "$STATE_DIR" > "$SERVER_PLAN"
 fi
 
 echo "============================================================"
@@ -162,6 +201,11 @@ for sql_file in "${SQL_FILES[@]}"; do
 
     echo
 done
+
+if (( WITH_SERVER_DATA )); then
+    python3 "$SERVER_HELPER" install --manifest "$SERVER_DATA_MANIFEST" \
+        --data-dir "$DATA_DIR" --state "$STATE_DIR" --offline --expected-plan "$SERVER_PLAN"
+fi
 
 echo "============================================================"
 echo " All db_world SQL files applied successfully."

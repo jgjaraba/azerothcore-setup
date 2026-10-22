@@ -79,6 +79,7 @@ contracts, not task logs.
 | Document | Covers |
 |---|---|
 | [`features/forsaken-paladin-class-quests.md`](features/forsaken-paladin-class-quests.md) | The Undead Paladin quest chains, item/DBC contract and loot conditions |
+| [`features/turtle-wow-maps.md`](features/turtle-wow-maps.md) | Turtle geographic-port contract, accepted crypt pilot and scope limitations |
 
 ### Decisions and risk
 
@@ -91,6 +92,11 @@ contracts, not task logs.
 | [`CUSTOM-IDENTIFIERS.md`](CUSTOM-IDENTIFIERS.md) | Evidence-backed inventory of project identifiers and the collision-check rule for new allocations |
 
 ## Related material outside this directory
+
+- [`../turtle-wow/README.md`](../turtle-wow/README.md) — Turtle migration index:
+  curated procedure, compatibility, identifiers, evidence and a separate roadmap
+  towards all custom content. Start its [guide](../turtle-wow/migration-guide.md)
+  before reusing pilot scripts for another region.
 
 - `~/azerothcore-setup/docs/` — operational and feature-specific guides that
   predate this knowledge base (NPC creation, new currency mechanics, custom

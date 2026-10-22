@@ -65,6 +65,35 @@ The ExtendedCost values remain a set rather than an asserted contiguous
 allocation: the vendor catalog consumes specific IDs and repository inspection
 does not establish their project ownership.
 
+## Karazhan Crypt geographic and native-access pilot
+
+Project manifest: `tools/crypt_portals.json`; SQL:
+`data/sql/custom/db_world/turtle_wow_crypt_access.sql`.
+
+| Namespace | Allocated IDs | Contract |
+|---|---|---|
+| Map.dbc | `800` | independent `KarazhanCrypt` dungeon |
+| AreaTable.dbc | `5086` | pilot zone on map800 |
+| MapDifficulty.dbc | `756` | map800 / normal0;754 and755 are existing SQL overlays |
+| WorldMapArea.dbc | `674` | map800 / area5086; preserve independent client/server baselines |
+| LoadingScreens.dbc | `511` | Turtle loading art;335 Map field57 references it |
+| AreaTrigger.dbc / SQL shape / teleport | `900800`, `900801` | map0 entrance / map800 exit |
+| Gameobject template entries | `900800`, `900801` | decorative native display672, type5, scale1.6 |
+| Gameobject spawn GUIDs | `900800`, `900801` | one phase1/normal spawn per portal |
+| Dungeon access template | `124` | map800, difficulty0, min55; no quest/key requirements |
+
+Allocated in project source; deployment is not implied. Read-only collision
+checks on 2026-10-20 found the nine target DEV rows absent, no related trigger
+bindings/access requirements, and no competing source references in project data
+or core/module SQL/C++ sources. Client/server baseline AreaTrigger IDs were
+checked independently; the builder repeats these checks (identical owned DEV
+rows are accepted on reruns). WotLK trigger `5008` belongs to Nagrand Arena and
+is preserved; Turtle `5008`/`5011` are provenance only, not imported identifiers.
+See [`../turtle-wow/id-mappings.md`](../turtle-wow/id-mappings.md) for all pilot
+namespace bindings and collision lessons, and `../turtle-wow/crypt-portals.md`
+for placement/access contracts. Other regions are not assigned IDs merely by
+listing their Turtle source identifiers.
+
 ## External/module dependencies, not project allocations
 
 - **Creature templates `390011`, `190012`, and `601072`:** Character Services,

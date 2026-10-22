@@ -20,3 +20,5 @@ rebalance_drop_rate.sql
 transmog_currency_loot.sql
 soul_shard_stacks.sql
 cata_race_class_combos.sql
+turtle_wow_maps.sql
+turtle_wow_crypt_access.sql

@@ -18,7 +18,9 @@ priority order and does not track task-specific open issues.
 - **Type:** Operational risk.
 - **Evidence:** Four DEV databases are present. Project SQL installer applies
   only a non-atomic world overlay; no tracked full module-SQL, backup, restore,
-  or rollback workflow exists.
+  or rollback workflow exists. The [Turtle pilot portable export](../../turtle-wow/portable-release.md)
+  has its own transactional installer and recovery, but covers only that feature;
+  it does not resolve whole-project, four-database recreation.
 - **Consequence:** A partial update can leave persistent state difficult to
   reconstruct or recover.
 - **Action trigger:** Before database reset, module update, or non-disposable

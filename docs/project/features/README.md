@@ -18,6 +18,8 @@ Current features:
 - [`cata-race-class-combos.md`](cata-race-class-combos.md) — the Blood Elf
   Warrior, Night Elf Mage, Draenei Rogue, Tauren Priest, and Gnome Hunter
   playable combinations and the Dwarf Hunter quest extension for Gnomes.
+- [`turtle-wow-maps.md`](turtle-wow-maps.md) — the Turtle WoW custom geography
+  port (client patch + DBC + server Maps/VMaps/MMaps), pilot map KarazhanCrypt.
 
 Identifier ownership for these features is recorded in
 [`../CUSTOM-IDENTIFIERS.md`](../CUSTOM-IDENTIFIERS.md); the module and database

@@ -1,3 +1,14 @@
 # Python generated files
 __pycache__/
 *.py[cod]
+
+# Turtle WoW maps port: extracted/binary artifacts and third-party tooling
+work/
+tools/stormlib-src/
+tools/stormlib-build/
+tools/stormlib/
+tools/listfile-src/
+tools/listfile-focused.txt
+tools/mpq
+tools/get-pip.py
+tools/venv/

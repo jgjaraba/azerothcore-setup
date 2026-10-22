@@ -45,8 +45,8 @@ core database creation/updates -> module schemas and data by database
 
 **VERIFIED.** The project manifest is an explicit post-module `acore_world`
 overlay. **UNKNOWN.** A complete, tested order for every installed module across
-all four databases is not documented. The installer neither backs up data nor
-makes its batch atomic. Do not infer that cached Playerbots data is disposable;
+all four databases is not documented. The SQL installer neither backs up database
+data nor makes its batch atomic. Do not infer that cached Playerbots data is disposable;
 the safe recovery classification of its tables is unestablished.
 
 ## Project-owned custom SQL
@@ -64,7 +64,7 @@ the installer refuse to touch the database. Known inventory drift is tracked
 in [`../debt/REGISTER.md`](../debt/REGISTER.md).
 
 The installer streams each listed file in manifest order to the `acore_world`
-database using the local `azeroth-dev` MySQL login path and stops at the first
+database using the `LOGIN_PATH` MySQL login path (default `azeroth-dev`) and stops at the first
 failed file. The manifest uses one top-level SQL filename per line, without
 comments or blank lines.
 
@@ -76,6 +76,23 @@ SQL also relies on its required DBC records being installed on server and
 client. The installer does not
 create a database backup, wrap the full batch in a transaction, or install
 custom character or auth SQL.
+
+## Optional server-file deployment
+
+`apply-db-world.sh --with-server-data --data-dir PATH --state-dir PATH --offline`
+also installs `data/server/manifest.json` through the internal Python helper.
+The complete file plan is checked before any SQL, then checked again after SQL
+before copying. It includes the Turtle pilot's final geometry/model closure and
+five compact DBC row deltas; it does not install clients or replace whole DBCs
+with DEV snapshots. `--validate --with-server-data` only validates source
+inventories/hashes and never accesses the database or target.
+
+The optional file mode journals originals/absence and supports file-only
+rollback/recovery. This does not make the SQL manifest and filesystem one
+transaction, add SQL backup, or establish global rerun semantics for unrelated
+customizations. No arguments preserves SQL-only behavior. See the
+[deployment contract](../../turtle-wow/deployment.md) and root README for offline,
+compatibility, state and manual-client requirements.
 
 ## Safety implications
 

@@ -1,0 +1,48 @@
+{
+  "feature": "azerothcore-setup: Karazhan Crypt native access pilot",
+  "provenance": {
+    "research": "/tmp/opencode/crypt-portals/REPORT.md",
+    "public_repository": "https://github.com/tortoise-wow/tortoise-wow",
+    "public_commit": "4a9b6d564b685aaf63eb056f1f0e6d6adc9e46b4",
+    "public_files": ["sql/base/tw_world_areatrigger_template.sql", "sql/base/tw_world_areatrigger_teleport.sql", "sql/base/tw_world_map_template.sql"],
+    "qualification": "Public Tortoise snapshot, not proof of current official Turtle production data",
+    "turtle_archive": "/home/dev/wow-turtle/Data/patch-9.mpq",
+    "turtle_dbc_sha256": "0bc4449306ee7621ae2603ec0b2dca245094581da0f8f7d4076596f45cba4ac3",
+    "turtle_entrance": [5008, 0, -11068.2998046875, -1811.68994140625, 53, 3, 0, 0, 0, 0],
+    "turtle_exit": [5011, 800, -11068.2998046875, -1814.06005859375, 53.97779846191406, 3, 0, 0, 0, 0],
+    "adaptation": "Entrance moved before native map0 barrier; sphere replaced by thin oriented box. Exit volume authentic. IDs aliased to preserve WotLK Nagrand 5008. Native display672 replaces Turtle23442; no models imported.",
+    "native_barrier_world_aabb": [[-11072.493005, -11063.478917], [-1825.236721, -1821.118789], [59.438532, 69.813858]],
+    "arrival_z": {"source": 52.7, "floor": 52.7424938, "adapted": 52.85},
+    "return_z": {"source": 60.26, "floor": 60.2611202, "adapted": 60.4}
+  },
+  "inputs": {
+    "baseline": "work/client-overlay-r3-esES-manual-ready/Data/patch-T.MPQ",
+    "baseline_sha256": "175a802e1ff52f4210c429b652e05c170e8dfadca7dbd312bc5b6bf1386bdfd3",
+    "baseline_resources": 68,
+    "wotlk_archive": "/home/dev/wow-335/Data/enUS/patch-enUS-3.MPQ",
+    "wotlk_dbc_sha256": "c043300ffae75d78374bcdde57c397ef8d07c2269d1d81d57acab44567d9866c",
+    "server_dbc": "/home/dev/azerothcore/env/dist/bin/dbc/AreaTrigger.dbc",
+    "z_copies": {
+      "Data/patch-Z.mpq": "cad32e8e64b89c862b857171fa413557c78e11f04aa2274c2d1af19571a3a022",
+      "Data/esES/patch-esES-Z.MPQ": "25708c1a31b5532f111222007861e7bd50aad2beff24b40a27d5331c48958b50"
+    }
+  },
+  "portals": [
+    {
+      "id": 900800,
+      "name": "azerothcore-setup: Cripta de Karazhan - Entrada",
+      "trigger": [0, -11068.14, -1826.3, 62.2, 0, 1, 8, 6, 1.59698],
+      "destination": [800, -11068.1, -1806.4, 52.85, 1.5],
+      "visual": [0, 41, 2563, -11068.14, -1826.3, 60.2, 1.59698]
+    },
+    {
+      "id": 900801,
+      "name": "azerothcore-setup: Cripta de Karazhan - Salida",
+      "trigger": [800, -11068.2998046875, -1814.06005859375, 53.97779846191406, 3, 0, 0, 0, 0],
+      "destination": [0, -11068.9, -1828.6, 60.4, 3.1],
+      "visual": [800, 5086, 5086, -11068.3, -1814.06, 53.9778, 4.69079]
+    }
+  ],
+  "visual_template": {"type": 5, "displayId": 672, "size": 1.6, "Data1": 1, "Data6": -1},
+  "access": {"id": 124, "map_id": 800, "difficulty": 0, "min_level": 55, "max_level": 0, "min_avg_item_level": 0, "comment": "azerothcore-setup: Cripta de Karazhan - Normal"}
+}

@@ -1,0 +1,105 @@
+diff --git a/src/tools/map_extractor/System.cpp b/src/tools/map_extractor/System.cpp
+index 635f55b0d..8fe97cc07 100644
+--- a/src/tools/map_extractor/System.cpp
++++ b/src/tools/map_extractor/System.cpp
+@@ -1172,6 +1172,17 @@ void LoadCommonMPQFiles()
+     }
+ }
+ 
++// Custom project patches (Turtle WoW maps port). Loaded last so they take
++// priority over the base and locale patches.
++void LoadCustomMPQFiles()
++{
++    char filename[512];
++
++    sprintf(filename, "%s/Data/patch-T.MPQ", input_path);
++    if (FileExists(filename))
++        new MPQArchive(filename);
++}
++
+ inline void CloseMPQFiles()
+ {
+     for (auto & gOpenArchive : gOpenArchives) gOpenArchive->close();
+@@ -1198,6 +1209,7 @@ int main(int argc, char* arg[])
+ 
+             //Open MPQs
+             LoadLocaleMPQFiles(i);
++            LoadCustomMPQFiles();
+ 
+             if ((CONF_extract & EXTRACT_DBC) == 0)
+             {
+@@ -1236,6 +1248,7 @@ int main(int argc, char* arg[])
+         // Open MPQs
+         LoadLocaleMPQFiles(FirstLocale);
+         LoadCommonMPQFiles();
++        LoadCustomMPQFiles();
+ 
+         ExtractCameraFiles(FirstLocale, true);
+         // Close MPQs
+@@ -1249,6 +1262,7 @@ int main(int argc, char* arg[])
+         // Open MPQs
+         LoadLocaleMPQFiles(FirstLocale);
+         LoadCommonMPQFiles();
++        LoadCustomMPQFiles();
+ 
+         // Extract maps
+         ExtractMapsFromMpq(build);
+diff --git a/src/tools/vmap4_extractor/vmapexport.cpp b/src/tools/vmap4_extractor/vmapexport.cpp
+index 3bd12de96..8fa715fc3 100644
+--- a/src/tools/vmap4_extractor/vmapexport.cpp
++++ b/src/tools/vmap4_extractor/vmapexport.cpp
+@@ -61,6 +61,7 @@ char output_path[128] = ".";
+ char input_path[1024] = ".";
+ bool hasInputPathParam = false;
+ bool preciseVectorData = false;
++int32 gOnlyMapId = -1;
+ std::unordered_map<std::string, WMODoodadData> WmoDoodads;
+ 
+ // Constants
+@@ -208,6 +209,9 @@ void ParsMapFiles()
+     //char id_filename[64];
+     for (unsigned int i = 0; i < map_count; ++i)
+     {
++        if (gOnlyMapId >= 0 && (int32)map_ids[i].id != gOnlyMapId)
++            continue;
++
+         sprintf(fn,"World\\Maps\\%s\\%s.wdt", map_ids[i].name, map_ids[i].name);
+         WDTFile WDT(fn,map_ids[i].name);
+         if (WDT.init(map_ids[i].id))
+@@ -359,6 +363,17 @@ bool fillArchiveNameVector(std::vector<std::string>& pArchiveNames)
+         return false;
+     }
+ 
++    // Custom project patches (Turtle WoW maps port). Loaded last so they take
++    // priority over the base and locale patches.
++    {
++        std::string custom = input_path + std::string("patch-T.MPQ");
++        if (FILE* h = fopen64(custom.c_str(), "rb"))
++        {
++            fclose(h);
++            pArchiveNames.emplace_back(custom);
++        }
++    }
++
+     return true;
+ }
+ 
+@@ -397,6 +412,18 @@ bool processArgv(int argc, char** argv, char const* versionString)
+         {
+             preciseVectorData = true;
+         }
++        else if (strcmp("--only", argv[i]) == 0)
++        {
++            if ((i + 1) < argc)
++            {
++                gOnlyMapId = atoi(argv[i + 1]);
++                ++i;
++            }
++            else
++            {
++                result = false;
++            }
++        }
+         else
+         {
+             result = false;

@@ -1,0 +1,651 @@
+{
+  "artifact": {
+    "path": "Data/patch-T.MPQ",
+    "sha256": "b77c897d0147e7f8759569c4f6e54e07f1f7e06cf2d011f7583a3405237d8a48",
+    "size": 16669658
+  },
+  "baseline": {
+    "archives": [
+      {
+        "path": "common.MPQ",
+        "sha256": "d850ffa5efd6a1ba845899a7d9f9ad27f6eea7ac606e95033506c72c86ee0236",
+        "size": 2881154862
+      },
+      {
+        "path": "common-2.MPQ",
+        "sha256": "9c605d95443172bdfd7c6936bc636684761241657935c22da25f955083809f43",
+        "size": 1810430636
+      },
+      {
+        "path": "expansion.MPQ",
+        "sha256": "34a19723d773997b31ec72a16361af8bdd8cc38d108274b9b8a96521ec2c4f4a",
+        "size": 1921219911
+      },
+      {
+        "path": "lichking.MPQ",
+        "sha256": "8456e92d47f2bc71efba30fcabd4fea8c5ef0d93feef320ba51ffeeacf78de9d",
+        "size": 2553948549
+      },
+      {
+        "path": "esES/locale-eses.mpq",
+        "sha256": "ab6d529e45134e9321199fad5ae30adbb5a8aa5a9ebe15c48f22c4c3f622d422",
+        "size": 192041887
+      },
+      {
+        "path": "esES/expansion-locale-eses.mpq",
+        "sha256": "f647677c9e85f32edca2231fac0e9ef4cc04500ff01bb44c5457b245e9fd27ad",
+        "size": 16919738
+      },
+      {
+        "path": "esES/lichking-locale-eses.mpq",
+        "sha256": "89b1eba015927e321683a3867be1b8a76e593c438527eb42f4934d03484f1b04",
+        "size": 12354378
+      },
+      {
+        "path": "patch.MPQ",
+        "sha256": "92b4a94a6c7a23c0b9fd88c47823e41792879a7ee1f70c2349a255153ca25d54",
+        "size": 4004713057
+      },
+      {
+        "path": "esES/patch-eses.mpq",
+        "sha256": "b2f314876243ec1edf0b4b8dbae5d27cd01e811a436a8b129002b754e5584e94",
+        "size": 569197998
+      },
+      {
+        "path": "patch-2.MPQ",
+        "sha256": "c8b78bb75bcf5773e9ae99e11bdfcabc2a37aed3da947367d8af808d4d3c23c6",
+        "size": 1401729059
+      },
+      {
+        "path": "esES/patch-eses-2.mpq",
+        "sha256": "fc090fa2b4e1bd937d910bb4a4d8a7503bc759e3b28c2c40756ff394e5eefcc9",
+        "size": 188641672
+      },
+      {
+        "path": "patch-3.MPQ",
+        "sha256": "56dbbfc8f9ce7182ca88538d75284e738020138a7ca4217d72d8168865510dd3",
+        "size": 605089137
+      },
+      {
+        "path": "esES/patch-eses-3.mpq",
+        "sha256": "fc09789ca86b2cce71dedcb1692d2b701f6b4be6098e9883cc3f8b783a0e1a09",
+        "size": 144306511
+      }
+    ],
+    "order": "low-to-high; explicit",
+    "resources": {
+      "dbfilesclient\\areatable.dbc": {
+        "archive": "esES/patch-eses-3.mpq",
+        "sha256": "0ef4e42606b0cc1169de44405d095315ecd304b0dc5626f98fdd7bc3420ad64f"
+      },
+      "dbfilesclient\\areatrigger.dbc": {
+        "archive": "esES/patch-eses-3.mpq",
+        "sha256": "c043300ffae75d78374bcdde57c397ef8d07c2269d1d81d57acab44567d9866c"
+      },
+      "dbfilesclient\\loadingscreens.dbc": {
+        "archive": "esES/patch-eses-3.mpq",
+        "sha256": "8640ce1430c37182794ed331cbcc6fb890a0b22eb9616681503ba1a4ac9e4ac4"
+      },
+      "dbfilesclient\\map.dbc": {
+        "archive": "esES/patch-eses-3.mpq",
+        "sha256": "059ea21a2c82cff17faced5db841de056c83f6bd5664cd19a51df3676347fce7"
+      },
+      "dbfilesclient\\mapdifficulty.dbc": {
+        "archive": "esES/patch-eses-3.mpq",
+        "sha256": "710e50ebdb732b4d2285a77d046714c4eed77907e58d96b38af977dabed629f5"
+      },
+      "dbfilesclient\\worldmaparea.dbc": {
+        "archive": "esES/patch-eses-3.mpq",
+        "sha256": "90e1ec678c8226c76f4dd9f7904f05a4cb0a58c8b4d386719b24949bd55925bb"
+      },
+      "textures\\minimap\\md5translate.trs": {
+        "archive": "patch-3.MPQ",
+        "sha256": "9d372059022d1d8c267f1f9aa97aca02cbbf4d3142a5a2eeaca0393d0f8c8226"
+      }
+    },
+    "schema": 1
+  },
+  "dbc_tables": 6,
+  "generated_resources": {
+    "dbfilesclient\\areatable.dbc": {
+      "donor_sha256": "bfc1e2f1772c8c2432922d6ac603b04c2dc6466e0cb162d42a61076f1511634c",
+      "generated_sha256": "250c3e335b7a9e0f0f4a3607455fb8d190e0027283b35361b2e630c1ca490292",
+      "original_sha256": "0ef4e42606b0cc1169de44405d095315ecd304b0dc5626f98fdd7bc3420ad64f"
+    },
+    "dbfilesclient\\areatrigger.dbc": {
+      "donor_sha256": "e28e09f4480662b512801fa9a670b7a42aa28939738376a7081ae2ea1c537aae",
+      "generated_sha256": "e28e09f4480662b512801fa9a670b7a42aa28939738376a7081ae2ea1c537aae",
+      "original_sha256": "c043300ffae75d78374bcdde57c397ef8d07c2269d1d81d57acab44567d9866c"
+    },
+    "dbfilesclient\\loadingscreens.dbc": {
+      "donor_sha256": "e10e0b50bcd7341b5949d1fbefa3875fa8f7c1072d9aee671c1b3d7b4ca3a036",
+      "generated_sha256": "e10e0b50bcd7341b5949d1fbefa3875fa8f7c1072d9aee671c1b3d7b4ca3a036",
+      "original_sha256": "8640ce1430c37182794ed331cbcc6fb890a0b22eb9616681503ba1a4ac9e4ac4"
+    },
+    "dbfilesclient\\map.dbc": {
+      "donor_sha256": "31fcdf988ff79a87e8b8c013d6796aac1e5774f5c59d753712c341535478600c",
+      "generated_sha256": "31fcdf988ff79a87e8b8c013d6796aac1e5774f5c59d753712c341535478600c",
+      "original_sha256": "059ea21a2c82cff17faced5db841de056c83f6bd5664cd19a51df3676347fce7"
+    },
+    "dbfilesclient\\mapdifficulty.dbc": {
+      "donor_sha256": "1e57c5a8febdaa7f5d8b771107c69a90ae9118a54121e369dad7e35b1084b13b",
+      "generated_sha256": "254942abae9e1e135204237f1325170755b314b48249960281df82d61bc41594",
+      "original_sha256": "710e50ebdb732b4d2285a77d046714c4eed77907e58d96b38af977dabed629f5"
+    },
+    "dbfilesclient\\worldmaparea.dbc": {
+      "donor_sha256": "c82f66fd9c1154aee9d3805bf6b13c5eb1c26babdc2f27e61e0a298b97f623d1",
+      "generated_sha256": "07722540733928e9cedadf7b9eb1d3d7acde50b16e138abf2f7fa0551b3d2c0b",
+      "original_sha256": "90e1ec678c8226c76f4dd9f7904f05a4cb0a58c8b4d386719b24949bd55925bb"
+    },
+    "textures\\minimap\\md5translate.trs": {
+      "donor_sha256": "8bbe150b8477348ca54c483dc8389162889f8974d185a0dd649fd8dec2022087",
+      "generated_sha256": "951362c5588645f2d96eff513dcb023a2124ea470ff6f06408810f566d628785",
+      "original_sha256": "9d372059022d1d8c267f1f9aa97aca02cbbf4d3142a5a2eeaca0393d0f8c8226"
+    }
+  },
+  "inventory": [
+    {
+      "member": "DBFilesClient\\AreaTable.dbc",
+      "pilot_byteexact": false,
+      "sha256": "250c3e335b7a9e0f0f4a3607455fb8d190e0027283b35361b2e630c1ca490292",
+      "size": 373762
+    },
+    {
+      "member": "DBFilesClient\\AreaTrigger.dbc",
+      "pilot_byteexact": false,
+      "sha256": "e28e09f4480662b512801fa9a670b7a42aa28939738376a7081ae2ea1c537aae",
+      "size": 48901
+    },
+    {
+      "member": "DBFilesClient\\LoadingScreens.dbc",
+      "pilot_byteexact": false,
+      "sha256": "e10e0b50bcd7341b5949d1fbefa3875fa8f7c1072d9aee671c1b3d7b4ca3a036",
+      "size": 8144
+    },
+    {
+      "member": "DBFilesClient\\Map.dbc",
+      "pilot_byteexact": false,
+      "sha256": "31fcdf988ff79a87e8b8c013d6796aac1e5774f5c59d753712c341535478600c",
+      "size": 44481
+    },
+    {
+      "member": "DBFilesClient\\MapDifficulty.dbc",
+      "pilot_byteexact": false,
+      "sha256": "254942abae9e1e135204237f1325170755b314b48249960281df82d61bc41594",
+      "size": 19357
+    },
+    {
+      "member": "DBFilesClient\\WorldMapArea.dbc",
+      "pilot_byteexact": false,
+      "sha256": "07722540733928e9cedadf7b9eb1d3d7acde50b16e138abf2f7fa0551b3d2c0b",
+      "size": 6133
+    },
+    {
+      "member": "Interface\\Glues\\LoadingScreens\\LoadScreenKarazhanCrypt.blp",
+      "pilot_byteexact": true,
+      "sha256": "ca2931c47bccb42766d8dd24ea32cf394433e6290b5c0fbd6487769ab41ccbc2",
+      "size": 175948
+    },
+    {
+      "member": "Interface\\WorldMap\\KarazhanCrypt\\KarazhanCrypt1.blp",
+      "pilot_byteexact": true,
+      "sha256": "675e7296987a5e1e2da954ca9366d9b9d70db2430ecd7c98dfd6e3402932503c",
+      "size": 132244
+    },
+    {
+      "member": "Interface\\WorldMap\\KarazhanCrypt\\KarazhanCrypt10.blp",
+      "pilot_byteexact": true,
+      "sha256": "bfe0a4f7b92a47bb9f0f689be280ff13fe131d9e838dc1a0f80e8c27c19e6c0a",
+      "size": 132244
+    },
+    {
+      "member": "Interface\\WorldMap\\KarazhanCrypt\\KarazhanCrypt11.blp",
+      "pilot_byteexact": true,
+      "sha256": "169383630f15bcb1127a6ed60dddf01db9fe554efa7bd44eff23805834e7c40d",
+      "size": 132244
+    },
+    {
+      "member": "Interface\\WorldMap\\KarazhanCrypt\\KarazhanCrypt12.blp",
+      "pilot_byteexact": true,
+      "sha256": "602f3dd157c0f786202669903ff0b9b8bd9e9f6c9413a0dfc250c911762734de",
+      "size": 132244
+    },
+    {
+      "member": "Interface\\WorldMap\\KarazhanCrypt\\KarazhanCrypt2.blp",
+      "pilot_byteexact": true,
+      "sha256": "06c16d6c1a1cfef0a5f984e628fc7cbcfebe91ccf26f192b3e3ea63d70c31b7e",
+      "size": 132244
+    },
+    {
+      "member": "Interface\\WorldMap\\KarazhanCrypt\\KarazhanCrypt3.blp",
+      "pilot_byteexact": true,
+      "sha256": "2393e43b9f2c8ba482ac41a26266e1edf5f3fd0f369df03b9767b04fc8b8f0d4",
+      "size": 132244
+    },
+    {
+      "member": "Interface\\WorldMap\\KarazhanCrypt\\KarazhanCrypt4.blp",
+      "pilot_byteexact": true,
+      "sha256": "f0a10e76445b8ef1ce585e3f147b42f8e884868f7d9d4f3bdab514d3c584f83c",
+      "size": 132244
+    },
+    {
+      "member": "Interface\\WorldMap\\KarazhanCrypt\\KarazhanCrypt5.blp",
+      "pilot_byteexact": true,
+      "sha256": "0ad123d7b7cb7a33549f9a9651c617d3a0c1228ccdfcbce2aa0d3e62a99357b6",
+      "size": 132244
+    },
+    {
+      "member": "Interface\\WorldMap\\KarazhanCrypt\\KarazhanCrypt6.blp",
+      "pilot_byteexact": true,
+      "sha256": "fc0cb2355b6e8a85b7619019a22781ac655f2652cb3ba36899192bdf54d6d7f2",
+      "size": 132244
+    },
+    {
+      "member": "Interface\\WorldMap\\KarazhanCrypt\\KarazhanCrypt7.blp",
+      "pilot_byteexact": true,
+      "sha256": "d758a23f15c16975f4eda2eb35a25d4a08056c40718bf6c2944df9a2833409cd",
+      "size": 132244
+    },
+    {
+      "member": "Interface\\WorldMap\\KarazhanCrypt\\KarazhanCrypt8.blp",
+      "pilot_byteexact": true,
+      "sha256": "8d250dc2881dd7d2126b01d6fd83b249db6a7489ea4d3160d4a65dc698b4323b",
+      "size": 132244
+    },
+    {
+      "member": "Interface\\WorldMap\\KarazhanCrypt\\KarazhanCrypt9.blp",
+      "pilot_byteexact": true,
+      "sha256": "de317f99d995cae9ddb61ff3c8e8f95944f741ded176ad6c5b12560cdb83bbb6",
+      "size": 132244
+    },
+    {
+      "member": "Textures\\Minimap\\md5translate.trs",
+      "pilot_byteexact": false,
+      "sha256": "951362c5588645f2d96eff513dcb023a2124ea470ff6f06408810f566d628785",
+      "size": 1563628
+    },
+    {
+      "member": "Textures\\Minimap\\tw800_017f1af662f1b71061a4f81391009577.blp",
+      "pilot_byteexact": true,
+      "sha256": "d7467205af9052e8deba5c100cf0a01daee4d9bb082654bcd75d6d0a6ed0aee6",
+      "size": 33940
+    },
+    {
+      "member": "Textures\\Minimap\\tw800_1294584b41c69b2fccaf40575894ac4e.blp",
+      "pilot_byteexact": true,
+      "sha256": "56329b385ced5a9770961a23ba6dff83a41b962aab131da3cdef7d76c3bbd431",
+      "size": 1684
+    },
+    {
+      "member": "Textures\\Minimap\\tw800_2239879f88e5018082f777d125fada7b.blp",
+      "pilot_byteexact": true,
+      "sha256": "16820c8dd9b3fc633fc4ded8613951bd8e9c20b484b558933fbfad290ffc857b",
+      "size": 33940
+    },
+    {
+      "member": "Textures\\Minimap\\tw800_27a371629ccd30f63f4a54fae909318a.blp",
+      "pilot_byteexact": true,
+      "sha256": "3f34e3ae0f8f4a352fe32eb5ecadabcd24a9462a70ed2721f38ae974f2f1b7d5",
+      "size": 33940
+    },
+    {
+      "member": "Textures\\Minimap\\tw800_3200898ec2edd8cf0e597adf1a2602c3.blp",
+      "pilot_byteexact": true,
+      "sha256": "5659151bfcb6f5d4e4d266a98d49485973c61ec509471c41833321b82ee1427a",
+      "size": 9364
+    },
+    {
+      "member": "Textures\\Minimap\\tw800_3a296821ba4d9ffbea4bab2782b4f921.blp",
+      "pilot_byteexact": true,
+      "sha256": "550b1a62cc09983967247f70f6f4082b3f5afbf261fa5487af97993872f35cf5",
+      "size": 33940
+    },
+    {
+      "member": "Textures\\Minimap\\tw800_3dd6279e35908a3923bd87bcd2219843.blp",
+      "pilot_byteexact": true,
+      "sha256": "086b2a46e13be1291faa4a39a5941b7b28817171f18787d910635080179081c4",
+      "size": 33940
+    },
+    {
+      "member": "Textures\\Minimap\\tw800_409f38ed231a41d4845cc5fa10aaaefe.blp",
+      "pilot_byteexact": true,
+      "sha256": "c315d37e34cda6dcdc2133c7876d43fc790c7059b479507c9fb463594aa69a68",
+      "size": 33940
+    },
+    {
+      "member": "Textures\\Minimap\\tw800_43cd2bd8a9a446af5d9ff0a64467ce00.blp",
+      "pilot_byteexact": true,
+      "sha256": "c2e5d8106b06a376e4ef04adbd7b50d3646cac7df38b2d53deb3b4a1dc86cd4d",
+      "size": 5268
+    },
+    {
+      "member": "Textures\\Minimap\\tw800_5a22bec329227023f8aea8a34e855044.blp",
+      "pilot_byteexact": true,
+      "sha256": "ed63f11481c8dcaa3884b476fed38e529cea22d080efe3e7be35c2ed2c63f547",
+      "size": 33940
+    },
+    {
+      "member": "Textures\\Minimap\\tw800_61857b8ced4a03a4a11b4d24146b1551.blp",
+      "pilot_byteexact": true,
+      "sha256": "da564f33575ad18290bb82a1345c1f466bcc5d9771d58826188c8cbe2cf167ca",
+      "size": 33940
+    },
+    {
+      "member": "Textures\\Minimap\\tw800_619413c8549117aa1606cdeadf0c50a6.blp",
+      "pilot_byteexact": true,
+      "sha256": "00c37ff4dd478506b4989de62c2a7b1d32271d3fce8893618b703e4ec8e8b8de",
+      "size": 33940
+    },
+    {
+      "member": "Textures\\Minimap\\tw800_66f4963d5aa105656a02bfd8bce227b3.blp",
+      "pilot_byteexact": true,
+      "sha256": "c79fdc1776e78eb4a612bf8ea028da30e9da155c7a09e95d9c6301dc421f8dab",
+      "size": 3220
+    },
+    {
+      "member": "Textures\\Minimap\\tw800_768b970b7658beaaf6d326dbf790c80a.blp",
+      "pilot_byteexact": true,
+      "sha256": "c1a35cfca8f247337a1bb0d3577494bfe5932447b667fe54d16ead7df080c79b",
+      "size": 33940
+    },
+    {
+      "member": "Textures\\Minimap\\tw800_7ec666ed37232c4b654eda4fb1694550.blp",
+      "pilot_byteexact": true,
+      "sha256": "0c89ac99e84d54544ed9fdc79fceeabbde65e1be0dc747ada832f34f9e31c819",
+      "size": 33940
+    },
+    {
+      "member": "Textures\\Minimap\\tw800_82e4eed8bbaa4291d5a112b96e5d0add.blp",
+      "pilot_byteexact": true,
+      "sha256": "71c25906703ccfc457e462448a14ef349c2759e8a6ab29150707b64550a8d0a0",
+      "size": 9364
+    },
+    {
+      "member": "Textures\\Minimap\\tw800_9b18dbc443e475c2267a2c5a9fcf2f42.blp",
+      "pilot_byteexact": true,
+      "sha256": "fe518890a99b97abf7c6ea2462200d510f54af776c24f43a1ddd19dc42670ae8",
+      "size": 33940
+    },
+    {
+      "member": "Textures\\Minimap\\tw800_9d35a27b128767af336f9eadd65d40dd.blp",
+      "pilot_byteexact": true,
+      "sha256": "1ca4505c017174b65f314ec2dbd3003ddc6836123685e374c02cfb4d15dfa1c4",
+      "size": 17556
+    },
+    {
+      "member": "Textures\\Minimap\\tw800_9f1b101c8b49ac5538114459efb39af9.blp",
+      "pilot_byteexact": true,
+      "sha256": "301cc568b8a981052bdb28f51de0f4da6e5b63d41d7412162da1fcab7afd3098",
+      "size": 33940
+    },
+    {
+      "member": "Textures\\Minimap\\tw800_ae8e893f044c75d4b6fb1d9ae0651744.blp",
+      "pilot_byteexact": true,
+      "sha256": "a306734ca71b69a6a750310be7060bd0d6c8933d7eda487b0db8761f8e0f0848",
+      "size": 33940
+    },
+    {
+      "member": "Textures\\Minimap\\tw800_b5495897bd4833751deb27a2ed22c894.blp",
+      "pilot_byteexact": true,
+      "sha256": "b9135882d3c029c9b2acdfcc973e447d2e0e36b141f8cf3463d293b90f1d9ea6",
+      "size": 33940
+    },
+    {
+      "member": "Textures\\Minimap\\tw800_bb821a75d2c0a02f9a6c28dab5e2a3da.blp",
+      "pilot_byteexact": true,
+      "sha256": "7babf0f8efa451a13bee470f7386afd601694b987227384ac29df122dd8e4022",
+      "size": 9364
+    },
+    {
+      "member": "Textures\\Minimap\\tw800_dc335eab488817ef6a0159dc61d38817.blp",
+      "pilot_byteexact": true,
+      "sha256": "5ca3f72a3b604ba2a0ddfc511478232dd03bcff230fb4c75344acf9b7d97dd07",
+      "size": 33940
+    },
+    {
+      "member": "Textures\\Minimap\\tw800_ee48dc4e83f00ddb47dc927140fb3a83.blp",
+      "pilot_byteexact": true,
+      "sha256": "f847fb3e4928453905908510d8990c858f5a538cd316fc07f5eab340d390f2a5",
+      "size": 33940
+    },
+    {
+      "member": "World\\Maps\\KarazhanCrypt\\KarazhanCrypt.wdt",
+      "pilot_byteexact": true,
+      "sha256": "dbd5f4ba7b3d21a918833a7d4bed431306ae0386e161f1726e95cbc8676e2587",
+      "size": 32828
+    },
+    {
+      "member": "World\\Maps\\KarazhanCrypt\\KarazhanCrypt_34_52.adt",
+      "pilot_byteexact": true,
+      "sha256": "59655651f5b1d43118ee5ddf52568f856901f91587bf885e6b2fceee73640a52",
+      "size": 1688508
+    },
+    {
+      "member": "World\\Maps\\KarazhanCrypt\\KarazhanCrypt_34_53.adt",
+      "pilot_byteexact": true,
+      "sha256": "b4d642616b78b8c16d850c9e72b7b91dbb6fa36fbb717a7da08839b174db4605",
+      "size": 1816699
+    },
+    {
+      "member": "World\\Maps\\KarazhanCrypt\\KarazhanCrypt_35_52.adt",
+      "pilot_byteexact": true,
+      "sha256": "8d3da4c4f45f4164ab841cca507d53ec0c085e3fd04157c22e9bc3538ed7557b",
+      "size": 1565109
+    },
+    {
+      "member": "World\\Maps\\KarazhanCrypt\\KarazhanCrypt_35_53.adt",
+      "pilot_byteexact": true,
+      "sha256": "8bb544d07f73064577cad3477427291303a44d459fb0b012d26db01010298e24",
+      "size": 1641205
+    },
+    {
+      "member": "World\\Maps\\KarazhanCrypt\\KarazhanCrypt_36_52.adt",
+      "pilot_byteexact": true,
+      "sha256": "0da140aff6ea55ce03bff3037ef9b4627810510599ed383b7cc7309c88910d00",
+      "size": 1629768
+    },
+    {
+      "member": "World\\Maps\\KarazhanCrypt\\KarazhanCrypt_36_53.adt",
+      "pilot_byteexact": true,
+      "sha256": "b0031590a4ede267851a5d5212775bc0952ebfc23cbe2fc602816fa4f15a3e5d",
+      "size": 1321217
+    },
+    {
+      "member": "World\\wmo\\Custom\\Turtle800\\tw800crypt.wmo",
+      "pilot_byteexact": true,
+      "sha256": "b89d5f5abc7b24c57ea32f5b6ea659796a5fbd8c6467454df08783cca0120b1b",
+      "size": 34644
+    },
+    {
+      "member": "World\\wmo\\Custom\\Turtle800\\tw800crypt_000.wmo",
+      "pilot_byteexact": true,
+      "sha256": "c21e74a75e87d46a1ba088aca055cd575950468a6b8b806d1a850fe76acc8eb4",
+      "size": 47600
+    },
+    {
+      "member": "World\\wmo\\Custom\\Turtle800\\tw800crypt_001.wmo",
+      "pilot_byteexact": true,
+      "sha256": "73389b4c16706ca805c0705b9980cb16578e67f681c6af6b10df0860ee194f16",
+      "size": 74086
+    },
+    {
+      "member": "World\\wmo\\Custom\\Turtle800\\tw800crypt_002.wmo",
+      "pilot_byteexact": true,
+      "sha256": "079ed95a88a0a3acc5c984938b14582d863074b4aec4057844ca60a99fbd7602",
+      "size": 236954
+    },
+    {
+      "member": "World\\wmo\\Custom\\Turtle800\\tw800crypt_003.wmo",
+      "pilot_byteexact": true,
+      "sha256": "e7954cf9801b4c71f4f0a2f311b338be55215eeb43289d928455e80c2b19c394",
+      "size": 71928
+    },
+    {
+      "member": "World\\wmo\\Custom\\Turtle800\\tw800crypt_004.wmo",
+      "pilot_byteexact": true,
+      "sha256": "c57a0bc84f69ed5cbc0be71d7e63fc59edfbec3f1b2e529ee7f0eb02dfe2f4e4",
+      "size": 273444
+    },
+    {
+      "member": "World\\wmo\\Custom\\Turtle800\\tw800crypt_005.wmo",
+      "pilot_byteexact": true,
+      "sha256": "b6930cefd7c5ee7e61237dea47e6d7e27f2f4ed2aaa3b1c9d5cb8b87d2716016",
+      "size": 145644
+    },
+    {
+      "member": "World\\wmo\\Custom\\Turtle800\\tw800crypt_006.wmo",
+      "pilot_byteexact": true,
+      "sha256": "ec6cc520128fee688abdcdc1c83a5f7f9740644be8db185fec6ecf6338241706",
+      "size": 226634
+    },
+    {
+      "member": "World\\wmo\\Custom\\Turtle800\\tw800crypt_007.wmo",
+      "pilot_byteexact": true,
+      "sha256": "7ba56138a1f9eda281363d46725f6b1b7322ccd6e769ecd3ddd870aa309271f4",
+      "size": 65006
+    },
+    {
+      "member": "World\\wmo\\Custom\\Turtle800\\tw800crypt_008.wmo",
+      "pilot_byteexact": true,
+      "sha256": "441ab49822d9d007b268c4052cc4ec8b2ec5e2569c975d82797823d5e7ed447c",
+      "size": 139536
+    },
+    {
+      "member": "World\\wmo\\Custom\\Turtle800\\tw800crypt_009.wmo",
+      "pilot_byteexact": true,
+      "sha256": "97fcb88f885291a425066334fc69feddd290305848288349052d40127b3d4dd6",
+      "size": 118830
+    },
+    {
+      "member": "World\\wmo\\Custom\\Turtle800\\tw800crypt_010.wmo",
+      "pilot_byteexact": true,
+      "sha256": "07ef5eaa9e8666adaff372314e1176fb6c74dd0d97d2af2eb557076f0d663791",
+      "size": 23824
+    },
+    {
+      "member": "World\\wmo\\Custom\\Turtle800\\tw800crypt_011.wmo",
+      "pilot_byteexact": true,
+      "sha256": "af00c8b920a36034f93dd4626b62bc36790b7368335d40634b3c1ef091064226",
+      "size": 7966
+    },
+    {
+      "member": "World\\wmo\\Custom\\Turtle800\\tw800crypt_012.wmo",
+      "pilot_byteexact": true,
+      "sha256": "41f8ebce7ef79b19498d18c7f4992ea76c969246eb00e497d9b8b942c650098c",
+      "size": 32371
+    },
+    {
+      "member": "World\\wmo\\Custom\\Turtle800\\tw800crypt_013.wmo",
+      "pilot_byteexact": true,
+      "sha256": "0f16e09321276e31f3bb307ee6de6353ed25fd90951e1181aaa60237e8d5c122",
+      "size": 433181
+    },
+    {
+      "member": "World\\wmo\\Custom\\Turtle800\\tw800crypt_014.wmo",
+      "pilot_byteexact": true,
+      "sha256": "3675285d4bb9d7a6d82ba9e39256e6f1b7747689ecc2f5f5fbe83f872dfa254e",
+      "size": 110829
+    },
+    {
+      "member": "World\\wmo\\Custom\\Turtle800\\tw800crypt_015.wmo",
+      "pilot_byteexact": true,
+      "sha256": "307d19031c34d8680408e1aef7ba131ef6704145ee021847be3cd227b13f81a6",
+      "size": 209135
+    },
+    {
+      "member": "World\\wmo\\Custom\\Turtle800\\tw800crypt_016.wmo",
+      "pilot_byteexact": true,
+      "sha256": "45af435dc6037a2604510e58a50df07649d746cbc74077c09e23ef0d6374b49c",
+      "size": 2740
+    },
+    {
+      "member": "World\\wmo\\Custom\\Turtle800\\tw800crypt_017.wmo",
+      "pilot_byteexact": true,
+      "sha256": "8781044d73a85e77a626ce5a9f0efa8b93def819cc22a4a20173eb362072fa3f",
+      "size": 12834
+    },
+    {
+      "member": "World\\wmo\\Custom\\Turtle800\\tw800crypt_018.wmo",
+      "pilot_byteexact": true,
+      "sha256": "de60bef1460587e303bc663b3d2d5d5fa2714e868066f3688d0c518fce4d2b47",
+      "size": 113946
+    }
+  ],
+  "kind": "crypt-clean-client",
+  "mpq_tool_sha256": "024fc9858269a9e518d763c306ad3602f80f06147835694d472a95aca896c144",
+  "pilot_sha256": "738ef0e3547f2d40ad9e7fbb7ed5608d684bbb51e640b5328b4bf26cce1813ee",
+  "pilot_trs_additions": 29,
+  "schema": 1,
+  "status": "byte-validated; not installed",
+  "target_preflight": {
+    "archives": [
+      {
+        "path": "common.MPQ",
+        "sha256": "d850ffa5efd6a1ba845899a7d9f9ad27f6eea7ac606e95033506c72c86ee0236",
+        "size": 2881154862
+      },
+      {
+        "path": "common-2.MPQ",
+        "sha256": "9c605d95443172bdfd7c6936bc636684761241657935c22da25f955083809f43",
+        "size": 1810430636
+      },
+      {
+        "path": "expansion.MPQ",
+        "sha256": "34a19723d773997b31ec72a16361af8bdd8cc38d108274b9b8a96521ec2c4f4a",
+        "size": 1921219911
+      },
+      {
+        "path": "lichking.MPQ",
+        "sha256": "8456e92d47f2bc71efba30fcabd4fea8c5ef0d93feef320ba51ffeeacf78de9d",
+        "size": 2553948549
+      },
+      {
+        "path": "esES/locale-eses.mpq",
+        "sha256": "ab6d529e45134e9321199fad5ae30adbb5a8aa5a9ebe15c48f22c4c3f622d422",
+        "size": 192041887
+      },
+      {
+        "path": "esES/expansion-locale-eses.mpq",
+        "sha256": "f647677c9e85f32edca2231fac0e9ef4cc04500ff01bb44c5457b245e9fd27ad",
+        "size": 16919738
+      },
+      {
+        "path": "esES/lichking-locale-eses.mpq",
+        "sha256": "89b1eba015927e321683a3867be1b8a76e593c438527eb42f4934d03484f1b04",
+        "size": 12354378
+      },
+      {
+        "path": "patch.MPQ",
+        "sha256": "92b4a94a6c7a23c0b9fd88c47823e41792879a7ee1f70c2349a255153ca25d54",
+        "size": 4004713057
+      },
+      {
+        "path": "esES/patch-eses.mpq",
+        "sha256": "b2f314876243ec1edf0b4b8dbae5d27cd01e811a436a8b129002b754e5584e94",
+        "size": 569197998
+      },
+      {
+        "path": "patch-2.MPQ",
+        "sha256": "c8b78bb75bcf5773e9ae99e11bdfcabc2a37aed3da947367d8af808d4d3c23c6",
+        "size": 1401729059
+      },
+      {
+        "path": "esES/patch-eses-2.mpq",
+        "sha256": "fc090fa2b4e1bd937d910bb4a4d8a7503bc759e3b28c2c40756ff394e5eefcc9",
+        "size": 188641672
+      },
+      {
+        "path": "patch-3.MPQ",
+        "sha256": "56dbbfc8f9ce7182ca88538d75284e738020138a7ca4217d72d8168865510dd3",
+        "size": 605089137
+      },
+      {
+        "path": "esES/patch-eses-3.mpq",
+        "sha256": "fc09789ca86b2cce71dedcb1692d2b701f6b4be6098e9883cc3f8b783a0e1a09",
+        "size": 144306511
+      }
+    ],
+    "reject_extra_mpqs": true,
+    "reject_loose_resources": true
+  }
+}

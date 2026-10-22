@@ -1,0 +1,23 @@
+# Scoped generator profile; substitute both tokens via crypt_nav_generate.py.
+# ADT/generator coordinates35,52 correspond to YAML key52,35.
+mmapsConfig:
+  skipLiquid: false
+  skipContinents: false
+  skipJunkMaps: true
+  skipBattlegrounds: false
+  debugOutput: false
+  dataDir: "@DATA_DIR@"
+  offmeshConnections: []
+  meshSettings:
+    walkableSlopeAngle: 60
+    walkableHeight: 6
+    walkableClimb: 4
+    walkableRadius: 2
+    verticesPerMapEdge: 2000
+    verticesPerTileEdge: 80
+    maxSimplificationError: 0.8
+    mapsOverrides:
+      "800":
+        tilesOverrides:
+          "52,35":
+            maxSimplificationError: @ERROR@

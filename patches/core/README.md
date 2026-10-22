@@ -1,5 +1,12 @@
 # Player-owned combo points — core patch
 
+This directory also contains the independently scoped
+[`turtle-pilot-extractors.patch`](turtle-pilot-extractors.patch); its baseline,
+limitations, build targets and rollback are documented in
+[`turtle-pilot-extractors.md`](turtle-pilot-extractors.md). The instructions below
+refer specifically to the combo-points patch, not to a required worldserver
+rebuild for extractor-only changes.
+
 ## What this changes
 
 This patch relocates combo-point ownership from the enemy target to the player
