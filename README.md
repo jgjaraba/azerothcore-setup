@@ -39,8 +39,8 @@ scripts/apply-db-world.sh --with-server-data \
 The world script applies its existing SQL manifest, then installs the server
 assets in [`data/server/manifest.json`](data/server/manifest.json). Turtle instance
 and access SQL are already in that SQL manifest. The assets include geometry,
-collision/navigation and five **row-level DBC deltas**, not full replacement
-tables. The complete file plan is checked **before any SQL**; conflicting files
+collision/navigation, five geographic **row-level DBC deltas**, and a natural-key
+delta for seven Troll facial styles—not full replacement tables. The complete file plan is checked **before any SQL**; conflicting files
 are not overwritten. `--offline` asserts stopped/exclusive targets; it does not
 stop services itself. Configure the MySQL login with `LOGIN_PATH` (default
 `azeroth-dev`, database `acore_world`).
@@ -123,6 +123,64 @@ If that passes, copy its T into `Data/` with WoW closed and no existing T; rollb
 removes that newly added file. This stock variant passed binary/installer checks,
 but has **not** received a separate in-game visual acceptance. Do not remove a
 custom client's other patches to force this preflight to pass.
+
+#### 2.4. Racial customizations — choose ONE cumulative patch-S
+
+Both editions are complete replacements installed as **`Data/patch-S.MPQ`**.
+**Never load both**, rename one to another patch letter, or copy the whole package
+tree into the client. With WoW closed, back up your owned S **outside Data** and
+copy only the selected edition's file. Keep T/Z/locale-Z unchanged; do not
+overwrite an unrelated S without reconciling it first.
+
+| Edition | File | Includes |
+|---|---|---|
+| **Primary / complete options** | [client_patches/Data/patch-S.MPQ](client_patches/Data/patch-S.MPQ) | Accepted Troll primary plus Tauren: one full-face skin per sex, six horn colours, ten native barber-style unlocks and four additional facial adornments. |
+| **Optional / partial options** | [client_patches/optional-extra-skins/Data/patch-S.MPQ](client_patches/optional-extra-skins/Data/patch-S.MPQ) | Everything in primary, the retained9+9 Troll appearances, plus3 male /2 female fixed-face Tauren looks, including the identified Spirit Walker shop bake. |
+
+Verify `SHA256SUMS` in `client_patches/` or `client_patches/optional-extra-skins/`.
+Copy only the selected file to the playing client's **Data/patch-S.MPQ**. The old
+`turtle_forest_troll/` packages are frozen build bases/history, not current extras
+to load beside it. Every subsequent race migration follows this same two-edition
+policy: complete ordinary-face coverage in primary, fixed-face/partial looks in
+optional, both cumulative and mutually exclusive.
+
+Original indices and Troll resource bytes are preserved, including the removal
+of male Troll33–35. Tauren's missing facial pieces are appended to the **native
+Wrath models** with verified bone bindings; native skeleton/animations remain.
+No new race, display, morph or aura is added. The user confirmed the Tauren
+implementation works perfectly; this is practical acceptance, not an exhaustive
+DK/HD matrix. Mixed-edition viewing still lacks optional resources in primary;
+see the [Tauren contract and compatibility discussion](docs/turtle-wow/tauren-customizations.md).
+
+The default server manifest now installs491 overlays (Troll298 +Tauren193) and
+eleven facial-style donor rows through the existing world-SQL/`--with-server-data`
+flow. Use a fresh file-state directory when upgrading the changed manifest.
+The optional manifest adds150 (Troll135 +Tauren15), **not applied by default**.
+To opt in after
+the primary server setup, with the server stopped:
+
+```sh
+SQL_DIR="$PWD/data/sql/optional/db_world" scripts/apply-db-world.sh
+```
+
+Restart afterward. Use the optional client wherever characters with extra skins
+are selected or viewed: primary lacks those records/textures and cannot promise
+correct rendering of them. Existing characters are not remapped when switching
+profiles. Recustomize extra skins in an optional-capable client before switching
+to primary, or keep using the optional edition for those characters.
+
+Upgrading an older optional profile with the same command removes the21 exact
+legacy rows for retired male colors33–35. Conflicting foreign changes fail closed;
+other skins, hairstyles and facial features are preserved. Retired indices are
+not renumbered or reused.
+
+To disable partial looks, remove Tauren's optional15 first using
+`data/sql/rollback/turtle_tauren_extra_skins.sql`, then Troll's135 using
+`data/sql/rollback/turtle_troll_extra_skins.sql`; keep principal facial/hair/Forest
+data. Existing appearances are never remapped automatically. Default reapply
+does not silently remove an enabled opt-in. Contracts: [Tauren](docs/turtle-wow/tauren-customizations.md),
+[Troll](docs/turtle-wow/troll-customizations.md), and the permanent
+[edition policy](docs/project/decisions/ADR-0007-native-customization-editions.md).
 
 ### 3. Addons
 

@@ -1,0 +1,31 @@
+{
+  "version": 3,
+  "base": {
+    "Data/patch-S.MPQ": "d63ecb0e583a77f4283dde8f39e253d4dee5694f6978ae5326d1120e164165a9",
+    "report.json": "5716d8de5c99d7aff23fa373538299f71d47f6b872b5b6a03e8607d61a8a71d0",
+    "SHA256SUMS": "3eadd8ec2a0b8bcd377ff37df313d78d97b8c286cf926858529cedcfbbcc536c"
+  },
+  "removed_male_colors": [33, 34, 35],
+  "quantization_allowlist": [],
+  "previous_optional_comparison": {
+    "method": "Direct old-publication comparison before release; remaining non-CharSections payload fingerprint verified every build",
+    "patch_sha256": "a09f4f6c69957dc770c7bc458772eda3ee641f675925fdb4a5c7045026731769",
+    "remaining_member_hashes_sha256": "ecd6115ed5cfe5487121fcdc60ebfd0c0dfb1201121c7f854bee9057e8b4bd64",
+    "remaining_payload_byte_exact": true,
+    "removed_member_sha256": {
+      "Character\\Custom\\TurtleTroll\\Male\\trollmaleshop1_Body.blp": "f7d18d50b06b63e2bf15ba49c3d215cdd12a155f5fe0c501d461bb0b430c98bd",
+      "Character\\Custom\\TurtleTroll\\Male\\trollmaleshop1_FaceLower.blp": "1764933925cc6e7a315e788263893a87c33969d3023d4a832f58511a1fc54bb2",
+      "Character\\Custom\\TurtleTroll\\Male\\trollmaleshop1_FaceUpper.blp": "4cd8f0fec14b672a39bda7ab7dd75c99206ae8bd97d2f1a1fb192499570cccd8",
+      "Character\\Custom\\TurtleTroll\\Male\\trollmaleshop1_NakedPelvisSkin.blp": "7d29f174773a2ed49348ddf81ab954a6bf0de823441050a8c4147dd26787ccfa",
+      "Character\\Custom\\TurtleTroll\\Male\\trollmaleshop2_Body.blp": "41987d2e59fbd76d00647b6522e6fa783e047d13c688a32cc9c9cc69a9444eb3",
+      "Character\\Custom\\TurtleTroll\\Male\\trollmaleshop2_FaceLower.blp": "074533d0aac70cb6e6e159787241f21dc9fdc5ff9710188f45a3a7dce1202ddc",
+      "Character\\Custom\\TurtleTroll\\Male\\trollmaleshop2_FaceUpper.blp": "91540d12f713c53142b5bbd1b94dad7d3aab636c68c547f1de67be2d3fd37793",
+      "Character\\Custom\\TurtleTroll\\Male\\trollmaleshop2_NakedPelvisSkin.blp": "37f763ff5785f8f04f47e1f793a8e24f9dd7baa9aab057c03acb4950a7c77f0b",
+      "Character\\Custom\\TurtleTroll\\Male\\zombietrollshop_Body.blp": "851bbaa8fbeb7f07fca5c8f9900e5f998b3077eae559ff478acb1ba32ff02094",
+      "Character\\Custom\\TurtleTroll\\Male\\zombietrollshop_FaceLower.blp": "b43499acfbb0b9a15ffbac46b6a54e0924bbabf8d3c84bde724f0c8f328038d4",
+      "Character\\Custom\\TurtleTroll\\Male\\zombietrollshop_FaceUpper.blp": "cdbebb2970a7d3f773baf976de72446a77efdc4b67ad6604615c92c2ed8a097e",
+      "Character\\Custom\\TurtleTroll\\Male\\zombietrollshop_NakedPelvisSkin.blp": "6e4e36063705398fb1dec153d77d375b9b3d82fcc44103861673b303a2df1a6e"
+    }
+  },
+  "accepted_trial_sha256": "a9a7fc72157a963f5c1235b4c5684d88c3420058c11cc19c68a3fe4b5eef9777"
+}

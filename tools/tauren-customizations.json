@@ -1,0 +1,553 @@
+{
+  "archives": {
+    "335:Data/esES/patch-eses-3.mpq": {
+      "client": "335",
+      "path": "Data/esES/patch-eses-3.mpq",
+      "sha256": "fc09789ca86b2cce71dedcb1692d2b701f6b4be6098e9883cc3f8b783a0e1a09"
+    },
+    "335:Data/esES/patch-eses.mpq": {
+      "client": "335",
+      "path": "Data/esES/patch-eses.mpq",
+      "sha256": "b2f314876243ec1edf0b4b8dbae5d27cd01e811a436a8b129002b754e5584e94"
+    },
+    "335:Data/patch-2.MPQ": {
+      "client": "335",
+      "path": "Data/patch-2.MPQ",
+      "sha256": "c8b78bb75bcf5773e9ae99e11bdfcabc2a37aed3da947367d8af808d4d3c23c6"
+    },
+    "335:Data/patch-3.MPQ": {
+      "client": "335",
+      "path": "Data/patch-3.MPQ",
+      "sha256": "56dbbfc8f9ce7182ca88538d75284e738020138a7ca4217d72d8168865510dd3"
+    },
+    "335:Data/patch.MPQ": {
+      "client": "335",
+      "path": "Data/patch.MPQ",
+      "sha256": "92b4a94a6c7a23c0b9fd88c47823e41792879a7ee1f70c2349a255153ca25d54"
+    },
+    "turtle:Data/patch-3.mpq": {
+      "client": "turtle",
+      "path": "Data/patch-3.mpq",
+      "sha256": "a3c822b7e6bbcb2b3509be94e1c747d65386fdecba64cec18dc58938ad97a791"
+    },
+    "turtle:Data/patch-5.mpq": {
+      "client": "turtle",
+      "path": "Data/patch-5.mpq",
+      "sha256": "10a4458293369761ef5f1550c4caa1761f51009a72c885eaf80a8b8afea92161"
+    },
+    "turtle:Data/patch-6.mpq": {
+      "client": "turtle",
+      "path": "Data/patch-6.mpq",
+      "sha256": "ce3e6de954b6c5044e70dd053d884edd4d53410524019aa0f0e48f2cc16f83f7"
+    },
+    "turtle:Data/patch-7.mpq": {
+      "client": "turtle",
+      "path": "Data/patch-7.mpq",
+      "sha256": "12be51032b3e0993af2c2ded5144abe50ec400116b04ba1b1e6aa4390944c1fa"
+    },
+    "turtle:Data/patch-8.mpq": {
+      "client": "turtle",
+      "path": "Data/patch-8.mpq",
+      "sha256": "465f00065dc5179bf6cc9de8d4815495cff4bf2c34d4c8a0de6da9da74d2d943"
+    },
+    "turtle:Data/texture.MPQ": {
+      "client": "turtle",
+      "path": "Data/texture.MPQ",
+      "sha256": "78ae55d609fea3ac07eb1ce45024542c295032c37164234f820762d4dfa44128"
+    }
+  },
+  "assets": {
+    "335:character\\tauren\\female\\taurenfemale.m2": {
+      "archive": "335:Data/patch-3.MPQ",
+      "member": "CHARACTER\\Tauren\\Female\\TaurenFemale.M2",
+      "sha256": "c74b71a5b08e4047e43f7090219e324d3c8f8d58c0b273725070ae282e7d4d07"
+    },
+    "335:character\\tauren\\female\\taurenfemale00.skin": {
+      "archive": "335:Data/patch-3.MPQ",
+      "member": "CHARACTER\\Tauren\\Female\\TaurenFemale00.skin",
+      "sha256": "623f388cebc1e463a4c985fb6b81db003d396308366400091acd8f5e2bab83b1"
+    },
+    "335:character\\tauren\\female\\taurenfemale01.skin": {
+      "archive": "335:Data/patch-3.MPQ",
+      "member": "CHARACTER\\Tauren\\Female\\TaurenFemale01.skin",
+      "sha256": "19aeba26b1e838636247be5d4d8f07057170632a596acd93834051b13cc21c14"
+    },
+    "335:character\\tauren\\female\\taurenfemale02.skin": {
+      "archive": "335:Data/patch-3.MPQ",
+      "member": "CHARACTER\\Tauren\\Female\\TaurenFemale02.skin",
+      "sha256": "a59b6c42012924ff6bbb1a8847dd24a91881c2aa84d05717374045f33fefdf42"
+    },
+    "335:character\\tauren\\female\\taurenfemalenakedpelvisskin00_00.blp": {
+      "archive": "335:Data/patch.MPQ",
+      "member": "Character\\Tauren\\Female\\TaurenFemaleNakedPelvisSkin00_00.blp",
+      "sha256": "7c7e6a39c6430a357060efee6fa7504c7e8678314b16f09a0592dc26baf4ca73"
+    },
+    "335:character\\tauren\\female\\taurenfemalenakedpelvisskin00_01.blp": {
+      "archive": "335:Data/patch.MPQ",
+      "member": "Character\\Tauren\\Female\\TaurenFemaleNakedPelvisSkin00_01.blp",
+      "sha256": "667a387bbb31e35e16cf794babe3aa25395fc5e6b8394a8e355c7deb5b2ca45d"
+    },
+    "335:character\\tauren\\female\\taurenfemalenakedpelvisskin00_02.blp": {
+      "archive": "335:Data/patch.MPQ",
+      "member": "Character\\Tauren\\Female\\TaurenFemaleNakedPelvisSkin00_02.blp",
+      "sha256": "25d8fc302ff59aa3f6d279e16d9c688aaec10f7e8df0094cb0803adfefaf534c"
+    },
+    "335:character\\tauren\\female\\taurenfemalenakedpelvisskin00_03.blp": {
+      "archive": "335:Data/patch.MPQ",
+      "member": "Character\\Tauren\\Female\\TaurenFemaleNakedPelvisSkin00_03.blp",
+      "sha256": "09f3c1b47378f482e559b774639416213c68710b1ba870cf08ffc9887c96eb58"
+    },
+    "335:character\\tauren\\female\\taurenfemalenakedpelvisskin00_04.blp": {
+      "archive": "335:Data/patch.MPQ",
+      "member": "Character\\Tauren\\Female\\TaurenFemaleNakedPelvisSkin00_04.blp",
+      "sha256": "eaaa71a2e934cdf886030c62973e93d5f74086191063f69215ffc510e4468998"
+    },
+    "335:character\\tauren\\female\\taurenfemalenakedpelvisskin00_05.blp": {
+      "archive": "335:Data/patch.MPQ",
+      "member": "Character\\Tauren\\Female\\TaurenFemaleNakedPelvisSkin00_05.blp",
+      "sha256": "31e8a82c62950d15f3f72b709e599edd2c1da54c3b7b7e82afbaf0d4ba1e35f2"
+    },
+    "335:character\\tauren\\female\\taurenfemalenakedtorsoskin00_00.blp": {
+      "archive": "335:Data/patch.MPQ",
+      "member": "Character\\Tauren\\Female\\TaurenFemaleNakedTorsoSkin00_00.blp",
+      "sha256": "91f27bb42f2415cfee84e0f222efcda943c7417f996a626cc49ba90339d93e2f"
+    },
+    "335:character\\tauren\\female\\taurenfemalenakedtorsoskin00_01.blp": {
+      "archive": "335:Data/patch.MPQ",
+      "member": "Character\\Tauren\\Female\\TaurenFemaleNakedTorsoSkin00_01.blp",
+      "sha256": "e9b53b870f5a45bd3fe165f111cd23a14ddef0277e2b0fd2e29ec3b59ca65805"
+    },
+    "335:character\\tauren\\female\\taurenfemalenakedtorsoskin00_02.blp": {
+      "archive": "335:Data/patch.MPQ",
+      "member": "Character\\Tauren\\Female\\TaurenFemaleNakedTorsoSkin00_02.blp",
+      "sha256": "65c29ed6915b6bcb310f9d3bf351546e4c34b8db0cf28d6fd237531fce95e8f6"
+    },
+    "335:character\\tauren\\female\\taurenfemalenakedtorsoskin00_03.blp": {
+      "archive": "335:Data/patch.MPQ",
+      "member": "Character\\Tauren\\Female\\TaurenFemaleNakedTorsoSkin00_03.blp",
+      "sha256": "0c9ba7845d01fedc0a42a59046901f06f4b088623b5a9985f5faa008fca881f0"
+    },
+    "335:character\\tauren\\female\\taurenfemalenakedtorsoskin00_04.blp": {
+      "archive": "335:Data/patch.MPQ",
+      "member": "Character\\Tauren\\Female\\TaurenFemaleNakedTorsoSkin00_04.blp",
+      "sha256": "4be6193bfd4e913c0623a275367e6d0ebc1b74a1ea62ddb22eb44162bb41da51"
+    },
+    "335:character\\tauren\\female\\taurenfemalenakedtorsoskin00_05.blp": {
+      "archive": "335:Data/patch.MPQ",
+      "member": "Character\\Tauren\\Female\\TaurenFemaleNakedTorsoSkin00_05.blp",
+      "sha256": "f62fa8e662df7db0150410604275941a46ec70e72c3884d862709b8f41acc8dc"
+    },
+    "335:character\\tauren\\female\\taurenfemaleskin00_00.blp": {
+      "archive": "335:Data/patch-2.MPQ",
+      "member": "Character\\Tauren\\Female\\TAURENFEMALESKIN00_00.BLP",
+      "sha256": "5c8f4760420d061e052d0cb0e0f703d45e02ca6f191239e04a2cc63a76a84db0"
+    },
+    "335:character\\tauren\\female\\taurenfemaleskin00_01.blp": {
+      "archive": "335:Data/patch-2.MPQ",
+      "member": "Character\\Tauren\\Female\\TAURENFEMALESKIN00_01.BLP",
+      "sha256": "22420143925e7942d04836bb309e73d0c2b56241822251903e27c61298f70c41"
+    },
+    "335:character\\tauren\\female\\taurenfemaleskin00_02.blp": {
+      "archive": "335:Data/patch-2.MPQ",
+      "member": "Character\\Tauren\\Female\\TAURENFEMALESKIN00_02.BLP",
+      "sha256": "93403b77af8241a7997ef519d759d4742ccbffc4afd792545ce5f83d729390f7"
+    },
+    "335:character\\tauren\\female\\taurenfemaleskin00_03.blp": {
+      "archive": "335:Data/patch-2.MPQ",
+      "member": "Character\\Tauren\\Female\\TAURENFEMALESKIN00_03.BLP",
+      "sha256": "66e122beb4a24e8cedb9153c63ce1c109242504302e208bd6dca01bd312ebb9c"
+    },
+    "335:character\\tauren\\female\\taurenfemaleskin00_04.blp": {
+      "archive": "335:Data/patch-2.MPQ",
+      "member": "Character\\Tauren\\Female\\TAURENFEMALESKIN00_04.BLP",
+      "sha256": "060d4ad9c5881bedc6a1840dfdd43fc0c67bbede028dbf9940452fe9680d6dc9"
+    },
+    "335:character\\tauren\\female\\taurenfemaleskin00_05.blp": {
+      "archive": "335:Data/patch-2.MPQ",
+      "member": "Character\\Tauren\\Female\\TAURENFEMALESKIN00_05.BLP",
+      "sha256": "e690692e97325fb135bd515e3f9ae86d08ef96c996c0c1710ca71aec154d7b9a"
+    },
+    "335:character\\tauren\\male\\taurenmale.m2": {
+      "archive": "335:Data/patch-3.MPQ",
+      "member": "CHARACTER\\Tauren\\Male\\TaurenMale.M2",
+      "sha256": "339347aa26e246ec4f72563a92a3c470d3ef876ab728e17b5b38b0888e04a680"
+    },
+    "335:character\\tauren\\male\\taurenmale00.skin": {
+      "archive": "335:Data/patch-3.MPQ",
+      "member": "CHARACTER\\Tauren\\Male\\TaurenMale00.skin",
+      "sha256": "667f6366b4cfae3b569ea07500de8d5cc98d8ac880ef20f257be0ffa8bad43a4"
+    },
+    "335:character\\tauren\\male\\taurenmale01.skin": {
+      "archive": "335:Data/patch-3.MPQ",
+      "member": "CHARACTER\\Tauren\\Male\\TaurenMale01.skin",
+      "sha256": "f5d75d88ed6b6d82e3aa58205edaaa6a827f63171b94e0dd88a49e544be9ae6e"
+    },
+    "335:character\\tauren\\male\\taurenmale02.skin": {
+      "archive": "335:Data/patch-3.MPQ",
+      "member": "CHARACTER\\Tauren\\Male\\TaurenMale02.skin",
+      "sha256": "77e4c8b3a883a02aae06397c71342f6cc4720884bbcb919ced9a09810243f1b0"
+    },
+    "335:character\\tauren\\male\\taurenmalenakedpelvisskin00_00.blp": {
+      "archive": "335:Data/patch.MPQ",
+      "member": "Character\\Tauren\\Male\\TaurenMaleNakedPelvisSkin00_00.blp",
+      "sha256": "00ae1e1fa7159ca3355436789bafaad927a0bd822f18cd8588d69e88f4e91dd8"
+    },
+    "335:character\\tauren\\male\\taurenmalenakedpelvisskin00_01.blp": {
+      "archive": "335:Data/patch.MPQ",
+      "member": "Character\\Tauren\\Male\\TaurenMaleNakedPelvisSkin00_01.blp",
+      "sha256": "6f779a72b8e169ba503c16fca3a5cf855f5c1752d437d65fbcdd94c82460478f"
+    },
+    "335:character\\tauren\\male\\taurenmalenakedpelvisskin00_02.blp": {
+      "archive": "335:Data/patch.MPQ",
+      "member": "Character\\Tauren\\Male\\TaurenMaleNakedPelvisSkin00_02.blp",
+      "sha256": "f121d1ef2842c97af9da718ea76d224e343648f996101404d84b20a21be14f05"
+    },
+    "335:character\\tauren\\male\\taurenmalenakedpelvisskin00_03.blp": {
+      "archive": "335:Data/patch.MPQ",
+      "member": "Character\\Tauren\\Male\\TaurenMaleNakedPelvisSkin00_03.blp",
+      "sha256": "7e2d414943c5888916ca129fc68cdda35de16e8a22c8ee1f2bbc579f21b0373c"
+    },
+    "335:character\\tauren\\male\\taurenmalenakedpelvisskin00_04.blp": {
+      "archive": "335:Data/patch.MPQ",
+      "member": "Character\\Tauren\\Male\\TaurenMaleNakedPelvisSkin00_04.blp",
+      "sha256": "67c53d159567449cfeba74e6f2c272b6e222e1e46650385aaea6f0a54bc1e548"
+    },
+    "335:character\\tauren\\male\\taurenmalenakedpelvisskin00_05.blp": {
+      "archive": "335:Data/patch.MPQ",
+      "member": "Character\\Tauren\\Male\\TaurenMaleNakedPelvisSkin00_05.blp",
+      "sha256": "b3ca7500faaba7a78cea750204b7de2701b5f3a54b64945db0c82e89edf6fcd4"
+    },
+    "335:character\\tauren\\male\\taurenmaleskin00_00.blp": {
+      "archive": "335:Data/patch-2.MPQ",
+      "member": "Character\\Tauren\\Male\\TAURENMALESKIN00_00.BLP",
+      "sha256": "a5eab89727fc85f2d663ff1dc0ef8663c21402d5add4bb9dff792223ebe2bff7"
+    },
+    "335:character\\tauren\\male\\taurenmaleskin00_01.blp": {
+      "archive": "335:Data/patch-2.MPQ",
+      "member": "Character\\Tauren\\Male\\TAURENMALESKIN00_01.BLP",
+      "sha256": "8b8a4f9b00a781824d4d79210669fb4a1943bc4ae31c653121ee05f28627928b"
+    },
+    "335:character\\tauren\\male\\taurenmaleskin00_02.blp": {
+      "archive": "335:Data/patch-2.MPQ",
+      "member": "Character\\Tauren\\Male\\TAURENMALESKIN00_02.BLP",
+      "sha256": "c3271ac1286d3655aeaaf02dc63a5dc8e5fa8096101beca5a869b083084841b8"
+    },
+    "335:character\\tauren\\male\\taurenmaleskin00_03.blp": {
+      "archive": "335:Data/patch-2.MPQ",
+      "member": "Character\\Tauren\\Male\\TAURENMALESKIN00_03.BLP",
+      "sha256": "8bb3cbefb08d31edd7cd007ad58f6d239c72a1b39f8b01e2b3d177f0eeabac6a"
+    },
+    "335:character\\tauren\\male\\taurenmaleskin00_04.blp": {
+      "archive": "335:Data/patch-2.MPQ",
+      "member": "Character\\Tauren\\Male\\TAURENMALESKIN00_04.BLP",
+      "sha256": "c88ad3411fb187f6c1592acff6eb57199a9be85b149b42335964b28aa0cb2743"
+    },
+    "335:character\\tauren\\male\\taurenmaleskin00_05.blp": {
+      "archive": "335:Data/patch-2.MPQ",
+      "member": "Character\\Tauren\\Male\\TAURENMALESKIN00_05.BLP",
+      "sha256": "4b776f1c71f69452e3afb89b2efeed10a799fa587007766d2d4e8fa67618689f"
+    },
+    "335:table:CharHairGeosets": {
+      "archive": "335:Data/esES/patch-eses.mpq",
+      "member": "DBFilesClient\\CharHairGeosets.dbc",
+      "sha256": "02421880eff0960acd722324a57546612edd05d76be9a0d77d273cffe9fba843"
+    },
+    "335:table:CharSections": {
+      "archive": "335:Data/esES/patch-eses-3.mpq",
+      "member": "DBFilesClient\\CharSections.dbc",
+      "sha256": "18fc8d23f6e66598ab1681a74f90239ebdf84b76f300db0865cdad7d042b833f"
+    },
+    "335:table:CharacterFacialHairStyles": {
+      "archive": "335:Data/esES/patch-eses.mpq",
+      "member": "DBFilesClient\\CharacterFacialHairStyles.dbc",
+      "sha256": "d67bfb0a674af83dab5301ab686a534ec888fae7b52a91045213e111a2399554"
+    },
+    "turtle:character\\tauren\\female\\taurenfemale.m2": {
+      "archive": "turtle:Data/patch-6.mpq",
+      "member": "Character\\Tauren\\Female\\TaurenFemale.M2",
+      "sha256": "d96b41920472005a061b268abf02dff693bc1a3577b5fa14381a371d540e451e"
+    },
+    "turtle:character\\tauren\\female\\taurenfemalefacelower00_10.blp": {
+      "archive": "turtle:Data/texture.MPQ",
+      "member": "Character\\Tauren\\Female\\TaurenFemaleFaceLower00_10.blp",
+      "sha256": "a08f81c9ca52ece4389f959d92d8d0b97fcd4a62cb099cae4ed5fa6e4b57626f"
+    },
+    "turtle:character\\tauren\\female\\taurenfemalefacelower01_10.blp": {
+      "archive": "turtle:Data/texture.MPQ",
+      "member": "Character\\Tauren\\Female\\TaurenFemaleFaceLower01_10.blp",
+      "sha256": "e37fd202a3c1f7a1520b85b5ab35748a4007a7814af61a9da80885dc0377befa"
+    },
+    "turtle:character\\tauren\\female\\taurenfemalefacelower02_10.blp": {
+      "archive": "turtle:Data/texture.MPQ",
+      "member": "Character\\Tauren\\Female\\TaurenFemaleFaceLower02_10.blp",
+      "sha256": "524063f09eed52796062b39468824f9483830609d9773cffb9a76d9a52f17f8e"
+    },
+    "turtle:character\\tauren\\female\\taurenfemalefacelower03_10.blp": {
+      "archive": "turtle:Data/texture.MPQ",
+      "member": "Character\\Tauren\\Female\\TaurenFemaleFaceLower03_10.blp",
+      "sha256": "df1819cd91337effc773cadd2f7240f40d30206b98643b0632ebbab34eb639e6"
+    },
+    "turtle:character\\tauren\\female\\taurenfemalefaceupper00_10.blp": {
+      "archive": "turtle:Data/texture.MPQ",
+      "member": "Character\\Tauren\\Female\\TaurenFemaleFaceUpper00_10.blp",
+      "sha256": "10be2f2225b111186d2bf719071c7c025bfd98351b719d9c34b8639d3e9feb48"
+    },
+    "turtle:character\\tauren\\female\\taurenfemalefaceupper01_10.blp": {
+      "archive": "turtle:Data/texture.MPQ",
+      "member": "Character\\Tauren\\Female\\TaurenFemaleFaceUpper01_10.blp",
+      "sha256": "6f825fa65b94c25650e9c11c80e03954f7969e7df25d4e0db4d936fde5170a37"
+    },
+    "turtle:character\\tauren\\female\\taurenfemalefaceupper02_10.blp": {
+      "archive": "turtle:Data/texture.MPQ",
+      "member": "Character\\Tauren\\Female\\TaurenFemaleFaceUpper02_10.blp",
+      "sha256": "378e6357097b9fe0204f6341afb2a2f2a89a4a4faaecdc811bdf785189c72fd5"
+    },
+    "turtle:character\\tauren\\female\\taurenfemalefaceupper03_10.blp": {
+      "archive": "turtle:Data/texture.MPQ",
+      "member": "Character\\Tauren\\Female\\TaurenFemaleFaceUpper03_10.blp",
+      "sha256": "5a3e13e4ce41f67171cd225269111514f832b0da503f695343c74ac7ef1b65a0"
+    },
+    "turtle:character\\tauren\\female\\taurenfemalenakedpelvisskin00_10.blp": {
+      "archive": "turtle:Data/texture.MPQ",
+      "member": "Character\\Tauren\\Female\\TaurenFemaleNakedPelvisSkin00_10.blp",
+      "sha256": "fa234c91cb7bf179a38e7addc71ec1353cdf85d27ec21729d6700c8863dd9ab1"
+    },
+    "turtle:character\\tauren\\female\\taurenfemalenakedtorsoskin00_11.blp": {
+      "archive": "turtle:Data/patch-5.mpq",
+      "member": "Character\\Tauren\\Female\\TaurenFemaleNakedTorsoSkin00_11.blp",
+      "sha256": "e75f47ac224528e8ad308dd349bb1df9114d61ae2416a8fa5b8ec52047cea0c5"
+    },
+    "turtle:character\\tauren\\female\\taurenfemaleskin00_10_extra.blp": {
+      "archive": "turtle:Data/texture.MPQ",
+      "member": "Character\\Tauren\\Female\\TaurenFemaleSkin00_10_Extra.blp",
+      "sha256": "11c33ba78359bca97ee575b96db4231362875123628c6518dee0026e279032e5"
+    },
+    "turtle:character\\tauren\\female\\taurenfemaleskin00_11.blp": {
+      "archive": "turtle:Data/patch-5.mpq",
+      "member": "Character\\Tauren\\Female\\taurenfemaleskin00_11.blp",
+      "sha256": "7b778f4366d0108b72d296a749a55fa442bbb2b4144abc07789f9e738717d4af"
+    },
+    "turtle:character\\tauren\\female\\taurenfemaleskin00_19.blp": {
+      "archive": "turtle:Data/patch-8.mpq",
+      "member": "Character\\Tauren\\Female\\TaurenFemaleSkin00_19.blp",
+      "sha256": "610c1727fd37828c8bf2daa4e74c676eefc8f82d9fa11cc826c1620a93ff7e95"
+    },
+    "turtle:character\\tauren\\female\\taurenfemaleskin00_19_extra.blp": {
+      "archive": "turtle:Data/patch-3.mpq",
+      "member": "Character\\Tauren\\female\\TaurenFemaleSkin00_19_Extra.blp",
+      "sha256": "865a1cb4671d8536cce1ecc73575f5116a6a473b3fe1d9704bf4e09ff85f0b8e"
+    },
+    "turtle:character\\tauren\\female\\taurenfemaleskin00_20grimtotem.blp": {
+      "archive": "turtle:Data/patch-8.mpq",
+      "member": "Character\\Tauren\\Female\\TaurenFemaleSkin00_20GrimTotem.blp",
+      "sha256": "429ee8c29e615caf5130a1fda4257bb2bca8ec988b8279ec3d9ba32280edcb1a"
+    },
+    "turtle:character\\tauren\\female\\taurenfemaleskin00_20grimtotem_extra.blp": {
+      "archive": "turtle:Data/patch-8.mpq",
+      "member": "Character\\Tauren\\Female\\TaurenFemaleSkin00_20GrimTotem_Extra.blp",
+      "sha256": "55c1607ff24b7af61fa01fb4c0e6fc323f4a10dcf35c237aa241b92d537f1634"
+    },
+    "turtle:character\\tauren\\male\\taurenmale.m2": {
+      "archive": "turtle:Data/patch-7.mpq",
+      "member": "Character\\Tauren\\Male\\TaurenMale.m2",
+      "sha256": "b879a668e1a35b693fa3ab8e1efee2a9879940c52da42bba580f8c4f99799656"
+    },
+    "turtle:character\\tauren\\male\\taurenmalefacelower00_18.blp": {
+      "archive": "turtle:Data/texture.MPQ",
+      "member": "Character\\Tauren\\Male\\TaurenMaleFaceLower00_18.blp",
+      "sha256": "2ff696cd875a595bc3fb6490023be2702f9273c189ff7b0afdf87e5ad306a6c6"
+    },
+    "turtle:character\\tauren\\male\\taurenmalefacelower01_18.blp": {
+      "archive": "turtle:Data/texture.MPQ",
+      "member": "Character\\Tauren\\Male\\TaurenMaleFaceLower01_18.blp",
+      "sha256": "b99b420cf6bd176531b2b74119057ad97416147b4be1b4c69e1b4ca460f5af97"
+    },
+    "turtle:character\\tauren\\male\\taurenmalefacelower02_18.blp": {
+      "archive": "turtle:Data/texture.MPQ",
+      "member": "Character\\Tauren\\Male\\TaurenMaleFaceLower02_18.blp",
+      "sha256": "0b06c6a2a61b09c32f81778ce86b659e5a4e30ceae2b7fc2452292cbea7378fb"
+    },
+    "turtle:character\\tauren\\male\\taurenmalefacelower03_18.blp": {
+      "archive": "turtle:Data/texture.MPQ",
+      "member": "Character\\Tauren\\Male\\TaurenMaleFaceLower03_18.blp",
+      "sha256": "f75750ca17c4b7c6a42890a879e7e852eca7be6d129acbb02b834efc1b6f1e95"
+    },
+    "turtle:character\\tauren\\male\\taurenmalefacelower04_18.blp": {
+      "archive": "turtle:Data/texture.MPQ",
+      "member": "Character\\Tauren\\Male\\TaurenMaleFaceLower04_18.blp",
+      "sha256": "82b0f8a55ed2bc9d1b193ca13566a9719b8fcbf71b75389f05d6c9082501a314"
+    },
+    "turtle:character\\tauren\\male\\taurenmalefaceupper00_18.blp": {
+      "archive": "turtle:Data/texture.MPQ",
+      "member": "Character\\Tauren\\Male\\TaurenMaleFaceUpper00_18.blp",
+      "sha256": "a3cb2cd207b5d293c961e3245b92f80c69800499b55f20d831e067fdb5db56c7"
+    },
+    "turtle:character\\tauren\\male\\taurenmalefaceupper01_18.blp": {
+      "archive": "turtle:Data/texture.MPQ",
+      "member": "Character\\Tauren\\Male\\TaurenMaleFaceUpper01_18.blp",
+      "sha256": "d18103cba577707d4d689e673776be39eb58cc0eb9cd5b889e9b7c42a2f4cf99"
+    },
+    "turtle:character\\tauren\\male\\taurenmalefaceupper02_18.blp": {
+      "archive": "turtle:Data/texture.MPQ",
+      "member": "Character\\Tauren\\Male\\TaurenMaleFaceUpper02_18.blp",
+      "sha256": "ac460bb4d86ae7c3ef51ac1fb5668b8baa0666d0a1ee6baf08986d5cacdedb13"
+    },
+    "turtle:character\\tauren\\male\\taurenmalefaceupper03_18.blp": {
+      "archive": "turtle:Data/texture.MPQ",
+      "member": "Character\\Tauren\\Male\\TaurenMaleFaceUpper03_18.blp",
+      "sha256": "04209df4ad2b582a9cbeaad6e3df9f29033e0c6b0e8ed9551bd11fb8fd7cbd76"
+    },
+    "turtle:character\\tauren\\male\\taurenmalefaceupper04_18.blp": {
+      "archive": "turtle:Data/texture.MPQ",
+      "member": "Character\\Tauren\\Male\\TaurenMaleFaceUpper04_18.blp",
+      "sha256": "fa05c63144715fc05234c2c1209d5076918c4329cbc4111ec2a67d946a2d91cb"
+    },
+    "turtle:character\\tauren\\male\\taurenmalenakedpelvisskin00_18.blp": {
+      "archive": "turtle:Data/texture.MPQ",
+      "member": "Character\\Tauren\\Male\\TaurenMaleNakedPelvisSkin00_18.blp",
+      "sha256": "2e10f97583740b2dd2f069970385a4224b730b580d67561c8881cfa122b6d7ab"
+    },
+    "turtle:character\\tauren\\male\\taurenmaleskin00_18_extra.blp": {
+      "archive": "turtle:Data/texture.MPQ",
+      "member": "Character\\Tauren\\Male\\TaurenMaleSkin00_18_Extra.blp",
+      "sha256": "caa9c211207d193b3240a5d986358e1c34c488e18bbd1cef2c9a0f3d98aa2f35"
+    },
+    "turtle:character\\tauren\\male\\taurenmaleskin00_19.blp": {
+      "archive": "turtle:Data/patch-8.mpq",
+      "member": "Character\\Tauren\\Male\\TaurenMaleSkin00_19.blp",
+      "sha256": "60d1ace93f1fa1af06b813508c937f0494427f43f952275fdd18497127090365"
+    },
+    "turtle:character\\tauren\\male\\taurenmaleskin00_19_extra.blp": {
+      "archive": "turtle:Data/patch-3.mpq",
+      "member": "Character\\Tauren\\Male\\TaurenMaleSkin00_19_Extra.blp",
+      "sha256": "f4d3fd60b5f69bdda810f16a87402f22522ade94534ef6b4c63e1b6c40aff0cc"
+    },
+    "turtle:character\\tauren\\male\\taurenmaleskin00_20.blp": {
+      "archive": "turtle:Data/patch-5.mpq",
+      "member": "Character\\Tauren\\Male\\TaurenMaleSkin00_20.blp",
+      "sha256": "3d6c2cd1c52a45cf7efe5e40720859fdd1c816113cb445948a9cb9741ddd2b0e"
+    },
+    "turtle:character\\tauren\\male\\taurenmaleskin00_21grimtotem.blp": {
+      "archive": "turtle:Data/patch-8.mpq",
+      "member": "Character\\Tauren\\Male\\TaurenMaleSkin00_21GrimTotem.blp",
+      "sha256": "bb07146c4cb4ae1e4187a9ec594377f031fe68f7ef320f3067350e14b9071f87"
+    },
+    "turtle:character\\tauren\\male\\taurenmaleskin00_21grimtotem_extra.blp": {
+      "archive": "turtle:Data/patch-8.mpq",
+      "member": "Character\\Tauren\\Male\\TaurenMaleSkin00_21GrimTotem_Extra.blp",
+      "sha256": "55c1607ff24b7af61fa01fb4c0e6fc323f4a10dcf35c237aa241b92d537f1634"
+    },
+    "turtle:character\\tauren\\scalplowerhair00_03.blp": {
+      "archive": "turtle:Data/patch-3.mpq",
+      "member": "Character\\Tauren\\ScalpLowerHair00_03.blp",
+      "sha256": "d1599efa0826eb838a306df715ebac2da5ebf6d8e399615d232ede0de328ceea"
+    },
+    "turtle:character\\tauren\\scalplowerhair00_04.blp": {
+      "archive": "turtle:Data/patch-3.mpq",
+      "member": "Character\\Tauren\\ScalpLowerHair00_04.blp",
+      "sha256": "3149a04f98d1a57e436484a8a99e1e553eee96ed82cee9102100ae225a70b499"
+    },
+    "turtle:character\\tauren\\scalplowerhair00_05.blp": {
+      "archive": "turtle:Data/patch-3.mpq",
+      "member": "Character\\Tauren\\ScalpLowerHair00_05.blp",
+      "sha256": "413c64b7efe4903c9953b357b7ad1b41c8e6a3b0a3660e82bac72e7ed9492b7d"
+    },
+    "turtle:character\\tauren\\scalplowerhair00_06.blp": {
+      "archive": "turtle:Data/patch-3.mpq",
+      "member": "Character\\Tauren\\ScalpLowerHair00_06.blp",
+      "sha256": "a1fa32b73e6f9b475d45c2b89ee555eda2a496ee8ea15f607d53512e8e68c0ab"
+    },
+    "turtle:character\\tauren\\scalplowerhair00_07.blp": {
+      "archive": "turtle:Data/patch-3.mpq",
+      "member": "Character\\Tauren\\ScalpLowerHair00_07.blp",
+      "sha256": "fc70a0e6c3ff1f8c94dfb1ba351e76d8ac7ce75e136d320752cc570514387113"
+    },
+    "turtle:character\\tauren\\scalplowerhair00_08.blp": {
+      "archive": "turtle:Data/patch-3.mpq",
+      "member": "Character\\Tauren\\ScalpLowerHair00_08.blp",
+      "sha256": "b1bc051a76550130acae9ab04f5cdb0e673689fee881859df8fafeb2f66dd117"
+    },
+    "turtle:table:CharHairGeosets": {
+      "archive": "turtle:Data/patch-7.mpq",
+      "member": "DBFilesClient\\CharHairGeosets.dbc",
+      "sha256": "ce94472e5a293bcd16ae8a8560af356e71fb6c6c5c431e94928316bbe891e00f"
+    },
+    "turtle:table:CharSections": {
+      "archive": "turtle:Data/patch-8.mpq",
+      "member": "DBFilesClient\\CharSections.dbc",
+      "sha256": "40f020b68e087141f779c3eae91c7a9a602f73a5b2f7aad0cac68313fb403c48"
+    },
+    "turtle:table:CharacterFacialHairStyles": {
+      "archive": "turtle:Data/patch-7.mpq",
+      "member": "DBFilesClient\\CharacterFacialHairStyles.dbc",
+      "sha256": "cd962c5a5395f7389379224b91e909493f69cfd1a0c2e738a98091a682faca01"
+    },
+    "turtle:textures\\bakednpctextures\\spiritwalkertaurenshop.blp": {
+      "archive": "turtle:Data/patch-6.mpq",
+      "member": "textures\\bakednpctextures\\spiritwalkertaurenshop.blp",
+      "sha256": "a221f3b92be35b7155f4130d5888a74e45ef572f5122b2236a7c5b3c9ad4c898"
+    }
+  },
+  "bases": {
+    "optional": {
+      "files": {
+        "Data/patch-S.MPQ": "2890f2b54fc99edfae948d8dceccb21edbfee26fd8089ec7f2a5a370b2dda6e4",
+        "SHA256SUMS": "44e691fb562c0b54e9fdd7d247e62f62ce0896630ffba4fdcbe3c94d0b71190f",
+        "report.json": "9a4c37da5f5bccfe71ecb190f7888f79f43b48df3bb538d88494dc4cc06e9752"
+      },
+      "path": "client_patches/turtle_forest_troll/optional-extra-skins"
+    },
+    "primary": {
+      "files": {
+        "Data/patch-S.MPQ": "2bd2ce7adb7bf678f110b8be43d8e0fd5eb168c522e6857eff17f15c3d455ce8",
+        "SHA256SUMS": "5f04fb1b3ccc6d13830ed84e6d7e50874f2d485eb11dc7baa3e1efe283d0c5f8",
+        "report.json": "5c4b59366295007440a58e2d8e081719f40715700b9e0a721fd57191074aeb9c"
+      },
+      "path": "client_patches/turtle_forest_troll"
+    }
+  },
+  "garment_limits": {
+    "female_NakedPelvisSkin": [
+      3.28,
+      21
+    ],
+    "female_NakedTorsoSkin": [
+      5.2,
+      34
+    ],
+    "male_NakedPelvisSkin": [
+      2.46,
+      15
+    ]
+  },
+  "decisions": {
+    "hair": "Preserve NPC color3; source scalp-lower3..8 maps to new4..9. Texture1/3 placeholders are unused by native Tauren materials and remain empty in new rows.",
+    "shop": "Male shop has one baked face and aliases the blue19 extra-skin texture; classify optional, not a full-face family.",
+    "geometry": "Port only missing weighted facial pieces; referenced bone hierarchy/bind pivots must match and native animation prefix stays intact."
+  },
+  "geometry": "Append missing facial sections with verified unchanged weighted skeleton; retain native animation data.",
+  "ids": {
+    "optional_first": 21200,
+    "optional_last": 21214,
+    "primary_first": 21000,
+    "primary_last": 21162
+  },
+  "optional_colors": {
+    "female": [
+      18,
+      19
+    ],
+    "male": [
+      26,
+      27,
+      28
+    ]
+  },
+  "policy": "Complete ordinary face bank is principal; one-face bakes optional. DK-exclusive faces are not fabricated.",
+  "primary_colors": {
+    "female": 17,
+    "male": 25
+  },
+  "race": 6,
+  "version": 1
+}

@@ -1,0 +1,35 @@
+{
+  "version": 2,
+  "feature": "Native Troll full Turtle customizations extension",
+  "previous_v2_publications": [{"patch_sha256": "0efc555734341be063eaef71d334ec5dd26ca19ed69fd272e68ab157fa059e72", "report_sha256": "4acf9b46b257302d54f54becd9934e2d67cc2ed5b385a9535c90537af0cfdcc3", "manifest_sha256": "fc0bc1484d92252b85e647855431bbf0d38db8cd6b561b26aa6f805fe2324368"}],
+  "repair_terminal_mips": ["Character\\Troll\\FacialLowerHair08_00.blp", "Character\\Troll\\FacialUpperHair08_00.blp"],
+  "accepted_manifest_sha256": "9cbcf5221385b31b6692f072cf9a9ed485e9d0268229fd20662e92f83a8f79f9",
+  "v1": {
+    "Data/patch-S.MPQ": "b97b993d317709578f4bc6af51d6bd7e04197b9ba6a0842ee5443a5c3c085a75",
+    "report.json": "5d4d3c878429dfbd1f87e25d807544a8ca2e95f03056a0b254292f6b7526129c",
+    "SHA256SUMS": "27bcb17d8d1640a963e42e062645938067fa01b9b814aa6530f739d503b8b498"
+  },
+  "archives": {
+    "turtle_texture": {"client": "turtle", "path": "Data/texture.MPQ", "sha256": "78ae55d609fea3ac07eb1ce45024542c295032c37164234f820762d4dfa44128"},
+    "turtle_shop": {"client": "turtle", "path": "Data/patch-6.mpq", "sha256": "ce3e6de954b6c5044e70dd053d884edd4d53410524019aa0f0e48f2cc16f83f7"},
+    "turtle_styles": {"client": "turtle", "path": "Data/patch-7.mpq", "sha256": "12be51032b3e0993af2c2ded5144abe50ec400116b04ba1b1e6aa4390944c1fa"},
+    "native_styles": {"client": "335", "path": "Data/esES/patch-eses.mpq", "sha256": "b2f314876243ec1edf0b4b8dbae5d27cd01e811a436a8b129002b754e5584e94"},
+    "native_textures": {"client": "335", "path": "Data/patch.MPQ", "sha256": "92b4a94a6c7a23c0b9fd88c47823e41792879a7ee1f70c2349a255153ca25d54"}
+  },
+  "styles": {"member": "DBFilesClient\\CharacterFacialHairStyles.dbc", "turtle_sha256": "cd962c5a5395f7389379224b91e909493f69cfd1a0c2e738a98091a682faca01", "native_sha256": "d67bfb0a674af83dab5301ab686a534ec888fae7b52a91045213e111a2399554"},
+  "target": {"namespace": "Character\\Custom\\TurtleTroll", "id_first": 20100, "id_last": 20346, "flags": 17, "male_colors": [24,35], "female_colors": [24,32]},
+  "alternates": {"male_source_ids": [4768,4776], "female_source_ids": [5111,5119], "source_numbers": [100,108], "patch8_male": [100,101,108], "patch8_female": [100,101], "other_archive": "turtle_texture"},
+  "shops": ["trollmaleshop1", "trollmaleshop2", "zombietrollshop"],
+  "facials": {"male": [11,12,13], "female": [6,7,8,9], "source_archive": "female_textures", "dk_aliases": {"10": 8, "11": 8, "12": 9}},
+  "garment": {"mae_max": 3.5, "p99_max": 18.1, "pelvis_box": [256,192,512,320], "torso_box": [256,0,512,128]},
+  "decisions": {
+    "fixed_faces": "One atlas-authored fixed face aliased across normal male Face0..4 / female Face0..5. Preserves Face byte during skin cycling; not distinct authored faces. DK-exclusive faces remain native.",
+    "atlas_sampling": "256-square source expanded to 512 with deterministic nearest-neighbor, no invented interpolation; crops in native 512 atlas coordinates.",
+    "underwear": "Six native body/underwear pairs fit U=alpha*F+(1-alpha)*B. Largest 4-connected alpha>=0.5 region, 3x3 dilation, snap below0.05/above0.95. Approximate recovered cloth composited on matching body crops; original Base0 stays byte-exact; pre-baked garments retained.",
+    "facial_alpha": "True separate 8-bit alpha; no black/white keying. Original BLP2 bytes except the two explicitly listed malformed terminal-mip sources, regenerated as full encoding3 BGRA mip chains with pixel-exact top RGBA. DK hair colors10/11 alias8 and12 aliases9, not newly authored palettes.",
+    "hair": "Only PLAYER bit added to117 native Base3 rows: male6..9/female5..9, normal flags0x12->0x13, DK0x06->0x07.",
+    "alias": "Male source109 equals accepted Forest body20000/color18 byte-for-byte; no duplicate color.",
+    "scope": "Only CharSections, CharacterFacialHairStyles, accepted162 BLPs and new textures. No models, CharHairGeosets, races, classes, spells or crypt assets.",
+    "names": "Numbered alternates and shop1/2 stay opaque; only zombietrollshop has an explicit zombie source name. NPC colors6..14 are not enabled."
+  }
+}

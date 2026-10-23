@@ -39,6 +39,11 @@ The current manifest order is:
 20. `transmog_currency_loot.sql`
 21. `soul_shard_stacks.sql`
 22. `cata_race_class_combos.sql`
+23. `turtle_wow_maps.sql`
+24. `turtle_wow_crypt_access.sql`
+25. `turtle_forest_troll_skins.sql`
+26. `turtle_troll_customizations.sql`
+27. `turtle_tauren_customizations.sql`
 
 The raid group is ordered by its verified object dependencies: curio item
 definitions, vendor templates/spawns, vendor inventory, then curio loot.
@@ -61,6 +66,28 @@ repository when it matters.
 
 ## Feature chains
 
+- **Tauren cumulative customization:**193 principal overlays after Troll298,
+  giving491; optional15 follows exact principal prerequisites. The full optional
+  manifest also installs Troll135, giving641. Four natural-style keys join the
+  seven Troll rows in the server donor; client M2/SKIN additions are manual MPQ
+  assets, not server gameplay code. Apply/reapply and scoped rollback preserve
+  Troll data; see [contract](../../turtle-wow/tauren-customizations.md).
+- **Troll primary:** follows Forest's90 overlays with208 guarded rows (91 facial
+  IDs,117 native-hair flag overlays). It does not enable the135 additional skin
+  rows. Those belong to `data/sql/optional/db_world/manifest.txt`, require exact
+  Forest+primary prerequisites, and have a separate guarded rollback. Optional
+  apply/rollback also guard and clean21 retired male33–35 rows from older
+  installations; active indices are not renumbered. Principal
+  reapply preserves an existing opt-in; principal rollback refuses until optional
+  IDs are removed. Seven natural-key facial-style DBC rows are common to both
+  editions. The old364-row SQL is archived outside the automatic tree. See
+  [profiles and rollback scope](../../turtle-wow/troll-customizations.md).
+- **Forest Troll native skins:** `turtle_forest_troll_skins.sql` adds90 guarded
+  CharSections overlays; it migrates MyISAM to InnoDB before its row transaction
+  if necessary. That structural migration persists after rollback. Client patch-S
+  is separate/manual; no binary server DBC replacement or core modification is
+  required. The explicit guarded rollback lives outside the application tree in
+  `data/sql/rollback/`. See [contract](../../turtle-wow/forest-troll-skins.md).
 - **Forsaken Paladin:** `forsaken_paladin.sql` is the sole baseline owner for
   Undead Paladin creation data, outfits, trainers, models, equipment, locales,
   addons, and the two fixed trainer spawns.

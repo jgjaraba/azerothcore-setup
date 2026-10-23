@@ -6,8 +6,8 @@ Schema 1: {"schema": 1, "files": {"turtle-crypt/dbc/Map.dbc":
  "kind": "dbc-delta"}, ...}}. Keys must be sorted source-relative POSIX
 paths. All regular files below the manifest's directory, except the manifest,
 must be inventoried. Copy entries target maps/, vmaps/ or mmaps/. DBC deltas
-are deliberately pilot-only: exactly the five existing DELTAS definitions;
-future units need an explicit schema extension, not implicit row replacement.
+use the five existing DELTAS definitions, plus an optional facial-style-delta
+for CharacterFacialHairStyles.dbc keyed by (Race, Sex, Variation), without an ID.
 
 check emits a read-only plan suitable for install --expected-plan. --offline
 asserts the server is stopped and exclusive access continues from check through
@@ -23,6 +23,7 @@ import argparse
 import json
 import os
 import re
+import struct
 from pathlib import Path
 
 from crypt_release import (atomic, safe_path, durable_mkdir, disjoint, locked,
@@ -30,6 +31,55 @@ from crypt_release import (atomic, safe_path, durable_mkdir, disjoint, locked,
 from crypt_release_client import require, sha, file_sha, relative
 from crypt_release_dbc import parse_dbc, merge_dbc
 from crypt_release_server_data import DELTAS, binary_check, baseline_check, merge_server
+
+
+FACIAL_STYLE_TARGET = 'dbc/CharacterFacialHairStyles.dbc'
+FACIAL_STYLE_ROWS = {
+    (8, 0, 11): (0, 2, 0, 0, 0),
+    (8, 0, 12): (0, 4, 0, 0, 0),
+    (8, 0, 13): (0, 6, 0, 0, 0),
+    (8, 1, 6): (0, 2, 0, 0, 0),
+    (8, 1, 7): (0, 3, 0, 0, 0),
+    (8, 1, 8): (0, 4, 0, 0, 0),
+    (8, 1, 9): (0, 5, 0, 0, 0),
+}
+TAUREN_FACIAL_STYLE_ROWS = {
+    (6, 0, 7): (10, 10, 10, 0, 0),
+    (6, 0, 8): (11, 11, 11, 0, 0),
+    (6, 1, 5): (0, 0, 6, 0, 0),
+    (6, 1, 6): (0, 0, 7, 0, 0),
+}
+
+
+def parse_natural_dbc(raw):
+    """Eight unsigned columns, no row ID; retain the original string block."""
+    require(len(raw) >= 20, 'Truncated natural-key DBC header')
+    magic, count, fields, width, size = struct.unpack_from('<4s4I', raw)
+    require(magic == b'WDBC' and fields == 8 and width == 32,
+            'Invalid natural-key DBC schema (expected WDBC, 8 fields, 32 bytes)')
+    end = 20 + count * width
+    require(len(raw) == end + size, 'Invalid natural-key DBC length')
+    block = raw[end:]
+    require(block and block[0] == 0 and block[-1] == 0,
+            'Invalid natural-key DBC string block')
+    rows = list(struct.iter_unpack('<8I', raw[20:end]))
+    keys = [row[:3] for row in rows]
+    require(len(set(keys)) == len(keys), 'Duplicate natural-key DBC key')
+    return rows, block
+
+
+def merge_natural_dbc(native, donor):
+    """Keep native records byte-for-byte and append missing rows in key order."""
+    rows, block = parse_natural_dbc(native)
+    additions, _ = parse_natural_dbc(donor)
+    existing = {row[:3]: row for row in rows}
+    for row in additions:
+        require(row[:3] not in existing or existing[row[:3]] == row,
+                f'Natural-key DBC collision: {row[:3]}')
+    missing = sorted(row for row in additions if row[:3] not in existing)
+    return (struct.pack('<4s4I', b'WDBC', len(rows) + len(missing), 8, 32, len(block)) +
+            native[20:20 + len(rows) * 32] +
+            b''.join(struct.pack('<8I', *row) for row in missing) + block)
 
 
 def canonical(name):
@@ -90,6 +140,12 @@ def inventory(manifest):
             merge_dbc(data, data, ids, strings, order)
             if target == 'dbc/Map.dbc':
                 require(rows[0][57] == 0, 'Server Map loading screen must remain zero')
+        elif kind == 'facial-style-delta':
+            require(target == FACIAL_STYLE_TARGET, 'Unknown facial-style DBC target')
+            rows, _ = parse_natural_dbc(data)
+            mapped = {row[:3]: row[3:] for row in rows}
+            require(mapped in (FACIAL_STYLE_ROWS, {**FACIAL_STYLE_ROWS, **TAUREN_FACIAL_STYLE_ROWS}),
+                    'Expected seven Troll rows or complete Tauren facial-style extension')
         else:
             require(kind == 'copy', f'Unknown entry kind: {kind}')
             path = Path(target)
@@ -173,6 +229,9 @@ def plan(manifest, data_dir, state=None):
             safe_path(sample)
     baseline_check(data_dir)
     merged = merge_server(data_dir, payload)
+    if FACIAL_STYLE_TARGET in payload:
+        merged[FACIAL_STYLE_TARGET] = merge_natural_dbc(
+            (data_dir / FACIAL_STYLE_TARGET).read_bytes(), payload[FACIAL_STYLE_TARGET])
     outputs = {**payload, **merged}
     entries = []
     for name, raw in sorted(outputs.items()):

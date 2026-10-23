@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "feature": "Native WotLK Troll ForestTroll skins, both sexes, six colors",
+  "archives": {
+    "turtle_sections": {"client": "turtle", "path": "Data/patch-8.mpq", "sha256": "465f00065dc5179bf6cc9de8d4815495cff4bf2c34d4c8a0de6da9da74d2d943"},
+    "native_sections": {"client": "335", "path": "Data/esES/patch-eses-3.mpq", "sha256": "fc09789ca86b2cce71dedcb1692d2b701f6b4be6098e9883cc3f8b783a0e1a09"},
+    "male_textures": {"client": "turtle", "path": "Data/patch-3.mpq", "sha256": "a3c822b7e6bbcb2b3509be94e1c747d65386fdecba64cec18dc58938ad97a791"},
+    "female_textures": {"client": "turtle", "path": "Data/patch-5.mpq", "sha256": "10a4458293369761ef5f1550c4caa1761f51009a72c885eaf80a8b8afea92161"}
+  },
+  "sections": {
+    "member": "DBFilesClient\\CharSections.dbc",
+    "turtle_sha256": "40f020b68e087141f779c3eae91c7a9a602f73a5b2f7aad0cac68313fb403c48",
+    "native_sha256": "18fc8d23f6e66598ab1681a74f90239ebdf84b76f300db0865cdad7d042b833f",
+    "turtle_rows": 6617,
+    "native_rows": 8958
+  },
+  "selection": {"race": 8, "sexes": [0, 1], "source_colors": [6, 7, 8, 9, 10, 11], "source_flags": 0, "bases": [0, 1, 4], "male_faces": [0, 1, 2, 3, 4], "female_faces": [0, 1, 2, 3, 4, 5]},
+  "target": {"id_first": 20000, "id_last": 20089, "color_offset": 12, "flags": 17, "namespace": "Character\\Custom\\TurtleForestTroll"},
+  "decisions": {
+    "native_colors": "18..23 preserve normal 0..5, NPC 6..14 and DK 15..17; do not remap persisted indices",
+    "ids": "CharSections-only namespace; fail on binary ID/tuple collision; SQL checks live overlay at apply time; no runtime DB checked by this builder",
+    "flags": "0x11 ordinary player rows, also eligible for DK; never transplant Vanilla flags",
+    "faces": "Male normal 0..4, female normal 0..5 only; preserve existing DK-special faces, invent no DK-special mapping",
+    "ordering": "All final physical records stable-sorted by Race,Sex,Base,Variation,Color; original record bytes and string-block prefix preserved",
+    "resources": "Only referenced ForestTroll BLPs, byte-exact, renamed into isolated namespace; explicit sex-specific archive lookup, no inferred archive priority or audit-JSON dependency",
+    "client_static_evidence": "Static inspection of Wow.exe SHA256 bf644876709c591acc17c0da8cdf1814edcc9f1e6bc109a8c0d5c38c79dc953c establishes max-index bounds, skip-gaps Skin cycling and Face-driven Skin fallback; see docs/turtle-wow/forest-troll-skins.md. This builder does not execute the native UI; runtime acceptance remains pending",
+    "pending": ["WotLK texture rendering and UV/art acceptance", "native cycling and randomization", "DK class/face combinations", "create/save/relog and other-client view", "equipment and recustomization", "playerbots", "HD client"]
+  }
+}

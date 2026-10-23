@@ -83,7 +83,8 @@ custom character or auth SQL.
 also installs `data/server/manifest.json` through the internal Python helper.
 The complete file plan is checked before any SQL, then checked again after SQL
 before copying. It includes the Turtle pilot's final geometry/model closure and
-five compact DBC row deltas; it does not install clients or replace whole DBCs
+five compact geographic DBC row deltas plus an optional natural-key delta for
+seven Troll plus four Tauren facial styles; it does not install clients or replace whole DBCs
 with DEV snapshots. `--validate --with-server-data` only validates source
 inventories/hashes and never accesses the database or target.
 

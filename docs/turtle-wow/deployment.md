@@ -26,9 +26,12 @@ o sus bases upstream desde cero. Son el overlay de customizaciones del proyecto.
 | Cliente custom esES aceptado | `client_patches/turtle_crypt/r5-coordinated/Data/`: T y los dos Z coordinados |
 | Cliente stock esES opcional | `client_patches/turtle_crypt/stock-esES/`: T aislado e informe de base |
 
-El manifiesto servidor verifica tamaños/SHA256 y cobertura exacta de430 archivos:
+El manifiesto servidor actual verifica tamaños/SHA256 y cobertura de431 archivos:
 425 binarios —seis mapas, árbol y seis tiles VMap, parámetros y seis tiles MMap,
-405 modelos de colisión— y cinco DBC **compactas con solo las filas propias**.
+405 modelos de colisión—, cinco DBC geográficas **compactas con filas propias**
+y un delta natural de siete rasgos Troll y cuatro Tauren de la
+[entrega acumulativa](tauren-customizations.md).
+La cripta original conserva sus430 archivos; la ampliación no los reemplaza.
 Los nombres de164 modelos físicos terminan en `.m2`; son colisión servidor con
 cabecera VMAP_4.8, no modelos cliente MD20. Copiar solo `800*` es insuficiente.
 

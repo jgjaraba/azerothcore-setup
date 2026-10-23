@@ -18,6 +18,20 @@ a una migración completa ni a navegación exhaustiva.
 
 ## Referencias técnicas y evidencia
 
+- [`tauren-customizations.md`](tauren-customizations.md) — entrega acumulativa
+  vigente en `client_patches/Data/` y `client_patches/optional-extra-skins/Data/`;
+  tauren completo/parcial, pelo/cuernos/adornos y preservación de Troll.
+- [`troll-customizations.md`](troll-customizations.md) — ediciones excluyentes de
+  Troll de base: principal Forest/pelo/rasgos y opcional con las demás pieles y36 caras
+  convertidas; perfiles SQL separados e instrucciones de copia manual.
+- [`troll-customizations-v2.md`](troll-customizations-v2.md) — histórico v2 y
+  diagnóstico de caras verdes; no es la receta de instalación vigente.
+- [`forest-troll-skins.md`](forest-troll-skins.md) — primer piloto de pieles
+  nativas: seis tonos por sexo, SQL/MPQ e instalación manual; aceptación práctica
+  confirmada por el usuario, sin cobertura exhaustiva DK/HD.
+- [`character-skins.md`](character-skins.md) — investigación de pieles raciales
+  gratuitas/de tienda como personalización nativa de creación335; viabilidad,
+  recursos y límites frente a transformaciones. No instalado.
 - [`maps-inventory.md`](maps-inventory.md) — inventario **preliminar** de regiones
   y mapas identificados; cobertura, dependencias y destinos todavía incompletos.
 - [`compatibility.md`](compatibility.md) — Vanilla→WotLK format gaps and the

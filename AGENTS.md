@@ -40,6 +40,16 @@ configuration/data -> SQL -> module -> core modification
 This is a maintainability preference, not a restriction. Correctness takes
 precedence.
 
+## Native racial customization delivery
+
+Follow [`ADR-0007`](docs/project/decisions/ADR-0007-native-customization-editions.md)
+for every racial customization migration: cumulative principal at
+`client_patches/Data/patch-S.MPQ`, complete optional alternative at
+`client_patches/optional-extra-skins/Data/patch-S.MPQ`. Full ordinary-face skins
+belong in principal; fixed-face/partial looks belong in optional. Never fabricate
+face aliases to claim full compatibility or regress previously accepted races.
+Client installation remains manual; server data uses the existing manifests.
+
 ## Validation and review
 
 Never claim a build, test, in-game behavior or verification unless it was

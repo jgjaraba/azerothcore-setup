@@ -22,3 +22,6 @@ soul_shard_stacks.sql
 cata_race_class_combos.sql
 turtle_wow_maps.sql
 turtle_wow_crypt_access.sql
+turtle_forest_troll_skins.sql
+turtle_troll_customizations.sql
+turtle_tauren_customizations.sql

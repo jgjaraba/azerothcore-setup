@@ -80,6 +80,137 @@ class ServerDataTests(unittest.TestCase):
     def rollback(self, **kwargs):
         return app.rollback(self.manifest, self.target, self.state, offline=True, **kwargs)
 
+    def add_facial_styles(self):
+        # Race is not an ID: both repeated races and repeated (race, sex) are valid.
+        rows = [(8, 0, 0, 0, 1, 0, 0, 0), (1, 0, 0, 0, 0, 0, 0, 0),
+                (8, 1, 0, 0, 1, 0, 0, 0)]
+        target = self.target / app.FACIAL_STYLE_TARGET
+        target.write_bytes(dbc(8, rows))
+        self.originals[target] = target.read_bytes()
+        donor = dbc(8, [key + values for key, values in app.FACIAL_STYLE_ROWS.items()])
+        self.add_source(self.files, app.FACIAL_STYLE_TARGET, donor, 'facial-style-delta')
+        self.write_manifest()
+        return target, donor
+
+    def test_natural_styles_plan_install_repeat_and_exact_rollback(self):
+        target, donor = self.add_facial_styles()
+        original = target.read_bytes()
+        result, outputs = app.plan(self.manifest, self.target, self.state)
+        merged = outputs[app.FACIAL_STYLE_TARGET]
+        self.assertEqual(len(result['files']), 8)
+        self.assertEqual(target.read_bytes(), original)
+        self.assertFalse(self.state.exists())
+        self.assertNotEqual(merged, donor)
+        self.assertEqual(merged[20:20 + 3 * 32], original[20:-1])
+        rows, block = app.parse_natural_dbc(merged)
+        self.assertEqual(len(rows), 10)
+        self.assertEqual(rows[3:], app.parse_natural_dbc(donor)[0])
+        self.assertEqual(block, b'\0')
+        self.assertEqual(self.install()['status'], 'installed')
+        self.assertEqual(target.read_bytes(), merged)
+        self.assertEqual(self.install()['status'], 'already-installed')
+        self.assertEqual(app.plan(self.manifest, self.target)[1][app.FACIAL_STYLE_TARGET], merged)
+        self.rollback()
+        for path, raw in self.originals.items():
+            self.assertEqual(path.read_bytes(), raw)
+
+    def test_natural_styles_conflict_duplicates_and_missing_target(self):
+        target, donor = self.add_facial_styles()
+        original = target.read_bytes()
+        rows, _ = app.parse_natural_dbc(original)
+        conflict = list(app.parse_natural_dbc(donor)[0][0])
+        conflict[4] += 1
+        target.write_bytes(dbc(8, rows + [conflict]))
+        with self.assertRaisesRegex(ValueError, 'Natural-key DBC collision'):
+            self.install()
+        target.write_bytes(dbc(8, rows + rows[:1]))
+        with self.assertRaisesRegex(ValueError, 'Duplicate natural-key'):
+            self.install()
+        target.unlink()
+        with self.assertRaises(FileNotFoundError):
+            self.install()
+        self.assertFalse(self.state.exists())
+
+    def test_natural_styles_source_guards(self):
+        _, donor = self.add_facial_styles()
+        rows, _ = app.parse_natural_dbc(donor)
+        bad_key = list(rows[0])
+        bad_key[0] = 1
+        bad_geoset = list(rows[0])
+        bad_geoset[4] += 1
+        for invalid, message in [(rows + rows[:1], 'Duplicate natural-key'),
+                                 (rows[:-1], 'seven Troll'),
+                                 ([bad_key] + rows[1:], 'seven Troll'),
+                                 ([bad_geoset] + rows[1:], 'seven Troll')]:
+            with self.subTest(message=message, rows=invalid):
+                self.add_source(self.files, app.FACIAL_STYLE_TARGET,
+                                dbc(8, invalid), 'facial-style-delta')
+                self.write_manifest()
+                with self.assertRaisesRegex(ValueError, message):
+                    app.inventory(self.manifest)
+        key = 'turtle-crypt/' + app.FACIAL_STYLE_TARGET
+        self.files[key]['path'] = 'dbc/Other.dbc'
+        self.write_manifest()
+        with self.assertRaisesRegex(ValueError, 'Unknown facial-style'):
+            app.inventory(self.manifest)
+
+    def test_natural_styles_strict_wdbc_parser(self):
+        valid = dbc(8, [(8, 0, 0, 0, 0, 0, 0, 0)])
+        invalid = [b'', valid[:19], b'WDB2' + valid[4:], valid[:-1], valid + b'\0',
+                   valid[:-1] + b'x', valid[:-1] + b'\0x\0']
+        for offset, value in [(8, 9), (12, 36), (16, 0), (4, 2)]:
+            raw = bytearray(valid)
+            struct.pack_into('<I', raw, offset, value)
+            invalid.append(bytes(raw))
+        # Declared string blocks must start AND end with NUL.
+        for block in (b'x\0', b'\0x'):
+            raw = bytearray(valid[:-1] + block)
+            struct.pack_into('<I', raw, 16, len(block))
+            invalid.append(bytes(raw))
+        for raw in invalid:
+            with self.subTest(raw=raw), self.assertRaises(ValueError):
+                app.parse_natural_dbc(raw)
+        # No strings are referenced, but the native block must survive exactly.
+        native = bytearray(valid[:-1] + b'\0unused\0')
+        struct.pack_into('<I', native, 16, 8)
+        merged = app.merge_natural_dbc(bytes(native), dbc(8, []))
+        self.assertEqual(merged, bytes(native))
+
+    def test_natural_styles_incomplete_state_and_recovery(self):
+        target, _ = self.add_facial_styles()
+        self.state.mkdir()
+        with self.assertRaisesRegex(ValueError, 'before journal'):
+            self.install()
+        self.state.rmdir()
+        real_atomic = app.target_atomic
+
+        def interrupted(item, raw):
+            real_atomic(item, raw)
+            if item['path'] == str(target):
+                raise OSError('interrupted after natural styles')
+
+        with patch.object(app, 'target_atomic', side_effect=interrupted):
+            with self.assertRaisesRegex(OSError, 'interrupted'):
+                self.install()
+        self.assertNotEqual(target.read_bytes(), self.originals[target])
+        self.rollback(recovery=True)
+        for path, raw in self.originals.items():
+            self.assertEqual(path.read_bytes(), raw)
+
+    def test_repository_natural_style_delta_against_native_when_available(self):
+        native = ROOT / 'dbc/CharacterFacialHairStyles.dbc'
+        donor = ROOT / 'data/server/turtle-customizations/dbc/CharacterFacialHairStyles.dbc'
+        if not native.is_file() or not donor.is_file():
+            self.skipTest('Repository native/donor DBCs unavailable')
+        raw = native.read_bytes()
+        self.assertEqual(app.sha(raw),
+                         'd67bfb0a674af83dab5301ab686a534ec888fae7b52a91045213e111a2399554')
+        merged = app.merge_natural_dbc(raw, donor.read_bytes())
+        self.assertEqual(len(app.parse_natural_dbc(raw)[0]), 222)
+        self.assertEqual(len(app.parse_natural_dbc(merged)[0]), 222 + len(app.parse_natural_dbc(donor.read_bytes())[0]))
+        self.assertEqual(merged[20:20 + 222 * 32], raw[20:20 + 222 * 32])
+        self.assertEqual(app.merge_natural_dbc(merged, donor.read_bytes()), merged)
+
     def test_plan_is_readonly_and_merge_preserves_native_rows(self):
         result, outputs = app.plan(self.manifest, self.target, self.state)
         self.assertFalse(self.state.exists())

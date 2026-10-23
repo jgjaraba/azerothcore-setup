@@ -44,6 +44,63 @@ for custom item IDs; it validates the 3.3.5a WDBC layout and validates its
 output after writing. Client patches and DBC files are project-owned assets,
 not content maintained in the AzerothCore source checkout.
 
+## Native racial skin customization
+
+The permanent delivery rule is [ADR-0007](../decisions/ADR-0007-native-customization-editions.md):
+cumulative principal `client_patches/Data/patch-S.MPQ`, cumulative full optional
+alternative `client_patches/optional-extra-skins/Data/patch-S.MPQ`, never loaded
+together. Complete ordinary-face banks belong in principal; fixed-face/partial
+appearances belong in optional. Prior accepted race data must remain intact.
+
+The [Turtle skin feasibility study](../../turtle-wow/character-skins.md) records
+the client/server contract and local resource findings. New native skins use
+CharSections body/face/underwear families and the existing Skin Color selector,
+not alternate racial displays. Vanilla and Wrath CharSections both have ten
+fields but different field order and flag semantics; do not copy them wholesale
+or overwrite persisted normal/DK appearance indices.
+
+This AzerothCore checkout leaves appearance-tuple validation as a TODO in
+`Player::Create`; it does not implement TrinityCore's `ValidateAppearance`.
+Native save/login stores the appearance bytes in the existing character columns.
+The supported `charsections_dbc` overlay can represent server-side deltas without
+replacing the binary DBC; client textures and CharSections remain necessary.
+Playerbots reads the store, so adding face/color rows can affect bot generation.
+The [ForestTroll pilot](../../turtle-wow/forest-troll-skins.md) adds six native
+colors per sex in a separate patch-S and guarded server SQL. The user confirmed
+correct implementation, establishing practical pilot acceptance, not exhaustive
+DK/HD or appearance-combination coverage. The broader skin catalog is feasibility evidence,
+not a claim that every appearance is implemented or gameplay-validated.
+
+The [frozen Troll bases](../../turtle-wow/troll-customizations.md) retain that
+payload, user-confirmed hairstyles and facial features in the **primary** S.
+The additional18 appearances are excluded there and kept in a separate optional
+full replacement, not an overlay to load beside primary. Seven natural-key
+facial-style rows remain common to both clients and server.
+
+The user reported green faces on v2; palette conversion fixed the tested male
+pair. All36 retained optional faces use that representation with lossless top
+images. The three last male skins33–35 were removed at the user's request,
+without investigating their issues; the accepted primary MPQ remains identical.
+Full visual acceptance
+is not inferred from the one-pair result. Primary has298 server overlays including
+Forest; a separate optional SQL manifest adds135 and cleans21 retired legacy
+records, not enabled automatically.
+Existing characters and other viewers need the edition containing their skins;
+the profile switch does not remap stored appearance bytes.
+
+[Tauren](../../turtle-wow/tauren-customizations.md) extends those bases in the
+canonical paths with complete five/four-face skins, optional one-face variants,
+horn colours/barber unlocks and four new facial keys. Missing geometry is appended
+to native M2/SKINs with verified used-bone hierarchies and original animation/
+vertex prefixes preserved, not a wholesale Vanilla replacement. Full visual and
+animation acceptance is still required, including helmets and other model mods.
+
+For paletted BLP2, alpha is a separate bit plane after palette indices, not the
+palette's fourth byte. Pillow13 can misdecode this; use the tested project codec
+for these textures, never infer opaque backgrounds and black-key away real art.
+Two malformed source terminal mip chains are regenerated with pixel-exact RGBA
+top levels and valid native mips, leaving all accepted Forest bytes unchanged.
+
 ## Verified SQL contracts
 
 Project custom world SQL requires server/client DBC and patch alignment for the

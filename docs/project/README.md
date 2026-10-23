@@ -90,6 +90,7 @@ contracts, not task logs.
 | [`debt/README.md`](debt/README.md) | When something belongs in the debt register |
 | [`debt/REGISTER.md`](debt/REGISTER.md) | Known durable risks, each with an action trigger |
 | [`CUSTOM-IDENTIFIERS.md`](CUSTOM-IDENTIFIERS.md) | Evidence-backed inventory of project identifiers and the collision-check rule for new allocations |
+| [`decisions/ADR-0007-native-customization-editions.md`](decisions/ADR-0007-native-customization-editions.md) | Permanent complete/partial cumulative patch-S policy for racial customizations |
 
 ## Related material outside this directory
 

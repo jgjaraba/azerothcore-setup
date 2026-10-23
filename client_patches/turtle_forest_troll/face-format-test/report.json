@@ -1,0 +1,173 @@
+{
+  "baseline_sha256": "d63ecb0e583a77f4283dde8f39e253d4dee5694f6978ae5326d1120e164165a9",
+  "candidate_sha256": "a9a7fc72157a963f5c1235b4c5684d88c3420058c11cc19c68a3fe4b5eef9777",
+  "changes": [
+    {
+      "after": {
+        "alpha_bits": 0,
+        "encoding": 1,
+        "first_mip_offset": 1172,
+        "height": 128,
+        "preferred_format": 8,
+        "width": 256
+      },
+      "after_sha256": "b8fa558c0c6a0f6469de450ff1b08395d6d8f647d1f01f0a50cb324ab4f5534b",
+      "all_mip_alpha_exact": true,
+      "before": {
+        "alpha_bits": 8,
+        "encoding": 3,
+        "first_mip_offset": 148,
+        "height": 128,
+        "preferred_format": 0,
+        "width": 256
+      },
+      "before_sha256": "f12f4218eb5079863878b5a4b71888150a56180f58e25c194ab456e68662c498",
+      "member": "Character\\Custom\\TurtleTroll\\Male\\100_FaceLower.blp",
+      "mip_errors": [
+        {
+          "level": 0,
+          "rgb_mae": 0.0,
+          "rgb_max": 0
+        },
+        {
+          "level": 1,
+          "rgb_mae": 0.0,
+          "rgb_max": 0
+        },
+        {
+          "level": 2,
+          "rgb_mae": 1.13330078125,
+          "rgb_max": 52
+        },
+        {
+          "level": 3,
+          "rgb_mae": 1.3509114583333333,
+          "rgb_max": 30
+        },
+        {
+          "level": 4,
+          "rgb_mae": 1.6953125,
+          "rgb_max": 26
+        },
+        {
+          "level": 5,
+          "rgb_mae": 1.5416666666666667,
+          "rgb_max": 9
+        },
+        {
+          "level": 6,
+          "rgb_mae": 1.1666666666666667,
+          "rgb_max": 3
+        },
+        {
+          "level": 7,
+          "rgb_mae": 2.5,
+          "rgb_max": 4
+        },
+        {
+          "level": 8,
+          "rgb_mae": 2.0,
+          "rgb_max": 4
+        }
+      ],
+      "palette_colours": 157,
+      "top_rgba_exact": true
+    },
+    {
+      "after": {
+        "alpha_bits": 0,
+        "encoding": 1,
+        "first_mip_offset": 1172,
+        "height": 64,
+        "preferred_format": 8,
+        "width": 256
+      },
+      "after_sha256": "4d5d9b40bc5df71ee60bb0aed5ffac4c45b3bbd84bfcb845bd6d56e9cade2780",
+      "all_mip_alpha_exact": true,
+      "before": {
+        "alpha_bits": 8,
+        "encoding": 3,
+        "first_mip_offset": 148,
+        "height": 64,
+        "preferred_format": 0,
+        "width": 256
+      },
+      "before_sha256": "cc6954c2b9486328ed9a0706a7969bfe3f3a065bba6f9fe9733f733633c5bbcd",
+      "member": "Character\\Custom\\TurtleTroll\\Male\\100_FaceUpper.blp",
+      "mip_errors": [
+        {
+          "level": 0,
+          "rgb_mae": 0.0,
+          "rgb_max": 0
+        },
+        {
+          "level": 1,
+          "rgb_mae": 0.0,
+          "rgb_max": 0
+        },
+        {
+          "level": 2,
+          "rgb_mae": 1.1575520833333333,
+          "rgb_max": 18
+        },
+        {
+          "level": 3,
+          "rgb_mae": 1.5104166666666667,
+          "rgb_max": 26
+        },
+        {
+          "level": 4,
+          "rgb_mae": 1.6354166666666667,
+          "rgb_max": 13
+        },
+        {
+          "level": 5,
+          "rgb_mae": 1.5208333333333333,
+          "rgb_max": 5
+        },
+        {
+          "level": 6,
+          "rgb_mae": 4.833333333333333,
+          "rgb_max": 19
+        },
+        {
+          "level": 7,
+          "rgb_mae": 4.166666666666667,
+          "rgb_max": 11
+        },
+        {
+          "level": 8,
+          "rgb_mae": 4.666666666666667,
+          "rgb_max": 5
+        }
+      ],
+      "palette_colours": 90,
+      "top_rgba_exact": true
+    }
+  ],
+  "checks": {
+    "changed_members": 2,
+    "client_test_run": false,
+    "dbc_files_byte_exact": true,
+    "deterministic": true,
+    "normal_publication_unchanged": true,
+    "other_payloads_byte_exact": true,
+    "payload_members": 306,
+    "server_changed": false
+  },
+  "kind": "troll-face-format-ab",
+  "selected": {
+    "description": "male first v2 alternate, purple body",
+    "faces_aliased": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "race": 8,
+    "sex": 0,
+    "skin": 24,
+    "source_number": 100
+  }
+}

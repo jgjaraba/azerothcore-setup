@@ -2579,6 +2579,12 @@
       "path": "vmaps/Zulgurubtree05.m2.vmo",
       "sha256": "0677203f5be8467720503d7743ccf533c2dcfef9c5b221ae27ec5e7a30b8f772",
       "size": 464
+    },
+    "turtle-customizations/dbc/CharacterFacialHairStyles.dbc": {
+      "kind": "facial-style-delta",
+      "path": "dbc/CharacterFacialHairStyles.dbc",
+      "sha256": "b8fdfc8384a8b06e6a1808ed075a3f40d5e38c14caeef009629fae5f60c20920",
+      "size": 373
     }
   },
   "schema": 1

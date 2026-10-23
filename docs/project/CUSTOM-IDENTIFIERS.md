@@ -94,6 +94,62 @@ namespace bindings and collision lessons, and `../turtle-wow/crypt-portals.md`
 for placement/access contracts. Other regions are not assigned IDs merely by
 listing their Turtle source identifiers.
 
+## Forest Troll native skin customization
+
+- **CharSections.dbc / `charsections_dbc` IDs `20000`–`20089`:**90 body/face/
+  underwear rows for existing Troll race8, both sexes. Defined by
+  `tools/forest-troll-skins.json` and `turtle_forest_troll_skins.sql`.
+- **Skin Color indices `18`–`23`:** race8, sex0/1 only; preserve normal0–5,
+  NPC6–14 and DK15–17. IDs are not color indices. The native tuple key is
+  Race/Sex/Base/Variation/Color, **without Flags**; reject tuple collisions too.
+- **Client namespace:** `Character\Custom\TurtleForestTroll\...`, packaged in
+  the separate patch-S. No new race, model, display or spell IDs are allocated.
+
+The pinned baseline and live SQL overlay were checked before allocation; future
+installations repeat collision guards. Original appearance indices are never
+renumbered. See [skin contract](../turtle-wow/forest-troll-skins.md).
+
+## Troll customization extension (current primary/optional editions)
+
+- **CharSections IDs `20100`–`20346`:**247 new records for21 bodies/fixed-face
+  families and seven facial features, allocated by v2 and retained without
+  renumbering. Current primary includes91 facial rows; optional holds135 skin
+  rows. The principal SQL also overlays117
+  existing native hair IDs with only the PLAYER bit added; these are not new IDs.
+- **Optional race8 skin colors:** male24–32 / female24–32; absent from the
+  primary player choices/resources. Accepted Forest18–23 and
+  native/NPC/DK indices remain unchanged. Male source109 aliases Forest18.
+- **Retired male colors33–35:** the three shop appearances were removed without
+  further investigation, at the user's request. Retired CharSections IDs:
+  `20109`–`20111`, `20121`–`20123`, `20133`–`20135`, `20145`–`20147`,
+  `20157`–`20159`, `20169`–`20171`, `20220`–`20222`. Do not reallocate them.
+- **Facial customization keys:** `(8,0,11..13)` and `(8,1,6..9)` in
+  CharacterFacialHairStyles. This DBC has no ID column: use Race/Sex/Variation.
+- **Namespace:** `Character\Custom\TurtleTroll\...`; same owned patch-S, no
+  model/race/display allocations. Original decisions: `tools/troll-customizations.json`;
+  current partition/conversion: `tools/troll-patch-editions.json`.
+
+See [current edition contract](../turtle-wow/troll-customizations.md) for fixed-face
+aliases, DK color aliases and client/server rollout/rollback boundaries.
+
+## Tauren cumulative customization
+
+- **CharSections IDs `21000`–`21162`:**163 new principal records:13 in complete
+  body/face/underwear families,150 horn-colour records. Existing native Tauren
+  hair IDs receive30 PLAYER-bit-only overlays; they are not new allocations.
+- **Optional IDs `21200`–`21214`:**15 fixed-face rows, outside the normal SQL
+  manifest. Male skin25 is complete,26–28 optional; female17 complete,18–19
+  optional. Native normal/NPC/DK colour indices remain unchanged.
+- **HairColor4–9:** source scalp-lower3–8; NPC3 is preserved, not overwritten.
+- **Facial keys:** `(6,0,7)`, `(6,0,8)`, `(6,1,5)`, `(6,1,6)` in the natural-key
+  style DBC. Missing geosets110/111 and206/207 are appended to native models,
+  preserving referenced skeleton bindings; no race/model/display IDs are added.
+- **Texture namespace:** `Character\Custom\TurtleTauren\...`. Source hashes,
+  colours, IDs and classification live in `tools/tauren-customizations.json`.
+
+See [Tauren contract](../turtle-wow/tauren-customizations.md). Troll IDs and retired
+skins remain independent; numeric skin colours are scoped by race and sex.
+
 ## External/module dependencies, not project allocations
 
 - **Creature templates `390011`, `190012`, and `601072`:** Character Services,
