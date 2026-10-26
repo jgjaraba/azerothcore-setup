@@ -136,6 +136,27 @@ Do not
 turn a mock/static PASS into gameplay acceptance or deploy client DBCs blindly
 to the server; starting data, masks, skills and module compatibility are separate.
 
+The High Elf eye glow additionally requires facial-style channel17 selection:
+Wrath maps the final `CharacterFacialHairStyles` uint32 selector to1700+value.
+The imported Turtle eye geometry is1702, with source unlit/additive material17/4
+and replaceable texture type8. Leaving the selector0 hides valid eye geometry;
+set only race22's22 selectors to2, retaining the native DK override. Do not
+compensate with material/texture conversion or an executable race exception.
+The shared helper validates both converted models and applies the exact DBC
+delta; root Z alone carries this change in consolidated delivery. Bounded
+Wine/Direct3D9 creation previews confirm the blue glow for both sexes, not full
+equipment/animation or gameplay coverage.
+Brightness is separately normalized by `tools/high_elf_eye_opacity.py`: only
+the two pinned High Elf M2s' eye-exclusive texture-weight track1 keys become
+native Blood Elf6553 (~20%), preserving already6553 keys. The shared source-build
+and frozen-NEW consolidation postprocess preserves every other byte, including
+geometry/UV/material/timestamps and track2. It changes regular S only; the
+selector fix in root Z stays intact. Matched Wine/Direct3D9 previews and sampled
+front/three-quarter/profile/blink views show a more contained blue effect for
+both sexes, without an obvious detached plane relative to Blood Elf controls.
+Idle frames are not synchronized; this is not an exact depth-occlusion proof,
+blue/green perceptual equivalence or full equipment/animation acceptance.
+
 ### Consolidation: table ownership and HD baseline boundaries
 
 Localized `ChrRaces`, `Map`, `AreaTable`, `MapDifficulty` and `Spell` belong only

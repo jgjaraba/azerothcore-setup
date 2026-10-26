@@ -2,12 +2,12 @@
   "hd_client/Data/enUS/patch-enUS-Z.MPQ": "6ce2f699872a2e2614d4f5579bf70b6393fa67c43bfc28f90d65626610d717af",
   "hd_client/Data/esES/patch-esES-Z.MPQ": "bde574cdc5d0c085122131d380f86d402a420a8a4073c73dd07f21ab7d4e624b",
   "hd_client/Data/patch-Z.mpq": "b4d5e06ec86aff162efdf36c09e4500d96eca567087ce0abfeaea6dcd200489e",
-  "inventory.json": "bd3f26b307d068116d616eb5627381d41404ccc845ee50d98a929d7403c9f1b0",
+  "inventory.json": "016d32334b9ddd7d670fab713fe60e0533115fbf50c79438626ac388dc2510b8",
   "regular_client/Data/enUS/patch-enUS-Z.MPQ": "59665bfae4d2bb520a974ed9c61efb174ac2c55da2ab99f50b937b5e6308ec7a",
   "regular_client/Data/esES/patch-esES-Z.MPQ": "40abc328b300ca17791816bc196cac1ed670ff3703ff93f1e570b7fbd31bb811",
-  "regular_client/Data/patch-S.MPQ": "6d630eb367bb8072589d1f7472c439f533eba35819cfed4012473686b12cc523",
+  "regular_client/Data/patch-S.MPQ": "6cbacccc3988f6e0455ef029d58589727a85e071b827680d5eacfbbc34f37f9a",
   "regular_client/Data/patch-T.MPQ": "d0317c2b66ec5f73747a411f9eba2c68a4cd489dbf564f2767626e1aa41518f0",
-  "regular_client/Data/patch-Z.mpq": "b78a269d005290d7a93ccc98385891147f8b24d24d18494962086dc0075443a7",
+  "regular_client/Data/patch-Z.mpq": "dacea07ab80d69c9998ab75bbdf64b8ad2429cba7ad185f6f4cac10b12e24027",
   "regular_client/Wow-new-races.exe": "87ceca9ea08da2f0d9d312d833ae76751a3ab8f2b8a7d742bfd2356e55f291f3",
-  "validation.json": "6a665ca298c0fb676c340fba5eb411762bfaad66a7ca24e2d55cf1fb13cf0af1"
+  "validation.json": "58e9bf441e64bd2591e12e32ed9862e11be0a1ea2d5e20af1f5566cd4b44fda2"
 }

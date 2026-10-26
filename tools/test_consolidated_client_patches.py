@@ -4,10 +4,14 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+import struct
 from unittest.mock import patch
 
 import consolidate_client_patches as c
 from crypt_release_dbc import parse_dbc, string_at
+from high_elf_eye_selectors import eye_models, fix_selectors
+from test_new_races_assets import validate_eye_delta, validate_opacity_delta
+from high_elf_eye_opacity import member as eye_member
 
 
 class DeliveryContracts(unittest.TestCase):
@@ -113,11 +117,48 @@ class DeliveryContracts(unittest.TestCase):
             for source in (c.PRIMARY, c.NEW):
                 for member, (_, original) in self.sources.get(source).items():
                     if member.startswith('character/'):
-                        self.assertEqual(package[member]['data'], original, member)
+                        if source == c.NEW and member in {eye_member(s).lower() for s in ('Male', 'Female')}:
+                            validate_opacity_delta(original, package[member]['data'],
+                                                   'Male' if '/male/' in member else 'Female')
+                        else:
+                            self.assertEqual(package[member]['data'], original, member)
             self.assertEqual(len(self.report['new_race_closure'][profile]['mdx_to_m2']), 4)
             self.assertGreater(self.report['new_race_compositor'][profile]['textures'], 44)
         spec = self.lock['sources'][c.PRIMARY]
         self.assertEqual(c.file_sha(c.ROOT/spec['path']), spec['sha256'])
+
+    def test_high_elf_selectors_exact_frozen_delta_and_model_contract(self):
+        key = 'dbfilesclient/characterfacialhairstyles.dbc'
+        before = self.sources.get(c.NEW)[key][1]
+        after = self.master('regular_client', 'CharacterFacialHairStyles')
+        validate_eye_delta(before, after)
+        payload = {k: e['data'] for k, e in self.planned['regular_client/Data/patch-S.MPQ'].items()}
+        geometry, report = eye_models(payload)
+        self.assertEqual(fix_selectors(before, geometry), after)
+        self.assertEqual(fix_selectors(after, geometry), after)
+        self.assertEqual([report[s]['section_index'] for s in ('Male', 'Female')], [53, 5])
+        for sex in ('Male', 'Female'):
+            base = f'character/custom/turtlehighelf/{sex}/turtlehighelf{sex}'.lower()
+            for suffix in ('.m2', '00.skin'):
+                original = self.sources.get(c.NEW)[base+suffix][1]
+                if suffix == '.m2':
+                    validate_opacity_delta(original, payload[base+suffix], sex)
+                else:
+                    self.assertEqual(payload[base+suffix], original)
+            broken = dict(payload)
+            skin = bytearray(broken[base+'00.skin'])
+            _, offset = struct.unpack_from('<2I', skin, 28)
+            struct.pack_into('<H', skin, offset+report[sex]['section_index']*48, 1700)
+            broken[base+'00.skin'] = bytes(skin)
+            with self.assertRaisesRegex(ValueError, 'exactly one.*1702'):
+                eye_models(broken)
+            broken = dict(payload)
+            model = bytearray(broken[base+'.m2'])
+            count, offset = struct.unpack_from('<2I', model, 112)
+            model[offset:offset+count*4] = bytes(count*4)
+            broken[base+'.m2'] = bytes(model)
+            with self.assertRaisesRegex(ValueError, 'unlit/additive'):
+                eye_models(broken)
 
     def test_all_frozen_inputs_exist_without_active_historical_paths(self):
         for source, spec in self.lock['sources'].items():

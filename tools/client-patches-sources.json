@@ -19537,7 +19537,10 @@
   "launcher_profiles": ["regular_client"],
   "native_model_closure_usage": "Research only: native animation/static texture source pins are not consumed by active profiles; HD has no S or model overrides",
   "preserved_regular_delivery": {
-    "regular_client/Data/patch-S.MPQ": "6d630eb367bb8072589d1f7472c439f533eba35819cfed4012473686b12cc523",
+    "regular_client/Data/enUS/patch-enUS-Z.MPQ": "59665bfae4d2bb520a974ed9c61efb174ac2c55da2ab99f50b937b5e6308ec7a",
+    "regular_client/Data/esES/patch-esES-Z.MPQ": "40abc328b300ca17791816bc196cac1ed670ff3703ff93f1e570b7fbd31bb811",
+    "regular_client/Data/patch-Z.mpq": "dacea07ab80d69c9998ab75bbdf64b8ad2429cba7ad185f6f4cac10b12e24027",
+    "regular_client/Data/patch-S.MPQ": "6cbacccc3988f6e0455ef029d58589727a85e071b827680d5eacfbbc34f37f9a",
     "regular_client/Data/patch-T.MPQ": "d0317c2b66ec5f73747a411f9eba2c68a4cd489dbf564f2767626e1aa41518f0",
     "regular_client/Wow-new-races.exe": "87ceca9ea08da2f0d9d312d833ae76751a3ab8f2b8a7d742bfd2356e55f291f3"
   },

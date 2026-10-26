@@ -254,13 +254,80 @@ Esto valida esta cadena concreta; no establece prioridad universal para cualquie
 cliente/mod ni acredita nombres de mapas en gameplay. No reintroducir las copias
 localizadas antiguas del candidato en el root consolidado.
 
+## Brillo de ojos de Alto Elfo
+
+Los dos modelos Turtle conservan el geoset de ojos **1702**, con material
+unlit/aditivo17/4. Su textura se asigna mediante el tipo reemplazable8 y
+`Texture2` del cuerpo en CharSections; la ruta Green escrita en el M2 no prueba
+que esa sea la textura efectiva. No convertir estos BLP DXT5 a paleta ni alterar
+sus bindings para corregir la ausencia de brillo.
+
+Wrath usa la última columna de `CharacterFacialHairStyles` (columna7, byte28 del
+registro de32 bytes) como selector del grupo17: `1700 + selector`. La importación
+Vanilla inicial dejaba ese campo a0, ocultando el1702 existente. El helper
+compartido `tools/high_elf_eye_selectors.py` establece **2 en las22 filas de
+raza22**, ambos sexos y estilos0–10. Valida la geometría/material reales, rechaza
+migraciones parciales y deja intactos todos los demás campos y las otras248 filas.
+El override nativo de DK a1703 no se modifica; DK no se habilita para Alto Elfo.
+
+El selector pertenece a `regular_client/Data/patch-Z.mpq`, miembro
+`DBFilesClient\CharacterFacialHairStyles.dbc`. Su ajuste de intensidad pertenece
+a los dos M2 en S, como se detalla abajo. Para una entrega sin brillo, copiar
+S y root Z actuales con WoW cerrado; si el Z con selector2 ya está instalado,
+basta actualizar S. T, los Z de idioma, el ejecutable, HD y las fuentes
+archivadas no cambian.
+
+**PASS:** selección/visibilidad nativa emulada para ambos sexos y todos los
+estilos, y comparación visual antes/después en creación con cliente real bajo
+Wine/Direct3D9: brillo azul luminoso masculino y femenino, cambios muestreados
+de piel/cara/rasgos y transiciones desde Goblin. Blood Elf conserva los ojos
+verdes. Los11 pasos de rasgos femeninos incluyen repeticiones de pendientes;
+no acreditan11 IDs distintos. Las apariencias iniciales variaron entre sesiones:
+es una comparación visual, no una resta de píxeles con personalización idéntica.
+Equipo/cascos y animaciones exhaustivas siguen sin aceptación específica.
+
+### Opacidad de la pista exclusiva de ojos
+
+La geometría de ojos importada coincide prácticamente con Blood Elf nativo; no
+hay evidencia de un quad ampliado o adelantado. Ambos usan material17/4 y una
+huella efectiva de textura muy similar antes de opacidad. La diferencia medida
+es la pista `texture_weights[1]`: el batch de ojos es su único consumidor, mediante
+combo1→lookup1. El masculino tenía812 claves32767 y4 claves6553; el femenino410
+claves19660. Blood Elf nativo usa6553 en ambos sexos.
+
+`tools/high_elf_eye_opacity.py` normaliza **todas las claves existentes a6553**,
+sin volver a escalar las que ya tenían20%. Es un postproceso compartido entre el
+builder fuente y la selección del NEW congelado en el consolidador. Acepta solo
+los SHA originales/finales conocidos y los SKIN fijados; valida arrays, rangos y
+propiedad exclusiva de la pista. Conserva todos los otros bytes: vértices completos
+(XYZ, normales, UV, huesos/pesos), materiales, tints, tiempos y pistas0/2. Los
+intermedios del conversor siguen intactos para la validación legacy; el report
+distingue su SHA del payload empaquetado e identifica el postproceso.
+
+La opacidad cambia únicamente los dos M2 en el S regular (1624/820 bytes). El
+root Z mantiene el selector2 y su hash previo; los otros MPQ, EXE y archivos
+fuente congelados conservan sus bytes.
+
+**PASS de intensidad/encaje:** comparación con apariencia y orientación iguales
+antes/después y controles Blood Elf, ambos sexos, con cliente real bajo
+Wine/Direct3D9. El efecto azul permanece visible y más contenido. También se
+inspeccionaron frente, tres cuartos y casi perfil y muestras de parpadeo, sin
+observar un plano luminoso separado ni un halo adicional sobresaliendo de la
+silueta respecto del control. La animación idle no está sincronizada entre
+tomas: no es una prueba exacta de oclusión por profundidad ni de igualdad
+perceptual entre azul y verde. Equipo y animaciones exhaustivas no se validan.
+
+El usuario confirmó que el resultado con esta opacidad es correcto; queda
+aceptado el brillo azul atenuado, sin requerir cambios de geometría o textura.
+
 ## Reproducibilidad y validación
 
 La construcción de texturas usa un entorno aislado con las dependencias de
 `tools/troll-customizations-requirements.txt` (Pillow13.0.0/NumPy2.2.6). Invocar el
 builder con el Python de ese entorno; no sustituir el Python del sistema.
 
-Para repetir la comparación del cambio limitado a texturas después de
+Para repetir la comparación histórica de las44 texturas, el selector y los dos
+M2 con delta de opacidad estrictamente acotado después de
 publicar, conservar la entrega previa exacta y pasar
 `--previous-publication /ruta/entrega-anterior` al modo `--integration` de
 `tools/test_new_races_assets.py`. `--verify-existing` verifica dos builds ya

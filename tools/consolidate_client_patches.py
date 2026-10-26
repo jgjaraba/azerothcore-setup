@@ -16,6 +16,8 @@ import tempfile
 
 from crypt_release_dbc import merge_dbc, parse_dbc, semantic_row, string_at
 from crypt_release_client import DBC_DELTAS
+from high_elf_eye_selectors import eye_models, fix_selectors
+from high_elf_eye_opacity import member as eye_member, normalize_eye_opacity
 
 ROOT = Path(__file__).resolve().parent.parent
 MPQ = ROOT / 'tools/mpq'
@@ -284,6 +286,11 @@ def plan(lock, sources):
     new = {k: v for k, v in sources.get(CRYPT).items() if k.startswith('dbfilesclient/')}
     new.update(sources.get(NEW))
     origin = {k: NEW if k in sources.get(NEW) else CRYPT for k in new}
+    geometry, _ = eye_models({k: raw for k, (_, raw) in sources.get(NEW).items()})
+    eye_payload = {}
+    for sex in ('Male', 'Female'):
+        key = norm(eye_member(sex))
+        eye_payload[key], _ = normalize_eye_opacity(new[key][1], new[key[:-3]+'00.skin'][1], sex)
     for profile in lock['profiles']:
         prefix = profile + '/Data/'
         if profile == 'hd_client':
@@ -310,7 +317,10 @@ def plan(lock, sources):
                 copy(prefix+'patch-T.MPQ', CRYPT, key)
         for key in new:
             if category(key) == 'characters':
-                copy(prefix+'patch-S.MPQ', NEW, key)
+                if key in eye_payload:
+                    add(prefix+'patch-S.MPQ', new[key][0], eye_payload[key], [NEW])
+                else:
+                    copy(prefix+'patch-S.MPQ', NEW, key)
             elif not key.startswith('dbfilesclient/') and category(key) == 'geography':
                 copy(prefix+'patch-T.MPQ', NEW, key)
             elif not key.startswith('dbfilesclient/'):
@@ -325,6 +335,8 @@ def plan(lock, sources):
             if table in LOCALIZED:
                 continue
             provenance = [origin[key]]
+            if table == 'characterfacialhairstyles':
+                raw = fix_selectors(raw, geometry)
             add(prefix+'patch-Z.mpq', name, raw, provenance)
         for locale in ('enUS', 'esES'):
             package = prefix+locale+'/patch-'+locale+'-Z.MPQ'
@@ -416,6 +428,12 @@ def audit(planned, lock, sources):
                    for entry in entries.values()}
         report['new_race_closure'][profile] = validate_closure(payload)
         report['new_race_compositor'][profile] = validate_compositor(payload)
+        geometry, eyes = eye_models(payload)
+        facial = master['dbfilesclient/characterfacialhairstyles.dbc']['data']
+        require(fix_selectors(facial, geometry) == facial, 'High Elf eye selectors are not fixed')
+        report.setdefault('high_elf_eyes', {})[profile] = {
+            'rows': 22, 'column': 7, 'selector': 2, 'ordinary_geoset': 1702,
+            'dk_override': 'UNCHANGED (native class6 selects1703)', 'models': eyes}
         models = rows(master['dbfilesclient/creaturemodeldata.dbc']['data'], 'creaturemodeldata')
         displays = rows(master['dbfilesclient/creaturedisplayinfo.dbc']['data'], 'creaturedisplayinfo')
         missing_models = sorted({r[1] for r in displays.values() if r[1] and r[1] not in models})
@@ -478,6 +496,14 @@ def audit(planned, lock, sources):
                         i in (14, 31, 48) and not native[k][i] else native[k][i])
                         for k in native for i in names),
                     f'ChrRaces native name bank changed: {locale}')
+    report['high_elf_eye_opacity'] = {}
+    for sex in ('Male', 'Female'):
+        key = norm(eye_member(sex))
+        source = sources.get(NEW)
+        expected, proof = normalize_eye_opacity(source[key][1], source[key[:-3]+'00.skin'][1], sex)
+        require(planned['regular_client/Data/patch-S.MPQ'][key]['data'] == expected,
+                'Packaged eye opacity differs from validated postprocess')
+        report['high_elf_eye_opacity'][sex] = proof
     return report
 
 

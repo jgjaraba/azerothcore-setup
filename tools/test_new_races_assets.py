@@ -24,6 +24,7 @@ from unittest.mock import patch
 from types import SimpleNamespace
 
 import build_new_races_assets as assets
+from high_elf_eye_selectors import fix_selectors
 
 
 def dbc(fields, size, rows, strings=b'\0'):
@@ -291,6 +292,49 @@ class PackedContracts(unittest.TestCase):
                         self.assertFalse((root/'client_patches').exists())
 
 
+def validate_eye_delta(before, after):
+    """Independent byte allowlist: exactly22 column7 uint32s, no other bytes."""
+    assets.require(before[:20] == after[:20] and len(before) == len(after), 'Facial header/length changed')
+    old = assets.DBC(before, 8, 32)
+    new = assets.DBC(after, 8, 32)
+    assets.require(len(old.rows) == len(new.rows) == 270 and old.strings == new.strings,
+                   'Facial count/strings changed')
+    changes = []
+    for a, b in zip(old.values(), new.values()):
+        if a[0] == 22:
+            assets.require(a[7] == 0 and b == a[:7]+[2], 'Unexpected High Elf facial delta')
+            changes.append(tuple(a[:3]))
+        else:
+            assets.require(a == b, 'Non22 facial row changed')
+    assets.require(len(changes) == 22 and set(changes) ==
+                   {(22, s, f) for s in (0, 1) for f in range(11)}, 'Incomplete eye delta keys')
+
+
+def validate_opacity_delta(before, after, sex):
+    """Independent field allowlist; never trust postprocessor offsets/reports."""
+    assets.require(len(before) == len(after), 'Opacity model length changed')
+    count, start = struct.unpack_from('<2I', before, 88)
+    assets.require(count == 3, 'Wrong weight count')
+    n, descriptors = struct.unpack_from('<2I', before, start+20+12)
+    assets.require(n == (409 if sex == 'Male' else 410), 'Wrong eye track count')
+    offsets = []
+    for i in range(n):
+        k, p = struct.unpack_from('<2I', before, descriptors+i*8)
+        offsets.extend(range(p, p+k*2, 2))
+    assets.require(len(set(offsets)) == len(offsets) == (816 if sex == 'Male' else 410), 'Wrong eye key count')
+    restored = bytearray(after)
+    for p in offsets:
+        a, b = struct.unpack_from('<h', before, p)[0], struct.unpack_from('<h', after, p)[0]
+        assets.require(a in ({6553, 32767} if sex == 'Male' else {19660}) and b == 6553,
+                       'Eye keys must normalize exactly to native6553')
+        restored[p:p+2] = before[p:p+2]
+    assets.require(bytes(restored) == before, 'Non-opacity model bytes changed')
+    assets.require(sum(a != b for a, b in zip(before, after)) == (1624 if sex == 'Male' else 820),
+                   'Unexpected opacity changed-byte count')
+    return {'keys': len(offsets), 'changed_bytes': 1624 if sex == 'Male' else 820,
+            'all_other_bytes_exact': True}
+
+
 def prior_archive(candidate, name):
     if candidate.resolve() == (assets.ROOT/'client_patches/new-races').resolve():
         return assets.publication_path(name)
@@ -360,6 +404,15 @@ def integration(output, verify_existing=False, previous_publication=None):
         for iteration in (1, 2):
             build_root = output/f'pass{iteration}'
             model_results.append(validate_model(build_root/'model-inputs'/f'{i}.m2', build_root/'models'/spec['target']))
+            meta = reports[iteration-1]['models'][str(91000+i)]
+            assets.require(assets.file_sha(build_root/'models'/spec['target']) ==
+                           meta['converter_intermediate_sha256'], 'Converter intermediate/report SHA mismatch')
+            if spec['race'] == 22:
+                from high_elf_eye_opacity import PINS
+                sex = ('Male', 'Female')[spec['sex']]
+                post = meta['eye_opacity_postprocess']
+                assets.require((post['source_sha256'], post['final_sha256']) == PINS[sex][:2] and
+                               meta['packaged_sha256'] == post['final_sha256'], 'Opacity provenance mismatch')
         assets.require(model_results[0] == model_results[1], 'Model validation differs between source builds')
         result['model_binary_validation'][str(91000+i)] = model_results[0]
     for edition in ('primary', 'optional-extra-skins'):
@@ -424,6 +477,8 @@ def integration(output, verify_existing=False, previous_publication=None):
                     assets.require({tuple(r[3:]) for r in native.values() if r[1:3] == [10, 1]} ==
                                    {tuple(r[3:]) for r in choices}, 'Native no-scalp controls do not match delivered choices')
                 if table == 'CharacterFacialHairStyles':
+                    assets.require(fix_selectors(raw, {(22, s): {1702} for s in (0, 1)}) == raw,
+                                   'Delivered High Elf eye selectors are not fixed')
                     suffix = after.values()[len(before.rows):]
                     assets.require([tuple(r[:3]) for r in suffix] == sorted(tuple(r[:3]) for r in suffix),
                                    'New facial style rows not naturally sorted')
@@ -454,6 +509,10 @@ def integration(output, verify_existing=False, previous_publication=None):
             for name, info in archive_report['payload'].items():
                 raw = assets.extract(paths[0], name.replace('/', '\\'))
                 assets.require(raw is not None and assets.sha(raw) == info['sha256'], 'Packaged resource mismatch')
+                for i, spec in enumerate(manifest['models']):
+                    if name.lower() == spec['target'].lower():
+                        assets.require(assets.sha(raw) == reports[0]['models'][str(91000+i)]['packaged_sha256'],
+                                       'Packaged model/report SHA mismatch')
             # Compare actual previous delivery, not just source baselines or reports.
             old = prior_archive(prior_root, edition+'/'+relative)
             assets.require(assets.file_sha(old) == manifest['previous_publication'][edition+'/'+relative],
@@ -464,12 +523,24 @@ def integration(output, verify_existing=False, previous_publication=None):
             actual_payload, differences = {}, []
             expected_changes = {n.lower() for n, meta in reports[0]['blp_metadata'].items()
                                 if 'formatNormalizations' in meta}
+            facial_member = 'dbfilesclient/characterfacialhairstyles.dbc'
+            assets.require(len(expected_changes) == 44, 'Expected exactly44 normalized textures')
+            expected_changes.add(facial_member)
+            eye_members = {f'character/custom/turtlehighelf/{s}/turtlehighelf{s}.m2'.lower(): s
+                           for s in ('Male', 'Female')}
+            expected_changes.update(eye_members)
             for low, name in new_names.items():
                 after_raw = assets.extract(paths[0], name)
                 before_raw = assets.extract(old, old_names[low])
                 if after_raw != before_raw:
                     differences.append(low)
                     assets.require(low in expected_changes, 'Non-allowlisted payload changed: '+name)
+                    if low == facial_member:
+                        validate_eye_delta(before_raw, after_raw)
+                        continue
+                    if low in eye_members:
+                        validate_opacity_delta(before_raw, after_raw, eye_members[low])
+                        continue
                     from build_forest_troll_skins import validate_blp
                     bm, am = validate_blp(before_raw), validate_blp(after_raw)
                     assets.require([(m['width'], m['height']) for m in bm['mips']] ==
@@ -479,11 +550,11 @@ def integration(output, verify_existing=False, previous_publication=None):
                                        assets.palette_rgba(after_raw, level)[3::4], 'Source mip alpha drift')
                 if low in {n.lower() for n in archive_report['payload']}:
                     actual_payload[assets.norm(name)] = after_raw
-            assets.require(len(differences) == 44 and set(differences) == expected_changes,
-                           'Expected exactly 44 changed texture members')
+            assets.require(len(differences) == 47 and set(differences) == expected_changes,
+                           'Expected exactly44 textures,22 facial eye selector fields and2 eye-opacity models')
             result['texture_only_comparison'][edition+'/'+relative] = {
                 'old_sha256': assets.file_sha(old), 'changed_members': sorted(differences),
-                'unchanged_members': len(new_names)-44, 'all_mip_alpha_exact': True,
+                'unchanged_members': len(new_names)-47, 'all_mip_alpha_exact': True,
                 'cpu_roles': assets.validate_compositor(actual_payload)}
         # Root and locale contain identical new table/art/Glue payloads.
         a, b = reports[0]['editions'][edition]['archives'].values()

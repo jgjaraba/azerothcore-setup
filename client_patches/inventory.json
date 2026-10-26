@@ -4984,7 +4984,7 @@
       "provenance": [
         "client_patches/new-races/primary/Data/patch-Z.mpq"
       ],
-      "sha256": "91a8f99f2127818d31180d0ff6408c0abf68ae0ee8301bd635133f68503dcf83",
+      "sha256": "c1be1f8c45c4bebc951d20508c7ca660318a461db5ff9a0e3c14cf32a3747c1a",
       "size": 19898159
     },
     "character/custom/turtlehighelf/female/turtlehighelffemale00.skin": {
@@ -7387,7 +7387,7 @@
       "provenance": [
         "client_patches/new-races/primary/Data/patch-Z.mpq"
       ],
-      "sha256": "13c646380a76d0b54c3ea468f8273eb086fc24c0cdbfd978f83a9b50f31f1738",
+      "sha256": "1d89037e33959eef4ee1f6973bea64231c09fa977f6427b556586b6d6fa0f751",
       "size": 15495222
     },
     "character/custom/turtlehighelf/male/turtlehighelfmale00.skin": {
@@ -9002,7 +9002,7 @@
       "provenance": [
         "client_patches/new-races/primary/Data/patch-Z.mpq"
       ],
-      "sha256": "c89d1f239309993a098d1a55f54df1b23fc0c59f7630025f3f0097d6e8812ec2",
+      "sha256": "0b72078e32171e3816edb669a5caa398be133036f6798f5d9607df8c39377747",
       "size": 8661
     },
     "dbfilesclient/charbaseinfo.dbc": {

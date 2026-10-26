@@ -17,6 +17,8 @@ import struct
 import subprocess
 import tempfile
 
+from high_elf_eye_selectors import eye_models, fix_selectors
+
 ROOT = Path(__file__).resolve().parents[1]
 MPQ = ROOT / 'tools/mpq'
 MANIFEST = ROOT / 'tools/new-races-assets.json'
@@ -344,6 +346,7 @@ def validate_closure(payload):
 
 
 def build_models(sources, output, converter, dotnet):
+    from high_elf_eye_opacity import normalize_eye_opacity
     payload, reports, geometry = {}, {}, {}
     for i, spec in enumerate(sources.m['models']):
         raw = sources.get(spec['source'])
@@ -391,10 +394,16 @@ def build_models(sources, output, converter, dotnet):
         require(raw[180:236] == converted[160:216], 'Converted bounds changed')
         require(array(raw, 68, 48) == array(converted, 60, 48), 'Source vertices changed')
         skin = dest.with_name(dest.stem+'00.skin').read_bytes()
+        opacity = None
+        if spec['race'] == 22:
+            packaged, opacity = normalize_eye_opacity(bytes(converted), skin, ('Male', 'Female')[spec['sex']])
+            payload[target_name] = packaged
         geosets = [struct.unpack_from('<H', r)[0] for r in array(skin, 28, 48)]
         geometry[(spec['race'], spec['sex'])] = set(geosets)
         reports[str(91000+i)] = {'converter': report, 'named_resources': named_resources,
-                                'packaged_sha256': sha(converted), 'geosets': geosets,
+                                'converter_intermediate_sha256': sha(dest.read_bytes()),
+                                'packaged_sha256': sha(payload[target_name]), 'geosets': geosets,
+                                'eye_opacity_postprocess': opacity,
                                 'name_only_relocation': 'Nonzero replaceable texture names relocated after conversion; numeric texture types unchanged',
                                 'bounds': list(struct.unpack_from('<14f', converted, 160))}
     return payload, reports, geometry
@@ -609,6 +618,8 @@ def build_tables(sources, edition, models, geometry):
                         else (lambda r: tuple(r[1:4])))
         tables[table].append(added_rows, key=(lambda r: tuple(r[:3])) if table == 'CharacterFacialHairStyles' else (lambda r: r[0]))
     payload = {'DBFilesClient/'+name+'.dbc': t.encode() for name, t in tables.items()}
+    facial = 'DBFilesClient/CharacterFacialHairStyles.dbc'
+    payload[facial] = fix_selectors(payload[facial], geometry)
     report = {name: {'old_rows': counts[name], 'new_rows': len(t.rows)-counts[name], 'total_rows': len(t.rows),
                      'old_rows_byte_exact': True, 'old_string_prefix_byte_exact': True,
                      'sha256': sha(payload['DBFilesClient/'+name+'.dbc'])} for name, t in tables.items()}
@@ -673,12 +684,14 @@ def build(output, converter, dotnet, publish=False):
     output.mkdir(parents=True)
     legacy_hair = verify_legacy_hair(sources)
     model_payload, models, geometry = build_models(sources, output, converter, dotnet)
+    _, eyes = eye_models(model_payload)
     from build_new_races_glue import build as build_glue
     build_glue(output/'glue')
     glue = {str(p.relative_to(output/'glue/payload')): p.read_bytes() for p in (output/'glue/payload').rglob('*') if p.is_file()}
     report = {'status': 'CLIENT-ONLY PREVIEW CANDIDATE; NOT SERVER-CREATABLE', 'runtime': 'NOT RUN',
               'classes': CLASSES, 'class_pairs': 83, 'models': models,
-              'semantic_gates': m['semantic_gates'], 'legacy_hair_proof': legacy_hair, 'editions': {}}
+              'semantic_gates': m['semantic_gates'], 'legacy_hair_proof': legacy_hair,
+              'high_elf_eyes': eyes, 'editions': {}}
     from build_forest_troll_skins import validate_blp
     blps = {}
     for edition in ('primary', 'optional-extra-skins'):
@@ -710,7 +723,9 @@ def build(output, converter, dotnet, publish=False):
     report['source_resources'] = m['sources']
     report['glue'] = json.loads((output/'glue/report.json').read_text())
     tool_paths = ['tools/build_new_races_assets.py', 'tools/build_new_races_glue.py',
-                  'tools/new_races_palette.py', 'tools/troll-customizations-requirements.txt',
+                  'tools/new_races_palette.py', 'tools/high_elf_eye_selectors.py',
+                  'tools/high_elf_eye_opacity.py',
+                  'tools/troll-customizations-requirements.txt',
                   'tools/test_new_races_palette.py', 'tools/new-races-assets.json',
                   'tools/patch_new_races_client.py', 'tools/test_new_races_assets.py',
                   'work/toolchains/new-races-model-converter/build-manifest.json']

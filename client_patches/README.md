@@ -98,6 +98,16 @@ Talent                         WorldMapArea
 Las tablas localizadas **no se duplican en root Z**: en la cadena probada, esa
 duplicación ocultaba las tablas locales. La reconstrucción conserva los tokens
 de archivo y campos numéricos de ChrRaces, no solo sus nombres visibles.
+El root Z incluye el selector de ojos1702 de Alto Elfo:22 campos de
+`CharacterFacialHairStyles`. El S regular normaliza además todas las claves de
+opacidad de la pista exclusiva de ojos1 a **6553/32767 (~20%)**, igual al valor
+nativo Blood Elf, en ambos sexos. Esta normalización cambia solo los valores de
+esa pista en los dos M2 de Alto Elfo; geometría, UV, texturas y materiales se
+conservan. Si ya se instaló el selector corregido, actualizar únicamente
+`Data/patch-S.MPQ` con WoW cerrado. Desde una entrega sin selector, actualizar
+también root Z. La comparación visual nativa bajo Wine/Direct3D9 confirma un
+brillo más discreto en ambos sexos, con apariencia y orientación coincidentes y
+controles Blood Elf; no equivale a aceptación exhaustiva de equipo/animaciones.
 Spell conserva todos los cambios heredados de cada edición, no únicamente los
 IDs 90000/90001; sus cuatro diferencias heredadas de campos entre idiomas en el
 ID5 se registran, no se corrigen de forma incidental.
@@ -171,11 +181,14 @@ El verificador comprueba además cada miembro contra su plan y sus fuentes.
 
 ### Validación y límites
 
-- **PASS:** 21 pruebas del consolidador, dos builds idénticos, lectura posterior
+- **PASS:** 22 pruebas del consolidador, dos builds idénticos, lectura posterior
   de los MPQ, contratos DBC, skins principales, exclusión de opcionales y hashes.
 - **PASS:** cliente regular real bajo Wine/Direct3D9, enUS y esES: autenticación,
   selección/creación, diez razas originales y textos, Alto Elfo masculino y
   Goblin femenina; 18 posiciones de ciclo piel/cara Goblin y pasos de Alto Elfo.
+- **PASS:** comparación visual del brillo de ojos Alto Elfo masculino/femenino
+  antes/después, bajo Wine/Direct3D9; cambios muestreados de rasgos, piel/cara y
+  transición desde Goblin. No es una prueba exhaustiva de todos los estilos.
 - **PASS:** conservación estructural del Z HD histórico y sus dos Spell completos.
 - **NOT RUN:** cliente HD real, gameplay completo, nueva visita in-game a la cripta,
   prueba exhaustiva de equipo/animaciones y tooltips de hechizos.
