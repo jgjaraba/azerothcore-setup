@@ -73,7 +73,10 @@ place the file according to its verified dependencies. The manifest is a
 post-module overlay: Individual Progression mount overrides and Naxx40 curio
 loot require that module's data to be installed first; dungeon currency vendor
 SQL also relies on its required DBC records being installed on server and
-client. The installer does not
+client. `dungeon_gear_vendor_cost.sql` supplies the78 server extended-cost records
+through `itemextendedcost_dbc`, before vendor inventory SQL. The overlay is loaded
+at startup: restart worldserver, not just `.reload npc_vendor`. A matching client
+MPQ does not itself satisfy that server dependency. The installer does not
 create a database backup, wrap the full batch in a transaction, or install
 custom character or auth SQL.
 

@@ -4,9 +4,11 @@ USE `acore_world`;
 -- Structure follows data/sql/custom/db_world/raid_gear_vendor_item.sql.
 -- Install alongside dungeon_gear_vendor.sql (currencies 90010-90035).
 -- PREREQUISITES: reserve/create creature_template entries 90300-90325;
--- set npcflag vendor (128) and define ItemExtendedCost.dbc rows below on
--- BOTH server and client before loading these vendor inventories.
--- Each ExtendedCost has ItemID[0] = Currency, ItemCount[0] = 2;
+-- set npcflag vendor (128); install dungeon_gear_vendor_cost.sql for the
+-- server SQL DBC overlay and matching client ItemExtendedCost.dbc records
+-- before loading these vendor inventories.
+-- Ordinary gear uses ItemID[0] = Currency, ItemCount[0] = 2;
+-- Deathcharger's Reins (13335) uses ExtendedCost 99035, count 10.
 -- other ItemID/ItemCount fields, honor, arena and rating requirements = 0.
 -- ExtendedCost is a DBC RECORD ID, not the price or the currency item ID.
 -- This SQL creates inventories only; it does not create NPCs or DBC records.

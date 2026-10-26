@@ -1,11 +1,40 @@
 # Validación de los vendedores de mazmorras
 
-1. Importa `dungeon_gear_vendor.sql`, `dungeon_gear_vendor_npc.sql` y `dungeon_gear_vendor_item.sql` en ese orden; aplica después `dungeon_gear_vendor_loot.sql` y reinicia **worldserver**. El modelo 90100 debe estar instalado en servidor y cliente; las compras requieren también las monedas y los registros `ItemExtendedCost` del catálogo.
+1. Ejecuta `scripts/apply-db-world.sh`: el manifiesto ordena monedas, `dungeon_gear_vendor_cost.sql`, NPC, inventarios y loot. Reinicia **worldserver** después. El nuevo SQL instala los costes en `itemextendedcost_dbc`; el modelo90100 y los costes de cliente siguen siendo requisitos. `.reload npc_vendor` no recarga el almacén DBC.
 2. Entra con una cuenta GM. Ejecuta `.gm on` para revisar las posiciones sin que los enemigos interfieran.
 3. Usa los comandos siguientes en el **chat del juego**, uno cada vez. `.go creature` recibe el **GUID de aparición**, no el ID de plantilla.
 4. Comprueba que cada NPC pisa el suelo, se ve completo, queda accesible, permite hablar/comerciar y no tapa una puerta ni activa el portal al acercarte. Prueba también el acceso normal con `.gm off` cuando hayas comprobado que la zona es segura.
 
-Las posiciones se han contrastado con coordenadas y volúmenes de acceso del servidor, pero no se han probado visualmente dentro del juego. No se dispone de los mapas de colisión VMAP para certificar suelo, muros o visibilidad. Si hay que ajustar un punto, envíame el ID del NPC y la salida de `.gps` desde la posición deseada.
+Se han probado en un cliente real bajo Wine los vendedores de Sima Ígnea y
+Stratholme no muerto: catálogos de6/67 objetos, compra ordinaria de2 curiosidades
+y montura de10, con rechazo cuando falta moneda. No es una revisión visual
+exhaustiva de las26 posiciones. Las coordenadas directas de esta guía son
+referencias históricas; `dungeon_gear_vendor_npc.sql` es la fuente de posiciones
+vigente. Para inspeccionarlas, usa preferentemente los GUID de la tabla siguiente.
+
+## Diagnóstico de un vendedor vacío
+
+Si `npc_vendor` tiene filas pero la tienda aparece vacía, revisar el log del
+**último arranque** buscando `wrong ExtendedCost ... vendor (903xx), ignore`.
+Esos artículos se rechazan antes de entrar en el inventario en memoria; no es
+prueba de que el instalador haya omitido el SQL de inventario.
+
+Tras instalar los costes, esta consulta debe devolver928 artículos,26 vendedores
+y0 costes ausentes en el overlay:
+
+```sql
+SELECT COUNT(*) AS articulos, COUNT(DISTINCT v.entry) AS vendedores,
+       SUM(c.ID IS NULL) AS costes_ausentes
+FROM npc_vendor v
+LEFT JOIN itemextendedcost_dbc c ON c.ID = v.ExtendedCost
+WHERE v.entry BETWEEN 90300 AND 90325;
+```
+
+Los precios normales son2 curiosidades. Las Riendas del destrero de la muerte
+(`13335`, vendedor90325) usan `99035`:10 curiosidades90035. No poner los costes a0
+ni cambiar de tier para evitar el error. Los MPQ consolidados regular/HD ya
+contienen los tres rangos970xx/980xx/990xx; comprobar la instalación efectiva del
+cliente si sus precios/textos no coinciden.
 
 | Mazmorra / ala | NPC | Ir al vendedor |
 |---|---:|---|

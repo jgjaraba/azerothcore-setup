@@ -27,28 +27,30 @@ The current manifest order is:
 8. `raid_gear_vendor_item.sql`
 9. `raid_gear_vendor_loot.sql`
 10. `dungeon_gear_vendor.sql`
-11. `dungeon_gear_vendor_npc.sql`
-12. `dungeon_gear_vendor_item.sql`
-13. `dungeon_gear_vendor_loot.sql`
-14. `rebalance_items.sql`
-15. `remove_regular_mounts_ip_requisites.sql`
-16. `spells_override.sql`
-17. `single_minded_fury.sql`
-18. `reagent_bank_npc.sql`
-19. `rebalance_drop_rate.sql`
-20. `transmog_currency_loot.sql`
-21. `soul_shard_stacks.sql`
-22. `cata_race_class_combos.sql`
-23. `turtle_wow_maps.sql`
-24. `turtle_wow_crypt_access.sql`
-25. `turtle_forest_troll_skins.sql`
-26. `turtle_troll_customizations.sql`
-27. `turtle_tauren_customizations.sql`
+11. `dungeon_gear_vendor_cost.sql`
+12. `dungeon_gear_vendor_npc.sql`
+13. `dungeon_gear_vendor_item.sql`
+14. `dungeon_gear_vendor_loot.sql`
+15. `rebalance_items.sql`
+16. `remove_regular_mounts_ip_requisites.sql`
+17. `spells_override.sql`
+18. `single_minded_fury.sql`
+19. `reagent_bank_npc.sql`
+20. `rebalance_drop_rate.sql`
+21. `transmog_currency_loot.sql`
+22. `soul_shard_stacks.sql`
+23. `cata_race_class_combos.sql`
+24. `turtle_wow_maps.sql`
+25. `turtle_wow_crypt_access.sql`
+26. `turtle_forest_troll_skins.sql`
+27. `turtle_troll_customizations.sql`
+28. `turtle_tauren_customizations.sql`
 
 The raid group is ordered by its verified object dependencies: curio item
 definitions, vendor templates/spawns, vendor inventory, then curio loot.
-The dungeon group follows the same dependency order: currency items, NPC
-templates/spawns, vendor inventory, then currency loot. The dungeon NPC SQL
+The dungeon group follows the same dependency order, with its supported server
+DBC overlay after currency items: currencies, extended costs, NPC templates/spawns,
+vendor inventory, then currency loot. The dungeon NPC SQL
 expects its external display ID and the vendor SQL requires ExtendedCost DBC
 records on both server and client. `reagent_bank_npc.sql` is a post-module
 customization of the module-owned NPC template `190012` and uses an existing
@@ -115,9 +117,13 @@ repository when it matters.
   `raid_gear_vendor_item.sql`, then `raid_gear_vendor_loot.sql` (definitions
   before inventory and loot use).
 - **Dungeon curios/vendors:** `dungeon_gear_vendor.sql`,
-  `dungeon_gear_vendor_npc.sql`, `dungeon_gear_vendor_item.sql`, then
+  `dungeon_gear_vendor_cost.sql`, `dungeon_gear_vendor_npc.sql`,
+  `dungeon_gear_vendor_item.sql`, then
   `dungeon_gear_vendor_loot.sql`. The NPC templates must precede inventory use;
-  currencies and NPC templates precede the final loot references.
+  currencies and NPC templates precede the final loot references. The supported
+  `itemextendedcost_dbc` overlay supplies the server's cost records through SQL;
+  matching client DBC records are still required. Restart worldserver after
+  installation: reloading vendors does not reload the DBC store.
 - **Individual Progression overlay:** `remove_regular_mounts_ip_requisites.sql`
   removes module-installed conditions and must follow that module's mount data.
 - **Independent changes:** `increase_world_boe_drop_rate.sql`,
@@ -288,6 +294,34 @@ repository when it matters.
   sets `BagFamily = 0`; multi-drop is verified but that extra claim is not.
 - **Verification:** run missing-boss queries and exact loot/count checks, then
   group-test bosses and both special chests.
+
+### `dungeon_gear_vendor_cost.sql`
+
+- **Purpose/ownership:** adds exactly78 `itemextendedcost_dbc` records copied
+  numerically from the tracked `ItemExtendedCost.dbc`:97010–97035 cost2,
+  98010–98035 cost5,99010–99035 cost10 of the corresponding90010–90035 curio.
+  All16 columns are explicit, including ignored server field `ItemPurchaseGroup`.
+- **Dependencies:** InnoDB overlay table, curio definitions, matching client DBC
+  entries. No binary DBC replacement or `--with-server-data` mode is necessary
+  for these server records. The current catalog uses27 of these IDs: ordinary
+  prices970xx and Deathcharger's Reins13335 at99035/count10.
+- **Rerun/conflict handling:** inserts only missing rows; retains exact existing
+  and unrelated rows. Any differing owned record aborts before insertion; an
+  insertion failure rolls back. A failed invocation deliberately leaves
+  `azerothcore_setup_dungeon_vendor_costs` present. Resolve the reported conflict,
+  then explicitly drop that procedure before retrying; do not use `mysql --force`
+  or blindly replace foreign prices.
+- **Runtime diagnostic:** SQL inventory rows can exist while the NPC is empty.
+  `ObjectMgr::IsVendorItemValid` rejects each row whose ExtendedCost is absent
+  from the loaded store, logging `wrong ExtendedCost ... ignore`. SQL overlay
+  loading happens at startup; `.reload npc_vendor` alone cannot repair a stale
+  DBC store. Client patch installation does not update that server store.
+- **Verification:** `python3 tools/test_dungeon_vendor_costs.py -v` checks binary
+  parity, all928 catalog rows, ordering, apply/reapply, all15 non-ID conflict
+  fields, rollback and installer fail-stop using private MySQL. Native-client
+  checks cover RFC's6 entries and a2-curio purchase, Stratholme Undead's67
+  entries and the10-curio mount exception, including insufficient-currency
+  rejection. This does not establish individual visual checks of all26 vendors.
 
 ### `increase_world_boe_drop_rate.sql`
 

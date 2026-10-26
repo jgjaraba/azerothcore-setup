@@ -8,6 +8,7 @@ raid_gear_vendor_npc.sql
 raid_gear_vendor_item.sql
 raid_gear_vendor_loot.sql
 dungeon_gear_vendor.sql
+dungeon_gear_vendor_cost.sql
 dungeon_gear_vendor_npc.sql
 dungeon_gear_vendor_item.sql
 dungeon_gear_vendor_loot.sql
