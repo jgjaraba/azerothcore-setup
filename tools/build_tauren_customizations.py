@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Extend the pinned accepted Troll editions; original clients are read-only.
 
-New canonical delivery: client_patches/{Data,optional-extra-skins/Data}/patch-S.MPQ.
+Delivery: client_patches/{Data,archive/optional-extra-skins/Data}/patch-S.MPQ.
 Principal means complete ordinary-face coverage; fixed-face looks are optional.
 No SQL/runtime/client installation is performed by this builder.
 """
@@ -30,6 +30,20 @@ HAIRS = r'DBFilesClient\CharHairGeosets.dbc'
 NAMESPACE = 'Character\\Custom\\TurtleTauren'
 require, digest, sha = codec.require, codec.digest, codec.sha
 PRODUCTS = ('Data/patch-S.MPQ', 'report.json', 'SHA256SUMS')
+BASE_PATHS = {
+    'primary': 'client_patches/turtle_forest_troll',
+    'optional': 'client_patches/turtle_forest_troll/optional-extra-skins',
+}
+
+
+def base_directory(logical_path):
+    """Keep recipe/report identities stable; read relocated inputs only from archive."""
+    paths = {
+        BASE_PATHS['primary']: 'client_patches/archive/source-inputs/turtle_forest_troll',
+        BASE_PATHS['optional']: 'client_patches/archive/turtle_forest_troll/optional-extra-skins',
+    }
+    require(logical_path in paths, 'Unknown Troll baseline path ' + str(logical_path))
+    return ROOT / paths[logical_path]
 
 
 def write_json(path, obj):
@@ -76,9 +90,9 @@ def capture(audit):
             e = d[client]['tables'][table]['source']
             assets[client + ':table:' + table] = dict(archive=pin(client, e), member=e['name'], sha256=e['sha256'])
     bases = {}
-    for edition, directory in (('primary', ROOT / 'client_patches/turtle_forest_troll'),
-                               ('optional', ROOT / 'client_patches/turtle_forest_troll/optional-extra-skins')):
-        bases[edition] = dict(path=str(directory.relative_to(ROOT)),
+    for edition, logical_path in BASE_PATHS.items():
+        directory = base_directory(logical_path)
+        bases[edition] = dict(path=logical_path,
                               files={n: sha(directory / n) for n in PRODUCTS})
     write_json(RECIPE, dict(version=1, race=6, archives=archives, assets=assets, bases=bases,
         primary_colors={'male': 25, 'female': 17}, optional_colors={'male': [26, 27, 28], 'female': [18, 19]},
@@ -116,7 +130,7 @@ def build(output):
     old = {}
     oldreports = {}
     for edition, spec in m['bases'].items():
-        directory = ROOT / spec['path']
+        directory = base_directory(spec['path'])
         for name, h in spec['files'].items():
             require(sha(directory / name) == h, 'Troll baseline changed ' + name)
         old[edition] = {name: raw for name, raw in members(codec.forest.MPQ, directory / PRODUCTS[0]).values()}
@@ -332,7 +346,7 @@ def build(output):
 
 
 def publish(output):
-    targets={'primary': ROOT/'client_patches', 'optional': ROOT/'client_patches/optional-extra-skins'}
+    targets={'primary': ROOT/'client_patches', 'optional': ROOT/'client_patches/archive/optional-extra-skins'}
     files={}
     for edition,target in targets.items():
         source=output/edition

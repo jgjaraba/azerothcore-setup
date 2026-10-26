@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "git_revision": "00ab7b7e42b7bca2a7c8f1c6f896b73ca73b1acc",
+  "files": [
+    {
+      "original": "client_patches/Data/patch-S.MPQ",
+      "path": "client_patches/archive/source-inputs/Data/patch-S.MPQ",
+      "recovered_from": "HEAD:client_patches/Data/patch-S.MPQ",
+      "sha256": "54b56931376604df4122c5551f3bfccd937a32b32974e35906ba73139bd885d3",
+      "size": 9232000
+    },
+    {
+      "original": "client_patches/new-races/primary/Data/patch-Z.mpq",
+      "path": "client_patches/archive/source-inputs/new-races/primary/Data/patch-Z.mpq",
+      "recovered_from": "work/new-races-texture-fix-release/pass1/primary/Data/patch-Z.mpq",
+      "sha256": "d3a9b6f30560a9a1f1a4e662f748ffbeb6e2147ef5209860a0fe0f5d9ff7f620",
+      "size": 117365556
+    },
+    {
+      "original": "client_patches/patch-enUS-Z.MPQ",
+      "path": "client_patches/archive/source-inputs/patch-enUS-Z.MPQ",
+      "recovered_from": "HEAD:client_patches/patch-enUS-Z.MPQ",
+      "sha256": "53c1a70e5d41c702e036710e39cac221b6d673357eb24090276d305cf666760f",
+      "size": 4641811
+    },
+    {
+      "original": "client_patches/patch-esES-Z.MPQ",
+      "path": "client_patches/archive/source-inputs/patch-esES-Z.MPQ",
+      "recovered_from": "HEAD:client_patches/patch-esES-Z.MPQ",
+      "sha256": "f80707ead77711ab731ab18ec76244bd3eddd9e0da6f2933b9da4997d72c8a0e",
+      "size": 4764856
+    },
+    {
+      "original": "client_patches/turtle_crypt/r5-coordinated/Data/patch-T.MPQ",
+      "path": "client_patches/archive/source-inputs/turtle_crypt/r5-coordinated/Data/patch-T.MPQ",
+      "recovered_from": "HEAD:client_patches/turtle_crypt/r5-coordinated/Data/patch-T.MPQ",
+      "sha256": "738ef0e3547f2d40ad9e7fbb7ed5608d684bbb51e640b5328b4bf26cce1813ee",
+      "size": 16682302
+    },
+    {
+      "original": "client_patches/new-races/Wow-new-races.exe",
+      "path": "client_patches/archive/source-inputs/new-races/Wow-new-races.exe",
+      "recovered_from": "client_patches/regular_client/Wow-new-races.exe",
+      "sha256": "87ceca9ea08da2f0d9d312d833ae76751a3ab8f2b8a7d742bfd2356e55f291f3",
+      "size": 7699968
+    },
+    {
+      "original": "client_patches/turtle_forest_troll/Data/patch-S.MPQ",
+      "path": "client_patches/archive/source-inputs/turtle_forest_troll/Data/patch-S.MPQ",
+      "recovered_from": "HEAD:client_patches/turtle_forest_troll/Data/patch-S.MPQ",
+      "sha256": "2bd2ce7adb7bf678f110b8be43d8e0fd5eb168c522e6857eff17f15c3d455ce8",
+      "size": 4526876
+    },
+    {
+      "original": "client_patches/turtle_forest_troll/report.json",
+      "path": "client_patches/archive/source-inputs/turtle_forest_troll/report.json",
+      "recovered_from": "HEAD:client_patches/turtle_forest_troll/report.json",
+      "sha256": "5c4b59366295007440a58e2d8e081719f40715700b9e0a721fd57191074aeb9c",
+      "size": 684145
+    },
+    {
+      "original": "client_patches/turtle_forest_troll/SHA256SUMS",
+      "path": "client_patches/archive/source-inputs/turtle_forest_troll/SHA256SUMS",
+      "recovered_from": "HEAD:client_patches/turtle_forest_troll/SHA256SUMS",
+      "sha256": "5f04fb1b3ccc6d13830ed84e6d7e50874f2d485eb11dc7baa3e1efe283d0c5f8",
+      "size": 161
+    }
+  ]
+}

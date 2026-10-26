@@ -1,0 +1,59 @@
+{
+  "status": "STATICALLY VERIFIED cache relocation; Windows startup and modified GlueXML acceptance NOT RUN",
+  "license": "Private internal client derivative recipe; original client and source artwork retain their owners' rights. No redistribution license granted.",
+  "input": "/home/dev/wow-335/Wow.exe",
+  "input_sha256": "bf644876709c591acc17c0da8cdf1814edcc9f1e6bc109a8c0d5c38c79dc953c",
+  "input_size": 7699456,
+  "proposed_output_sha256": "cf11d2794fc4a568f80150f2bf57a3d076d6e79e33b563e26075388477d60c2a",
+  "output_size": 7699968,
+  "section": {"name": ".nraces", "virtual_size": 192, "rva": 10473472, "raw_offset": 7699456, "raw_size": 512, "characteristics": "0xc0000040", "race_capacity": 24, "sexes": 2, "pointer_bytes": 4},
+  "edits": [
+    {"file_offset":"0xe097d", "original":"d0 b0 b6 00", "replacement":"00 d0 df 00", "reason":"Sex switch cache reference"},
+    {"file_offset":"0xe09b5", "original":"d0 b0 b6 00", "replacement":"00 d0 df 00", "reason":"Sex switch cache reference"},
+    {"file_offset":"0xe0aa3", "original":"d0 b0 b6 00", "replacement":"00 d0 df 00", "reason":"Sex switch cache reference"},
+    {"file_offset":"0xe103a", "original":"d0 b0 b6 00", "replacement":"00 d0 df 00", "reason":"Initialization cache reference"},
+    {"file_offset":"0xe1294", "original":"d0 b0 b6 00", "replacement":"00 d0 df 00", "reason":"Cleanup cache reference"},
+    {"file_offset":"0xe14ee", "original":"d0 b0 b6 00", "replacement":"00 d0 df 00", "reason":"Race switch cache reference"},
+    {"file_offset":"0xe1527", "original":"d0 b0 b6 00", "replacement":"00 d0 df 00", "reason":"Race switch cache reference"},
+    {"file_offset":"0xe162a", "original":"d0 b0 b6 00", "replacement":"00 d0 df 00", "reason":"Race switch cache reference"},
+    {"file_offset":"0xe1034", "original":"b0 00 00 00", "replacement":"c0 00 00 00", "reason":"Clear 24*2*4 bytes"},
+    {"file_offset":"0xe129b", "original":"16 00 00 00", "replacement":"18 00 00 00", "reason":"Cleanup 24 races"},
+    {"file_offset":"0x2f8", "original":"00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00", "replacement":"2e 6e 72 61 63 65 73 00 c0 00 00 00 00 d0 9f 00 00 02 00 00 00 7c 75 00 00 00 00 00 00 00 00 00 00 00 00 00 40 00 00 c0", "reason":"New RW non-executable section header"},
+    {"file_offset":"0x116", "original":"06 00", "replacement":"07 00", "reason":"NumberOfSections"},
+    {"file_offset":"0x160", "original":"00 d0 9f 00", "replacement":"00 e0 9f 00", "reason":"SizeOfImage"},
+    {"file_offset":"0x130", "original":"00 a4 17 00", "replacement":"00 a6 17 00", "reason":"SizeOfInitializedData"},
+    {"file_offset":"0x168", "original":"74 40 76 00", "replacement":"5c a5 75 00", "reason":"PE checksum"}
+  ],
+  "append": {"file_offset":"0x757c00", "length":512, "byte":0},
+  "integrity": {
+    "modified_GlueXML_startup":"NOT RUN",
+    "signature_bypass":"Cryptographic signature verification preserved in both profiles; opt-in profile changes local GlueXML content-mismatch routing only",
+    "account_server_authentication":"unchanged",
+    "static_observation":"Pinned source and cache-only derivative enforce the XML/Lua graph digest. Opt-in custom profile permits status2 content mismatch; actual client startup remains NOT RUN.",
+    "validator_call": {"va":"0x4da7dd", "file_offset":"0xd9bdd", "bytes":"e8 fe bd 33 00", "target_va":"0x8165e0"},
+    "result_dispatch": {"va":"0x4da7e5", "file_offset":"0xd9be5", "bytes":"83 f8 03 77 34 ff 24 85 b4 a9 4d 00"},
+    "diagnostics": ["GlueXML is modified or corrupt", "GlueXML has corrupt signature", "GlueXML missing signature"]
+  },
+  "custom_gluexml_profile": {
+    "flag": "--allow-custom-gluexml",
+    "scope": "GlueXML local UI content digest mismatch only. Valid stock GlueXML.toc.sig remains required. Not account/auth/Warden/network/license protections.",
+    "status": "STATIC CONTROL-FLOW VERIFIED; Windows startup NOT RUN",
+    "output_sha256": "87ceca9ea08da2f0d9d312d833ae76751a3ab8f2b8a7d742bfd2356e55f291f3",
+    "edits_from_cache": [
+      {"file_offset":"0xd9dbc", "original":"0b a8 4d 00", "replacement":"35 a8 4d 00", "reason":"GlueXML validator status2 only: redirect content-digest mismatch to existing load path, preserving validator outputs"},
+      {"file_offset":"0x168", "original":"5c a5 75 00", "replacement":"86 a5 75 00", "reason":"Recompute checksum for cache plus opt-in custom GlueXML profile"}
+    ],
+    "guards": [
+      {"file_offset":"0xd9bd8", "bytes":"68 20 43 9f 00 e8 fe bd 33 00 83 c4 14 83 f8 03 77 34 ff 24 85 b4 a9 4d 00", "meaning":"Unconditional GlueXML TOC validator call then bounded result switch"},
+      {"file_offset":"0xd9db4", "bytes":"f1 a7 4d 00 fe a7 4d 00 0b a8 4d 00 35 a8 4d 00", "meaning":"Original GlueXML return-code table: 0 missing, 1 bad signature, 2 digest mismatch, 3 load"},
+      {"file_offset":"0x415a2c", "bytes":"81 7d f8 14 01 00 00 74 13", "meaning":"Signature file must contain 0x114 bytes"},
+      {"file_offset":"0x415a7d", "bytes":"e8 ce fe ff ff 83 c4 08 85 c0 5b 75 14", "meaning":"Cryptographic signature verifier must succeed before computing graph digest"},
+      {"file_offset":"0x415ac1", "bytes":"57 56 8b 75 0c e8 05 fe ff ff 83 c4 08", "meaning":"Compute graph digest into caller output buffer"},
+      {"file_offset":"0x415b58", "bytes":"33 c0 f7 d8 1b c0 5f 83 c0 03", "meaning":"Equal digest returns3; nonzero comparison returns2"},
+      {"file_offset":"0xd9c35", "bytes":"e8 56 83 33 00 8d 4d e8 51 8d 95 54 ff ff ff 52 53 68 20 43 9f 00 e8 f0 9a 33 00", "meaning":"Existing GlueXML load path supplies same initialized output buffers and reads TOC"},
+      {"file_offset":"0xd9ceb", "bytes":"0f 85 2d ff ff ff", "meaning":"Post-load digest mismatch still branches to GlueXML failure"},
+      {"file_offset":"0x129fd1", "bytes":"e8 0a ba 2e 00", "meaning":"FrameXML validator call is outside the GlueXML profile and unchanged"}
+    ]
+  },
+  "caveat":"Cache-only default preserves strict GlueXML validation. Opt-in profile permits local GlueXML digest mismatch after valid signature verification. No race mask, account/authentication, Warden, network, license or server edits. Windows startup and UI acceptance NOT RUN. See tools/new-races-ui/README.md."
+}

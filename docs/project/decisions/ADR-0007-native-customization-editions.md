@@ -12,12 +12,28 @@ for Tauren and every subsequent racial customization migration.
 
 ## Decision
 
-- `client_patches/Data/patch-S.MPQ` is the cumulative **primary** edition. New
+- The cumulative **primary** edition's retained source is
+  `client_patches/archive/source-inputs/Data/patch-S.MPQ` (historical logical ID
+  `client_patches/Data/patch-S.MPQ`). New
   skins must have every ordinary native face variation supported by actual
   authored components, not aliases of one bake disguised as several faces.
-- `client_patches/optional-extra-skins/Data/patch-S.MPQ` is a cumulative **full
+- `client_patches/archive/optional-extra-skins/Data/patch-S.MPQ` is a cumulative **full
   alternative**, including primary plus fixed-face or other partially compatible
   appearance choices. It is not an overlay; never load both editions.
+- Partial editions and historical candidates containing them are archived and
+  excluded from consolidated installation profiles. Their generators must publish
+  optional output to archive paths, never recreate an active optional edition.
+- The canonical principal S above remains a pinned historical input. Consolidated
+  installation uses `client_patches/regular_client/Data/`: S holds character
+  resources, T geographic resources, root Z nonlocalized tables/interface, and
+  locale Z the localized tables. This centralizes table ownership without adding
+  partial choices or changing persisted appearance indices. Follow
+  [`client_patches/README.md`](../../../client_patches/README.md), not the source
+  packages' historical installation instructions.
+- Preserve the HD baseline independently. Until matching HD appearance/model
+  sources are available, its conservative consolidated profile preserves the
+  historical HD contract; do not apply stock model tables or principal native
+  geometry under a claim of HD feature parity.
 - Both are manually installed as the single `Data/patch-S.MPQ`. Retain and pin
   previous accepted race inputs so adding a race cannot silently regress it.
 - Class-specific DK coverage, unsupported geometry, missing resources and HD

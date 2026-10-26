@@ -150,6 +150,25 @@ aliases, DK color aliases and client/server rollout/rollback boundaries.
 See [Tauren contract](../turtle-wow/tauren-customizations.md). Troll IDs and retired
 skins remain independent; numeric skin colours are scoped by race and sex.
 
+## Additive new races — client-phase allocations
+
+- **ChrRaces22 / TurtleHighElf:** Alliance; **23 / TurtleGoblin:** Horde.
+  Native1–21, including NPC Goblin9/BloodElf10, remain unmodified. Race masks
+  fit uint32 (bits21/22); no server gameplay activation is implied.
+- **CreatureDisplayInfo and CreatureModelData91000–91003:** separate additive
+  namespaces for HighElf M/F and Goblin M/F. Native/source display IDs are
+  provenance, not replacement targets. Model/texture paths are isolated under
+  `Character\Custom\TurtleHighElf|TurtleGoblin\...`.
+- **CharStartOutfit90000–90021:**22 native class/sex clone outfits for the new
+  identities. **CharSections22000+:** source-order new appearance records,
+  physically sorted by native lookup key without renumbering old records.
+- **CharHairGeosets22000+:** separate record-ID namespace; facial styles use
+  Race/Sex/Variation natural keys. No new baked display-Extra rows are needed.
+
+The [client contract](../turtle-wow/new-races-client.md) records exact combinations,
+source hashes and limits. Future server integration must recheck core/module/live
+allocations and supply a matching server contract; client-only files do not do so.
+
 ## External/module dependencies, not project allocations
 
 - **Creature templates `390011`, `190012`, and `601072`:** Character Services,

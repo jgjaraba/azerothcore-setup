@@ -52,8 +52,16 @@ def independent_decode(raw, level):
 
 
 class ContractTests(unittest.TestCase):
+    def test_v2_base_is_always_archived_even_when_missing(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            (root / editions.PACKAGE).mkdir(parents=True)
+            self.assertEqual(editions.base_path(root), root / editions.ARCHIVE_PACKAGE / 'v2')
+            self.assertFalse(editions.base_path(root).exists())
+
     def test_output_protections_precede_source_reads(self):
-        for output in (editions.ROOT / editions.PACKAGE / 'fresh', Path('/home/dev/wow-335/fresh'),
+        for output in (editions.ROOT / editions.PACKAGE / 'fresh',
+                       editions.ROOT / editions.ARCHIVE_PACKAGE / 'fresh', Path('/home/dev/wow-335/fresh'),
                        Path('/home/dev/wow-turtle/fresh')):
             with self.assertRaisesRegex(ValueError, 'overlaps'):
                 editions.build(output)
@@ -92,7 +100,7 @@ class IntegrationTests(unittest.TestCase):
         self.assertEqual(first, second)
         current = self.work / 'from-current'
         actual_sha = editions.sha
-        old_optional = editions.ROOT / editions.PACKAGE / 'optional-extra-skins' / editions.PRODUCTS[0]
+        old_optional = editions.ROOT / editions.ARCHIVE_PACKAGE / 'optional-extra-skins' / editions.PRODUCTS[0]
         # Exercise post-upgrade builds: old a09 is unavailable, pinned remaining
         # payload fingerprint must still be checked; never convert retired faces.
         with patch.object(editions, 'sha', side_effect=lambda p: editions.PUBLICATIONS['optional-extra-skins'][editions.PRODUCTS[0]]
@@ -161,7 +169,7 @@ class IntegrationTests(unittest.TestCase):
                                  editions.OLD_PUBLICATIONS['primary'][editions.PRODUCTS[0]])
             if edition != 'primary':
                 trial = editions.members(editions.legacy.forest.MPQ,
-                    editions.ROOT / editions.PACKAGE / 'face-format-test/Data/patch-S.MPQ')
+                    editions.ROOT / editions.ARCHIVE_PACKAGE / 'face-format-test/Data/patch-S.MPQ')
                 for name in faces:
                     if '\\Male\\100_Face' in name:
                         self.assertEqual(payload[name], trial[editions.key(name)][1])
@@ -172,6 +180,9 @@ class IntegrationTests(unittest.TestCase):
         (package / 'Data').mkdir(parents=True)
         for name in editions.PRODUCTS:
             shutil.copyfile(self.base / name, package / name)
+            target = editions.base_path(root) / name
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(self.base / name, target)
         for name, relative in editions.SQL_PATHS.items():
             if name.startswith('primary'):
                 path = root / relative
@@ -202,8 +213,10 @@ class IntegrationTests(unittest.TestCase):
         after = snapshot()
         editions.publish(self.second, root)
         self.assertEqual(after, snapshot())
-        editions.verify_base(package / 'v2')
-        for edition, target in (('primary', package), ('optional-extra-skins', package / 'optional-extra-skins')):
+        editions.verify_base(editions.base_path(root))
+        self.assertFalse((package / 'v2').exists())
+        self.assertFalse((package / 'optional-extra-skins').exists())
+        for edition, target in (('primary', package), ('optional-extra-skins', root / editions.ARCHIVE_PACKAGE / 'optional-extra-skins')):
             path = target / 'report.json'
             original = path.read_bytes()
             value = json.loads(original)
@@ -219,7 +232,7 @@ class IntegrationTests(unittest.TestCase):
 
     def test_exact_previous_edition_upgrade_when_available(self):
         package = editions.ROOT / editions.PACKAGE
-        candidates = [dict(primary=package, **{'optional-extra-skins': package / 'optional-extra-skins'}),
+        candidates = [dict(primary=package, **{'optional-extra-skins': editions.ROOT / editions.ARCHIVE_PACKAGE / 'optional-extra-skins'}),
                       {e: editions.ROOT / 'work/troll-editions-v3-final' / e for e in editions.OLD_PUBLICATIONS}]
         previous = next((paths for paths in candidates if all(
             all((paths[e] / n).is_file() and editions.sha(paths[e] / n) == h for n, h in pins.items())
@@ -228,12 +241,12 @@ class IntegrationTests(unittest.TestCase):
             self.skipTest('Exact previous report/MPQ/checksum triple unavailable')
         root = self.work / 'old-upgrade'
         for e, source in previous.items():
-            target = root / editions.PACKAGE / ('' if e == 'primary' else e)
+            target = root / editions.PACKAGE if e == 'primary' else root / editions.ARCHIVE_PACKAGE / e
             for n in editions.PRODUCTS:
                 (target / n).parent.mkdir(parents=True, exist_ok=True)
                 shutil.copyfile(source / n, target / n)
         for n in editions.PRODUCTS:
-            target = root / editions.PACKAGE / 'v2' / n
+            target = editions.base_path(root) / n
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(self.base / n, target)
         main, skins, forest = editions.split_rows(self.legacy_report)
@@ -244,7 +257,7 @@ class IntegrationTests(unittest.TestCase):
                                                  prerequisites=() if rollback else forest + main))
         editions.publish(self.first, root)
         for e in editions.PUBLICATIONS:
-            target = root / editions.PACKAGE / ('' if e == 'primary' else e)
+            target = root / editions.PACKAGE if e == 'primary' else root / editions.ARCHIVE_PACKAGE / e
             editions.legacy.verify_publication(target, editions.PUBLICATIONS[e])
 
     @unittest.skipUnless(os.environ.get('TROLL_EDITIONS_MYSQL') == '1', 'Private MySQL opt-in')

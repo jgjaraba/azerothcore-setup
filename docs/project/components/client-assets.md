@@ -20,8 +20,22 @@ position is outside that map's range. The crypt r4 entrance exposed this;
 `test_crypt_portals.py` now reproduces the failure and the corrected lookup.
 
 - `dbc/` contains the managed DBC resource set.
-- `client_patches/regular_client/patch-Z.mpq` is the regular-client patch.
-- `client_patches/hd_client/patch-Z.mpq` is the HD-client patch.
+- [`client_patches/README.md`](../../../client_patches/README.md) owns the current
+  installation allowlist and per-patch inventory. Regular uses character-resource
+  S, geographic-resource T, nonlocalized-table/interface Z, and localized enUS/esES
+  Z. HD is a conservative historical-contract profile with root Z and Spell-only
+  locale Z; it does not include the regular customization/new-race/crypt layers.
+- Historical regular/HD Z inputs are retained in `client_patches/archive/baselines/`.
+  `tools/consolidate_client_patches.py` pins explicit source/member allowlists,
+  builds twice, reads back each member and publishes only verified profiles.
+  Partial-face alternatives and candidates live under archive and never enter
+  that active plan. Required historical inputs are retained under
+  `client_patches/archive/source-inputs/`; the canonical source S is
+  `archive/source-inputs/Data/patch-S.MPQ`. Logical provenance IDs retain their
+  historical names, while the source lock pins their physical archive paths and
+  unchanged hashes. Do not remove these inputs with obsolete installation
+  packages: they are required for source-based verification/rebuilding. No
+  fallback to old active paths or scratch builds is permitted during verification.
 - `client_patches/turtle_crypt/` retains the accepted coordinated esES T/Z set
   separately from an optional stock-esES T and baseline report. Its SHA256SUMS
   and the root README define manual installation/rollback. Server scripts never
@@ -48,7 +62,7 @@ not content maintained in the AzerothCore source checkout.
 
 The permanent delivery rule is [ADR-0007](../decisions/ADR-0007-native-customization-editions.md):
 cumulative principal `client_patches/Data/patch-S.MPQ`, cumulative full optional
-alternative `client_patches/optional-extra-skins/Data/patch-S.MPQ`, never loaded
+alternative `client_patches/archive/optional-extra-skins/Data/patch-S.MPQ`, never loaded
 together. Complete ordinary-face banks belong in principal; fixed-face/partial
 appearances belong in optional. Prior accepted race data must remain intact.
 
@@ -100,6 +114,56 @@ palette's fourth byte. Pillow13 can misdecode this; use the tested project codec
 for these textures, never infer opaque backgrounds and black-key away real art.
 Two malformed source terminal mip chains are regenerated with pixel-exact RGBA
 top levels and valid native mips, leaving all accepted Forest bytes unchanged.
+
+## Additive new-race client contract
+
+The [High Elf/Goblin client phase](../../turtle-wow/new-races-client.md) allocates
+new IDs22/23 rather than replacing playable or NPC races. Canonical S remains
+unchanged; this experimental opt-in delivers coordinated derived root/locale-Z
+copies to avoid whole-DBC precedence masking. UI uses picker ordinals, not race
+IDs; native enumeration is dynamic, but its22-slot appearance cache requires a
+hash-guarded executable derivative with a separate RW24-slot cache. Modified
+GlueXML also needs the documented local-content acceptance profile; this does
+not alter account/network/Warden validation.
+
+The four Turtle models require real256→264 conversion. Source vertices/bind
+bones and original animation clips are retained, with per-model fallback
+materialization and three explicitly bounded Goblin helper-curve approximations.
+Model displays91000–91003 use isolated namespaces. Client bytes/payload closure
+are validated. Bounded real regular-client startup and creation-screen rendering
+also passed under Wine/Direct3D9 in enUS/esES; server creation/login is not enabled.
+Do not
+turn a mock/static PASS into gameplay acceptance or deploy client DBCs blindly
+to the server; starting data, masks, skills and module compatibility are separate.
+
+### Consolidation: table ownership and HD baseline boundaries
+
+Localized `ChrRaces`, `Map`, `AreaTable`, `MapDifficulty` and `Spell` belong only
+to locale Z in the consolidated regular profile. Actual native execution exposed
+root copies masking Spanish data; removing the duplicate tables restored names
+without changing Glue or the remaining root payload. Do not infer effective
+priority from an approximate archive-name sorter or distribute a Spanish table
+as an English baseline. In ChrRaces, TeamID column7 is numeric and ClientFileString
+column11 is a string offset: a wrong relocation schema can turn `Human` into `an`
+and break Glue's scene/ambience selection even when visible names look valid.
+
+The historical HD CreatureDisplayInfo references192 ModelIDs absent from available
+stock ModelData, affecting1,734 displays. Its original Z relied on an external HD
+table. Preserve that dependency by omitting ModelData replacements, not by copying
+the regular full table or inventing aliases. Full HD integration additionally
+needs its own appearance/model/animation/texture baseline; retaining HD display
+rows alone does not make classic Tauren model replacements HD-compatible.
+
+### CPU character textures are not general GPU textures
+
+The pinned Wrath character compositor requires BLP2 **palette encoding1** for
+body input, face/facial overlays, scalps and underwear. General GPU support for
+DXT or BGRA does not establish compatibility of those CPU roles. The native
+palette accessor at0x4F2D40 rejects other encodings; some composition paths return
+without writing, exposing prior-race texture contents, while another fills green.
+The new-race fix normalizes only44 affected DXT1 resources and checks role-aware
+compatibility. Preserve alpha per mip and disclose RGB quantization. See the
+[new-race investigation/fix](../../turtle-wow/new-races-client.md).
 
 ## Verified SQL contracts
 

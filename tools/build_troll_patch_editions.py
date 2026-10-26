@@ -20,6 +20,7 @@ from crypt_release_client import members, key
 ROOT = legacy.ROOT
 MANIFEST = ROOT / 'tools/troll-patch-editions.json'
 PACKAGE = Path('client_patches/turtle_forest_troll')
+ARCHIVE_PACKAGE = Path('client_patches/archive/turtle_forest_troll')
 SECTIONS = r'DBFilesClient\CharSections.dbc'
 PRODUCTS = ('Data/patch-S.MPQ', 'report.json', 'SHA256SUMS')
 # Release identities are outside the recipe manifest to avoid a report/manifest
@@ -64,8 +65,7 @@ def verify_base(path):
 
 
 def base_path(root=ROOT):
-    package = root / PACKAGE
-    return package / 'v2' if (package / 'v2').exists() else package
+    return root / ARCHIVE_PACKAGE / 'v2'
 
 
 def split_rows(report):
@@ -141,7 +141,7 @@ def build(output, base_version='sources'):
     output = Path(output).resolve()
     require(not output.exists(), 'Output must be fresh')
     require(not any(output.is_relative_to(p.resolve()) for p in
-                    (ROOT / PACKAGE, Path('/home/dev/wow-335'), Path('/home/dev/wow-turtle'))),
+                    (ROOT / PACKAGE, ROOT / ARCHIVE_PACKAGE, Path('/home/dev/wow-335'), Path('/home/dev/wow-turtle'))),
             'Output overlaps publication or reference clients')
     require(base_version in ('sources', 'current'), 'Unknown base version')
     m = manifest()
@@ -183,7 +183,7 @@ def build(output, base_version='sources'):
             changes.append(dict(member=name, before_sha256=digest(before), after_sha256=digest(after),
                                 quantized=quantized, **metrics))
         # Preserve the accepted A/B pair serialization, independently of its report.
-        trial = ROOT / PACKAGE / 'face-format-test/Data/patch-S.MPQ'
+        trial = ROOT / ARCHIVE_PACKAGE / 'face-format-test/Data/patch-S.MPQ'
         require(sha(trial) == m['accepted_trial_sha256'], 'Accepted A/B changed')
         trial_members = members(legacy.forest.MPQ, trial)
         for part in ('Lower', 'Upper'):
@@ -200,7 +200,7 @@ def build(output, base_version='sources'):
         optional_rows = [r for r in rows if r[0] not in {r[0] for r in retired}]
         optional[SECTIONS] = (struct.pack('<4s4I', b'WDBC', len(optional_rows), 10, 40, len(strings))
                              + b''.join(struct.pack('<10I', *r) for r in optional_rows) + strings)
-        old_path = ROOT / PACKAGE / 'optional-extra-skins'
+        old_path = ROOT / ARCHIVE_PACKAGE / 'optional-extra-skins'
         comparison = m['previous_optional_comparison']
         remaining_hashes = {n: digest(raw) for n, raw in sorted(optional.items()) if n != SECTIONS}
         fingerprint = digest(json.dumps(remaining_hashes, sort_keys=True, separators=(',', ':')).encode())
@@ -288,7 +288,7 @@ def publish(output, root=None):
     base = base_path(root)
     base_report = verify_base(base)
     replacements = {}
-    for edition, target in (('primary', package), ('optional-extra-skins', package / 'optional-extra-skins')):
+    for edition, target in (('primary', package), ('optional-extra-skins', root / ARCHIVE_PACKAGE / 'optional-extra-skins')):
         source = output / edition
         report = legacy.verify_publication(source, PUBLICATIONS[edition])
         require(report['kind'] == 'troll-patch-edition' and report['version'] == 3 and
@@ -307,13 +307,8 @@ def publish(output, root=None):
             require(not any(target.iterdir()), 'Refusing partial edition')
         for name in PRODUCTS:
             replacements[target / name] = source / name
-    # Archive exact pinned v2 before replacing it. Preflight archive too.
-    archive = package / 'v2'
-    if archive.exists():
-        verify_base(archive)
-    else:
-        for name in PRODUCTS:
-            replacements[archive / name] = base / name
+    # The pinned historical v2 is a read-only archived input, already verified above.
+    archive = base
     for name, relative in SQL_PATHS.items():
         dest = root / relative
         if dest.exists():
@@ -333,16 +328,15 @@ def publish(output, root=None):
                 'Non-directory destination ancestor: ' + str(dest))
         staging = dest.with_name(dest.name + '.tmp')
         require(not staging.exists() and not staging.is_symlink(), 'Stale publish staging file: ' + str(staging))
-    # Stage everything (including v2) before replacing any current artifact.
+    # Stage every publication file before replacing any current artifact.
     for dest, source in replacements.items():
         dest.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(source, dest.with_name(dest.name + '.tmp'))
-    # Archive is finalized first; source bytes have already all been staged.
-    for dest in sorted(replacements, key=lambda p: (not p.is_relative_to(archive), str(p))):
+    for dest in sorted(replacements):
         dest.with_name(dest.name + '.tmp').replace(dest)
     verify_base(archive)
     legacy.verify_publication(package)
-    legacy.verify_publication(package / 'optional-extra-skins')
+    legacy.verify_publication(root / ARCHIVE_PACKAGE / 'optional-extra-skins')
 
 
 def main():

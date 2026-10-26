@@ -1,10 +1,12 @@
 # Trolls Turtle — ediciones principal y opcional de patch-S
 
-Las rutas de este contrato son las **bases Troll congeladas**. La entrega vigente
-incluye tauren y se instala desde las [rutas acumulativas canónicas](tauren-customizations.md),
-según ADR-0007. No cargar estos MPQ de base junto al S acumulativo.
+> **Bases Troll históricas congeladas. Instalación vigente:** seguir
+> [`client_patches/README.md`](../../client_patches/README.md) para el consolidado
+> regular/HD. No cargar estos MPQ ni los antiguos paquetes r5/new-races como capas
+> adicionales. El perfil parcial está archivado; sus órdenes SQL son referencia
+> histórica, no pasos de activación de la entrega actual.
 
-## Entrega y elección
+## Entrega y elección históricas
 
 Se distribuyen **dos ediciones completas y excluyentes**, ambas instaladas como
 `Data/patch-S.MPQ`. No son capas que deban cargarse juntas. No se cambian raza8,
@@ -13,7 +15,7 @@ modelos, animaciones, facción, displays o hechizos; no se importan M2/SKIN Turt
 | Edición | Ruta en el repositorio | Contenido |
 |---|---|---|
 | Principal | `client_patches/turtle_forest_troll/Data/patch-S.MPQ` | ForestTroll, pelo y rasgos faciales; excluye las pieles adicionales |
-| Opcional completa | `client_patches/turtle_forest_troll/optional-extra-skins/Data/patch-S.MPQ` | Todo lo principal más18 apariencias adicionales,9 por sexo, con todas sus caras convertidas |
+| Opcional completa archivada | `client_patches/archive/turtle_forest_troll/optional-extra-skins/Data/patch-S.MPQ` | Todo lo principal más18 apariencias adicionales,9 por sexo, con todas sus caras convertidas |
 
 Cada directorio contiene `report.json` y `SHA256SUMS`. Copiar **solo el archivo
 elegido**, con WoW cerrado, reemplazando el S propio; guardar backups fuera de
@@ -110,8 +112,8 @@ SQL con `--with-server-data` para los siete estilos naturales. Esta división
 no cambia el manifiesto de archivos servidor de431 entradas ni sus binarios.
 Ambas ediciones usan los mismos229 estilos faciales servidor.
 
-Para activar los metadatos opcionales después de la instalación principal,
-detener el servidor y, desde el checkout:
+Referencia del procedimiento histórico para activar los metadatos opcionales
+después de la principal; no ejecutarlo como instalación consolidada actual:
 
 ```sh
 SQL_DIR="$PWD/data/sql/optional/db_world" scripts/apply-db-world.sh --validate
@@ -145,7 +147,7 @@ instalado. Activar SQL no distribuye texturas: todos los clientes que vean esos
 personajes necesitan la edición con los recursos opcionales. No se garantiza
 renderizado correcto en un cliente principal que carece de ellos.
 
-## Desactivar opcional y rollback
+## Desactivar opcional y rollback del perfil histórico
 
 Con servidor detenido, el rollback selectivo es:
 
@@ -180,8 +182,9 @@ completa. Los dos caminos generan los mismos productos. `--publish` verifica
 identidades y todos los destinos antes de reemplazar archivos propios; no es
 un instalador de clientes/BD y no admite un force genérico.
 
-La v2 sin corrección se preserva bajo `client_patches/turtle_forest_troll/v2/`;
-v1 y el A/B aceptado también permanecen intactos. El builder v2 antiguo debe
+La v2 sin corrección se preserva bajo `client_patches/archive/turtle_forest_troll/v2/`.
+La v1 permanece intacta, al igual que el A/B aceptado en
+`client_patches/archive/turtle_forest_troll/face-format-test/`. El builder v2 antiguo debe
 rechazar publicar encima de las ediciones actuales. Sus tests usan la copia
 histórica, no confunden el SQL208 con el anterior364.
 

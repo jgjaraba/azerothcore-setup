@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Deterministic>true</Deterministic>
+    <UseAppHost>false</UseAppHost>
+    <M2LibSource Condition="'$(M2LibSource)' == ''">$(MSBuildThisFileDirectory)../../work/toolchains/m2lib</M2LibSource>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(M2LibSource)/M2Lib/src/**/*.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Program.cs" />
+    <EmbeddedResource Include="$(M2LibSource)/M2Lib/src/csv/AnimationData.csv" LogicalName="M2Lib.src.csv.AnimationData.csv" />
+    <None Include="$(M2LibSource)/LICENSE" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

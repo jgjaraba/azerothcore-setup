@@ -12,3 +12,14 @@ tools/listfile-focused.txt
 tools/mpq
 tools/get-pip.py
 tools/venv/
+
+# Generated client-tool scratch outputs; owned delivery lives in client_patches/
+out/
+
+# Large archived MPQs retained locally; not distributed through ordinary Git.
+
+/client_patches/archive/new-races/optional-extra-skins/Data/esES/patch-esES-Z.MPQ
+
+/client_patches/archive/new-races/optional-extra-skins/Data/patch-Z.mpq
+
+/client_patches/archive/source-inputs/new-races/primary/Data/patch-Z.mpq

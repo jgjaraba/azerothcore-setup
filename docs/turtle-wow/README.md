@@ -7,6 +7,11 @@ a una migración completa ni a navegación exhaustiva.
 
 ## Empezar aquí
 
+- **[Instalación cliente vigente: consolidado regular/HD](../../client_patches/README.md)**.
+  Los paquetes r5, new-races y las personalizaciones por raza descritos abajo
+  conservan contratos históricos; no son capas adicionales para esa entrega.
+  Las variantes parciales, v2 Troll y la prueba facial están en
+  `client_patches/archive/`; no reaplicar su SQL opcional como paso de instalación.
 - **[Aplicación con los scripts existentes](deployment.md)**: SQL/parches y
   recursos servidor conservados en el repositorio; MPQ de cliente con copia
   manual. Incluye comprobaciones, reaplicación y recuperación de archivos.
@@ -18,12 +23,17 @@ a una migración completa ni a navegación exhaustiva.
 
 ## Referencias técnicas y evidencia
 
-- [`tauren-customizations.md`](tauren-customizations.md) — entrega acumulativa
-  vigente en `client_patches/Data/` y `client_patches/optional-extra-skins/Data/`;
+- [`new-races-client.md`](new-races-client.md) — Altos Elfos22/Goblins23 aditivos:
+  contrato del candidato y corrección de texturas aceptada por el usuario para22
+  masculino/23 femenino. Preview consolidado regular enUS/esES observado PASS en
+  Linux/Wine Direct3D9, incluidos encabezados y18 posiciones de cycling Goblin
+  femenino; no acredita gameplay, Windows nativo ni ejecución HD.
+- [`tauren-customizations.md`](tauren-customizations.md) — base acumulativa
+  histórica en `client_patches/Data/` y `client_patches/archive/optional-extra-skins/Data/`;
   tauren completo/parcial, pelo/cuernos/adornos y preservación de Troll.
 - [`troll-customizations.md`](troll-customizations.md) — ediciones excluyentes de
   Troll de base: principal Forest/pelo/rasgos y opcional con las demás pieles y36 caras
-  convertidas; perfiles SQL separados e instrucciones de copia manual.
+  convertidas; perfiles SQL separados y procedimientos históricos de copia manual.
 - [`troll-customizations-v2.md`](troll-customizations-v2.md) — histórico v2 y
   diagnóstico de caras verdes; no es la receta de instalación vigente.
 - [`forest-troll-skins.md`](forest-troll-skins.md) — primer piloto de pieles

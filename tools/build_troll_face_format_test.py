@@ -19,7 +19,8 @@ from crypt_release_client import members, key
 
 ROOT = troll.ROOT
 BASE = ROOT / 'client_patches/turtle_forest_troll'
-SOURCE = BASE / 'v2' if (BASE / 'v2').exists() else BASE
+TRIAL = ROOT / 'client_patches/archive/turtle_forest_troll/face-format-test'
+SOURCE = ROOT / 'client_patches/archive/turtle_forest_troll/v2'
 BASE_SHA = 'd63ecb0e583a77f4283dde8f39e253d4dee5694f6978ae5326d1120e164165a9'
 FACES = tuple(r'Character\Custom\TurtleTroll\Male\100_Face' + part + '.blp'
               for part in ('Lower', 'Upper'))
@@ -92,7 +93,7 @@ def build(output):
     troll.require(not output.exists(), 'Output must be fresh')
     # Outputs must remain research/test artifacts; never point at a game client
     # or normal publication. These two roots are the only permitted locations.
-    allowed = ((ROOT / 'work').resolve(), (BASE / 'face-format-test').resolve())
+    allowed = ((ROOT / 'work').resolve(), TRIAL.resolve())
     resolved = output.resolve()
     troll.require((resolved.is_relative_to(allowed[0]) and resolved != allowed[0])
                   or resolved == allowed[1], 'Choose a new work subdirectory or the dedicated test directory')
@@ -164,7 +165,7 @@ This artifact is an experiment, not an accepted repair of all v2 skins.
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--output', type=Path, default=BASE / 'face-format-test')
+    parser.add_argument('--output', type=Path, default=TRIAL)
     args = parser.parse_args()
     result = build(args.output)
     print(json.dumps(dict(output=str(args.output), candidate_sha256=result['candidate_sha256'],

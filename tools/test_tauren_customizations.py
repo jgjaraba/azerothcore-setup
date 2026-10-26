@@ -11,6 +11,7 @@ import json
 import os
 from pathlib import Path
 import pwd
+import shutil
 import struct
 import subprocess
 import tempfile
@@ -199,6 +200,29 @@ def check_geometry(test, source, native, oldskins, result, skins, sex):
 
 
 class SyntheticTests(unittest.TestCase):
+    def test_baseline_identity_and_strict_archive_resolution(self):
+        recipe = json.loads(builder.RECIPE.read_text())
+        self.assertEqual(CODEC.sha(builder.RECIPE),
+                         '72b96b08af41a709c20773e49c1c9e1597573da9c1d4573deaeb63cc76f0b686')
+        paths = {
+            'primary': ('client_patches/turtle_forest_troll',
+                        'client_patches/archive/source-inputs/turtle_forest_troll'),
+            'optional': ('client_patches/turtle_forest_troll/optional-extra-skins',
+                         'client_patches/archive/turtle_forest_troll/optional-extra-skins'),
+        }
+        with tempfile.TemporaryDirectory() as temp, patch.object(builder, 'ROOT', Path(temp)):
+            for edition, (logical, archived) in paths.items():
+                with self.subTest(edition=edition):
+                    self.assertEqual(recipe['bases'][edition]['path'], logical)
+                    old = Path(temp) / logical
+                    old.mkdir(parents=True, exist_ok=True)
+                    physical = Path(temp) / archived
+                    self.assertEqual(builder.base_directory(logical), physical)
+                    self.assertFalse(physical.exists())  # Never fall back to the old active root.
+            for unknown in ('../foreign', str(physical), 'client_patches/archive/unknown'):
+                with self.assertRaisesRegex(ValueError, 'Unknown Troll baseline path'):
+                    builder.base_directory(unknown)
+
     def test_both_sexes_append_preserve_and_remap_all_lods(self):
         for sex in (0, 1):
             with self.subTest(sex=sex):
@@ -267,7 +291,7 @@ class ArtifactTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.recipe = json.loads(builder.RECIPE.read_text())
-        cls.protected = {ROOT / spec['path'] / name: value
+        cls.protected = {builder.base_directory(spec['path']) / name: value
                          for spec in cls.recipe['bases'].values() for name, value in spec['files'].items()}
         cls.archives = {}
         for label, spec in cls.recipe['archives'].items():
@@ -291,7 +315,7 @@ class ArtifactTests(unittest.TestCase):
         for edition, spec in cls.recipe['bases'].items():
             cls.reports[edition] = json.loads((cls.first / edition / 'report.json').read_text())
             cls.payload[edition] = dict(builder.members(FOREST.MPQ, cls.first / edition / 'Data/patch-S.MPQ').values())
-            cls.old[edition] = dict(builder.members(FOREST.MPQ, ROOT / spec['path'] / 'Data/patch-S.MPQ').values())
+            cls.old[edition] = dict(builder.members(FOREST.MPQ, builder.base_directory(spec['path']) / 'Data/patch-S.MPQ').values())
         cls.source_cache = {}
 
     @classmethod
@@ -472,6 +496,47 @@ class ArtifactTests(unittest.TestCase):
                 np.testing.assert_array_equal(CODEC.decode_blp(raw, level)[:, :, 3],
                                               CODEC.decode_blp(reference, level)[:, :, 3])
 
+    def test_republication_over_actual_existing_editions_is_byte_identical(self):
+        targets = {'primary': Path('client_patches'),
+                   'optional': Path('client_patches/archive/optional-extra-skins')}
+        with tempfile.TemporaryDirectory(prefix='tauren-republish-', dir=ROOT/'work') as temp:
+            root = Path(temp)
+            before = {}
+            for edition, target in targets.items():
+                for name in builder.PRODUCTS:
+                    source = ROOT/target/name
+                    relative = target/name
+                    before[relative] = CODEC.sha(source)
+                    self.assertEqual(CODEC.sha(self.first/edition/name), before[relative], str(relative))
+                    (root/relative).parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copyfile(source, root/relative)
+            for relative in ('data/sql/custom/db_world/turtle_tauren_customizations.sql',
+                             'data/sql/rollback/turtle_tauren_customizations.sql',
+                             'data/sql/optional/db_world/turtle_tauren_extra_skins.sql',
+                             'data/sql/rollback/turtle_tauren_extra_skins.sql',
+                             'data/server/turtle-customizations/dbc/CharacterFacialHairStyles.dbc',
+                             'data/server/manifest.json'):
+                relative = Path(relative)
+                before[relative] = CODEC.sha(ROOT/relative)
+                (root/relative).parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(ROOT/relative, root/relative)
+            with patch.object(builder, 'ROOT', root):
+                builder.publish(self.first)
+                builder.publish(self.first)
+                for relative, expected in before.items():
+                    self.assertEqual(CODEC.sha(root/relative), expected, str(relative))
+                for edition, target in targets.items():
+                    for name in builder.PRODUCTS:
+                        self.assertEqual((root/target/name).read_bytes(), (self.first/edition/name).read_bytes())
+                # Unknown existing metadata must still refuse before any file is copied.
+                foreign = root/targets['optional']/'report.json'
+                foreign.write_bytes(foreign.read_bytes()+b' ')
+                with patch.object(builder.shutil, 'copyfile') as copy:
+                    with self.assertRaisesRegex(ValueError, 'Refusing different destination'):
+                        builder.publish(self.first)
+                    copy.assert_not_called()
+            self.assertFalse((root/'client_patches/optional-extra-skins').exists())
+
     def test_publication_updates_only_known_server_donor_manifest_and_refuses_foreign(self):
         with tempfile.TemporaryDirectory(prefix='tauren-publish-') as temp:
             root = Path(temp)
@@ -498,13 +563,14 @@ class ArtifactTests(unittest.TestCase):
             self.assertEqual(path.read_bytes(),(self.first/'server-manifest.json').read_bytes())
             self.assertEqual(donor.read_bytes(),(self.first/'CharacterFacialHairStyles.delta.dbc').read_bytes())
             for edition, target in (('primary',root/'client_patches'),
-                                    ('optional',root/'client_patches/optional-extra-skins')):
+                                    ('optional',root/'client_patches/archive/optional-extra-skins')):
                 for name in builder.PRODUCTS:
                     self.assertEqual((target/name).read_bytes(),(self.first/edition/name).read_bytes())
+            self.assertFalse((root/'client_patches/optional-extra-skins').exists())
 
     def test_private_mysql_apply_repeat_prerequisites_conflicts_and_rollback(self):
         """Run actual generated SQL; never use a login path or --force."""
-        base_report = json.loads((ROOT / self.recipe['bases']['primary']['path'] / 'report.json').read_text())
+        base_report = json.loads((builder.base_directory(self.recipe['bases']['primary']['path']) / 'report.json').read_text())
         troll = base_report['sql_rows'] + [[r['target_id'], r['race'], r['sex'], r['base'], *r['textures'],
                                           r['flags'], r['variation'], r['color']] for r in base_report['source_to_target']]
         self.assertEqual(len(troll), 298)

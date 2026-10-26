@@ -1,15 +1,21 @@
 # Tauren — personalización nativa y ediciones acumulativas
 
-## Entrega vigente
+> **Contrato histórico de personalización. Instalación vigente:** seguir
+> [`client_patches/README.md`](../../client_patches/README.md) para el consolidado
+> regular/HD. No instalar estos S ni los antiguos Z/r5 como capas adicionales.
+> El perfil parcial está archivado; los procedimientos SQL de este documento
+> describen su contrato histórico, no una activación opcional recomendada hoy.
+
+## Entrega histórica de referencia
 
 Se parte de las ediciones Troll terminadas, con sus recursos y registros
 conservados. No vuelven los colores masculinos Troll33–35 retirados. Las nuevas
-rutas canónicas para esta y futuras razas son:
+rutas de referencia de esta etapa son:
 
 - **Principal:** `client_patches/Data/patch-S.MPQ`.
-- **Opcional completa:** `client_patches/optional-extra-skins/Data/patch-S.MPQ`.
+- **Opcional completa archivada:** `client_patches/archive/optional-extra-skins/Data/patch-S.MPQ`.
 
-Copiar solo una como `Data/patch-S.MPQ`, con WoW cerrado y backup fuera de Data.
+El procedimiento histórico copiaba solo una como `Data/patch-S.MPQ`, con WoW cerrado y backup fuera de Data.
 No instalar ambas, renombrar una como otro parche o copiar carpetas históricas.
 Mantener T/Z/locale-Z. Los paquetes de `turtle_forest_troll/` son bases congeladas
 de reconstrucción, no capas adicionales de la entrega actual. La política
@@ -110,7 +116,9 @@ lo anterior +Troll135 +Tauren15 =**641**. CharSections efectiva tiene9302 filas 
 principal y9452 en opcional; los147 overlays nativos sustituyen IDs, no añaden
 filas lógicas. La DBC binaria servidor CharSections no se reemplaza.
 
-Los SQL están en los manifiestos existentes, tauren después de Troll:
+Los SQL conservan el contrato de esta etapa, tauren después de Troll. Las órdenes
+siguientes son referencia histórica; no reaplicar el opt-in archivado como parte
+de la instalación consolidada actual:
 
 ```sh
 scripts/apply-db-world.sh --validate --with-server-data
@@ -153,7 +161,7 @@ SHA256:
 | Principal |`54b56931376604df4122c5551f3bfccd937a32b32974e35906ba73139bd885d3`|
 | Opcional |`5e0a1954da86d71d9fa9bf1ce408b535d03f86941956be754a9f976cfd7accf2`|
 
-## Rollback acotado
+## Rollback acotado del perfil histórico
 
 Retirar primero tauren opcional con `data/sql/rollback/turtle_tauren_extra_skins.sql`
 (solo15) y recustomizar colores parciales26–28 hombre/18–19 mujer antes de usar

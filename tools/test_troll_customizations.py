@@ -380,8 +380,7 @@ class IntegrationTests(unittest.TestCase):
 class SQLTests(unittest.TestCase):
     def test_real_mysql_guards_roundtrip_and_preservation(self):
         import test_forest_troll_sql as fixture
-        package = forest.ROOT / 'client_patches/turtle_forest_troll'
-        source = (package / 'v2' if (package / 'v2').exists() else package) / 'report.json'
+        source = forest.ROOT / 'client_patches/archive/turtle_forest_troll/v2/report.json'
         report = json.loads(source.read_text())
         expected = report['sql_rows']
         accepted = [[r['target_id'], r['race'], r['sex'], r['base'], *r['textures'],

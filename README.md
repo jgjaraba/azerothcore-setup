@@ -73,7 +73,27 @@ Neither script installs client patches.
 
 ### 2. Install server patch
 
-Download [patch-Z.mpq (regular client)](client_patches/regular_client/patch-Z.mpq) or [patch-Z.mpq (hd client)](client_patches/hd_client/patch-Z.mpq)
+Use the [consolidated client installation and per-patch inventory](client_patches/README.md).
+
+- [Regular profile](client_patches/regular_client/): S character resources, T crypt
+  resources, Z tables/interface, enUS/esES locale Z, and `Wow-new-races.exe`.
+- [Conservative HD profile](client_patches/hd_client/): HD-derived Z and complete
+  enUS/esES Spell patches. **Not feature-equivalent to regular**: the matching HD
+  model/appearance baseline is unavailable, so native customization, crypt and
+  new-race integration are excluded rather than masking HD models with stock data.
+- [Member inventory](client_patches/inventory.json),
+  [validation/contracts](client_patches/validation.json), and
+  [checksums](client_patches/checksums.json).
+
+Install one profile, not the entire repository folder. Optional partial-face
+editions are under `client_patches/archive/` and are **not part of consolidation**.
+New races remain client-only previews; no server creation/login is enabled here.
+
+<details>
+<summary>Historical feature packages and server-side optional-profile reference — not current client installation instructions</summary>
+
+The current client guide above supersedes the installation steps in this section.
+Do not layer these historical packages over the consolidated profiles.
 
 #### 2.1 (HD Client only) Classic login screen
 
@@ -135,9 +155,9 @@ overwrite an unrelated S without reconciling it first.
 | Edition | File | Includes |
 |---|---|---|
 | **Primary / complete options** | [client_patches/Data/patch-S.MPQ](client_patches/Data/patch-S.MPQ) | Accepted Troll primary plus Tauren: one full-face skin per sex, six horn colours, ten native barber-style unlocks and four additional facial adornments. |
-| **Optional / partial options** | [client_patches/optional-extra-skins/Data/patch-S.MPQ](client_patches/optional-extra-skins/Data/patch-S.MPQ) | Everything in primary, the retained9+9 Troll appearances, plus3 male /2 female fixed-face Tauren looks, including the identified Spirit Walker shop bake. |
+| **Archived optional / partial options** | [client_patches/archive/optional-extra-skins/Data/patch-S.MPQ](client_patches/archive/optional-extra-skins/Data/patch-S.MPQ) | Everything in primary, the retained9+9 Troll appearances, plus3 male /2 female fixed-face Tauren looks, including the identified Spirit Walker shop bake. |
 
-Verify `SHA256SUMS` in `client_patches/` or `client_patches/optional-extra-skins/`.
+Historical checksums are in `client_patches/` or `client_patches/archive/optional-extra-skins/`.
 Copy only the selected file to the playing client's **Data/patch-S.MPQ**. The old
 `turtle_forest_troll/` packages are frozen build bases/history, not current extras
 to load beside it. Every subsequent race migration follows this same two-edition
@@ -181,6 +201,28 @@ data. Existing appearances are never remapped automatically. Default reapply
 does not silently remove an enabled opt-in. Contracts: [Tauren](docs/turtle-wow/tauren-customizations.md),
 [Troll](docs/turtle-wow/troll-customizations.md), and the permanent
 [edition policy](docs/project/decisions/ADR-0007-native-customization-editions.md).
+
+#### 2.5. Additive High Elf / Goblin races — experimental CLIENT-ONLY candidate
+
+The [new-races package](client_patches/new-races/README.md) adds **race22 High Elf
+to Alliance** and **race23 Goblin to Horde**, preserving all previous races,
+including Blood Elf10 and NPC Goblin9. It contains converted Turtle models,
+source class combinations, additive DBCs, a twelve-race creation UI and a pinned
+derived executable required for the enlarged appearance cache/custom GlueXML.
+
+Use **one coordinated root-Z/esES-Z pair** and the corresponding S edition, plus
+the supplied `Wow-new-races.exe` in a test client copy. Do not install only an
+extra early-priority MPQ, mix editions or overwrite the reference originals.
+See [installation, exact classes, fallback repairs and limitations](docs/turtle-wow/new-races-client.md).
+The user reached the new-race creation screen but reported prior-race texture
+carryover on High Elf males and Goblin females. A texture-only correction is now
+packaged: **replace both Z files of the chosen edition, keep EXE/S/T unchanged**.
+The user confirmed both affected sexes now render correctly. Consolidated regular
+startup and sampled previews have also passed under Wine in enUS/esES. **This phase
+does not enable server creation, login, starting zones, stats or racials for the
+new IDs.**
+
+</details>
 
 ### 3. Addons
 

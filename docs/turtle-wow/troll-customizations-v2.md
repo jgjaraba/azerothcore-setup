@@ -1,14 +1,20 @@
 # Trolls Turtle — contrato histórico v2 y diagnóstico de caras
 
-**Documento histórico.** La entrega vigente son las
-[ediciones principal/opcional v3](troll-customizations.md). La v2 completa se
-conserva en `client_patches/turtle_forest_troll/v2/`, no en el path principal.
+> **Documento y paquete históricos. Instalación vigente:** seguir
+> [`client_patches/README.md`](../../client_patches/README.md) para el consolidado
+> regular/HD. No instalar v2 ni los antiguos paquetes r5/new-races como capas;
+> las instrucciones de aplicación/SQL/rollback siguientes conservan únicamente
+> el contrato técnico histórico.
+
+Las [ediciones principal/opcional v3](troll-customizations.md) son la etapa
+posterior de este contrato. La v2 completa se
+conserva en `client_patches/archive/turtle_forest_troll/v2/`, no en el path principal.
 Los SQL364 históricos están en `data/sql/history/troll-v2-full/`; no aplicar
 esas copias como instalación actual. La prueba A/B conserva su resultado acotado.
 
 ## Alcance y cobertura
 
-El archivo archivado `client_patches/turtle_forest_troll/v2/Data/patch-S.MPQ` ampliaba el
+El archivo archivado `client_patches/archive/turtle_forest_troll/v2/Data/patch-S.MPQ` ampliaba el
 [piloto ForestTroll aceptado](forest-troll-skins.md). No cambia raza8, modelos,
 animaciones, facción, displays ni hechizos. No importa M2/SKIN Turtle ni morphs.
 Los recursos finales y SQL se conservan en el repositorio; cliente manual.
@@ -109,7 +115,7 @@ adicionales. Las nuevas filas usan0x11. Las caras DK exclusivas conservan el
 acoplamiento Face/Skin nativo descrito en el contrato Forest; no se promete que
 cualquier cara DK combine independientemente con cualquier piel.
 
-## Construcción y aplicación
+## Construcción y aplicación históricas
 
 Manifiesto reproducible: `tools/troll-customizations.json`; dependencias fijadas
 en `tools/troll-customizations-requirements.txt` (NumPy2.2.6/Pillow13.0.0).
@@ -204,7 +210,7 @@ universal, aunque no confirma que probara esos dos recursos concretos.
 
 Se preparó la **única prueba A/B solicitada por el usuario**, sin reparar todavía
 la publicación normal. El candidato está separado en
-`client_patches/turtle_forest_troll/face-format-test/`, con INSTALL/checksums y
+`client_patches/archive/turtle_forest_troll/face-format-test/`, con INSTALL/checksums y
 reproducción mediante `tools/build_troll_face_format_test.py`. Parte del v2
 SHA256 `d63ecb0e583a77f4283dde8f39e253d4dee5694f6978ae5326d1120e164165a9`.
 

@@ -1,0 +1,242 @@
+diff --git a/M2Lib/src/m2/M2Track.cs b/M2Lib/src/m2/M2Track.cs
+--- a/M2Lib/src/m2/M2Track.cs
++++ b/M2Lib/src/m2/M2Track.cs
+@@ -2,3 +2,4 @@
++// Modified 2026-10-23 by azerothcore-setup: preserve classic timeline keys and global tracks.
+ using System.Diagnostics;
+ using System.IO;
+ using System.Linq;
+@@ -95,16 +96,7 @@ namespace M2Lib.m2
+                 for (var i = 0; i < Timestamps.Count; i++)
+                 {
+                     //TODO Should we check if GlobalSequence before accessing sequence flags ?
+-                    if (Sequences[i].IsAlias)
+-                    {
+-                        var realIndex = i;
+-                        while (Sequences[realIndex].IsAlias)
+-                            realIndex = Sequences[realIndex].AliasNext;
+-                        Timestamps[i] = Timestamps[realIndex];
+-                        Values[i] = Values[realIndex];
+-                        continue;
+-                    }
+-                    if (Sequences[i].IsExtern)
++                    if (!IsGlobalSequence && Sequences[i].IsExtern)
+                     {
+                         Timestamps[i].LoadContent(Sequences[i].ReadingAnimFile, version);
+                         Values[i].LoadContent(Sequences[i].ReadingAnimFile, version);
+@@ -135,16 +127,7 @@ namespace M2Lib.m2
+                 for (var i = 0; i < Timestamps.Count; i++)
+                 {
+                     //TODO Should we check if GlobalSequence before accessing sequence flags ?
+-                    if (Sequences[i].IsAlias)
+-                    {
+-                        var realIndex = i;
+-                        while (Sequences[realIndex].IsAlias)
+-                            realIndex = Sequences[realIndex].AliasNext;
+-                        Timestamps[i] = Timestamps[realIndex];
+-                        Values[i] = Values[realIndex];
+-                        continue;
+-                    }
+-                    if (Sequences[i].IsExtern)
++                    if (!IsGlobalSequence && Sequences[i].IsExtern)
+                     {
+                         //Cannot use SaveContent() as it Rewrites header only in the same stream
+                         if (Timestamps[i].Count <= 0) continue;
+@@ -313,7 +296,16 @@ namespace M2Lib.m2
+                 Timestamps.Add(_legacyTimestamps);
+                 Values.Add(_legacyValues);
+             }
++            else if (_legacyTimestamps.Count == 1)
++            {
++                // A singleton is constant over the whole classic timeline, even at timestamp 0.
++                foreach (var sequence in Sequences)
++                {
++                    Timestamps.Add(new M2Array<uint> { 0 });
++                    Values.Add(new M2Array<T> { _legacyValues[0] });
++                }
++            }
+             else 
+             {
+                 // ReSharper disable once ForCanBeConvertedToForeach
+                 for (var index = 0; index < Sequences.Count; index++)
+@@ -331,7 +323,7 @@ namespace M2Lib.m2
+                     {
+                         var firstIndex = validIndexes[0];
+                         var lastIndex = validIndexes[validIndexes.Count - 1];
+-                        animTimes.AddRange(_legacyTimestamps.GetRange(firstIndex, lastIndex - firstIndex + 1));
++                        animTimes.AddRange(_legacyTimestamps.GetRange(firstIndex, lastIndex - firstIndex + 1).Select(t => t - seq.TimeStart));
+                         animValues.AddRange(_legacyValues.GetRange(firstIndex, lastIndex - firstIndex + 1));
+                     }
+                     Timestamps.Add(animTimes);
+@@ -436,4 +428,4 @@ namespace M2Lib.m2
+             }
+         }
+     }
+-}
+\ No newline at end of file
++}
+diff --git a/M2Lib/src/m2/M2TrackBase.cs b/M2Lib/src/m2/M2TrackBase.cs
+--- a/M2Lib/src/m2/M2TrackBase.cs
++++ b/M2Lib/src/m2/M2TrackBase.cs
+@@ -2,3 +2,4 @@
++// Modified 2026-10-23 by azerothcore-setup: preserve classic event keys and global tracks.
+ using System.Diagnostics;
+ using System.IO;
+ using System.Linq;
+@@ -72,15 +73,7 @@ namespace M2Lib.m2
+                 for (var i = 0; i < Timestamps.Count; i++)
+                 {
+                     //TODO Should we check if GlobalSequence before accessing sequence flags ?
+-                    if (Sequences[i].IsAlias)
+-                    {
+-                        var realIndex = i;
+-                        while (Sequences[realIndex].IsAlias)
+-                            realIndex = Sequences[realIndex].AliasNext;
+-                        Timestamps[i] = Timestamps[realIndex];
+-                        continue;
+-                    }
+-                    if (Sequences[i].IsExtern)
++                    if (GlobalSequence < 0 && Sequences[i].IsExtern)
+                     {
+                         Timestamps[i].LoadContent(Sequences[i].ReadingAnimFile, version);
+                     }
+@@ -107,15 +100,7 @@ namespace M2Lib.m2
+                 for (var i = 0; i < Timestamps.Count; i++)
+                 {
+                     //TODO Should we check if GlobalSequence before accessing sequence flags ?
+-                    if (Sequences[i].IsAlias)
+-                    {
+-                        var realIndex = i;
+-                        while (Sequences[realIndex].IsAlias)
+-                            realIndex = Sequences[realIndex].AliasNext;
+-                        Timestamps[i] = Timestamps[realIndex];
+-                        continue;
+-                    }
+-                    if (Sequences[i].IsExtern)
++                    if (GlobalSequence < 0 && Sequences[i].IsExtern)
+                     {
+                         if (Timestamps[i].Count <= 0) continue;
+                         Timestamps[i].StoredOffset = (uint) Sequences[i].WritingAnimFile.BaseStream.Position;
+@@ -265,7 +250,7 @@ namespace M2Lib.m2
+                     {
+                         var firstIndex = validIndexes[0];
+                         var lastIndex = validIndexes[validIndexes.Count - 1];
+-                        animTimes.AddRange(_legacyTimestamps.GetRange(firstIndex, lastIndex - firstIndex + 1));
++                        animTimes.AddRange(_legacyTimestamps.GetRange(firstIndex, lastIndex - firstIndex + 1).Select(t => t - seq.TimeStart));
+                     }
+                     Timestamps.Add(animTimes);
+                 }
+diff --git a/M2Lib/src/types/FixedPoint.cs b/M2Lib/src/types/FixedPoint.cs
+--- a/M2Lib/src/types/FixedPoint.cs
++++ b/M2Lib/src/types/FixedPoint.cs
+@@ -2,3 +2,4 @@
++// Modified 2026-10-23 by azerothcore-setup: retain signed quaternion bits; avoid ambiguous byte overload.
+ using System.Collections;
+ using System.Text;
+ 
+@@ -50,7 +51,7 @@ namespace M2Lib.types
+ 
+         public FixedPoint_2_5(byte p1)
+         {
+-            _bits = new BitArray(BitConverter.GetBytes(p1));
++            _bits = new BitArray(new byte[] {p1});
+         }
+ 
+         public FixedPoint_2_5(BitArray bits)
+@@ -82,7 +83,7 @@ namespace M2Lib.types
+                     result |= 1 << i;
+                 }
+             }
+-            result &= short.MaxValue;
++            result &= ushort.MaxValue;
+             return (short) result;
+         }
+ 
+diff --git a/M2Lib/src/m2/M2.cs b/M2Lib/src/m2/M2.cs
+--- a/M2Lib/src/m2/M2.cs
++++ b/M2Lib/src/m2/M2.cs
+@@ -70,3 +70,9 @@ namespace M2Lib.m2
+         //Data referenced by Views. TODO See if can be generated on the fly.
++        // Modified 2026-10-23 by azerothcore-setup: retain source lookup arrays, including trailing sentinels.
++        public M2Array<short> SourceKeyBoneLookup { get; } = new M2Array<short>();
++        public M2Array<short> SourceTextureReplaceLookup { get; } = new M2Array<short>();
++        public M2Array<short> SourceAttachmentLookup { get; } = new M2Array<short>();
++        public M2Array<short> SourceCameraLookup { get; } = new M2Array<short>();
++        public bool PreserveSourceLookups { get; set; }
+         public M2Array<short> BoneLookup { get; } = new M2Array<short>();
+         public M2Array<short> TexLookup { get; } = new M2Array<short>();
+@@ -109,7 +115,7 @@ namespace M2Lib.m2
+             SkipArrayParsing(stream, version);
+             if (version < Format.LichKing) SkipArrayParsing(stream, version);
+             Bones.Load(stream, version);
+-            SkipArrayParsing(stream, version);
++            SourceKeyBoneLookup.Load(stream, version);
+             GlobalVertexList.Load(stream, version);
+             uint nViews = 0; //For Lich King external views system.
+             if (version < Format.LichKing) Views.Load(stream, version);
+@@ -119,7 +125,7 @@ namespace M2Lib.m2
+             Transparencies.Load(stream, version);
+             if (version < Format.LichKing) SkipArrayParsing(stream, version); //Unknown Ref
+             TextureTransforms.Load(stream, version);
+-            SkipArrayParsing(stream, version);
++            SourceTextureReplaceLookup.Load(stream, version);
+             Materials.Load(stream, version);
+             BoneLookup.Load(stream, version);
+             TexLookup.Load(stream, version);
+@@ -134,10 +140,10 @@ namespace M2Lib.m2
+             CollisionVertices.Load(stream, version);
+             CollisionNormals.Load(stream, version);
+             Attachments.Load(stream, version);
+-            SkipArrayParsing(stream, version);
++            SourceAttachmentLookup.Load(stream, version);
+             Events.Load(stream, version);
+             Lights.Load(stream, version);
+             Cameras.Load(stream, version);
+-            SkipArrayParsing(stream, version);
++            SourceCameraLookup.Load(stream, version);
+             Ribbons.Load(stream, version);
+             Particles.Load(stream, version);
+@@ -146,6 +152,10 @@ namespace M2Lib.m2
+             // LOAD REFERENCED CONTENT
+             _name.LoadContent(stream);
++            SourceKeyBoneLookup.LoadContent(stream);
++            SourceTextureReplaceLookup.LoadContent(stream);
++            SourceAttachmentLookup.LoadContent(stream);
++            SourceCameraLookup.LoadContent(stream);
+             GlobalSequences.LoadContent(stream);
+             Sequences.LoadContent(stream, version);
+             if (version >= Format.LichKing)
+             {
+@@ -241,7 +251,7 @@ namespace M2Lib.m2
+                 playableLookup.Save(stream, version);
+             }
+             Bones.Save(stream, version);
+-            var keyBoneLookup = M2Bone.GenerateKeyBoneLookup(Bones);
++            var keyBoneLookup = PreserveSourceLookups ? SourceKeyBoneLookup : M2Bone.GenerateKeyBoneLookup(Bones);
+             keyBoneLookup.Save(stream, version);
+             GlobalVertexList.Save(stream, version);
+             if (version < Format.LichKing) Views.Save(stream, version);
+@@ -251,7 +261,7 @@ namespace M2Lib.m2
+             Transparencies.Save(stream, version);
+             if (version < Format.LichKing) stream.Write((long) 0); //Unknown Ref
+             TextureTransforms.Save(stream, version);
+-            var texReplaceLookup = M2Texture.GenerateTexReplaceLookup(Textures);
++            var texReplaceLookup = PreserveSourceLookups ? SourceTextureReplaceLookup : M2Texture.GenerateTexReplaceLookup(Textures);
+             texReplaceLookup.Save(stream, version);
+             Materials.Save(stream, version);
+             BoneLookup.Save(stream, version);
+@@ -268,12 +278,12 @@ namespace M2Lib.m2
+             CollisionVertices.Save(stream, version);
+             CollisionNormals.Save(stream, version);
+             Attachments.Save(stream, version);
+-            var attachmentLookup = M2Attachment.GenerateLookup(Attachments);
++            var attachmentLookup = PreserveSourceLookups ? SourceAttachmentLookup : M2Attachment.GenerateLookup(Attachments);
+             attachmentLookup.Save(stream, version);
+             Events.Save(stream, version);
+             Lights.Save(stream, version);
+             Cameras.Save(stream, version);
+-            var cameraLookup = M2Camera.GenerateLookup(Cameras);
++            var cameraLookup = PreserveSourceLookups ? SourceCameraLookup : M2Camera.GenerateLookup(Cameras);
+             cameraLookup.Save(stream, version);
+             Ribbons.Save(stream, version);
+             Particles.Save(stream, version);

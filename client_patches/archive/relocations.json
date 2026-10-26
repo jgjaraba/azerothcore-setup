@@ -1,0 +1,42 @@
+{
+  "client_patches/new-races/optional-extra-skins": {
+    "destination": "client_patches/archive/new-races/optional-extra-skins",
+    "files": {
+      "Data/esES/patch-esES-Z.MPQ": "126aa1d4c40112315c028001e06768e07e4191e7494aca7408a0fe3f17dd02c3",
+      "Data/patch-Z.mpq": "0a953bf521fb6e752d6150b6f6b243fc890564fafcc1286dd99152cb7dcccdaf"
+    }
+  },
+  "client_patches/optional-extra-skins": {
+    "destination": "client_patches/archive/optional-extra-skins",
+    "files": {
+      "Data/patch-S.MPQ": "5e0a1954da86d71d9fa9bf1ce408b535d03f86941956be754a9f976cfd7accf2",
+      "SHA256SUMS": "9a09c9bfb87cd48c7a52ac291973ed5f9cd243d2d5aacb16812d9a977ea676e4",
+      "report.json": "a266b72ced8e05a66c721cfb8f495408db0531812fd8261d4626d914302cc1b0"
+    }
+  },
+  "client_patches/turtle_forest_troll/face-format-test": {
+    "destination": "client_patches/archive/turtle_forest_troll/face-format-test",
+    "files": {
+      "Data/patch-S.MPQ": "a9a7fc72157a963f5c1235b4c5684d88c3420058c11cc19c68a3fe4b5eef9777",
+      "INSTALL.md": "4aa7a01093d724ee3e62dacc591983a5a547ffad002f6bfc32868a53f0797543",
+      "SHA256SUMS": "fb0c0b20f0672a1e2422513be0d855f9c2d0fed511e93837d9bf51b59c6b979a",
+      "report.json": "6daf424b2f210d9f3edf50914379363af8d3394695e7a9610d96732579d1b9c4"
+    }
+  },
+  "client_patches/turtle_forest_troll/optional-extra-skins": {
+    "destination": "client_patches/archive/turtle_forest_troll/optional-extra-skins",
+    "files": {
+      "Data/patch-S.MPQ": "2890f2b54fc99edfae948d8dceccb21edbfee26fd8089ec7f2a5a370b2dda6e4",
+      "SHA256SUMS": "44e691fb562c0b54e9fdd7d247e62f62ce0896630ffba4fdcbe3c94d0b71190f",
+      "report.json": "9a4c37da5f5bccfe71ecb190f7888f79f43b48df3bb538d88494dc4cc06e9752"
+    }
+  },
+  "client_patches/turtle_forest_troll/v2": {
+    "destination": "client_patches/archive/turtle_forest_troll/v2",
+    "files": {
+      "Data/patch-S.MPQ": "d63ecb0e583a77f4283dde8f39e253d4dee5694f6978ae5326d1120e164165a9",
+      "SHA256SUMS": "3eadd8ec2a0b8bcd377ff37df313d78d97b8c286cf926858529cedcfbbcc536c",
+      "report.json": "5716d8de5c99d7aff23fa373538299f71d47f6b872b5b6a03e8607d61a8a71d0"
+    }
+  }
+}
