@@ -2,7 +2,109 @@
 
 Record of what was actually tested, with evidence, and what remains pending.
 
-## Existing project scripts and repository assets
+## Altos Elfos mapa0 — alcance de la evidencia
+
+Contrato vigente: [high-elf-maps.md](high-elf-maps.md); extracción e instalación:
+[high-elf-server-data.md](high-elf-server-data.md). Esta sección resume evidencia
+ejecutada de la implementación. El log final de ejecución conserva el detalle
+principal de comandos/resultados; los manifiestos source-locked de terreno,
+assets y cartografía conservan los contratos estructurales. La generación
+servidor tiene su detalle local en `work/high-elf-server-build/report.json`,
+`final-build.log` y `logs/`.
+
+- **PASS estructural:**24 tiles compuestos,3899 MCNK fuente y2245 nativos;
+  no nuevas regresiones de costura entre las comparaciones disponibles de12464
+  bordes examinados. **SIN BASELINE:**16 bordes, excluidos de esa conclusión.
+  MH2O de origen se conserva como autoridad
+  y se desactiva el MCLQ duplicado; no se ejecutó una conversión general MCLQ→MH2O.
+- **PASS estructural de modelos:**los10 emisores de partículas del árbol,
+  contrastados con OracleTree nativo; no es evidencia de renderizado.
+- **PASS entrega de archivos:** regular publicado con316 miembros en T sin DBC,
+  root Z con28 y cada locale Z con6 (totales finales, no altas del port).
+  S, launcher y HD sin cambios por
+  este port. Fuente durable, baselines y resultados fijados por source lock.
+- **PASS generación servidor:**23 Maps (se omite `33_22` nativo sin delta),
+  árbol mapa0 y374 tiles VMap completos; cierre2951 modelos (2914 nativos
+  idénticos +37 nuevos);34 MMaps (23 región +11 halo), parámetros compatibles
+  y cuatro deltas DBC aditivos, preservando mapa800 y datos ajenos.
+- **OBSERVED / despliegue DEV:** instalación y reaplicación realizadas por el
+  helper existente con manifiesto schema2:3414 destinos,474 cambios en la
+  instalación inicial. Reinicio posterior mediante los scripts existentes.
+  El estado real de instalación/backup se conserva fuera de DataDir. La receta
+  reutilizable es `scripts/apply-db-world.sh --with-server-data --data-dir
+  /ruta/DataDir --state-dir /ruta/estado --offline`; validación de inventario con
+  `scripts/apply-db-world.sh --validate --with-server-data`.
+- **PASS arranque DEV:**112 data stores inicializados; `WORLD: World Initialized`
+  y `worldserver ... ready` tras instalar la versión con clave interior exacta
+  `(6002,0,0)→6502`. La comprobación posterior del manifiesto y su diario encontró
+  los3414 destinos idénticos y verificó529 dependencias. Esto no fuerza la carga
+  jugable de toda la región.
+- **PASS carga con lectores nativos offline:**43 Maps (24 región +19 halo),
+  árbol mapa0 y374/374 VMap tiles,2951 modelos y522/522 MMap tiles aceptados por
+  Detour. Probe: `tools/build_high_elf_nav_probe.py`; evidencia local en
+  `work/high-elf-native-validation/REPORT.md` y `evidence.json`.
+- **Consultas offline, resultado mixto:**191 casos,117 corredores completos,
+  47 parciales (8 con `OUT_OF_NODES`) y27 sin consulta por destino no disponible.
+  Los seis casos entre muestras de Alah'Thalas, Brinthilien y Highlands, con
+  filtros walk y walk+swim, obtuvieron corredores completos. Hubo90 impactos
+  VMap con altura/rayo concordantes y LoS bloqueada. No es una certificación
+  de todas las rutas ni de movimiento NPC. Un vecino adicional de halo,
+  `maps/0002133.map`, está ausente y no cuenta como carga superada.
+- **PASS regresión Error132:** el paquete anterior producía39 lecturas inválidas
+  en `0x007C3A42` y2288 celdas con tags desconocidos al ejecutar la rutina x86
+  real de ambos EXE locales (stock y new-races). Tras normalizar únicamente el
+  tamaño propio de MCLQ inactivo, la extracción del T publicado completa6144/6144
+  llamadas en cada EXE, con0 faults,0 tags desconocidos y0 recorridos fuera de
+  límites. Evidencia: `work/crash-go-investigation/final-published-fixed.json`.
+  Se regeneraron24 Maps, árbol/374 VMap tiles y2951 modelos: todos byteidénticos
+  a los datos servidor anteriores; sus DBC también coinciden. No hubo que
+  reinstalar ni reiniciar el servidor por esta corrección cliente.
+- **PASS carga real acotada:** cliente12340 enUS/Wine/D3D9, personaje Human GM,
+  Brinthilien y Alah'Thalas cargados durante60 segundos cada uno. Se renderizaron
+  personaje y entorno, respondieron comandos/logout y no se creó Error132.
+  Evidencia: `work/high-elf-client-load-check/report.json`, screenshots y hashes.
+  **Defecto visual de esa versión:** minimapa verde sólido, corregido por la
+  entrega cartográfica comprobada abajo.
+- **PASS regresión de volúmenes rojos:** se reprodujeron ambos `error_red_*` en
+  cliente real enUS/Wine/D3D9. Antes: SWIMMING activo y magma visual en
+  `4558.568,-2869.236,10` y `3167.174,-2422.720,118`. Después de adaptar solo
+  MOHD en15 familias, ambos puntos permanecieron secos, sin velo/partículas
+  anómalas tras60s, en primera y tercera persona; también cerca del suelo sin
+  vuelo y en las columnas Alah Z40/42/44 y Brin Z170/172. Se verificaron las XYZ
+  reales y el bit nativo SWIMMING. Evidencia A/B:
+  `work/high-elf-red-check/after-fix/report.json` y `REPORT.md`.
+- **PASS agua legítima:** `4572.916667,-2868.75,-2`, por encima de suelo−6.739
+  y bajo agua0: natación, movimiento, azul y respiración conservados tras60s.
+  Caminar sobre superficie con waterwalk desactiva SWIMMING; se retiró el cheat
+  al terminar. No se eliminó el agua real para ocultar los volúmenes falsos.
+- **PASS servidor sin delta:** reextracción con la entrega WMO corregida y
+  procesamiento de43 candidatos de navegación (34 tiles,9 vacíos); cierre2951
+  modelos,374 VMap tiles. Maps, modelos, árbol, tiles VMap/MMap, parámetros y
+  DBC siguen byteidénticos; preflight3414 destinos y0 escrituras. En los puntos
+  rojos reales, las consultas servidor anteriores y regeneradas ya son secas.
+  Evidencia: `work/high-elf-server-wmo-dry-fixed/result.json`.
+- **PASS cartografía cliente real:** enUS/Wine/D3D9 con T
+  `491b64ce0df41215d9459736a5ac207cca6f9da0d06d9c27a934bd05f3bc01c0`.
+  Exteriores Alah y Brinthilien texturizados y estables60s, con movimiento real.
+  HouseVariantF muestra el plano circular y desplazamiento coherente bajo la
+  flecha; Silver Sun Mine muestra su minimapa interior y responde al movimiento.
+  Los otros grupos se verifican por lookup/payload, no por visita completa.
+- **PASS selección continental:** hover nativo y clic izquierdo real abren
+  ThalassianHighlands y AlahThalas; clic derecho vuelve al continente. Las dos
+  celdas del borde conservan Western/Eastern Plaguelands, y el control Tirisfal
+  también conserva hover/clic. Sin selección directa por ID ni addon sustitutivo.
+- **PASS preservación cartográfica:** las44 celdas ZMP previstas son el único
+  delta de máscara;29 mappings crypt e imágenes efectivas idénticos (sin nueva
+  visita a la cripta). Terreno, WMO, líquidos, DBC, S, Z y ejecutable no cambian.
+  Comprobados de nuevo en cliente los dos puntos rojos y el mar legítimo: secos donde
+  corresponde y natación/azul en el mar. Evidencia y límites:
+  `work/high-elf-map-ui-check/REPORT.md` y `report.json`.
+- **NOT RUN / no acreditado aquí:** recorrido/render exhaustivo, swimming,
+  LoS, rutas NPC y gameplay/regresiones en juego. Se retienen WDL/Light nativos,
+  audio nativo Eversong y cartografía2D/minimapa de fuentes mixtas; no hay claim
+  de fidelidad total ni activación servidor de nuevas razas.
+
+## Existing project scripts and repository assets — historical crypt evidence
 
 Normal procedure: [deployment.md](deployment.md) and the root README. Runtime
 assets are retained in `data/server/turtle-crypt/` and

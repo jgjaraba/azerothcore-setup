@@ -48,7 +48,8 @@ Vanilla/Turtle use differs from WotLK.
 | 408 | Gillijim's Isle | record exists; audited enUS name field empty, esES name fields populated |
 | 409 | Island of Lapidis | record exists; audited enUS name field empty, esES name fields populated |
 | 616 | Mount Hyjal | existing native record; do not equate Turtle geography with WotLK Hyjal usage |
-| 2040, 4012, 5024, 5121, 5179, 5225, 5536, 5561, 5581, 5602, 5642 and other custom areas | source region/subzone IDs | individual destination collision and semantic audit pending |
+| 2040, 5225 | Alah'Thalas / Highlands | allocated on map0; see high-elf register below |
+| 4012, 5024, 5121, 5179, 5536, 5561, 5581, 5602, 5642 and other custom areas | source region/subzone IDs | individual destination collision and semantic audit pending |
 
 An empty name in one locale does **not** declare a row unused. Reuse vs remap
 for 408/409/616 is unresolved. No blanket assertion that all other custom areas
@@ -99,6 +100,32 @@ ownership and recorded evidence.
   guarded pilot behavior is not proof every initial DBC merger is generic or
   performs all required collision checks.
 
+## Altos Elfos en mapa0
+
+`tools/high-elf-map.json` defines the explicit mappings; the source-locked final
+cartography deltas live in `client_patches/archive/source-inputs/high-elf-map/`.
+These are map0 additions, with no new Map ID or gameplay SQL.
+
+| Namespace | Source → destination | Preservation rule |
+|---|---|---|
+| AreaTable roots |2040→2040,5225→5225 | Alah'Thalas / Highlands on map0 |
+| AreaTable colliding subareas |3881–3883→6500–6502 | native Outland3881–3883 remain untouched |
+| AreaTable other subareas |5526–5535,5544–5546,5552–5555→same IDs | explicit identity map, not blanket range ownership |
+| Area exploration flags |22 selected areas→3500–3521 | order is the explicit manifest mapping, not sorted destination IDs |
+| WMOAreaTable records |18 selected source rows→60000–60017 | custom WMO roots6000–6002 only; inherited root4772/nameSet1 keys remain native |
+| WorldMapArea |509→509,513→513 | original regional file tokens/bounds; independent baseline merge |
+| WorldMapOverlay |9 selected rows→60000–60008 | source-ID-sorted allocation; see evidence `cartography-manifest.json` / `worldmap.overlay_id_mapping` |
+
+AreaTable IDs, exploration flags, WMOAreaTable record IDs, WMO root identities
+and WorldMapOverlay IDs are distinct namespaces. Numeric overlap does not make
+them interchangeable. All newly remapped MCNK/parent/metadata references must
+agree; preserving an old native record must not route a new map0 subarea to
+Outland. Rebuilds recheck effective locale/client/server baselines and SQL;
+the final deltas preserve native record and string-block prefixes.
+
+See [geographic contract](high-elf-maps.md) and
+[schema2 server installation](high-elf-server-data.md) for scope and limits.
+
 ## Allocation procedure for future regions
 
 1. Enumerate source IDs and their references: maps, parent/subareas, difficulty,
@@ -114,6 +141,6 @@ ownership and recorded evidence.
    archive precedence. Preserve conflict-aware rerun/rollback semantics and
    document validation scope.
 
-Only the pilot allocations above are settled here. Remaps for 532/533 and
+The crypt and high-elf allocations above are settled here. Remaps for 532/533 and
 assignments for other source maps/areas remain pending; neither the inventory's
 names nor its world-coordinate footprints allocate destination identifiers.

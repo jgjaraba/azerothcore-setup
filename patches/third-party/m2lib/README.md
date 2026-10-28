@@ -104,8 +104,9 @@ The driver keeps every original clip and its order, geometry, bone identities,
 parent/pivot data, and material/skin lookup data. All classic animation payloads
 remain embedded (`Stored` is set; no `.anim` files). The first 32 bytes of every
 skin section remain intact; the new Wrath bounding center and enclosing radius
-are computed from its source vertices. Classic flipbooks, ribbons and particles
-are explicitly rejected because this driver does not establish their conversion.
+are computed from its source vertices. Classic flipbooks and ribbons are explicitly
+rejected. Particle conversion has a field-validated support boundary and an
+independent native OracleTree control; see [particle layouts and semantics](particles.md).
 
 Wrath removed the classic per-model playable lookup. For every absent action
 in that source lookup, the driver materializes per-model sequence records and

@@ -39,8 +39,11 @@ scripts/apply-db-world.sh --with-server-data \
 The world script applies its existing SQL manifest, then installs the server
 assets in [`data/server/manifest.json`](data/server/manifest.json). Turtle instance
 and access SQL are already in that SQL manifest. The assets include geometry,
-collision/navigation, five geographic **row-level DBC deltas**, and a natural-key
-delta for seven Troll facial styles—not full replacement tables. The complete file plan is checked **before any SQL**; conflicting files
+collision/navigation, geographic **row-level DBC deltas**, and a natural-key
+delta for Troll/Tauren facial styles—not full replacement tables. Schema2 also
+includes the [Highlands/Alah'Thalas map0 geography](docs/turtle-wow/high-elf-maps.md),
+with baseline-guarded replacements, full map0 VMap closure and regional/halo MMaps.
+It adds no SQL or playable-race starting data. The complete file plan is checked **before any SQL**; conflicting files
 are not overwritten. `--offline` asserts stopped/exclusive targets; it does not
 stop services itself. Configure the MySQL login with `LOGIN_PATH` (default
 `azeroth-dev`, database `acore_world`).
@@ -57,8 +60,9 @@ Neither script installs client patches.
 ### Turtle WoW migration
 
 - [Migration guide and technical index](docs/turtle-wow/README.md) — the accepted
-  Karazhan Crypt pilot, repeatable stages, client/server safety and remaining
-  limitations.
+  Karazhan Crypt pilot, high-elf map0 geography, repeatable stages and remaining
+  limitations. High-elf structural/deployment checks do not validate rendering
+  or gameplay.
 - [Long-term custom-content roadmap](docs/turtle-wow/roadmap.md) — geography
   first, then server scenery and gameplay with explicit compatibility gates.
 
@@ -76,11 +80,13 @@ Neither script installs client patches.
 Use the [consolidated client installation and per-patch inventory](client_patches/README.md).
 
 - [Regular profile](client_patches/regular_client/): S character resources, T crypt
-  resources, Z tables/interface, enUS/esES locale Z, and `Wow-new-races.exe`.
+  and high-elf geography, Z tables/interface/cartography, enUS/esES locale Z,
+  and `Wow-new-races.exe`.
 - [Conservative HD profile](client_patches/hd_client/): HD-derived Z and complete
   enUS/esES Spell patches. **Not feature-equivalent to regular**: the matching HD
-  model/appearance baseline is unavailable, so native customization, crypt and
-  new-race integration are excluded rather than masking HD models with stock data.
+  model/appearance baseline is unavailable, so native customization, crypt,
+  high-elf geography and new-race integration are excluded rather than masking
+  HD models with stock data.
 - [Member inventory](client_patches/inventory.json),
   [validation/contracts](client_patches/validation.json), and
   [checksums](client_patches/checksums.json).

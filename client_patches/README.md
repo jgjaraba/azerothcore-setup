@@ -14,6 +14,7 @@ Los únicos perfiles de instalación son `regular_client/` y `hd_client/`.
 | Spell enUS / esES | Tablas originales completas | Tablas originales completas |
 | Personalizaciones principales Troll/Tauren | Sí | No integradas |
 | Karazhan Crypt r5 | Sí | No integrado |
+| Mapa Alto Elfo Map0 (Thalassian Highlands / Alah'Thalas) | Sí, integración geográfica offline | No integrado |
 | Alto Elfo/Goblin e interfaz de doce razas | Preview cliente | No integrado |
 | Skins opcionales de cara fija/parciales | **Excluidas** | **Excluidas** |
 
@@ -78,12 +79,12 @@ límites están en [`validation.json`](validation.json).
 | Parche | Miembros | Contenido |
 |---|---:|---|
 | `Data/patch-S.MPQ` | **888** | Recursos de personajes: 872 BLP, 6 M2 y 10 SKIN. Personalizaciones principales Forest/Troll/Tauren, geometría Tauren aceptada y los modelos/texturas aislados de Alto Elfo y Goblin. Incluye la corrección paletizada de las 44 texturas. **Sin DBC ni looks opcionales.** |
-| `Data/patch-T.MPQ` | **88** | Recursos geográficos de Karazhan Crypt y correcciones coordinadas r5: World, texturas, mapas de interfaz, minimapa y pantalla de carga. **Sin DBC.** |
-| `Data/patch-Z.mpq` | **27** | 14 DBC no localizadas; interfaz de nuevas razas e iconos; recursos visuales/música del login regular y textura Dark Rider. |
-| `Data/enUS/patch-enUS-Z.MPQ` | **5** | `ChrRaces`, `Map`, `AreaTable`, `MapDifficulty` y `Spell`, con nombres/textos ingleses y las filas personalizadas correspondientes. |
-| `Data/esES/patch-esES-Z.MPQ` | **5** | Las mismas cinco tablas, con nombres/textos españoles. Spell mantiene íntegra su edición española. |
+| `Data/patch-T.MPQ` | **316** | Geografía de Karazhan Crypt r5 y mapa Alto Elfo Map0: 24 ADT regionales, dependencias aisladas, worldmap, overlays, minimapas exteriores/interiores y máscara de clic continental. Se conservan los recursos previos de la cripta. **Sin DBC.** |
+| `Data/patch-Z.mpq` | **28** | 15 DBC no localizadas; interfaz de nuevas razas e iconos; recursos visuales/música del login regular y textura Dark Rider. |
+| `Data/enUS/patch-enUS-Z.MPQ` | **6** | `ChrRaces`, `Map`, `AreaTable`, `MapDifficulty`, `Spell` y `WMOAreaTable`, con nombres/textos ingleses y las filas personalizadas correspondientes. |
+| `Data/esES/patch-esES-Z.MPQ` | **6** | Las mismas seis tablas, con nombres/textos españoles/fallback fuente en las nuevas filas. Spell mantiene íntegra su edición española. |
 
-Las 14 tablas de root Z son:
+Las 15 tablas de root Z son:
 
 ```text
 AreaTrigger                    CharacterFacialHairStyles
@@ -93,6 +94,7 @@ CreatureDisplayInfo            CreatureDisplayInfoExtra
 CreatureModelData              Item
 ItemExtendedCost               LoadingScreens
 Talent                         WorldMapArea
+WorldMapOverlay
 ```
 
 Las tablas localizadas **no se duplican en root Z**: en la cadena probada, esa
@@ -111,6 +113,38 @@ controles Blood Elf; no equivale a aceptación exhaustiva de equipo/animaciones.
 Spell conserva todos los cambios heredados de cada edición, no únicamente los
 IDs 90000/90001; sus cuatro diferencias heredadas de campos entre idiomas en el
 ID5 se registran, no se corrigen de forma incidental.
+
+### Mapa Alto Elfo integrado en regular
+
+El mapa se integra sobre la consolidación regular anterior. **T es el único
+propietario de los recursos geográficos compartidos y no contiene DBC**, incluidos
+los modelos aislados bajo `Character/Custom/HighElfMap/`. Esos nombres no convierten
+los modelos de edificios/terreno en recursos de skins ni los trasladan a S.
+`AreaTable` y `WMOAreaTable` (que contiene nombres localizados) pertenecen a **ambos
+Z de idioma**; `WorldMapArea` y `WorldMapOverlay` pertenecen a root Z. Se distribuyen
+tablas completas reconstruidas, nunca los pequeños DBC delta como tablas cliente.
+
+La fuente durable es [`archive/source-inputs/high-elf-map/`](archive/source-inputs/high-elf-map/).
+Su `source-lock.json`, fijado por SHA-256 en `tools/package_high_elf_map.py`, enumera
+recursos, baselines independientes, deltas, resultados esperados, diffs de filas y
+manifiestos de procedencia. Los manifiestos completos de terreno, assets y
+cartografía vigentes quedan en `evidence/`, incluyendo las correcciones de
+carga, líquidos y selección/minimapas. No se reconstruye desde candidatos antiguos.
+Las rutas `work/` de esa evidencia son históricas:
+la construcción y el `--verify` normales no las abren ni consultan los builders.
+El hook reconstruye primero la entrega anterior y exige **todos los hashes
+históricos originales**, sin refreeze ni modificación del lock anterior. Después
+aplica únicamente las ediciones geográficas enumeradas. Todos los miembros previos
+no editados permanecen byteexact; S, launcher, skins, nuevas razas y HD conservan
+su contrato previo. El TRS completo conserva los mappings de la cripta y todos
+los mappings nativos fuera de los cambios regionales explícitos.
+
+La validación offline no demuestra el render ni la alineación in-game del mapa,
+el punto del jugador, pisos WMO, ambiente o gameplay. Se mantienen iluminación
+nativa y audio nativo verificado/fallback Eversong; no se importa música Turtle
+ni se sustituye el WDL continental. El minimapa 2D de los tiles mixtos puede
+mostrar celdas retenidas con diferencias. Consultar los límites de la fuente y
+`validation.json`. El packaging no instala nada en el snapshot real del usuario.
 
 `Wow-new-races.exe` se distribuye fuera de los MPQ. Es el derivado ya utilizado,
 con caché ampliada y aceptación acotada de GlueXML local. **Las razas 22/23 siguen
@@ -162,11 +196,45 @@ reconstrucción, aunque los MPQ finales sigan funcionando.
 
 ## Reconstrucción y comprobación
 
+### Actualización de cartografía, carga y líquidos de la región
+
+Si ya está instalado el conjunto Alto Elfo actual, con WoW cerrado basta
+reemplazar **`regular_client/Data/patch-T.MPQ`**. La entrega acumula la corrección
+del tamaño interno de bloques MCLQ inactivos (Error132) y la interpretación de
+«sin líquido» en quince edificios WMO (natación en aire y efecto rojo de magma).
+Incluye además el minimapa exterior, los interiores y el clic desde Reinos del
+Este. No cambia tablas, S ni ejecutable; la reextracción servidor resultó byteidéntica
+y no requiere reinstalarlo. Desde una entrega anterior al mapa sigue siendo necesaria la
+instalación coordinada descrita arriba.
+
+SHA256 de T corregido:
+`491b64ce0df41215d9459736a5ac207cca6f9da0d06d9c27a934bd05f3bc01c0`.
+
+La rutina real del cliente completa las6144 celdas sin lecturas inválidas ni
+tags desconocidos. Una prueba enUS/Wine/D3D9 también cargó Brinthilien y
+Alah'Thalas durante60 segundos cada una sin Error132. No certifica toda la
+región. El minimapa verde de aquella versión está corregido en la entrega actual.
+
+Los dos casos `error_red_*` también se reprodujeron y comprobaron antes/después
+en cliente real: muelle de Alah'Thalas y edificio de Brinthilien, sin velo rojo ni
+natación en suelo/aire después del cambio. El control de mar legítimo conserva
+natación, efecto azul y respiración.
+
+La cartografía usa nombres físicos cortos compatibles con el cliente335, aliases
+de mina adaptados a su lookup y once planos de suelos reales para interiores sin
+arte de origen. Estos últimos son **planos simplificados**, no artwork Blizzard
+ni mapas dinámicos por piso. El hover/clic continental abre Highlands y
+Alah'Thalas mediante la máscara nativa; no se reemplazan Lua ni el dibujo completo
+de Reinos del Este. Se preservan los clics de las Tierras de la Peste del borde.
+
+### Construcción desde fuentes fijadas
+
 Requiere `tools/mpq`, las entradas fijadas y las dependencias Python del pipeline
 de imágenes. Desde la raíz del repositorio, usando ese entorno:
 
 ```sh
-TMPDIR="$PWD/work" work/new-races-image-venv/bin/python tools/consolidate_client_patches.py \
+export TMPDIR="$PWD/work/tmp"
+work/new-races-image-venv/bin/python tools/consolidate_client_patches.py \
   --output work/consolidacion-nueva --reproducible
 work/new-races-image-venv/bin/python tools/consolidate_client_patches.py \
   --verify client_patches
@@ -179,10 +247,31 @@ rollback durante esa operación. El lock es
 [`checksums.json`](checksums.json) fija los archivos de distribución y los informes.
 El verificador comprueba además cada miembro contra su plan y sus fuentes.
 
+Para reconstruir y verificar la entrega exacta **anterior al mapa**, manteniendo
+las correcciones de skins/ojos/nuevas razas y cripta ya aceptadas:
+
+```sh
+export TMPDIR="$PWD/work/tmp"
+work/new-races-image-venv/bin/python tools/consolidate_client_patches.py \
+  --native-only --output work/consolidacion-sin-mapa --reproducible
+work/new-races-image-venv/bin/python tools/consolidate_client_patches.py \
+  --native-only --verify work/consolidacion-sin-mapa
+```
+
+Añadir `--publish` al segundo comando revierte la distribución del repositorio
+al conjunto verificado anterior. Para volver al mapa, verificar/publicar de nuevo
+el staging integrado con el comando normal. Esto no instala ni revierte el cliente
+del usuario; la instalación y reversión manual siguen las instrucciones de arriba.
+
 ### Validación y límites
 
-- **PASS:** 22 pruebas del consolidador, dos builds idénticos, lectura posterior
+- **PASS:** base de 22 pruebas anterior al mapa y 26 pruebas del consolidador integrado;
+  dos builds idénticos, lectura posterior
   de los MPQ, contratos DBC, skins principales, exclusión de opcionales y hashes.
+- **PASS:** reconstrucción de todos los hashes históricos antes del hook regional;
+  22 AreaTable, 18 WMOAreaTable, 2 WorldMapArea y 9 WorldMapOverlay añadidos;
+  registros/bloques de strings anteriores byteexact, sin cambios ni bajas de filas;
+  T sin DBC, seis tablas por locale Z y cero duplicados localizados en root Z.
 - **PASS:** cliente regular real bajo Wine/Direct3D9, enUS y esES: autenticación,
   selección/creación, diez razas originales y textos, Alto Elfo masculino y
   Goblin femenina; 18 posiciones de ciclo piel/cara Goblin y pasos de Alto Elfo.
@@ -190,7 +279,13 @@ El verificador comprueba además cada miembro contra su plan y sus fuentes.
   antes/después, bajo Wine/Direct3D9; cambios muestreados de rasgos, piel/cara y
   transición desde Goblin. No es una prueba exhaustiva de todos los estilos.
 - **PASS:** conservación estructural del Z HD histórico y sus dos Spell completos.
-- **NOT RUN:** cliente HD real, gameplay completo, nueva visita in-game a la cripta,
+- **PASS acotado:** carga y render puntual en Brinthilien y Alah'Thalas con cliente
+  real enUS/Wine/D3D9 y T corregido; sin Error132 durante60 segundos por destino.
+- **PASS cartografía acotada:** minimapas exteriores, plano interior de casa y
+  minimapa de mina visibles durante movimiento real; hover, clic izquierdo y
+  retorno al continente para ambas zonas, con controles Tirisfal/Plaguelands.
+- **NOT RUN:** alineación y gameplay completo del mapa Alto Elfo, cliente HD real,
+  gameplay completo, nueva visita in-game a la cripta,
   prueba exhaustiva de equipo/animaciones y tooltips de hechizos.
 - **BLOCKED:** paridad completa HD, por falta de sus bases reales compatibles.
 

@@ -19,7 +19,8 @@ Current features:
   Warrior, Night Elf Mage, Draenei Rogue, Tauren Priest, and Gnome Hunter
   playable combinations and the Dwarf Hunter quest extension for Gnomes.
 - [`turtle-wow-maps.md`](turtle-wow-maps.md) — the Turtle WoW custom geography
-  port (client patch + DBC + server Maps/VMaps/MMaps), pilot map KarazhanCrypt.
+  port (client patch + DBC + server Maps/VMaps/MMaps), accepted KarazhanCrypt
+  pilot and [high-elf map0 contract](../../turtle-wow/high-elf-maps.md).
 
 Identifier ownership for these features is recorded in
 [`../CUSTOM-IDENTIFIERS.md`](../CUSTOM-IDENTIFIERS.md); the module and database

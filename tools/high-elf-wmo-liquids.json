@@ -1,0 +1,135 @@
+{
+  "schema": 1,
+  "reason": "Only these 15 dry source families use MOHD 0x4 with sentinel MOGP liquidType 15; 335 otherwise interprets 15 as WMO magma 19 without a grid. Clear only MOHD flags bit 0x4 after checking every source group.",
+  "evidence": {
+    "source_payload_directory": "work/high-elf-assets-mclq-fixed-v2/evidence/turtle",
+    "source_payload_naming": "sha256(lowercase client path with backslash separators) + .bin",
+    "assets_manifest": "work/high-elf-assets-mclq-fixed-v2/manifest.json",
+    "archived_assets_manifest": "client_patches/archive/high-elf-map-before-wmo-dry-fix/evidence/assets-manifest.json",
+    "assets_manifest_sha256": "ddebee8e5c4658f066d1abde6b2da089483bae784f58162691d6f741232a12c8",
+    "archives": [
+      {"path": "/home/dev/wow-turtle/Data/patch-5.mpq", "sha256": "10a4458293369761ef5f1550c4caa1761f51009a72c885eaf80a8b8afea92161"},
+      {"path": "/home/dev/wow-turtle/Data/patch-6.mpq", "sha256": "ce3e6de954b6c5044e70dd053d884edd4d53410524019aa0f0e48f2cc16f83f7"}
+    ],
+    "archive_members": "Exact source paths below; all are patch-5.mpq except HIGHELFHOUSEVARIANTG root and groups in patch-6.mpq. Archives/manifests are provenance, not runtime dependencies of the adaptation. Runtime guards compare source path and actual root/group SHA-256."
+  },
+  "families": [
+    {
+      "source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\HIGHELFROUNDHOUSEVARIANTA\\HIGHELFHOUSEROUNDVARIANTA.WMO",
+      "sha256": "3d4649debbbaed2c74d12f9f54a0dacf8aa4dc5b50a8e03f004be2f297952f87", "root_flags": 5,
+      "groups": [
+        {"source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\HIGHELFROUNDHOUSEVARIANTA\\HIGHELFHOUSEROUNDVARIANTA_000.wmo", "sha256": "585acb36b33a516a179459512a64d81c7ed773830fa948fbc9a5888faa14a028"},
+        {"source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\HIGHELFROUNDHOUSEVARIANTA\\HIGHELFHOUSEROUNDVARIANTA_001.wmo", "sha256": "c8aa8304273a16fbaaf49b65593bf69c6b959cd75768086d50825d63b863d1f6"}
+      ]
+    },
+    {
+      "source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\HIGHELFHOUSEVARIANTD\\HIGHELFHOUSEVARIANTD.WMO",
+      "sha256": "b0e24242deab87624d52970101ddddbfc554d466eafe58cf95d4b48c80a41320", "root_flags": 5,
+      "groups": [
+        {"source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\HIGHELFHOUSEVARIANTD\\HIGHELFHOUSEVARIANTD_000.wmo", "sha256": "35b6cd736c58cda67bf97f63e21a7fdbb86514981a48e71e64f0952e23ff1ec4"},
+        {"source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\HIGHELFHOUSEVARIANTD\\HIGHELFHOUSEVARIANTD_001.wmo", "sha256": "e0032419eb4abb91a9d00193318b28c42e775ed27823d63f3a0c171cf38cf3a9"}
+      ]
+    },
+    {
+      "source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\HIGHELFCOMMAND\\HIGHELFCOMMAND.WMO",
+      "sha256": "a401a75dd2262f8cce0310c37fa99476b812883b53397180277020ed9f69f807", "root_flags": 5,
+      "groups": [
+        {"source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\HIGHELFCOMMAND\\HIGHELFCOMMAND_000.wmo", "sha256": "80c84f5a584de877dbb4b50fbf0cf65782a080268ce0d8d7dec9f34e3a6e2b47"},
+        {"source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\HIGHELFCOMMAND\\HIGHELFCOMMAND_001.wmo", "sha256": "b080cf4a7da3cb070f22d5d48de359483fd6fdd586533182b76651a4c94a1535"}
+      ]
+    },
+    {
+      "source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\HIGHELFHOUSEVARIANTF\\HIGHELFHOUSEVARIANTF.WMO",
+      "sha256": "e44e8902a058eed2ed10e38fdb2c721d0bb774197e3f4d6c2b6646e6b550534c", "root_flags": 5,
+      "groups": [
+        {"source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\HIGHELFHOUSEVARIANTF\\HIGHELFHOUSEVARIANTF_000.wmo", "sha256": "cd207f1a8940c0997892ce343539a614dde67647c5b3d9e8d4d8a747db645813"},
+        {"source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\HIGHELFHOUSEVARIANTF\\HIGHELFHOUSEVARIANTF_001.wmo", "sha256": "8ec5d93b46b21b99c3f66f98f6541c23391d1d390ac9c083cc74f2b6cb1a82d1"}
+      ]
+    },
+    {
+      "source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\HIGHELFHOUSEVARIANTG\\HIGHELFHOUSEVARIANTG.WMO",
+      "sha256": "133e1aaf3c774b730c5c6fae2d464df8c0807d79a224b0ddf9b42998f2c00097", "root_flags": 5,
+      "groups": [
+        {"source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\HIGHELFHOUSEVARIANTG\\HIGHELFHOUSEVARIANTG_000.wmo", "sha256": "0702946ac9f41dedd93dcb74402270a61e4e3ee164b79b9a1ea060a2983a6eea"},
+        {"source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\HIGHELFHOUSEVARIANTG\\HIGHELFHOUSEVARIANTG_001.wmo", "sha256": "cd9188e00cf7a7ea4b6e2de7a0990c6fb95acddb3a46aa452090e0efa08d19ba"}
+      ]
+    },
+    {
+      "source": "WORLD\\WMO\\TRANSPORTS\\HIGHELFSHIPS\\HIGHELF_SHIP.WMO",
+      "sha256": "c01d26d64bc8a5e79574c198c6c96302a07f75b4038db9a99de13c0ca0b9d777", "root_flags": 5,
+      "groups": [
+        {"source": "WORLD\\WMO\\TRANSPORTS\\HIGHELFSHIPS\\HIGHELF_SHIP_000.wmo", "sha256": "1a5ab096b95901bde92757a97a28681c6bbafcfd0d056d9b4bc78287a937bca2"},
+        {"source": "WORLD\\WMO\\TRANSPORTS\\HIGHELFSHIPS\\HIGHELF_SHIP_001.wmo", "sha256": "3281653231dfd5e7561f06fac1361b140f266966b934dfee05785fed32472ed0"}
+      ]
+    },
+    {
+      "source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\BLOODELFDOCK\\HIGHELFDOCK.WMO",
+      "sha256": "a85ed50753908986404a863e32230ecf845c465186d1d3b17a71fc5be64a3be3", "root_flags": 5,
+      "groups": [
+        {"source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\BLOODELFDOCK\\HIGHELFDOCK_000.wmo", "sha256": "b98f0d8eb6eaa8b3d72061319d4b6e5f9bb61f7d9dcc076c906d552f3d6d366a"}
+      ]
+    },
+    {
+      "source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\HIGHELFHOUSEVARIANTB\\HIGHELFHOUSEVARIANTB.WMO",
+      "sha256": "dca0aa339fa696e506c772ab6f0a8d7bd054b575f46013ed5dfdd56f71da8876", "root_flags": 5,
+      "groups": [
+        {"source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\HIGHELFHOUSEVARIANTB\\HIGHELFHOUSEVARIANTB_000.wmo", "sha256": "ae6a0f76627b667492ca0b1af0a8b9826e8b9a1dfe72d7acde482c5e11dc634a"},
+        {"source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\HIGHELFHOUSEVARIANTB\\HIGHELFHOUSEVARIANTB_001.wmo", "sha256": "989c82d5471f1c6fb4eceeef10ebb04e78680179d2a1f585a73d78c5896755e8"}
+      ]
+    },
+    {
+      "source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\HIGHELFHOUSEVARIANTC\\HIGHELFHOUSEVARIANTC.WMO",
+      "sha256": "49efab53524d689db3384d8f3b790ea6af780419e13c0f9e37aad47aa3c4056a", "root_flags": 5,
+      "groups": [
+        {"source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\HIGHELFHOUSEVARIANTC\\HIGHELFHOUSEVARIANTC_000.wmo", "sha256": "1e72fef4086094af1883e4c1f200dff0a90996bf2597862fe5ca201441a2db2b"},
+        {"source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\HIGHELFHOUSEVARIANTC\\HIGHELFHOUSEVARIANTC_001.wmo", "sha256": "991935f776336dcd4d94f87796f69783f2de3fcf527925a8736261954ca743df"}
+      ]
+    },
+    {
+      "source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\HIGHELFHOUSEVARIANTA\\HIGHELFHOUSEVARIANTA.WMO",
+      "sha256": "47678d88a0acb744a5534a14296f8149697e725a0194941d733a99a5ae49ddf7", "root_flags": 5,
+      "groups": [
+        {"source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\HIGHELFHOUSEVARIANTA\\HIGHELFHOUSEVARIANTA_000.wmo", "sha256": "14c28c2f0eb0949afa7865c6af7a9dbc987f8effe626279ac3987c77b38b9439"},
+        {"source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\HIGHELFHOUSEVARIANTA\\HIGHELFHOUSEVARIANTA_001.wmo", "sha256": "4c7f825bc440762fd995e5c6f11784a31e46b5ecc2996f99fbf801ca462c1bff"}
+      ]
+    },
+    {
+      "source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\SCRYING_TOWER\\HE_SCRYING_TOWER.WMO",
+      "sha256": "6949b8ad2757105ec42733b3070387a66864ebbd1cffe3685ce3d0869fc0d255", "root_flags": 4,
+      "groups": [
+        {"source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\SCRYING_TOWER\\HE_SCRYING_TOWER_000.wmo", "sha256": "6c04c41c3527edfe2d830b00c5e9e6b4aac0782806e147b346f859a762ef3310"},
+        {"source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\SCRYING_TOWER\\HE_SCRYING_TOWER_001.wmo", "sha256": "15cd69b652d844a281beefa55bb8ebce03cc95b4514dc972b2ebc7c8f728c6c4"}
+      ]
+    },
+    {
+      "source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\BLOODELF_SMALLGAZEBO01\\HIGH1ELF_SMALLGAZEBO01.WMO",
+      "sha256": "735dd546e4a5b13640dab72d81db7f45df61c941aca548214def38b01fe8146c", "root_flags": 5,
+      "groups": [
+        {"source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\BLOODELF_SMALLGAZEBO01\\HIGH1ELF_SMALLGAZEBO01_000.wmo", "sha256": "dc58fb72ff5729771d446ddeb13408742b63f306352199b54e563da073fdd547"}
+      ]
+    },
+    {
+      "source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\BLOODELF_SMALLHOUSE\\HIGHELF_SMALLHOUSE03.WMO",
+      "sha256": "6188a9806b94dad429bc1432bd043e7bf56dd2a9708c8819c7f2a9fd31eeea76", "root_flags": 5,
+      "groups": [
+        {"source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\BLOODELF_SMALLHOUSE\\HIGHELF_SMALLHOUSE03_000.wmo", "sha256": "548b60ca2602f7dacbe9685b5f7ad76a12a5e408f0ef03329d1272aef244c5f3"},
+        {"source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\BLOODELF_SMALLHOUSE\\HIGHELF_SMALLHOUSE03_001.wmo", "sha256": "631acd1e08ebc4a66bcae9678a770ba3cd879627ba3c4a3f105d04443e24f854"}
+      ]
+    },
+    {
+      "source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\HIGHELFROUNDHOUSEVARIANTB\\HIGHELFHOUSEROUNDVARIANTB.WMO",
+      "sha256": "0e6558ae00e2561abc18f13873bb5da472b159568fabeb8ff074eb6f8349bf6c", "root_flags": 5,
+      "groups": [
+        {"source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\HIGHELFROUNDHOUSEVARIANTB\\HIGHELFHOUSEROUNDVARIANTB_000.wmo", "sha256": "2d8bf5986c27172da5f71a11cc8e76cc2d2a0af0c4ab9c1692f0acf43ec5deae"},
+        {"source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\HIGHELFROUNDHOUSEVARIANTB\\HIGHELFHOUSEROUNDVARIANTB_001.wmo", "sha256": "3e2bcae0412ebe5689d6c815e93c886b63a29237cb89f9dbe888ed0ced16c4e8"}
+      ]
+    },
+    {
+      "source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\ARCANESANCTUM\\HIGH1ELF_ARCANE_SANCTUM.WMO",
+      "sha256": "c897a633586a0be170e041cac08df0be7ae704bafed57ee3e7ab6f3b825c4a13", "root_flags": 5,
+      "groups": [
+        {"source": "WORLD\\WMO\\LORDERON\\BUILDINGS\\SILVERMOON\\ARCANESANCTUM\\HIGH1ELF_ARCANE_SANCTUM_000.wmo", "sha256": "5cc7576b48aacb05330e24a25707d4a21a4dcbbaf93ee7cec7170dd43efd11bd"}
+      ]
+    }
+  ]
+}

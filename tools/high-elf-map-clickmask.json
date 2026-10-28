@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "member": "Interface\\WorldMap\\Azeroth.zmp",
+  "source_archive": "Data/patch-8.mpq",
+  "source_sha256": "52fabbc986f69b9e0860e94438fffc62ce895797423191afe1b267fcd9549340",
+  "stock_archive": "enUS/patch-enUS.MPQ",
+  "stock_sha256": "dc589ab70f648b9948503572453a9219481b704ae67bc5d5d6652d5c7997d019",
+  "areas": [2040, 5225],
+  "replaceable_areas": [214, 2037],
+  "source_cells": 46,
+  "ported_cells": 44,
+  "retained_border": [
+    {"x": 72, "y": 52, "area": 28},
+    {"x": 73, "y": 52, "area": 139}
+  ]
+}

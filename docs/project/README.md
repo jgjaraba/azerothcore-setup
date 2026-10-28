@@ -79,7 +79,8 @@ contracts, not task logs.
 | Document | Covers |
 |---|---|
 | [`features/forsaken-paladin-class-quests.md`](features/forsaken-paladin-class-quests.md) | The Undead Paladin quest chains, item/DBC contract and loot conditions |
-| [`features/turtle-wow-maps.md`](features/turtle-wow-maps.md) | Turtle geographic-port contract, accepted crypt pilot and scope limitations |
+| [`features/turtle-wow-maps.md`](features/turtle-wow-maps.md) | Turtle geographic-port contract, accepted crypt pilot, high-elf map0 geography and scope limitations |
+| [`../turtle-wow/high-elf-maps.md`](../turtle-wow/high-elf-maps.md) | Highlands/Alah'Thalas composition, source lock, regular publication, server-data contract and fidelity limits |
 
 ### Decisions and risk
 
@@ -98,6 +99,10 @@ contracts, not task logs.
   curated procedure, compatibility, identifiers, evidence and a separate roadmap
   towards all custom content. Start its [guide](../turtle-wow/migration-guide.md)
   before reusing pilot scripts for another region.
+
+- [Project skill `turtle-zone-import`](../../.opencode/skills/turtle-zone-import/SKILL.md)
+  — operational entry point and region-contract template for geographic ports;
+  it delegates technical truth to the migration guide and component contracts.
 
 - `~/azerothcore-setup/docs/` — operational and feature-specific guides that
   predate this knowledge base (NPC creation, new currency mechanics, custom

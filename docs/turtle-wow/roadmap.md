@@ -17,12 +17,16 @@ No acceder a producción ni publicar automáticamente recursos de terceros.
 - Karazhan Crypt: **piloto geográfico práctico aceptado** por el usuario,
   con presentación, acceso y pruebas básicas. Excepciones de fidelidad y
   navegación siguen explícitas; no hace falta reabrir ese cierre para avanzar.
+- [Highlands/Alah'Thalas mapa0](high-elf-maps.md): terreno compuesto, recursos,
+  entrega regular e instalación/reaplicación servidor integrados; evidencia
+  estructural y de despliegue, sin aceptación visual ni de gameplay.
 - El inventario geográfico es **preliminar**. Hay57 Map records y175 paths
   continentales source-only analizados; faltan modificaciones comunes y
   cierres de dependencias/perímetros. Eso no es toda la geografía custom.
 - Hay herramientas y construcciones incrementales probadas, pero no un
-  bootstrap genérico desde cero. El agua ADT no tiene aún un conversor validado;
-  hay un defecto MHDR conocido que debe corregirse antes de mapas húmedos.
+  bootstrap genérico desde cero. MHDR está corregido y el port alto elfo conserva
+  MH2O de origen, desactivando MCLQ duplicado. No existe un conversor general
+  MCLQ→MH2O; cada región requiere validación propia de agua y formatos.
 - Un cliente no aporta la BD completa de spawns, quests, loot o scripts del
   servidor. Para el contenido jugable harán falta fuentes servidor autorizadas,
   compatibles y de procedencia/versionado comprobables, o reconstrucción
@@ -43,8 +47,9 @@ certifica fidelidad. No se ha cerrado el perímetro completo ni el halo costero.
 
 Orden del trabajo:
 
-1. Corregir y probar parser/serializador MHDR con fixtures reales335/Vanilla,
-   sin alterar los artefactos del piloto aceptado.
+1. Validar el parser/serializador MHDR corregido con fixtures reales de Tel'Abim;
+   no inferir compatibilidad de agua a partir del port alto elfo ni alterar los
+   artefactos del piloto aceptado.
 2. Delimitar isla+halo y construir un manifiesto efectivo de nuevos/comunes/
    modificados; comparar WDT y costuras con Kalimdor335. No copiar el continente.
 3. Investigar/probar el tratamiento de agua: tipo, alturas, cobertura, alfa y
@@ -56,7 +61,7 @@ Orden del trabajo:
 6. Extraer datos y validar costa, agua, alturas, colisiones, navegación y una
    pequeña regresión del continente. Aceptación en juego con alcance explícito.
 
-**Salida del hito:** una segunda región y un procedimiento de merge húmedo
+**Salida del hito:** otra región y un procedimiento de merge húmedo
 continental demostrado, o un informe preciso de qué categoría bloquea su
 integración y qué subconjunto es seguro. No prometer importación completa
 solo porque14 tiles ya estén extraídos.

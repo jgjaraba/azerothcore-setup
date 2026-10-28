@@ -9,6 +9,16 @@ must be inventoried. Copy entries target maps/, vmaps/ or mmaps/. DBC deltas
 use the five existing DELTAS definitions, plus an optional facial-style-delta
 for CharacterFacialHairStyles.dbc keyed by (Race, Sex, Variation), without an ID.
 
+Schema 2 adds a required geography object with vmap_tiles (complete sorted map0
+tile paths), model_closure (complete sorted referenced model paths), mmap_tiles
+(complete sorted regional/halo MMap paths), and map_dependencies (terrain path
+-> accepted SHA256 list). It supports kind
+replace with accepted_before (known native SHA256 list), and additive-dbc for
+AreaTable/WMOAreaTable/WorldMapArea/WorldMapOverlay. DBC donors may share a
+target and are merged in sorted source-path order, preserving destination rows
+and strings. All binary kinds accept absence or identical content; replace
+additionally accepts only the explicitly recorded native hashes. No force mode.
+
 check emits a read-only plan suitable for install --expected-plan. --offline
 asserts the server is stopped and exclusive access continues from check through
 SQL and install. SQL is not journaled or rolled back here. Preserve the manifest,
@@ -30,7 +40,90 @@ from crypt_release import (atomic, safe_path, durable_mkdir, disjoint, locked,
                            fsync_dir, digest_or_none, json_bytes)
 from crypt_release_client import require, sha, file_sha, relative
 from crypt_release_dbc import parse_dbc, merge_dbc
-from crypt_release_server_data import DELTAS, binary_check, baseline_check, merge_server
+from crypt_release_server_data import DELTAS, binary_check, baseline_check, merge_server, tile_models
+
+
+# Schema 2 adds guarded binary replacements, ordered additive donors and a
+# coordinated map contract. Schema 1 retains its exact pilot requirements.
+ADDITIVE_DBC = {
+    'dbc/AreaTable.dbc': (36, list(range(11, 27))),
+    'dbc/WMOAreaTable.dbc': (28, list(range(11, 27))),
+    'dbc/WorldMapArea.dbc': (11, [3]),
+    'dbc/WorldMapOverlay.dbc': (17, [8]),
+}
+
+
+class Payload(dict):
+    def __init__(self):
+        super().__init__()
+        self.donors = []
+        self.replacements = {}
+        self.contract = None
+
+
+def hashes(values):
+    require(isinstance(values, list) and values and len(set(values)) == len(values) and
+            all(isinstance(h, str) and re.fullmatch('[0-9a-f]{64}', h) for h in values),
+            'Invalid accepted hashes')
+
+
+def geography_check(payload, root=None):
+    """Validate the atomic full-tree unit and its effective navigation inputs."""
+    c = payload.contract
+    if c is None:
+        return {}
+    require(set(c) == {'vmap_tiles', 'model_closure', 'mmap_tiles', 'map_dependencies'},
+            'Unknown geography contract fields')
+    tiles = sorted(n for n in payload if re.fullmatch(r'vmaps/000_\d\d_\d\d.vmtile', n))
+    require('vmaps/000.vmtree' in payload and tiles == c['vmap_tiles'],
+            'Incomplete VMap fullset')
+    models = sorted({'vmaps/' + model for n in tiles for model in tile_models(payload[n])})
+    require(models == c['model_closure'] and all(n in payload for n in models),
+            'Incomplete VMap model closure')
+    for n, accepted in c['map_dependencies'].items():
+        require(re.fullmatch(r'maps/000\d{4}.map', n), 'Invalid halo dependency path')
+        hashes(accepted)
+        if n in payload:
+            require(sha(payload[n]) in accepted, f'Halo dependency mismatch: {n}')
+    require('mmaps/000.mmap' in payload, 'Missing coordinated MMap params')
+    require(sorted(n for n in payload if re.fullmatch(r'mmaps/000\d{4}.mmtile', n)) ==
+            c['mmap_tiles'], 'Incomplete regional/halo MMap fullset')
+    if root is None:
+        return {}
+    dependencies = {}
+    existing = {p.relative_to(root).as_posix() for p in (root / 'vmaps').glob('000*.vmtile')}
+    require(existing <= set(tiles), 'Stale installed VMap tiles outside fullset')
+    for n, accepted in c['map_dependencies'].items():
+        path = safe_path(root / n)
+        actual = sha(payload[n]) if n in payload else file_sha(path)
+        require(actual in accepted, f'Halo dependency mismatch: {n}')
+        if n not in payload:
+            dependencies[n] = actual
+    params = struct.unpack('<5f2I', payload['mmaps/000.mmap'])
+    native_path = safe_path(root / 'mmaps/000.mmap')
+    native = struct.unpack('<5f2I', native_path.read_bytes())
+    require(params[:5] == native[:5] and params[6] == native[6] and
+            params[5] > 0 and params[6] > 0, 'MMap params compatibility mismatch')
+    survivors = {}
+    for p in (root / 'mmaps').glob('000*.mmtile'):
+        safe_path(p)
+        n = p.relative_to(root).as_posix()
+        if n not in payload:
+            survivors[n] = p.read_bytes()
+            dependencies[n] = sha(survivors[n])
+    survivors.update({n: raw for n, raw in payload.items()
+                      if re.fullmatch(r'mmaps/000\d{4}.mmtile', n)})
+    coordinates = set()
+    for n, raw in survivors.items():
+        binary_check(n, raw)
+        require(len(raw) >= 156, f'Truncated Detour mesh header: {n}')
+        header = struct.unpack_from('<15I', raw, 56)
+        coord = tuple(header[2:5])
+        require(coord not in coordinates and 0 < header[6] <= params[6],
+                f'MMap duplicate coordinate/poly capacity: {n}')
+        coordinates.add(coord)
+    require(len(survivors) <= params[5], 'Insufficient MMap tile capacity')
+    return dependencies
 
 
 FACIAL_STYLE_TARGET = 'dbc/CharacterFacialHairStyles.dbc'
@@ -105,7 +198,8 @@ def inventory(manifest):
     manifest = safe_path(manifest)
     raw = manifest.read_bytes()
     document = load_json(raw)
-    require(set(document) == {'schema', 'files'} and document['schema'] == 1,
+    require(document['schema'] in (1, 2) and set(document) ==
+            ({'schema', 'files'} if document['schema'] == 1 else {'schema', 'files', 'geography'}),
             'Unknown server data manifest schema')
     files = document['files']
     require(isinstance(files, dict) and files and list(files) == sorted(files),
@@ -117,12 +211,20 @@ def inventory(manifest):
         if path.is_file() and path != manifest:
             found.add(path.relative_to(manifest.parent).as_posix())
     require(found == set(files), 'Manifest coverage mismatch (missing/unlisted files)')
-    payload, kinds = {}, {}
+    payload, kinds = Payload(), {}
+    payload.contract = document.get('geography')
+    require(document['schema'] == 1 or isinstance(payload.contract, dict),
+            'Schema 2 requires a geography contract')
     for name, record in files.items():
         source = safe_path(manifest.parent / canonical(name))
-        require(set(record) == {'path', 'sha256', 'size', 'kind'}, 'Unknown entry fields')
+        extra = {'accepted_before'} if record['kind'] == 'replace' else set()
+        require(set(record) == {'path', 'sha256', 'size', 'kind'} | extra, 'Unknown entry fields')
+        require(document['schema'] == 2 or record['kind'] not in ('replace', 'additive-dbc'),
+                'Entry requires schema 2')
         target = canonical(record['path']).as_posix()
-        require(target not in payload, f'Duplicate target: {target}')
+        require(target not in payload or (document['schema'] == 2 and
+                record['kind'] in ('dbc-delta', 'additive-dbc') and
+                kinds[target] in ('dbc-delta', 'additive-dbc')), f'Duplicate target: {target}')
         require(type(record['size']) is int and record['size'] >= 0 and
                 isinstance(record['sha256'], str) and
                 re.fullmatch('[0-9a-f]{64}', record['sha256']), 'Invalid size/hash')
@@ -140,6 +242,12 @@ def inventory(manifest):
             merge_dbc(data, data, ids, strings, order)
             if target == 'dbc/Map.dbc':
                 require(rows[0][57] == 0, 'Server Map loading screen must remain zero')
+        elif kind == 'additive-dbc':
+            require(target in ADDITIVE_DBC, 'Unknown additive DBC target')
+            fields, strings = ADDITIVE_DBC[target]
+            n, rows, _ = parse_dbc(data)
+            require(n == fields and rows, f'Invalid additive DBC schema: {target}')
+            merge_dbc(data, data, [r[0] for r in rows], strings)
         elif kind == 'facial-style-delta':
             require(target == FACIAL_STYLE_TARGET, 'Unknown facial-style DBC target')
             rows, _ = parse_natural_dbc(data)
@@ -147,7 +255,10 @@ def inventory(manifest):
             require(mapped in (FACIAL_STYLE_ROWS, {**FACIAL_STYLE_ROWS, **TAUREN_FACIAL_STYLE_ROWS}),
                     'Expected seven Troll rows or complete Tauren facial-style extension')
         else:
-            require(kind == 'copy', f'Unknown entry kind: {kind}')
+            require(kind in ('copy', 'replace'), f'Unknown entry kind: {kind}')
+            if kind == 'replace':
+                hashes(record['accepted_before'])
+                payload.replacements[target] = record['accepted_before']
             path = Path(target)
             suffixes = {'maps': {'.map'}, 'vmaps': {'.vmtree', '.vmtile', '.vmo', '.m2'},
                         'mmaps': {'.mmap', '.mmtile'}}
@@ -156,9 +267,23 @@ def inventory(manifest):
             binary_check(target, data)
             if path.parts[0] == 'vmaps' and path.suffix in {'.vmo', '.m2'}:
                 require(data[:8] == b'VMAP_4.8', f'Incompatible collision model header: {target}')
+        if kind in ('dbc-delta', 'additive-dbc'):
+            payload.donors.append((target, kind, data))
         payload[target], kinds[target] = data, kind
-    require({n for n, k in kinds.items() if k == 'dbc-delta'} ==
-            {'dbc/' + n for n in DELTAS}, 'All five pilot DBC deltas are required')
+    require({n for n, k, _ in payload.donors if k == 'dbc-delta'} ==
+             {'dbc/' + n for n in DELTAS}, 'All five pilot DBC deltas are required')
+    # Detect conflicting durable donors during source-only validation too,
+    # without waiting for target access or letting a later donor mask a row.
+    combined = {}
+    for target, kind, data in payload.donors:
+        if kind == 'dbc-delta':
+            fields, ids, strings, order = DELTAS[Path(target).name]
+        else:
+            fields, strings = ADDITIVE_DBC[target]
+            ids, order = [r[0] for r in parse_dbc(data)[1]], False
+        empty = struct.pack('<4s4I', b'WDBC', 0, fields, fields * 4, 1) + b'\0'
+        combined[target] = merge_dbc(combined.get(target, empty), data, ids, strings, order)
+    geography_check(payload)
     return sha(raw), payload
 
 
@@ -228,7 +353,21 @@ def plan(manifest, data_dir, state=None):
         for sample in (data_dir / directory).glob(pattern):
             safe_path(sample)
     baseline_check(data_dir)
-    merged = merge_server(data_dir, payload)
+    pilot = {n: raw for n, kind, raw in payload.donors if kind == 'dbc-delta'}
+    merge_server(data_dir, pilot)  # Retain pilot binding/collision validation.
+    merged = {}
+    # Manifest source order is deterministic. Every donor is applied, including
+    # multiple donors for a single target; merge_dbc rejects semantic collisions.
+    for name, kind, raw in payload.donors:
+        if kind in ('dbc-delta', 'additive-dbc'):
+            if kind == 'dbc-delta':
+                fields, ids, strings, order = DELTAS[Path(name).name]
+            else:
+                fields, strings = ADDITIVE_DBC[name]
+                ids, order = [r[0] for r in parse_dbc(raw)[1]], False
+            base = merged.get(name, (data_dir / name).read_bytes())
+            merged[name] = merge_dbc(base, raw, ids, strings, order)
+    dependencies = geography_check(payload, data_dir)
     if FACIAL_STYLE_TARGET in payload:
         merged[FACIAL_STYLE_TARGET] = merge_natural_dbc(
             (data_dir / FACIAL_STYLE_TARGET).read_bytes(), payload[FACIAL_STYLE_TARGET])
@@ -238,9 +377,12 @@ def plan(manifest, data_dir, state=None):
         path = safe_path(data_dir / name)
         before = digest_or_none(path)
         if name not in merged:
-            require(before is None or before == sha(raw), f'Server payload collision: {name}')
+            require(before is None or before == sha(raw) or
+                    before in payload.replacements.get(name, []), f'Server payload collision: {name}')
         entries.append(dict(path=str(path), before=before, after=sha(raw)))
     result = dict(schema=1, identity=ident, files=entries)
+    if payload.contract is not None:
+        result['dependencies'] = dependencies
     if state is not None:
         state = Path(state).absolute()
         safe_path(state / 'journal.json')

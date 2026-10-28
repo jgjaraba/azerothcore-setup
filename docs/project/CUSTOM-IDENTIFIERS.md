@@ -94,6 +94,30 @@ namespace bindings and collision lessons, and `../turtle-wow/crypt-portals.md`
 for placement/access contracts. Other regions are not assigned IDs merely by
 listing their Turtle source identifiers.
 
+## High-elf geography on native map0
+
+`tools/high-elf-map.json` owns the source→destination assignments; durable final
+deltas/baselines are in `client_patches/archive/source-inputs/high-elf-map/`.
+No new Map ID, SQL content or playable-race starting data is allocated here.
+
+| Namespace | Destination | Contract |
+|---|---|---|
+| AreaTable | `2040`, `5225` | Alah'Thalas and Highlands roots on existing map0 |
+| AreaTable | `6500`–`6502` | source3881–3883 remapped; preserve native Outland records |
+| AreaTable | `5526`–`5535`, `5544`–`5546`, `5552`–`5555` | remaining source subareas retained by explicit identity mapping |
+| Area exploration flags | `3500`–`3521` |22 mapped areas; distinct from area record IDs |
+| WMOAreaTable record IDs | `60000`–`60017` |18 additive custom WMO metadata rows; not WMO root IDs |
+| WMO root identities | `6000`–`6002` | isolated custom families; inherited root4772/nameSet1 keys stay native |
+| WorldMapArea | `509`, `513` | source regional bounds/file tokens, additive map0 records |
+
+The source lock/deltas, rather than an entire numeric interval, define ownership.
+WorldMapOverlay assignments are enumerated in the
+[geographic ID register](../turtle-wow/id-mappings.md#altos-elfos-en-mapa0).
+Recheck effective client/locales, independent server DBC and SQL on each build;
+native records/string prefixes must survive merges. See the
+[geographic contract](../turtle-wow/high-elf-maps.md) and
+[schema2 server contract](../turtle-wow/high-elf-server-data.md).
+
 ## Forest Troll native skin customization
 
 - **CharSections.dbc / `charsections_dbc` IDs `20000`–`20089`:**90 body/face/

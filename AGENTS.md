@@ -40,6 +40,13 @@ configuration/data -> SQL -> module -> core modification
 This is a maintainability preference, not a restriction. Correctness takes
 precedence.
 
+## Turtle geographic ports
+
+For importing or repairing Turtle zones/maps, load the project skill
+`turtle-zone-import` in `.opencode/skills/turtle-zone-import/SKILL.md`.
+The canonical procedure remains `docs/turtle-wow/migration-guide.md`; do not
+turn region-specific builders or acceptance into blanket format compatibility.
+
 ## Native racial customization delivery
 
 Follow [`ADR-0007`](docs/project/decisions/ADR-0007-native-customization-editions.md)

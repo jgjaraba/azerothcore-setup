@@ -2,12 +2,12 @@
   "hd_client/Data/enUS/patch-enUS-Z.MPQ": "6ce2f699872a2e2614d4f5579bf70b6393fa67c43bfc28f90d65626610d717af",
   "hd_client/Data/esES/patch-esES-Z.MPQ": "bde574cdc5d0c085122131d380f86d402a420a8a4073c73dd07f21ab7d4e624b",
   "hd_client/Data/patch-Z.mpq": "b4d5e06ec86aff162efdf36c09e4500d96eca567087ce0abfeaea6dcd200489e",
-  "inventory.json": "016d32334b9ddd7d670fab713fe60e0533115fbf50c79438626ac388dc2510b8",
-  "regular_client/Data/enUS/patch-enUS-Z.MPQ": "59665bfae4d2bb520a974ed9c61efb174ac2c55da2ab99f50b937b5e6308ec7a",
-  "regular_client/Data/esES/patch-esES-Z.MPQ": "40abc328b300ca17791816bc196cac1ed670ff3703ff93f1e570b7fbd31bb811",
+  "inventory.json": "a34d50080b3eb5c940796164f748555594c35abfaf03d3d9e24cfec0165c9bf2",
+  "regular_client/Data/enUS/patch-enUS-Z.MPQ": "3b994ae6ecce21297abdf622d1851e049825388b2fcd2b013d42bc134315755e",
+  "regular_client/Data/esES/patch-esES-Z.MPQ": "2d92e744871744d1c826f29db30bd97d81ffc8ca15d2e5dae2b6689611e3916b",
   "regular_client/Data/patch-S.MPQ": "6cbacccc3988f6e0455ef029d58589727a85e071b827680d5eacfbbc34f37f9a",
-  "regular_client/Data/patch-T.MPQ": "d0317c2b66ec5f73747a411f9eba2c68a4cd489dbf564f2767626e1aa41518f0",
-  "regular_client/Data/patch-Z.mpq": "dacea07ab80d69c9998ab75bbdf64b8ad2429cba7ad185f6f4cac10b12e24027",
+  "regular_client/Data/patch-T.MPQ": "491b64ce0df41215d9459736a5ac207cca6f9da0d06d9c27a934bd05f3bc01c0",
+  "regular_client/Data/patch-Z.mpq": "616d8557736d44b01af1bd92d920e623d957b7e5bf8d8e6a3de674345f5e59c8",
   "regular_client/Wow-new-races.exe": "87ceca9ea08da2f0d9d312d833ae76751a3ab8f2b8a7d742bfd2356e55f291f3",
-  "validation.json": "58e9bf441e64bd2591e12e32ed9862e11be0a1ea2d5e20af1f5566cd4b44fda2"
+  "validation.json": "959f73f8005241985ef398346632ec055e6d5839e36907da2b84eedd6e5a1fd0"
 }

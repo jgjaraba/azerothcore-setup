@@ -30,7 +30,7 @@ REG = 'client_patches/regular_client/patch-Z.mpq'
 HD = 'client_patches/hd_client/patch-Z.mpq'
 ARCHIVE_DIRS = ('optional-extra-skins', 'new-races/optional-extra-skins',
                 'turtle_forest_troll/optional-extra-skins', 'turtle_forest_troll/face-format-test', 'turtle_forest_troll/v2')
-LOCALIZED = {'chrraces', 'map', 'areatable', 'mapdifficulty', 'spell'}
+LOCALIZED = {'chrraces', 'map', 'areatable', 'mapdifficulty', 'spell', 'wmoareatable'}
 # ChrRaces field7 is numeric TeamID, NOT a string offset. ClientFileString is
 # field11: native Glue uses it for background/ambience and race icon selection.
 STRINGS = {'chrraces': [6, 11, *range(14, 30), *range(31, 47), *range(48, 64), 65, 66, 67],
@@ -40,6 +40,8 @@ STRINGS = {'chrraces': [6, 11, *range(14, 30), *range(31, 47), *range(48, 64), 6
 for _name, (_, _, _strings, _) in DBC_DELTAS.items():
     STRINGS[_name[:-4].lower()] = _strings
 STRINGS['mapdifficulty'] = [*range(3, 19), 22]  # trailing internal difficulty name
+STRINGS['wmoareatable'] = list(range(11, 27))
+STRINGS['worldmapoverlay'] = [8]
 
 
 def require(ok, message):
@@ -117,6 +119,11 @@ class Sources:
         self.lock, self.cache, self.verified = lock, {}, set()
 
     def get(self, source):
+        if source.startswith('high-elf-map:'):
+            from package_high_elf_map import source_members
+            if source not in self.cache:
+                self.cache[source] = source_members(source)
+            return self.cache[source]
         if source not in self.cache:
             spec = self.lock['sources'][source]
             path = ROOT / spec['path']
@@ -275,7 +282,7 @@ def freeze(inventory):
     dump(LOCK, result)
 
 
-def plan(lock, sources):
+def plan(lock, sources, include_high_elf=True):
     result = {}
     def add(package, name, raw, provenance):
         result.setdefault(package, {})[norm(name)] = {'name': name, 'data': raw, 'provenance': provenance,
@@ -352,6 +359,10 @@ def plan(lock, sources):
                     raw = merge_dbc(base, donor, ids, STRINGS[table.lower()], order)
                 add(package, new[key][0], raw, [native_key, origin[key]])
             copy(package, 'client_patches/patch-'+locale+'-Z.MPQ', 'dbfilesclient/spell.dbc')
+    if include_high_elf:
+        from package_high_elf_map import integrate
+        sources.high_elf_native = result
+        return integrate(result)
     return result
 
 
@@ -369,6 +380,10 @@ def audit(planned, lock, sources):
                 continue
             table = key.split('/')[-1][:-4]
             for source in entry['provenance']:
+                if source.startswith('high-elf-map:deltas/'):
+                    # A regional delta is an input, not a full-table baseline.
+                    # Report the real pre-map diff against its pinned base instead.
+                    continue
                 base = sources.get(source).get(key)
                 if base:
                     diff = record_diff(base[1], entry['data'], table)
@@ -504,6 +519,10 @@ def audit(planned, lock, sources):
         require(planned['regular_client/Data/patch-S.MPQ'][key]['data'] == expected,
                 'Packaged eye opacity differs from validated postprocess')
         report['high_elf_eye_opacity'][sex] = proof
+    if hasattr(sources, 'high_elf_native'):
+        from package_high_elf_map import audit as map_audit
+        report['high_elf_map'] = map_audit(sources.high_elf_native, planned)
+        report['feature_matrix']['regular_client']['high_elf_map0'] = 'INCLUDED; offline structural validation only'
     return report
 
 
@@ -513,7 +532,28 @@ def inventory(planned):
                       for key, e in sorted(entries.items())} for package, entries in sorted(planned.items())}
 
 
-def build(output, planned, lock, report):
+def validate_native_delivery(planned, lock):
+    """Retain every old delivery hash as an executable pre-extension contract."""
+    with tempfile.TemporaryDirectory(prefix='consolidate-native-') as tmp:
+        tmp = Path(tmp)
+        for package, digest in lock.get('preserved_regular_delivery', {}).items():
+            if package.endswith('.exe'):
+                require(file_sha(pinned_path('launcher', lock['launcher'])) == digest, 'Native launcher changed')
+                continue
+            lines = []
+            for i, (_, entry) in enumerate(sorted(planned[package].items())):
+                disk = tmp / str(i)
+                disk.write_bytes(entry['data'])
+                lines.append(str(disk)+'|'+entry['name'])
+            manifest = tmp/'manifest'
+            manifest.write_text('\n'.join(lines)+'\n')
+            dest = tmp/'native.MPQ'
+            run('create', dest, manifest)
+            require(file_sha(dest) == digest, f'Pinned pre-extension delivery changed: {package}')
+            dest.unlink()
+
+
+def build(output, planned, lock, report, native_planned=None):
     require(not output.exists(), f'Build output must be fresh: {output}')
     output.mkdir(parents=True)
     with tempfile.TemporaryDirectory(prefix='consolidate-build-') as tmp:
@@ -532,8 +572,11 @@ def build(output, planned, lock, report):
     for profile in lock.get('launcher_profiles', lock['profiles']):
         launcher = pinned_path('launcher', lock['launcher'])
         shutil.copyfile(launcher, output/profile/'Wow-new-races.exe')
-    for path, digest in lock.get('preserved_regular_delivery', {}).items():
-        require(file_sha(output/path) == digest, f'Published regular payload changed: {path}')
+    if native_planned is not None:
+        validate_native_delivery(native_planned, lock)
+    else:
+        for path, digest in lock.get('preserved_regular_delivery', {}).items():
+            require(file_sha(output/path) == digest, f'Published regular payload changed: {path}')
     dump(output/'inventory.json', inventory(planned))
     dump(output/'validation.json', report)
     sums = {str(p.relative_to(output)): file_sha(p) for p in sorted(output.rglob('*')) if p.is_file()}
@@ -653,6 +696,8 @@ def main():
     parser.add_argument('--reproducible', action='store_true')
     parser.add_argument('--publish', action='store_true')
     parser.add_argument('--archive-optionals', action='store_true')
+    parser.add_argument('--native-only', action='store_true',
+                        help='Reconstruct the unchanged pinned pre-High-Elf delivery (rollback/research)')
     args = parser.parse_args()
     if args.freeze:
         freeze(args.freeze)
@@ -662,11 +707,13 @@ def main():
         return
     lock = json.loads(LOCK.read_text())
     sources = Sources(lock)
-    planned = plan(lock, sources)
+    planned = plan(lock, sources, include_high_elf=not args.native_only)
+    native = getattr(sources, 'high_elf_native', planned)
     report = audit(planned, lock, sources)
     for profile, status in report['compatibility'].items():
         print(f'{profile}: {status}')
     if args.verify:
+        validate_native_delivery(native, lock)
         verify(args.verify, planned, lock)
         require(json.loads((args.verify/'validation.json').read_text()) == report, 'Validation report differs')
         print('Verified MPQ readback, member allowlists, provenance, DBC contracts and checksums.')
@@ -674,12 +721,12 @@ def main():
             publish(args.verify, lock)
         return
     require(args.output is not None, '--output or --verify required')
-    build(args.output, planned, lock, report)
+    build(args.output, planned, lock, report, native)
     verify(args.output, planned, lock)
     if args.reproducible:
         with tempfile.TemporaryDirectory(prefix='consolidate-repeat-') as tmp:
             second = Path(tmp)/'delivery'
-            build(second, planned, lock, report)
+            build(second, planned, lock, report, native)
             verify(second, planned, lock)
             require({str(p.relative_to(args.output)): file_sha(p) for p in args.output.rglob('*') if p.is_file()} ==
                     {str(p.relative_to(second)): file_sha(p) for p in second.rglob('*') if p.is_file()},

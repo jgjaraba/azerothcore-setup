@@ -1,30 +1,25 @@
 #!/usr/bin/env python3
 """Vanilla 1.12 -> WotLK 3.3.5 ADT converter (full re-serializer).
 
-This retains the sampled dry-pilot terrain chunks; it is not a validated
-generic converter for wet/optional-chunk-bearing maps. The rewrite:
+This retains terrain and legacy MCLQ water without translating liquid data.
+The rewrite:
   1. remaps MMDX model names (e.g. `.mdx` -> `.m2`) via a model map,
   2. remaps MCNK area IDs via an area map,
 and re-emits the file with recalculated MHDR offsets and MCIN entries.
 
-Water conversion is NOT implemented. The optional MHDR field mapping below
-has a known limitation; see docs/turtle-wow/compatibility.md before reuse.
+Liquid policy: preserve MCNK flags, MCLQ offsets/size, masks, heights and bytes.
+Do not manufacture MH2O or change alpha/liquid flags. ADT/v18 documents legacy
+MCLQ client support (https://wowdev.wiki/ADT/v18#MCLQ_sub-chunk); AzerothCore's
+map_extractor/adt.h and System.cpp also read it using MCNK.sizeMCLQ, not its
+often-zero internal size. This is structural preservation, not a render test.
 """
 import struct
 from adt_refs import remap_name_table
+from adt import CHUNK_MAGIC, MHDR_FIELDS, _adt_layout
 
 REVM = b'REVM'
 RDHM = b'RDHM'
 NICM = b'NICM'
-
-CHUNK_MAGIC = {
-    'mtex': b'XETM', 'mmdx': b'XDMM', 'mmid': b'DIMM', 'mwmo': b'OMWM',
-    'mwid': b'DIWM', 'mddf': b'FDDM', 'modf': b'FDOM', 'mh2o': b'O2HM',
-    'mfbo': b'OBFM', 'mtxf': b'FXTM', 'mtcg': b'GCTM',
-}
-# MHDR field index -> chunk key (index 0 = flags, 1 = mcin)
-MHDR_FIELDS = ['flags', 'mcin', 'mtex', 'mmdx', 'mmid', 'mwmo', 'mwid',
-               'mddf', 'modf', 'mh2o', 'mtxf', 'mtcg', 'mfbo', 'a13', 'a14', 'a15']
 
 def _cstrs(data, off, end):
     out, p = [], off
@@ -42,28 +37,17 @@ def _rebuild_cstr_chunk(magic, names):
 
 def convert_adt(data, area_map=None, model_map=None):
     """data: bytes. area_map(aid)->aid. model_map(name)->name|None (keep)."""
-    if data[:4] != REVM:
-        raise ValueError('not an ADT')
-    mhdr = data.find(RDHM, 0, 0x100)
-    if mhdr == -1:
-        raise ValueError('no MHDR')
-    base = mhdr + 8
-    vals = list(struct.unpack_from('<16I', data, base))
-
-    mver = data[:mhdr]  # MVER chunk (magic+size+version)
+    _, vals, offsets, entries, ends = _adt_layout(data)
+    mver = data[:12]
 
     # Extract body chunks (raw magic+size+data) via MHDR offsets.
     chunks = {}
-    for i, key in enumerate(MHDR_FIELDS):
-        if key in ('flags', 'mcin', 'a13', 'a14', 'a15') or key is None:
-            continue
-        off = vals[i]
-        if not off:
+    for key in MHDR_FIELDS[2:12]:
+        pos = offsets[key]
+        if not pos:
             chunks[key] = None
             continue
-        pos = base + off
-        size = struct.unpack_from('<I', data, pos + 4)[0]
-        chunks[key] = bytearray(data[pos:pos + 8 + size])
+        chunks[key] = bytearray(data[pos:ends[pos]])
 
     # Transform MMDX names.
     if chunks.get('mmdx') is not None and model_map:
@@ -81,12 +65,10 @@ def convert_adt(data, area_map=None, model_map=None):
         chunks['mmid'] = CHUNK_MAGIC['mmid'] + struct.pack('<I', len(new_offsets)) + new_offsets
 
     # Transform MCNKs (fixed-length area patch) and record their MCIN index.
-    mcin_pos = base + vals[1]
     mcnk_slots = {}  # index(0..255) -> chunk bytes
-    for i in range(256):
-        off, sz, flags, asyncid = struct.unpack_from('<4I', data, mcin_pos + 8 + i * 16)
+    for i, (off, sz, flags, asyncid) in enumerate(entries):
         if off and sz:
-            b = bytearray(data[off:off + 8 + sz])
+            b = bytearray(data[off:ends[off]])
             area = struct.unpack_from('<I', b, 0x3C)[0]
             na = area_map(area) if area_map else area
             if na != area:
@@ -97,10 +79,6 @@ def convert_adt(data, area_map=None, model_map=None):
     # Correct ADT order: MVER | MHDR(72) | MCIN(8+4096) | body chunks | MCNKs.
     # MCIN must sit at a fixed offset (84) so the extractor's hardcoded
     # `getMCNK = MCIN + offsMCNK - 84` resolves to absolute file offsets.
-    body_chunks = [k for k in ['mtex', 'mmdx', 'mmid', 'mwmo', 'mwid',
-                               'mddf', 'modf', 'mh2o', 'mfbo', 'mtxf', 'mtcg']
-                   if chunks.get(k) is not None]
-
     base_new = len(mver) + 8  # offset base for MHDR (data start)
     out = bytearray()
     out += mver
@@ -115,8 +93,14 @@ def convert_adt(data, area_map=None, model_map=None):
         return len(out) - len(chunk_bytes)
 
     body_offsets = {}
-    for k in body_chunks:
-        body_offsets[k] = emit(chunks[k])
+    keys_by_pos = {pos: key for key, pos in offsets.items() if pos}
+    for pos, end in ends.items():
+        if pos in (0, 12, offsets['mcin']) or data[pos:pos + 4] == b'KNCM':
+            continue
+        k = keys_by_pos.get(pos)
+        new_pos = emit(chunks[k] if k in chunks else data[pos:end])
+        if k:
+            body_offsets[k] = new_pos
 
     mcnk_offsets = {}
     for i in sorted(mcnk_slots):
@@ -136,11 +120,12 @@ def convert_adt(data, area_map=None, model_map=None):
     for i in range(256):
         if i in mcnk_offsets:
             abs_off = mcnk_offsets[i]
-            sz = len(mcnk_slots[i]) - 8
+            sz = len(mcnk_slots[i])
             struct.pack_into('<4I', out, mcin_off_abs + 8 + i * 16,
-                             abs_off, sz, 0, 0)
+                             abs_off, sz, entries[i][2], entries[i][3])
         else:
-            struct.pack_into('<4I', out, mcin_off_abs + 8 + i * 16, 0, 0, 0, 0)
+            struct.pack_into('<4I', out, mcin_off_abs + 8 + i * 16,
+                             0, 0, entries[i][2], entries[i][3])
 
     return bytes(out)
 

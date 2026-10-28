@@ -1,0 +1,113 @@
+{
+  "sole_delta_change": {
+    "row": 60017,
+    "column": 3,
+    "source_row": 50334,
+    "root": 6002,
+    "name_set": 0,
+    "old_group": 19746,
+    "new_group": 0
+  },
+  "delta_record_112_bytes_sha256": {
+    "old": "b5f41bde29f7b3e51f1e6bc5b2ce9d96b08706d0460a851f92c4c9932082b318",
+    "new": "04a3b31e1bdd8b9fd364b0200b9a3f9ac6b6713767a3ba9eb1dc5f23a2bc65ec"
+  },
+  "delta_sha256": {
+    "old": "36993b11cd3babe91bddb82344b9e81d26fcb061f05ea1a5f79c7608f8ac48f2",
+    "new": "e7c52ffc6aa292762e4cb0accec6524b46650b456fd34ee2eff244d1c2bd27d8"
+  },
+  "source_lock_sha256": {
+    "old": "ddb40796321fb59400260fe71a6fbee1119cb95c1a0c6dc424c1e993e624aa34",
+    "new": "5fcc130061b537c0b18139e979c7a7a21605d3459ee840e650e536abf3e6b5e1"
+  },
+  "server_manifest_sha256": {
+    "old": "0871d6b49081da78fa3808e5b2969f6c19f57a4c5ffae065dc27c26f93ea5b9f",
+    "new": "5bc4cce04ab33e27d733438c75027c5c40f512a65020d1667757252a420cb975"
+  },
+  "recovery_tar_sha256": "5bf9f810748b9319b56889f6103a21f240a24e94b5c5bafef35c2b514751eb9b",
+  "client_checksums_json_sha256": "ffde4beebafb43a5361c5b4256a6a432f7afc95e8fa02ef307ddd8bfc6607173",
+  "client_validation_json_sha256": "a7683c826f71b3264fcf1a69618d5f7ef3d6ca8789178dc81ec88162cc09b5cd",
+  "standalone_capture_byteidentical": true,
+  "server_manifest_only_wmo_delta_sha_changed": true,
+  "ownership_handoff": {
+    "live_not_modified": true,
+    "path": "/home/dev/azerothcore/env/dist/bin/dbc/WMOAreaTable.dbc",
+    "row_index": 22567,
+    "live_semantic_row_matches_old_owned_delta": true,
+    "live_record_112_bytes_sha256_before": "b5f41bde29f7b3e51f1e6bc5b2ce9d96b08706d0460a851f92c4c9932082b318",
+    "live_record_112_bytes_sha256_projected_after": "04a3b31e1bdd8b9fd364b0200b9a3f9ac6b6713767a3ba9eb1dc5f23a2bc65ec",
+    "live_file_sha256_before": "9fa9baa19af90b88defa7f1ee9ba77da622d60dc36a953dc6e1564b2a0887d22",
+    "live_file_sha256_projected_after": "899b4e0defbb2c06a774d5d22a270f4b4c7da0792a9ec746b7c3c71d12630648",
+    "old_owned_semantic_row": [
+      60017,
+      6002,
+      0,
+      19746,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      6502,
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      16711884
+    ],
+    "new_owned_semantic_row": [
+      60017,
+      6002,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      6502,
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      16711884
+    ],
+    "next_step": "Principal: back up; revalidate ownership/preimage; migrate only row60017 group; verify other rows/strings; apply helper using new manifest state. Collision guard stays enabled."
+  },
+  "checks": [
+    "DBC tests 14 PASS (including explicit rejection of the old owned row)",
+    "cartography tests 21 PASS on selected rebuilt fixture",
+    "consolidation tests 26 PASS",
+    "server installer tests 7 PASS, 1 opt-in real fixture skipped",
+    "normal build2 --reproducible --publish PASS",
+    "--verify client_patches PASS",
+    "independent review PASS"
+  ],
+  "geometry_regenerated": false
+}

@@ -22,13 +22,16 @@ mechanics.
   It is not assumed to be the active playing client or permanently synchronized
   with it. Original inputs are not edited; tested packages are installed in
   the user's chosen client separately.
-- **Format boundary**: dry-pilot terrain/reference adaptations have been
-  demonstrated, not blanket Vanilla/WotLK compatibility. Wet/optional chunks,
-  alpha and complete asset fidelity require per-resource verification; the
-  initial converter has a documented MHDR limitation. No MCLQ→MH2O project
-  converter is implemented. See the curated compatibility reference.
-- **Patch strategy**: `patch-T.MPQ` owns the pilot terrain and custom WMO.
-  The refreshed user-supplied snapshot has old terrain and a conflicting
+- **Format boundary**: dry-pilot and high-elf terrain/reference adaptations have
+  been demonstrated, not blanket Vanilla/WotLK compatibility. The parser and
+  serializer MHDR layout is corrected; the high-elf compositor retains source
+  MH2O and disables duplicate MCLQ. No general MCLQ→MH2O project converter is
+  implemented. Alpha, optional chunks and asset fidelity still require
+  per-resource verification. See the curated compatibility reference.
+- **Patch strategy**: consolidated regular `patch-T.MPQ` owns crypt and high-elf
+  geography without DBC; root/locale Z own the coordinated tables/cartography.
+  Use `client_patches/README.md` for current manual installation. Historically,
+  the refreshed user-supplied snapshot had old terrain and a conflicting
   map-800 DBC row in both root Z and esES Z, which shadow T. For that snapshot,
   `tools/build_pilot_overlay.py` prepares derived Z copies with only those
   conflicts reconciled, preserving unrelated content. Original input archives
@@ -37,9 +40,11 @@ mechanics.
 - **Project deployment**: [existing scripts](../../turtle-wow/deployment.md) own
   source patches and SQL. The world script's explicit `--with-server-data` mode
   installs the final repository payload in `data/server/manifest.json`, including
-  collision closure and narrow DBC deltas. Client MPQs live separately in
-  `client_patches/turtle_crypt/` and are copied manually using the root README;
-  neither script installs them. The stock variant excludes unrelated r5
+  collision closure and narrow DBC deltas. Schema2 also supports high-elf scoped
+  map0 replacements and additive DBC merges. Current client MPQs live in the
+  consolidated regular profile; historical crypt packages remain separately in
+  `client_patches/turtle_crypt/`. Neither script installs client files.
+  The historical stock variant excludes unrelated r5
   WorldMapArea changes and is not a replacement for custom/HD distributions.
   A from-source rebuild and complete private-server bootstrap remain distinct.
 
@@ -62,6 +67,9 @@ mechanics.
 | `crypt_release_client.py`, `crypt_release_dbc.py` | isolated stock-client distribution and collision-checked row transplant |
 | `crypt_release.py`, `crypt_release_server_{data,db}.py` | deterministic portable bundle, transactional install, reapply and recovery |
 | `apply_project_server_data.py` | internal file-plan/install/recovery helper for `apply-db-world.sh`; no SQL/client deployment |
+| `high_elf_map_dbc.py`, `high_elf_terrain.py`, `high_elf_map_assets.py`, `high_elf_map_cartography.py` | scoped map0 DBC, terrain composition, assets and cartography |
+| `package_high_elf_map.py` | source-locked regular consolidation hook |
+| `build_high_elf_server_data.py`, `stage_high_elf_server_data.py` | isolated extraction and preservation into the existing schema2 server manifest |
 
 ## Pilot cartography contract
 
@@ -140,12 +148,34 @@ coverage remains outside that acceptance:
   MMap uses a scoped0.9 contour-simplification override, with offline native
   path/LoS checks; this does not certify all room connections or NPC movement.
 
+## High-elf geography on native map0
+
+The [high-elf contract](../../turtle-wow/high-elf-maps.md) owns the extensive
+Highlands5225 / Alah'Thalas2040 addition:24 composed ADTs, source MH2O water,
+isolated props/WMOs, additive DBC/cartography and coordinated regular-client
+publication. Area3881–3883 remaps to6500–6502, preserving native Outland.
+
+The [server-data contract](../../turtle-wow/high-elf-server-data.md) covers23
+changed Maps, full map0 VMap tree/374 tiles,2951-model closure and34 regional/halo
+MMaps plus parameters. Installation/reapplication uses the existing helper and
+schema2 manifest, not a new installer. This geography adds no SQL, NPC, quests
+or playable-race starting data. Structural/deployment evidence does not establish
+client rendering or in-game collision/navigation by itself. Later bounded real
+client checks cover loading, dry/wet controls, minimaps and continental clicks;
+the user confirmed access and corrected liquids, not exhaustive gameplay.
+Native WDL/Light and adapted audio/cartography impose explicit fidelity limits.
+The [migration guide](../../turtle-wow/migration-guide.md) consolidates the full
+procedure; the [project skill](../../../.opencode/skills/turtle-zone-import/SKILL.md)
+and its template drive future imports without generalizing the region's IDs or
+hash-pinned adaptations.
+
 ## ID allocation
 
 | ID | Namespace | Value | Notes |
 |---|---|---|---|
 | Map | 800 | `KarazhanCrypt` | free in WotLK (max 724) |
 | Area | 5086 | `Karazhan Crypt` | free in WotLK |
+| Area | 6500–6502 | high-elf subareas | source3881–3883; native Outland retained |
 
 See `../../turtle-wow/id-mappings.md` for the full register and collision rules.
 
@@ -212,6 +242,9 @@ Turtle port. Level-limit/group/corpse cases were not explicitly reported.
   partial/disconnected, especially deeper/water regions. Actual NPC movement
   and the remaining connections still require validation. See
   [navigation contract](../../turtle-wow/navigation.md).
-- ADT liquid (`MCLQ`→`MH2O`) conversion is not yet implemented. The crypt WMO
-  does contain native liquid data, which is separate from ADT water conversion.
-- WMO/M2 conversion is unproven; the pilot reused vanilla assets only.
+- No general ADT liquid (`MCLQ`→`MH2O`) converter is implemented. The high-elf
+  path preserves source MH2O; crypt WMO liquid is a separate resource format.
+- The crypt uses a modified isolated native WMO. High-elf props/WMO and real
+  particle fixtures extend structural conversion evidence, but neither establish
+  universal WMO/M2 fidelity. Bounded client rendering checks are recorded
+  separately; they are not coverage of every asset, floor or path.

@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "art": "Simplified floor cartography generated from actual staged WMO; no source minimap artwork or equivalent-native alias. Explicit material indices per family, normalized upward triangle normal Z > 0.3. All groups are dry interior 001, single tile 00_00.",
+  "textures": {
+    "high": {"name": "DUNGEONS\\TEXTURES\\SILVERMOONCITY\\HIGH ELF\\JLO_HIGHELF_FLOOR_01.BLP", "sha256": "75153ccab3f1a454fe63c763009e07ec7164e4de23ec5b45f1399420663f0016"},
+    "floor3": {"name": "DUNGEONS\\TEXTURES\\SILVERMOONCITY\\WDBLDELF_FLOOR3.BLP", "sha256": "ffb28352a60fcc191bb656141ae0e1812e2e40de1bc220aa6bbe983de8798456"},
+    "flor1": {"name": "DUNGEONS\\TEXTURES\\SILVERMOONCITY\\WDBLDELFGT_FLOR1.BLP", "sha256": "d1937b02a6810089f4fead9632768904dd04af3a606ec87add3ebe5be3427eac"},
+    "custom": {"name": "Character\\Custom\\HighElfMap\\he_4a99854ba70261175cd1_jlo_high1elf_floor_01.blp", "sha256": "9c29fc5a3feca9536923b9e92e3d293ac68957363f9ac87a82dd80358df557db"},
+    "blood": {"name": "DUNGEONS\\TEXTURES\\FLOOR\\JLO_BLOODELF_FLOOR_02.BLP", "sha256": "127ecee624249579ccfc8d0d86c6258c0da514f78dec3d09a2ae24739f0b595b"}
+  },
+  "groups": [
+    {"family": "RoundHouseVariantA", "file": "he_21eac7049509767827ec_highelfhouseroundvarianta", "root_sha256": "f05be7dd3d2dd3cd1b3a14a80f37f624fe2ff7efedc6476f2b3b986462fc536f", "group_sha256": "c8aa8304273a16fbaaf49b65593bf69c6b959cd75768086d50825d63b863d1f6", "materials": [[12, "high"]], "triangles": [[12, 244]]},
+    {"family": "HouseVariantD", "file": "he_60349bfbf077449e1511_highelfhousevariantd", "root_sha256": "2ef22babca1424e4246fc8add1b730ed7aff777ed3df57fa3ab2c8ca462971ea", "group_sha256": "e0032419eb4abb91a9d00193318b28c42e775ed27823d63f3a0c171cf38cf3a9", "materials": [[17, "high"]], "triangles": [[17, 244]]},
+    {"family": "Command", "file": "he_8b5d7663e9cabfff1b52_highelfcommand", "root_sha256": "7fae4ad86981812a0952b0c8aab001bbb429fd9ccd3b7ea6d32fba4e0ebdb02e", "group_sha256": "b080cf4a7da3cb070f22d5d48de359483fd6fdd586533182b76651a4c94a1535", "materials": [[19, "high"], [20, "floor3"], [28, "flor1"]], "triangles": [[19, 208], [20, 370], [28, 338]]},
+    {"family": "HouseVariantF", "file": "he_846e2efc83989526f7b9_highelfhousevariantf", "root_sha256": "afeac91fe29cea30d462030632d90457c925cb4741c64560e0da8e24639166ca", "group_sha256": "8ec5d93b46b21b99c3f66f98f6541c23391d1d390ac9c083cc74f2b6cb1a82d1", "materials": [[13, "high"], [19, "flor1"]], "triangles": [[13, 17], [19, 57]]},
+    {"family": "HouseVariantG", "file": "he_6db0c842da765194d787_highelfhousevariantg", "root_sha256": "47d908f63773dca10ca3940b3ce07868a0dc6f18daf92555c4fefbf9b1f4c4de", "group_sha256": "cd9188e00cf7a7ea4b6e2de7a0990c6fb95acddb3a46aa452090e0efa08d19ba", "materials": [[19, "high"]], "triangles": [[19, 244]]},
+    {"family": "HouseVariantB", "file": "he_195a0a632bd23cea9a73_highelfhousevariantb", "root_sha256": "f50d7b3e44d15e953bd86bf921ed86912117a7255f9aea68b9ff4e63c659b17a", "group_sha256": "989c82d5471f1c6fb4eceeef10ebb04e78680179d2a1f585a73d78c5896755e8", "materials": [[16, "high"]], "triangles": [[16, 244]]},
+    {"family": "HouseVariantC", "file": "he_0a74710d1fed286c825a_highelfhousevariantc", "root_sha256": "6bc7ed854ac78e9ffd30424824a9497b4fe53207d469ef9392307314c804872d", "group_sha256": "991935f776336dcd4d94f87796f69783f2de3fcf527925a8736261954ca743df", "materials": [[18, "high"]], "triangles": [[18, 244]]},
+    {"family": "HouseVariantA", "file": "he_55db3dc7142898fe8ab3_highelfhousevarianta", "root_sha256": "4ae35ab041c705513f246d5e8caaf697e98391dc74a6a57c9e385cb490cd8077", "group_sha256": "4c7f825bc440762fd995e5c6f11784a31e46b5ecc2996f99fbf801ca462c1bff", "materials": [[9, "high"]], "triangles": [[9, 244]]},
+    {"family": "ScryingTower", "file": "he_47e470113a9b0f260766_he_scrying_tower", "root_sha256": "ab42fd51ae85604aeeb94fce40df7d3f99761054c8b41fcf1750b83cfbb273e6", "group_sha256": "15cd69b652d844a281beefa55bb8ebce03cc95b4514dc972b2ebc7c8f728c6c4", "materials": [[13, "custom"], [0, "blood"]], "triangles": [[13, 51], [0, 73]]},
+    {"family": "SmallHouse03", "file": "he_3adca19a174dbdec561c_highelf_smallhouse03", "root_sha256": "3a6ac76ba61522b7514f0b76abe61ad3c9ca9aa3eb275d13e79cdadd5cf597d8", "group_sha256": "631acd1e08ebc4a66bcae9678a770ba3cd879627ba3c4a3f105d04443e24f854", "materials": [[9, "blood"], [10, "high"]], "triangles": [[9, 112], [10, 94]]},
+    {"family": "RoundHouseVariantB", "file": "he_e5bb2cbcb0943b34bc41_highelfhouseroundvariantb", "root_sha256": "7240bbfe97b24ebf0e3bb712f8ca5b869b54d1d7343f0e95789dc82abb84aab3", "group_sha256": "3e2bcae0412ebe5689d6c815e93c886b63a29237cb89f9dbe888ed0ced16c4e8", "materials": [[12, "high"]], "triangles": [[12, 244]]}
+  ]
+}

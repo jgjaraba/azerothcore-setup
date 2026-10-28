@@ -23,20 +23,30 @@ o sus bases upstream desde cero. Son el overlay de customizaciones del proyecto.
 | Código de extractores | `patches/core/turtle-pilot-extractors.patch`, en su manifiesto |
 | Instancia y acceso: diez filas SQL | `turtle_wow_maps.sql` y `turtle_wow_crypt_access.sql`, en el manifiesto world |
 | Geometría, colisión, navegación y metadatos | `data/server/turtle-crypt/`, inventariados en `data/server/manifest.json` |
+| Highlands/Alah'Thalas mapa0 | `data/server/high-elf-map/`, mismo manifiesto schema2; [contrato servidor](high-elf-server-data.md) |
+| Cliente regular vigente | `client_patches/regular_client/`; [instalación consolidada](../../client_patches/README.md) |
 | Cliente custom esES aceptado | `client_patches/turtle_crypt/r5-coordinated/Data/`: T y los dos Z coordinados |
 | Cliente stock esES opcional | `client_patches/turtle_crypt/stock-esES/`: T aislado e informe de base |
 
-El manifiesto servidor actual verifica tamaños/SHA256 y cobertura de431 archivos:
+La unidad histórica cripta/personalización verifica tamaños/SHA256 de431 fuentes:
 425 binarios —seis mapas, árbol y seis tiles VMap, parámetros y seis tiles MMap,
 405 modelos de colisión—, cinco DBC geográficas **compactas con filas propias**
 y un delta natural de siete rasgos Troll y cuatro Tauren de la
 [entrega acumulativa](tauren-customizations.md).
-La cripta original conserva sus430 archivos; la ampliación no los reemplaza.
+La cripta original conserva sus430 archivos; la ampliación facial no los reemplaza.
 Los nombres de164 modelos físicos terminan en `.m2`; son colisión servidor con
 cabecera VMAP_4.8, no modelos cliente MD20. Copiar solo `800*` es insuficiente.
 
-Los archivos de cliente se conservan separados de las distribuciones regular/HD
-anteriores. Ninguna de esas dos distribuciones se reemplaza automáticamente.
+El manifiesto combinado schema2 incorpora ahora la geografía alto elfo:3414
+destinos coordinados, con23 Maps, árbol mapa0 y374 tiles VMap completos,2951
+modelos de cierre,34 MMaps regionales/halo más parámetros y cuatro deltas DBC
+aditivos. La aplicación DEV cambió474 archivos; los demás eran idénticos. No
+confundir destinos combinados con archivos nuevos ni con el inventario histórico.
+No se añade SQL alto elfo ni se activan razas iniciales. Detalles en
+[high-elf-server-data.md](high-elf-server-data.md).
+
+Los paquetes históricos de cliente se conservan separados de la entrega
+regular/HD vigente. Ningún script servidor copia esos MPQ automáticamente.
 La stock no incorpora las104 filas ajenas de WorldMapArea del T r5 ni su cambio
 de Ruby Sanctum; los Z coordinados no son un reemplazo compatible con HD.
 Comprobar `client_patches/turtle_crypt/SHA256SUMS` antes de la copia manual.
@@ -90,11 +100,15 @@ Comprueba compatibilidad binaria nativa mediante muestras de mapa0
 (MAPS9/build12340, VMAP_4.8, MMap20/Detour7), colisiones y fusiones DBC. Después
 ejecuta el SQL en su orden habitual y vuelve a comprobar el plan antes de
 instalar. Conserva las filas/cadenas DBC ajenas y ordena AreaTrigger por MapID.
-Los binarios existentes solo se aceptan si son idénticos; no se sobrescriben
-otros modelos o geometría. Los subdirectorios DBC de locales se rechazan porque
+Los modelos de colisión existentes solo se aceptan si son idénticos. Schema2
+permite reemplazar geometría únicamente contra preimágenes SHA256 explícitas
+del manifiesto; rechaza baselines desconocidas. Comprueba el árbol/tiles VMap
+completo, cierre de modelos, ausencia de tiles antiguos ajenos al conjunto,
+dependencias Map del halo y compatibilidad/capacidad MMap con tiles retenidos.
+Los subdirectorios DBC de locales se rechazan porque
 necesitan migración explícita de sus overrides.
 
-Se mantienen los cinco deltas DBC en archivos, en vez de convertirlos a nuevos
+Se mantienen los deltas DBC en archivos, en vez de convertirlos a nuevos
 overlays SQL. En particular, WorldMapArea se indexa por AreaID, mientras el
 loader SQL ordena por ID y dimensiona usando la primera fila: añadir674/5086
 sin revisar los overrides superiores existentes puede infradimensionar su
@@ -110,6 +124,11 @@ Repetir el mismo comando con el mismo estado comprueba archivos instalados y
 los reutiliza; las dos unidades SQL Turtle aceptan repetición idéntica y fallan
 ante conflictos. Esto no certifica la idempotencia de cada personalización
 ajena del manifiesto general ni hace atómico el lote completo.
+
+Al cambiar el manifiesto, usar **un directorio de estado nuevo**: su hash forma
+parte de la identidad del diario. La reaplicación del mismo manifiesto reutiliza
+su estado propio. Conservar estados anteriores junto con sus fuentes/manifiestos
+para recuperación; no editar ni borrar diarios para eludir `State identity mismatch`.
 
 **SQL + archivos no son una sola transacción.** Si falla un SQL, el script para
 y no instala los archivos, pero pueden permanecer SQL anteriores ya aplicados.

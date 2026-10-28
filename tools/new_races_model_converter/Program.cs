@@ -71,11 +71,14 @@ internal static class Program
         byte[] original = File.ReadAllBytes(source);
         if (original.Length < 324 || System.Text.Encoding.ASCII.GetString(original, 0, 4) != "MD20" || U32(original, 4) != 256)
             throw new ArgumentException("Only classic MD20 v256 input is supported.");
-        // Reject unimplemented flipbooks, ribbons and particles instead of emitting a misleading conversion.
-        foreach (int offset in new[] { 108, 308, 316 })
+        // Particle layouts are validated before M2Lib can truncate legacy fields or follow offsets.
+        ValidateParticles(original);
+        // Flipbooks and ribbons still have no established conversion.
+        foreach (int offset in new[] { 108, 308 })
             if (U32(original, offset) != 0) throw new NotSupportedException("Nonempty classic block at header offset " + offset);
         var model = new M2();
         using (var reader = new BinaryReader(File.OpenRead(source))) model.Load(reader);
+        var particleConversion = ConvertParticles(original, model);
         model.PreserveSourceLookups = true;
         var destinations = new List<string> { output, output + ".report.json" };
         for (int i = 0; i < model.Views.Count; i++) destinations.Add(M2SkinProfile.SkinFileName(output, i));
@@ -142,9 +145,163 @@ internal static class Program
             fullySupported = issues.Count == 0, nativeRuntime = "NOT RUN", stage = "experimental-manual-client-test-required",
             files
         };
-        string json = JsonSerializer.Serialize(report, JsonOptions) + "\n";
+        // Keep reports (and binaries) for existing particle-free sources byte-identical.
+        var document = System.Text.Json.Nodes.JsonNode.Parse(JsonSerializer.Serialize(report, JsonOptions));
+        if (particleConversion.Count != 0)
+            document["particleConversion"] = System.Text.Json.Nodes.JsonNode.Parse(JsonSerializer.Serialize(particleConversion, JsonOptions));
+        string json = document.ToJsonString(JsonOptions) + "\n";
         File.WriteAllText(output + ".report.json", json);
         Console.Write(json);
+    }
+
+    // v256: 504-byte records; v264: 476-byte records. See the format/control evidence
+    // in patches/third-party/m2lib/particles.md. Do not use M2Lib's speculative legacy
+    // fake-track/spin conversion. Retain ordinary animated tracks through its timeline API.
+    static void ParticleRequire(bool condition, string reason)
+    {
+        if (!condition) throw new NotSupportedException("Classic particle: " + reason);
+    }
+
+    static int CheckedArray(byte[] b, int header, int width)
+    {
+        ParticleRequire(header >= 0 && (long)header + 8 <= b.Length, "array header outside file");
+        uint n = U32(b, header), p = U32(b, header + 4);
+        ParticleRequire(n <= int.MaxValue && p <= int.MaxValue && (long)p + (long)n * width <= b.Length, "array outside file");
+        return (int)p;
+    }
+
+    static float ParticleFloat(byte[] b, int offset)
+    {
+        float value = BitConverter.ToSingle(b, offset);
+        ParticleRequire(float.IsFinite(value), "nonfinite float");
+        return value;
+    }
+
+    static void ValidateParticles(byte[] b)
+    {
+        int p = CheckedArray(b, 316, 504), count = (int)U32(b, 316);
+        if (count == 0) return;
+        int sequences = CheckedArray(b, 28, 68), globals = CheckedArray(b, 20, 4);
+        int ns = (int)U32(b, 28), ng = (int)U32(b, 20);
+        ParticleRequire(ns > 0, "emitters without sequences are not supported");
+        for (int i = 0; i < count; i++)
+        {
+            int r = p + i * 504;
+            ushort H(int o) => BitConverter.ToUInt16(b, r + o);
+            ParticleRequire(H(20) < U32(b, 52) && H(22) < U32(b, 92), "bone/texture binding outside model");
+            // This bounded implementation covers billboard plane/sphere particles, including
+            // animated scalar tracks, head UV ramps and static tumble/wind parameters.
+            // Tail/both need their own independent semantic control before acceptance.
+            ParticleRequire(H(40) <= 7 && (H(42) == 1 || H(42) == 2) && b[r + 44] == 0 && b[r + 45] == 0,
+                "unsupported blend/emitter/particle/head-tail type");
+            ParticleRequire((U32(b, r + 4) & 0xffff0000) == 0, "unestablished classic high flag bits");
+            ParticleRequire(H(48) > 0 && H(50) > 0, "zero atlas dimensions");
+            foreach (int o in new[] { 24, 32 })
+            {
+                int s = CheckedArray(b, r + o, 1);
+                ParticleRequire(U32(b, r + o) == 0 || (U32(b, r + o) == 1 && b[s] == 0),
+                    "model/child-emitter resource requires separate conversion");
+            }
+            CheckedArray(b, r + 468, 12);
+            ParticleRequire(U32(b, r + 468) == 0, "spline points on non-spline emitter");
+            foreach (int o in new[] { 8, 12, 16, 332, 348, 352, 356 }) ParticleFloat(b, r + o);
+            float mid = ParticleFloat(b, r + 332);
+            ParticleRequire(mid > 0 && mid < 1, "degenerate lifetime midpoint");
+            ParticleRequire(Math.Round((double)mid * short.MaxValue, MidpointRounding.AwayFromZero) > 0 &&
+                Math.Round((double)mid * short.MaxValue, MidpointRounding.AwayFromZero) < short.MaxValue,
+                "lifetime midpoint collapses after fixed0.15 quantization");
+            for (int o = 380; o < 468; o += 4) ParticleFloat(b, r + o);
+            ParticleRequire(H(364) == 1 && H(370) == 1, "repeated head UV cycles cannot be represented by a four-key ramp");
+            ParticleRequire(H(372) == 0 && H(374) == 0 && H(376) == 0 && H(378) == 0,
+                "nonempty tail UV needs independent semantic validation");
+            for (int j = 0; j < 11; j++)
+            {
+                int t = r + (j == 10 ? 476 : 52 + j * 28);
+                int width = j == 10 ? 1 : 4;
+                int ranges = CheckedArray(b, t + 4, 8), times = CheckedArray(b, t + 12, 4), values = CheckedArray(b, t + 20, width);
+                uint n = U32(b, t + 12);
+                short global = BitConverter.ToInt16(b, t + 2);
+                ParticleRequire(BitConverter.ToUInt16(b, t) <= 1 && global >= -1 && global < ng, "unsupported track interpolation/global sequence");
+                ParticleRequire(n == U32(b, t + 20), "timestamp/value count mismatch");
+                for (int k = 0; k < n; k++)
+                {
+                    uint time = U32(b, times + k * 4);
+                    ParticleRequire(k == 0 || U32(b, times + (k - 1) * 4) <= time, "unordered track timestamps");
+                    if (j == 10) ParticleRequire(b[values + k] <= 1, "nonboolean enabled key");
+                    else ParticleFloat(b, values + k * 4);
+                    ParticleRequire(global >= 0 ? time <= U32(b, globals + global * 4) : n == 1 ||
+                        Enumerable.Range(0, ns).Any(s => time >= U32(b, sequences + s * 68 + 4) && time <= U32(b, sequences + s * 68 + 8)),
+                        "key outside timelines would be lost");
+                }
+                // M2Lib splits by sequence time. Require legacy ranges to agree with that
+                // selection rather than silently changing a range-indexed source curve.
+                if (global == -1 && n > 1 && U32(b, t + 4) != 0)
+                {
+                    ParticleRequire(U32(b, t + 4) == ns || U32(b, t + 4) == ns + 1, "unexpected legacy range count");
+                    for (int s = 0; s < ns; s++)
+                    {
+                        var keys = Enumerable.Range(0, (int)n).Where(k => U32(b, times + k * 4) >= U32(b, sequences + s * 68 + 4) &&
+                            U32(b, times + k * 4) <= U32(b, sequences + s * 68 + 8)).ToArray();
+                        ParticleRequire(keys.Length > 0 && U32(b, ranges + s * 8) == keys[0] && U32(b, ranges + s * 8 + 4) == keys.Last(),
+                            "legacy range differs from sequence-local selection");
+                    }
+                }
+            }
+        }
+    }
+
+    static List<object> ConvertParticles(byte[] b, M2 model)
+    {
+        var result = new List<object>();
+        int p = (int)U32(b, 320);
+        for (int i = 0; i < model.Particles.Count; i++)
+        {
+            int r = p + i * 504;
+            var particle = model.Particles[i];
+            float F(int o) => ParticleFloat(b, r + o);
+            ushort H(int o) => BitConverter.ToUInt16(b, r + o);
+            short midpoint = (short)Math.Round((double)F(332) * short.MaxValue, MidpointRounding.AwayFromZero);
+            particle.ColorTrack = new M2FakeTrack<C3Vector>();
+            particle.AlphaTrack = new M2FakeTrack<FixedPoint_0_15>();
+            particle.ScaleTrack = new M2FakeTrack<C2Vector>();
+            short[] times = { 0, midpoint, short.MaxValue };
+            for (int k = 0; k < 3; k++)
+            {
+                int color = r + 336 + k * 4; // BGRA bytes -> RGB floats in 0..255, alpha fixed0.15.
+                particle.ColorTrack.Timestamps.Add(times[k]);
+                particle.ColorTrack.Values.Add(new C3Vector(b[color + 2], b[color + 1], b[color]));
+                particle.AlphaTrack.Timestamps.Add(times[k]);
+                particle.AlphaTrack.Values.Add(new FixedPoint_0_15((short)Math.Round(b[color + 3] * (32767.0 / 255), MidpointRounding.AwayFromZero)));
+                particle.ScaleTrack.Timestamps.Add(times[k]);
+                particle.ScaleTrack.Values.Add(new C2Vector(F(348 + k * 4), F(348 + k * 4)));
+            }
+            M2FakeTrack<ushort> HeadUV()
+            {
+                var track = new M2FakeTrack<ushort>();
+                ushort[] cells = { H(360), H(362), H(366), H(368) };
+                // All-zero UVs are the implicit constant first cell in Wrath.
+                if (cells.Any(c => c != 0))
+                {
+                    track.Timestamps.AddRange(new short[] { 0, midpoint, midpoint, short.MaxValue });
+                    track.Values.AddRange(cells);
+                }
+                return track;
+            }
+            particle.HeadCellTrack = HeadUV();
+            particle.TailCellTrack = new M2FakeTrack<ushort>();
+            particle.Flags |= 0x20000; // HeadStyle, as in the native v264 control.
+            particle.BaseSpin = 0;
+            particle.Spin = F(408);
+            particle.Model1Rotation = new C3Vector(F(412), F(416), F(420));
+            particle.Model2Rotation = new C3Vector(F(424), F(428), F(432));
+            particle.ModelTranslation = new C3Vector(F(436), F(440), F(444));
+            particle.Blank2 = F(448); // windTime, not a discarded padding float.
+            result.Add(new { emitter = i, sourceStride = 504, targetStride = 476, bone = particle.Bone,
+                texture = particle.Texture, lifetimeMidpoint = midpoint, animatedTracks = 11,
+                policy = "BGRA-to-RGB; alpha UNORM8-to-fixed0.15; isotropic XY scale; piecewise head UV; spin speed; tumble/wind retained",
+                maximumNormalizedTimeError = 0.5 / short.MaxValue, maximumNormalizedAlphaError = 0.5 / short.MaxValue });
+        }
+        return result;
     }
 
     static List<object> RepairHelperTracks(M2 model, byte[] original, List<object> issues)

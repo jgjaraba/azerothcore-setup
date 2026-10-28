@@ -11,6 +11,9 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
+#include <cerrno>
+#include <cstdint>
+#include <fcntl.h>
 #include <string>
 #include <vector>
 #include <sys/stat.h>
@@ -70,6 +73,118 @@ static int cmd_list(const char* arc, const char* listfile)
     return 0;
 }
 
+static bool extract_error(const char* operation, const char* path, uint64_t expected,
+                          uint64_t actual, int error, DWORD storm = 0)
+{
+    fprintf(stderr, "ERROR: %s %s: expected=%llu actual=%llu errno=%d (%s) storm=%u\n",
+            operation, path, (unsigned long long)expected, (unsigned long long)actual,
+            error, strerror(error), storm);
+    return false;
+}
+
+static bool extract_file(HANDLE archive, const char* name, const char* path, uint64_t& size,
+                         bool* missing = nullptr, bool legacy_missing_error = false)
+{
+    HANDLE file = nullptr;
+    errno = 0;
+    if (!SFileOpenFileEx(archive, name, SFILE_OPEN_FROM_MPQ, &file))
+    {
+        DWORD error = SErrGetLastError();
+        if (legacy_missing_error && error == ERROR_FILE_NOT_FOUND)
+        {
+            fprintf(stderr, "ERROR: file not found in archive\n");
+            return false;
+        }
+        // extract-list is also used for exact absence probes by asset builders.
+        // Only genuine absence retains the historical warning/skip contract.
+        if (missing && error == ERROR_FILE_NOT_FOUND)
+        {
+            *missing = true;
+            fprintf(stderr, "WARN: not found %s\n", name);
+            return true;
+        }
+        return extract_error("open member", name, 0, 0, errno, error);
+    }
+    DWORD high = 0;
+    SErrSetLastError(0);
+    errno = 0;
+    DWORD low = SFileGetFileSize(file, &high);
+    DWORD storm = SErrGetLastError();
+    size = (uint64_t(high) << 32) | low;
+    if ((low == SFILE_INVALID_SIZE && storm != 0) || high != 0)
+    {
+        extract_error("size (unsupported high word or query failed)", name,
+                      UINT32_MAX, size, errno, storm);
+        SFileCloseFile(file);
+        return false;
+    }
+    if (!mkdirs(path))
+    {
+        extract_error("mkdir", path, size, 0, errno);
+        SFileCloseFile(file);
+        return false;
+    }
+
+    // Only a newly created regular inode belongs to this extraction. Existing
+    // files/devices (including symlinks to /dev/full) must never be unlinked.
+    int fd = open(path, O_WRONLY | O_CREAT | O_EXCL, 0666);
+    bool created = fd >= 0;
+    if (fd < 0 && errno == EEXIST)
+        fd = open(path, O_WRONLY | O_TRUNC);
+    struct stat owned = {};
+    bool own_regular = created && fstat(fd, &owned) == 0 && S_ISREG(owned.st_mode);
+    auto cleanup = [&]() {
+        struct stat current;
+        if (own_regular && lstat(path, &current) == 0 && S_ISREG(current.st_mode)
+            && current.st_dev == owned.st_dev && current.st_ino == owned.st_ino)
+            unlink(path);
+    };
+    FILE* output = fd >= 0 ? fdopen(fd, "wb") : nullptr;
+    if (!output)
+    {
+        int error = errno;
+        if (fd >= 0) close(fd);
+        cleanup();
+        SFileCloseFile(file);
+        return extract_error("open output", path, size, 0, error);
+    }
+
+    unsigned char buffer[64 * 1024];
+    uint64_t read_total = 0, written = 0;
+    bool ok = true;
+    while (read_total < size)
+    {
+        DWORD wanted = size - read_total < sizeof(buffer) ? DWORD(size - read_total) : sizeof(buffer);
+        DWORD got = 0;
+        errno = 0;
+        bool read_ok = SFileReadFile(file, buffer, wanted, &got, nullptr);
+        int error = errno;
+        storm = read_ok ? 0 : SErrGetLastError();
+        read_total += got;
+        if (!read_ok || got != wanted)
+        {
+            ok = extract_error("read", name, size, read_total, error, storm);
+            break;
+        }
+        errno = 0;
+        size_t count = fwrite(buffer, 1, got, output);
+        written += count;
+        if (count != got || ferror(output))
+        {
+            ok = extract_error("write", path, size, written, errno);
+            break;
+        }
+    }
+    errno = 0;
+    if (fclose(output) != 0)
+        ok = extract_error("close output", path, size, written, errno);
+    errno = 0;
+    if (!SFileCloseFile(file))
+        ok = extract_error("close member", name, size, read_total, errno, SErrGetLastError());
+    if (!ok) cleanup();
+    return ok;
+}
+
 static int cmd_extract(const char* arc, const char* outdir, const char* listfile, const char* onlyName)
 {
     HANDLE h = nullptr;
@@ -80,8 +195,9 @@ static int cmd_extract(const char* arc, const char* outdir, const char* listfile
 
     SFILE_FIND_DATA fd;
     HANDLE f = SFileFindFirstFile(h, "*", &fd, nullptr);
-    size_t count = 0, bytes = 0;
-    std::vector<unsigned char> buf;
+    size_t count = 0;
+    uint64_t bytes = 0;
+    bool ok = true;
     while (f != nullptr)
     {
         std::string name = fd.cFileName;
@@ -92,28 +208,11 @@ static int cmd_extract(const char* arc, const char* outdir, const char* listfile
             continue;
         }
         std::string outpath = std::string(outdir) + "/" + name;
-        mkdirs(outpath);
-        HANDLE fh = nullptr;
-        if (SFileOpenFileEx(h, name.c_str(), SFILE_OPEN_FROM_MPQ, &fh))
-        {
-            if (buf.size() < fd.dwFileSize + 1)
-                buf.resize(fd.dwFileSize + 1);
-            DWORD read = 0;
-            SFileReadFile(fh, buf.data(), fd.dwFileSize, &read, nullptr);
-            FILE* o = fopen(outpath.c_str(), "wb");
-            if (o)
-            {
-                fwrite(buf.data(), 1, read, o);
-                fclose(o);
-                bytes += read;
-                ++count;
-            }
-            SFileCloseFile(fh);
-        }
-        else
-        {
-            fprintf(stderr, "WARN: cannot open %s\n", name.c_str());
-        }
+        uint64_t size = 0;
+        if (!(ok = extract_file(h, name.c_str(), outpath.c_str(), size)))
+            break;
+        bytes += size;
+        ++count;
         if (onlyName)
             break;
         if (!SFileFindNextFile(f, &fd))
@@ -121,9 +220,9 @@ static int cmd_extract(const char* arc, const char* outdir, const char* listfile
     }
     if (f)
         SFileFindClose(f);
-    fprintf(stderr, "# extracted %zu files (%zu bytes)\n", count, bytes);
+    if (ok) fprintf(stderr, "# extracted %zu files (%llu bytes)\n", count, (unsigned long long)bytes);
     SFileCloseArchive(h);
-    return 0;
+    return ok ? 0 : 1;
 }
 
 static int cmd_extract_list(const char* arc, const char* listFile, const char* outdir, const char* lf)
@@ -137,8 +236,8 @@ static int cmd_extract_list(const char* arc, const char* listFile, const char* o
     if (!f)
         die("cannot open list file");
     char line[1024];
-    std::vector<unsigned char> buf;
     size_t count = 0;
+    bool ok = true;
     while (fgets(line, sizeof(line), f))
     {
         size_t n = strlen(line);
@@ -147,32 +246,18 @@ static int cmd_extract_list(const char* arc, const char* listFile, const char* o
         if (!n)
             continue;
         std::string name = line;
-        HANDLE fh = nullptr;
-        if (!SFileOpenFileEx(h, name.c_str(), SFILE_OPEN_FROM_MPQ, &fh))
-        {
-            fprintf(stderr, "WARN: not found %s\n", name.c_str());
-            continue;
-        }
-        DWORD sz = SFileGetFileSize(fh, nullptr);
-        if (buf.size() < sz + 1)
-            buf.resize(sz + 1);
-        DWORD read = 0;
-        SFileReadFile(fh, buf.data(), sz, &read, nullptr);
         std::string outpath = std::string(outdir) + "/" + name;
-        mkdirs(outpath);
-        FILE* o = fopen(outpath.c_str(), "wb");
-        if (o)
-        {
-            fwrite(buf.data(), 1, read, o);
-            fclose(o);
-            ++count;
-        }
-        SFileCloseFile(fh);
+        uint64_t size = 0;
+        bool missing = false;
+        if (!(ok = extract_file(h, name.c_str(), outpath.c_str(), size, &missing)))
+            break;
+        if (!missing) ++count;
     }
-    fclose(f);
+    if (ferror(f)) ok = extract_error("read list", listFile, 0, 0, errno);
+    if (fclose(f) != 0) ok = extract_error("close list", listFile, 0, 0, errno);
     SFileCloseArchive(h);
-    fprintf(stderr, "# extracted %zu files\n", count);
-    return 0;
+    if (ok) fprintf(stderr, "# extracted %zu files\n", count);
+    return ok ? 0 : 1;
 }
 
 static int cmd_extract_one(const char* arc, const char* name, const char* outfile, const char* listfile)
@@ -182,22 +267,11 @@ static int cmd_extract_one(const char* arc, const char* name, const char* outfil
         die("open archive failed");
     if (listfile && *listfile)
         SFileAddListFile(h, listfile);
-    HANDLE fh = nullptr;
-    if (!SFileOpenFileEx(h, name, SFILE_OPEN_FROM_MPQ, &fh))
-        die("file not found in archive");
-    DWORD sz = SFileGetFileSize(fh, nullptr);
-    std::vector<unsigned char> buf(sz + 1);
-    DWORD read = 0;
-    SFileReadFile(fh, buf.data(), sz, &read, nullptr);
-    FILE* o = fopen(outfile, "wb");
-    if (!o)
-        die("cannot open outfile");
-    fwrite(buf.data(), 1, read, o);
-    fclose(o);
-    SFileCloseFile(fh);
+    uint64_t size = 0;
+    bool ok = extract_file(h, name, outfile, size, nullptr, true);
     SFileCloseArchive(h);
-    fprintf(stderr, "# wrote %s (%u bytes)\n", outfile, read);
-    return 0;
+    if (ok) fprintf(stderr, "# wrote %s (%llu bytes)\n", outfile, (unsigned long long)size);
+    return ok ? 0 : 1;
 }
 
 static int cmd_add(const char* arc, const char* diskfile, const char* mpqname)

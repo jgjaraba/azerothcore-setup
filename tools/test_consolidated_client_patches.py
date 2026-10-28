@@ -88,7 +88,7 @@ class DeliveryContracts(unittest.TestCase):
 
     def test_localized_tables_are_owned_only_by_locale_archives(self):
         master = self.planned['regular_client/Data/patch-Z.mpq']
-        for table in ('ChrRaces', 'Map', 'AreaTable', 'MapDifficulty', 'Spell'):
+        for table in ('ChrRaces', 'Map', 'AreaTable', 'MapDifficulty', 'Spell', 'WMOAreaTable'):
             key = 'dbfilesclient/'+table.lower()+'.dbc'
             self.assertNotIn(key, master)
             for locale in ('enUS', 'esES'):
@@ -203,9 +203,65 @@ class DeliveryContracts(unittest.TestCase):
         self.assertFalse(any(s.startswith('native:character/') for s in self.sources.cache))
         self.assertEqual(self.report['runtime_rendering'], 'NOT RUN')
 
-    def test_regular_delivery_unchanged(self):
-        for path, digest in self.lock['preserved_regular_delivery'].items():
-            self.assertEqual(c.file_sha(c.ROOT/'client_patches'/path), digest, path)
+    def test_pre_region_delivery_still_rebuilds_against_every_original_hash(self):
+        c.validate_native_delivery(self.sources.high_elf_native, self.lock)
+
+    def test_region_preserves_every_unowned_member_and_hd_byteexact(self):
+        import package_high_elf_map as h
+        lock = h.load()
+        edits = {(e['package'], c.norm(e['member'])) for e in lock['edits']}
+        for package, entries in self.sources.high_elf_native.items():
+            self.assertLessEqual(entries.keys(), self.planned[package].keys())
+            for key, entry in entries.items():
+                if (package, key) not in edits:
+                    self.assertEqual(entry, self.planned[package][key], (package, key))
+        self.assertFalse(any(k.endswith('.dbc') for k in self.planned[h.T]))
+        # Geography models live in Character/Custom/HighElfMap for isolation,
+        # but must not be routed into character-owned S by that path alone.
+        self.assertTrue(any(k.startswith('character/custom/highelfmap/') for k in self.planned[h.T]))
+        self.assertFalse(any('highelfmap' in k for k in self.planned['regular_client/Data/patch-S.MPQ']))
+        adts = [c.norm(e['member']) for e in lock['edits'] if e['member'].lower().endswith('.adt')]
+        self.assertEqual(len(adts), 24)
+        self.assertEqual(set(adts), {f'world/maps/azeroth/azeroth_{x}_{y}.adt' for x, ys in
+            ((33, range(22, 26)), (34, range(23, 26)), (35, range(23, 27)),
+             (36, range(22, 27)), (37, range(22, 27)), (38, range(22, 25))) for y in ys})
+        self.assertEqual(self.report['high_elf_map']['geographic_dbc_in_T'], False)
+
+    def test_region_full_tables_reconstructed_on_independent_bases(self):
+        import package_high_elf_map as h
+        for edit in h.load()['edits']:
+            if 'delta' not in edit:
+                continue
+            base = (h.SOURCE/edit['baseline']).read_bytes()
+            delta = (h.SOURCE/edit['delta']).read_bytes()
+            result = self.planned[edit['package']][c.norm(edit['member'])]['data']
+            self.assertEqual(h.merge(edit['table'], base, delta), result)
+            self.assertEqual(h.merge(edit['table'], result, delta), result)
+            _, before, bs = parse_dbc(base)
+            _, after, strings = parse_dbc(result)
+            self.assertEqual(after[:len(before)], before)
+            self.assertTrue(strings.startswith(bs))
+            self.assertFalse(edit['diff']['changed'])
+            self.assertFalse(edit['diff']['removed'])
+
+    def test_region_source_hash_corruption_and_missing_input_rejected(self):
+        import package_high_elf_map as h
+        with tempfile.TemporaryDirectory(prefix='region-source-test-') as tmp:
+            source = Path(tmp)
+            (source/'source-lock.json').write_text('{}')
+            with patch.object(h, 'SOURCE', source):
+                with self.assertRaisesRegex(ValueError, 'source lock changed'):
+                    h.load()
+
+    def test_region_collision_rejects_instead_of_overwriting(self):
+        import package_high_elf_map as h
+        for table, (fields, _) in h.SCHEMAS.items():
+            row = [0]*fields
+            row[0] = 1
+            other = list(row)
+            other[1] = 100
+            with self.subTest(table=table), self.assertRaisesRegex(ValueError, 'ID collision'):
+                h.merge(table, c.encode(fields, [row], b'\0'), c.encode(fields, [other], b'\0'))
 
     def test_portals_physically_map_ordered(self):
         for profile in ('regular_client',):

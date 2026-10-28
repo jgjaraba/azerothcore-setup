@@ -14,12 +14,12 @@ outside this geographic procedure.
 | ADT framing | Both sampled clients use MVER 18 and 0x80-byte MCNK headers. Sampled area IDs are at MCNK magic +0x3C (payload +0x34); MCIN entries use absolute MCNK offsets. | Matching MVER does not establish identical flags, alpha encoding, optional chunks or liquid behavior. Validate offsets, sizes and chunk identities independently. |
 | Terrain / alpha | Sampled MCVT/MCNR/MCLY/MCAL/MCRF/MCSH framing can be retained for the dry pilot. One matched `kalimdor_28_40` pair has byte-identical MCLY entries. | This does not prove all payloads interchangeable. Interpret alpha using WDT flags, MCLY flags and actual MCAL encoding; do not force a conversion solely because MVER is 18. |
 | WDT | Both inspected samples contain MVER, MPHD and MAIN (64×64 entries of 8 bytes). The compared 335 sample also has an empty MWMO placeholder. Neither sample establishes an MPH2 layout. | Check flags and any global WMO references. For shared continents merge only justified MAIN changes while preserving native tile availability and unrelated data. |
-| ADT liquids | Vanilla stores MCLQ per MCNK; WotLK supports file-level MH2O. The native map extractor reads both (`src/tools/map_extractor/adt.h` and `System.cpp` in the core root). | Server extraction support does not prove client rendering. No project MCLQ→MH2O converter is implemented. Wet-map viability needs explicit format, liquid-type, mask, height and client/server checks. |
+| ADT liquids | Vanilla supports per-MCNK MCLQ; the high-elf source also supplies file-level MH2O. The native map extractor reads both (`src/tools/map_extractor/adt.h` and `System.cpp` in the core root). | The high-elf compositor preserves source MH2O as authority and disables duplicate MCLQ. No general project MCLQ→MH2O converter is implemented or needed for that source-preserving path. Server extraction does not prove client rendering; validate liquid types, masks and heights per region. |
 | Optional chunks | MFBO describes flight bounds. Its absence in a sample is not a universal incompatibility. | Do not call MFBO a performance optimization, or assume MCSE is WotLK-only/absent in Vanilla. Inventory optional chunks per input before preserving, translating or omitting them. |
 | DBC | Observed Map schemas: Turtle 42 fields / 335 66; AreaTable: Turtle 25 / 335 **36**. | Translate fields and locale strings explicitly; never copy whole Turtle tables over destination DBCs. See [ID mappings](id-mappings.md). |
 | M2 / WMO / BLP | Some paths resolve to native 335 assets; Vanilla MMDX names often use `.mdx` where 335 uses `.m2`. | Path existence is only reference resolution. Check version, geometry, collision, groups, materials, animations and liquid semantics as applicable. BLP encoding and mip descriptors need inspection, not blanket conversion. |
 
-### Known parser/serializer limitation before wet maps
+### Corrected MHDR layout and liquid authority
 
 The correct zero-based MHDR field order after MODF (index 8) is:
 
@@ -29,14 +29,22 @@ The correct zero-based MHDR field order after MODF (index 8) is:
 | 10 | MH2O |
 | 11 | MTXF |
 
-**Current `tools/adt_convert.py` and `tools/adt.py` misinterpret these indices.**
-The converter lists MH2O at 9, MTXF at 10 and MFBO at 12; the parser labels index
-9 as MH2O. This is a latent defect not exercised by the dry pilot ADTs. Before
-processing wet or optional-chunk-bearing maps, correct and independently verify
-the parser/serializer against native layouts and real fixtures. No such code fix
-is part of this documentation update. The old reference to
-`mclq_to_mh2o.py` was removed from the converter's docstring; that converter
-does not exist.
+`tools/adt_convert.py` and `tools/adt.py` now use this corrected ordering. The
+initial dry-pilot implementation misplaced these fields; that historical defect
+is no longer an outstanding prerequisite. Offset/size checks and real fixtures
+remain necessary for each new input. The [high-elf port](high-elf-maps.md) retains
+source MH2O, with explicit duplicate-MCLQ suppression, rather than synthesizing
+MH2O from MCLQ. There is no general `mclq_to_mh2o.py` tool.
+
+Suppressing MCLQ is not just clearing MCNK liquid flags/offset/size. The observed
+build12340 scanner at `0x007C3A10` traverses physical subchunks independently of
+those flags: a retained zero-size MCLQ needs its own payload length normalized
+**before** its legacy header extent is cleared. Otherwise the scanner reads the
+opaque liquid bytes as chunk headers and can fault at `0x007C3A42`. Only use the
+verified live offset/size, not a magic search through arbitrary bytes. The high-elf
+fix changes that four-byte length alone, retaining payload and MH2O semantics.
+`adt_client.py` provides bounded framing checks and `probe_adt_client.py` executes
+the hash-guarded x86 scanner. Neither substitutes for full renderer validation.
 
 The earlier recipes naming MCNK `HasBigAlpha=0x100` and `HasMh2o=0x1000` are
 withdrawn. Those names/bits are **not verified operational instructions**.
@@ -44,6 +52,37 @@ Establish the correct flag owner, bit meaning and applicable format before
 changing flags, clearing MCLQ offsets, or changing alpha/liquid payloads.
 
 ## Asset fidelity and the accepted pilot
+
+### Minimap names and continental click masks
+
+The inspected335 TRS reader copies each physical image name into40 bytes;
+regional additions must fit39 characters plus NUL. Long names can resolve in
+project tooling yet be truncated to nonexistent paths by the game. Use short,
+collision-checked names and retain full content hashes independently. Existing
+accepted mappings outside the regional delta must not be globally normalized.
+The WMO minimap lookup removes the first six path characters unconditionally;
+non-World namespaces need keys derived from that actual transformation.
+
+The continental `.zmp` is a128×128 uint32 little-endian AreaTable-ID click mask.
+It is separate from highlight BLP art and WorldMapOverlay. Port selected cells
+onto the335 baseline rather than replacing a whole continent's mask with Turtle.
+The high-elf merge preserves the two Plaguelands border cells and all unrelated
+clicks. Native FrameXML needs no replacement for this data contract.
+
+### WMO liquid identifiers are not just the group field
+
+In the observed335 client, `MOHD.flags & 0x4` selects identifier semantics for
+`MOGP.liquidType`. With that bit set,15 remaps to19 (WMO Magma); without it,
+legacy15 means no liquid. A nonzero interpreted type can describe the whole
+group bounding volume even without an MLIQ grid. Do not infer dryness from
+missing MLIQ, or rewrite all15 values to0: zero under legacy semantics can mean
+water. The [high-elf adaptation](high-elf-maps.md#líquidos-de-edificios-wmo)
+hash-pins fifteen demonstrated dry families and clears only root bit0x4 after
+checking all groups; legitimate wet/volume resources are not normalized globally.
+Client and installed extractor behavior must be measured separately. For those
+families the actual regenerated server models were already dry and byte-identical.
+
+### Crypt pilot
 
 The actual pilot is **KarazhanCrypt, map 800: six ADTs and one WDT**. Balor
 (source map 818, nine ADTs + WDT in the earlier candidate set) was considered
@@ -109,7 +148,7 @@ the current pilot-specific scripts implement a generic all-map pipeline.
    does not prove a usable record.
 4. **Choose adaptation per resource.** Preserve verified-compatible data;
    translate references and indirections; investigate alpha/liquids/optional
-   chunks with real samples. Close the MHDR defect before wet-map processing.
+   chunks with real samples using the corrected MHDR layout.
    Resolve transitive WMO/M2/BLP dependencies and document any fidelity loss.
    Reference libraries such as `warcraft-rs`/`wow-adt` can inform research; they
    are not an implemented project converter or a substitute for validation.

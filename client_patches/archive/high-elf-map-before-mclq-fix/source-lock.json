@@ -1,0 +1,2975 @@
+{
+  "edits": [
+    {
+      "baseline": "baselines/enUS/AreaTable.dbc",
+      "delta": "deltas/AreaTable.dbc",
+      "diff": {
+        "added": [
+          "2040",
+          "5225",
+          "5526",
+          "5527",
+          "5528",
+          "5529",
+          "5530",
+          "5531",
+          "5532",
+          "5533",
+          "5534",
+          "5535",
+          "5544",
+          "5545",
+          "5546",
+          "5552",
+          "5553",
+          "5554",
+          "5555",
+          "6500",
+          "6501",
+          "6502"
+        ],
+        "changed": [],
+        "preserved": 2308,
+        "removed": []
+      },
+      "member": "DBFilesClient\\AreaTable.dbc",
+      "package": "regular_client/Data/enUS/patch-enUS-Z.MPQ",
+      "previous_sha256": "eef247d1cb9ffa34d7d78d958c17e0c8c613a1c3182589c83e80c833c78235f9",
+      "result_sha256": "576b6e673eca73a553293a7954b958b4bf3598ffb0af8aa6ac978f5df47a6439",
+      "table": "AreaTable"
+    },
+    {
+      "baseline": "baselines/enUS/WMOAreaTable.dbc",
+      "delta": "deltas/WMOAreaTable.dbc",
+      "diff": {
+        "added": [
+          "60000",
+          "60001",
+          "60002",
+          "60003",
+          "60004",
+          "60005",
+          "60006",
+          "60007",
+          "60008",
+          "60009",
+          "60010",
+          "60011",
+          "60012",
+          "60013",
+          "60014",
+          "60015",
+          "60016",
+          "60017"
+        ],
+        "changed": [],
+        "preserved": 22550,
+        "removed": []
+      },
+      "member": "DBFilesClient\\WMOAreaTable.dbc",
+      "package": "regular_client/Data/enUS/patch-enUS-Z.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "899b4e0defbb2c06a774d5d22a270f4b4c7da0792a9ec746b7c3c71d12630648",
+      "table": "WMOAreaTable"
+    },
+    {
+      "baseline": "baselines/esES/AreaTable.dbc",
+      "delta": "deltas/AreaTable.dbc",
+      "diff": {
+        "added": [
+          "2040",
+          "5225",
+          "5526",
+          "5527",
+          "5528",
+          "5529",
+          "5530",
+          "5531",
+          "5532",
+          "5533",
+          "5534",
+          "5535",
+          "5544",
+          "5545",
+          "5546",
+          "5552",
+          "5553",
+          "5554",
+          "5555",
+          "6500",
+          "6501",
+          "6502"
+        ],
+        "changed": [],
+        "preserved": 2308,
+        "removed": []
+      },
+      "member": "DBFilesClient\\AreaTable.dbc",
+      "package": "regular_client/Data/esES/patch-esES-Z.MPQ",
+      "previous_sha256": "250c3e335b7a9e0f0f4a3607455fb8d190e0027283b35361b2e630c1ca490292",
+      "result_sha256": "406f12cad6c3129083010d23788033ef99acda9e0d541b6f26f7e6d85790f3f8",
+      "table": "AreaTable"
+    },
+    {
+      "baseline": "baselines/esES/WMOAreaTable.dbc",
+      "delta": "deltas/WMOAreaTable.dbc",
+      "diff": {
+        "added": [
+          "60000",
+          "60001",
+          "60002",
+          "60003",
+          "60004",
+          "60005",
+          "60006",
+          "60007",
+          "60008",
+          "60009",
+          "60010",
+          "60011",
+          "60012",
+          "60013",
+          "60014",
+          "60015",
+          "60016",
+          "60017"
+        ],
+        "changed": [],
+        "preserved": 22550,
+        "removed": []
+      },
+      "member": "DBFilesClient\\WMOAreaTable.dbc",
+      "package": "regular_client/Data/esES/patch-esES-Z.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "57b27055533f42759167661d307d2101bb18698993d610a32d3908e115757158",
+      "table": "WMOAreaTable"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_0a74710d1fed286c825a_highelfhousevariantc.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "9803b745060d1c3980bd277270b4603cf60ca66ee7d50deebc9a29e3215bcd7f",
+      "source": "shared/Character/Custom/HighElfMap/he_0a74710d1fed286c825a_highelfhousevariantc.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_0a74710d1fed286c825a_highelfhousevariantc_000.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "1e72fef4086094af1883e4c1f200dff0a90996bf2597862fe5ca201441a2db2b",
+      "source": "shared/Character/Custom/HighElfMap/he_0a74710d1fed286c825a_highelfhousevariantc_000.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_0a74710d1fed286c825a_highelfhousevariantc_001.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "991935f776336dcd4d94f87796f69783f2de3fcf527925a8736261954ca743df",
+      "source": "shared/Character/Custom/HighElfMap/he_0a74710d1fed286c825a_highelfhousevariantc_001.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_0e103f440566d2e93257_mm_mineplanks_01.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "26c2b73e2297fc4813d1ca7546cf3e2c9b81091da677f044f30276b6d0e055f0",
+      "source": "shared/Character/Custom/HighElfMap/he_0e103f440566d2e93257_mm_mineplanks_01.blp"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_101396c5347accbd7b8d_higheltreeparticleleaf.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "a7dc0d74761738be9b4a5f178a5773c3051bbe1a86bf3118350b6968e282079b",
+      "source": "shared/Character/Custom/HighElfMap/he_101396c5347accbd7b8d_higheltreeparticleleaf.blp"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_10f3439f9ea12d3343d6_highelfdock.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "5b6e11d82fcf25fb3c23c563afa7794e7884c915e1c3be4e420e1f4f6cd69389",
+      "source": "shared/Character/Custom/HighElfMap/he_10f3439f9ea12d3343d6_highelfdock.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_10f3439f9ea12d3343d6_highelfdock_000.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "b98f0d8eb6eaa8b3d72061319d4b6e5f9bb61f7d9dcc076c906d552f3d6d366a",
+      "source": "shared/Character/Custom/HighElfMap/he_10f3439f9ea12d3343d6_highelfdock_000.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_17e8a2ec8c1f1d515d0b_highelf_platform.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "88e0c53b95e9e7915117603ff0af6ace3a2d3c45e7f0229d410d3a5ada2a9306",
+      "source": "shared/Character/Custom/HighElfMap/he_17e8a2ec8c1f1d515d0b_highelf_platform.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_17e8a2ec8c1f1d515d0b_highelf_platform_000.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "989b166b0171e713318d106c643c87e2f2ea2edf4fd21cf7876cd45f703632d9",
+      "source": "shared/Character/Custom/HighElfMap/he_17e8a2ec8c1f1d515d0b_highelf_platform_000.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_195a0a632bd23cea9a73_highelfhousevariantb.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "5bfc7366d44011492b8a3f2e17681f8e3f80d695f62a8bd437eef42a50c84754",
+      "source": "shared/Character/Custom/HighElfMap/he_195a0a632bd23cea9a73_highelfhousevariantb.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_195a0a632bd23cea9a73_highelfhousevariantb_000.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "ae6a0f76627b667492ca0b1af0a8b9826e8b9a1dfe72d7acde482c5e11dc634a",
+      "source": "shared/Character/Custom/HighElfMap/he_195a0a632bd23cea9a73_highelfhousevariantb_000.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_195a0a632bd23cea9a73_highelfhousevariantb_001.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "989c82d5471f1c6fb4eceeef10ebb04e78680179d2a1f585a73d78c5896755e8",
+      "source": "shared/Character/Custom/HighElfMap/he_195a0a632bd23cea9a73_highelfhousevariantb_001.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_1e51eb721c6d82cffbb8_mm_minewall_support_03.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "97b7a0e5f2ebea23113af4ef93ae5f5023a0506e719949200c36b046b34b5cfa",
+      "source": "shared/Character/Custom/HighElfMap/he_1e51eb721c6d82cffbb8_mm_minewall_support_03.blp"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_21eac7049509767827ec_highelfhouseroundvarianta.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "d2c44195de7c920bb279c9f89f370229c7b5a7350baec25ae082e7a3d7492a85",
+      "source": "shared/Character/Custom/HighElfMap/he_21eac7049509767827ec_highelfhouseroundvarianta.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_21eac7049509767827ec_highelfhouseroundvarianta_000.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "585acb36b33a516a179459512a64d81c7ed773830fa948fbc9a5888faa14a028",
+      "source": "shared/Character/Custom/HighElfMap/he_21eac7049509767827ec_highelfhouseroundvarianta_000.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_21eac7049509767827ec_highelfhouseroundvarianta_001.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "c8aa8304273a16fbaaf49b65593bf69c6b959cd75768086d50825d63b863d1f6",
+      "source": "shared/Character/Custom/HighElfMap/he_21eac7049509767827ec_highelfhouseroundvarianta_001.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_24c9759d5d8e186a8bdd_mm_cavefloor_03.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "7e649ae11e33e71dbf33943e754cb143a47b827f75091f7e81b0e57c77ce315b",
+      "source": "shared/Character/Custom/HighElfMap/he_24c9759d5d8e186a8bdd_mm_cavefloor_03.blp"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_254487834342d7418697_highelf_windowtop.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "5a652b3198d7d2c7f387ce9c63b77253ed7cbb429afa81e68c45c4f943820e33",
+      "source": "shared/Character/Custom/HighElfMap/he_254487834342d7418697_highelf_windowtop.blp"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_27c11def21e9869d6d5d_mm_minewall_support_02.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "0f72841540b5429b898f0f3f91e9812b65cef2428a65e83088148c537e7400a5",
+      "source": "shared/Character/Custom/HighElfMap/he_27c11def21e9869d6d5d_mm_minewall_support_02.blp"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_2a3c6315ee925efaf5d1_mm_cavewall_08 copy.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "81c8071a1d6a6047174ba7110a0dc1eb06e4cef68b6a514c926dfa9127048e16",
+      "source": "shared/Character/Custom/HighElfMap/he_2a3c6315ee925efaf5d1_mm_cavewall_08 copy.blp"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_2c5e76d5c52dd94d8deb_highelf_ship.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "f54de684bd4a2c9edc17a980de5c4d333463f6560347f4086720dd8d7202a2e3",
+      "source": "shared/Character/Custom/HighElfMap/he_2c5e76d5c52dd94d8deb_highelf_ship.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_2c5e76d5c52dd94d8deb_highelf_ship_000.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "1a5ab096b95901bde92757a97a28681c6bbafcfd0d056d9b4bc78287a937bca2",
+      "source": "shared/Character/Custom/HighElfMap/he_2c5e76d5c52dd94d8deb_highelf_ship_000.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_2c5e76d5c52dd94d8deb_highelf_ship_001.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "3281653231dfd5e7561f06fac1361b140f266966b934dfee05785fed32472ed0",
+      "source": "shared/Character/Custom/HighElfMap/he_2c5e76d5c52dd94d8deb_highelf_ship_001.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_2cc85a7b1eebcf2d1f48_mm_minebeam_02.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "d68d15a3f091e78bec9a719ffc29a497b95e25b9a59bd8172ad93c917aec53b8",
+      "source": "shared/Character/Custom/HighElfMap/he_2cc85a7b1eebcf2d1f48_mm_minebeam_02.blp"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_36b5ad2a967d9e5be7ca_jlo_high1elf_trims_01.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "121ffce4ff9235975772db491aea9de420f6f594b21ed2573df32b5400086c73",
+      "source": "shared/Character/Custom/HighElfMap/he_36b5ad2a967d9e5be7ca_jlo_high1elf_trims_01.blp"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_3adca19a174dbdec561c_highelf_smallhouse03.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "fc46230a40a7bfc94eab090443681e3e80038666729a00ca60ea30295e288fb0",
+      "source": "shared/Character/Custom/HighElfMap/he_3adca19a174dbdec561c_highelf_smallhouse03.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_3adca19a174dbdec561c_highelf_smallhouse03_000.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "548b60ca2602f7dacbe9685b5f7ad76a12a5e408f0ef03329d1272aef244c5f3",
+      "source": "shared/Character/Custom/HighElfMap/he_3adca19a174dbdec561c_highelf_smallhouse03_000.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_3adca19a174dbdec561c_highelf_smallhouse03_001.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "631acd1e08ebc4a66bcae9678a770ba3cd879627ba3c4a3f105d04443e24f854",
+      "source": "shared/Character/Custom/HighElfMap/he_3adca19a174dbdec561c_highelf_smallhouse03_001.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_43f15bd3ed176b624003_heltrunk03.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "78c7b202d4858fbe7f3e344445d0ecad055509be028bde4301ab87ffddd5152e",
+      "source": "shared/Character/Custom/HighElfMap/he_43f15bd3ed176b624003_heltrunk03.blp"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_47e470113a9b0f260766_he_scrying_tower.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "7f8c43905835cd2dd5634395b8067d6f0c1aae4f48a6e3e616d29bbadf339a97",
+      "source": "shared/Character/Custom/HighElfMap/he_47e470113a9b0f260766_he_scrying_tower.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_47e470113a9b0f260766_he_scrying_tower_000.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "6c04c41c3527edfe2d830b00c5e9e6b4aac0782806e147b346f859a762ef3310",
+      "source": "shared/Character/Custom/HighElfMap/he_47e470113a9b0f260766_he_scrying_tower_000.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_47e470113a9b0f260766_he_scrying_tower_001.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "15cd69b652d844a281beefa55bb8ebce03cc95b4514dc972b2ebc7c8f728c6c4",
+      "source": "shared/Character/Custom/HighElfMap/he_47e470113a9b0f260766_he_scrying_tower_001.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_4a6cd842cd76ea22149c_hightelventree02.m2",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "d03aeac25133d57a4dfe6a91d938045f734c262db3f554df06b4884500d54114",
+      "source": "shared/Character/Custom/HighElfMap/he_4a6cd842cd76ea22149c_hightelventree02.m2"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_4a6cd842cd76ea22149c_hightelventree0200.skin",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "1a7ad921afca01af81d7cf1af76cb84b1667aa8d5c357aebe668e1eb10e0954d",
+      "source": "shared/Character/Custom/HighElfMap/he_4a6cd842cd76ea22149c_hightelventree0200.skin"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_4a99854ba70261175cd1_jlo_high1elf_floor_01.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "9c29fc5a3feca9536923b9e92e3d293ac68957363f9ac87a82dd80358df557db",
+      "source": "shared/Character/Custom/HighElfMap/he_4a99854ba70261175cd1_jlo_high1elf_floor_01.blp"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_55ad6b53ce73252d70a9_be_tent05.m2",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "eacf058e899608f968455c02df2294c0f73cda0819af1d37c6ec4d086ac03999",
+      "source": "shared/Character/Custom/HighElfMap/he_55ad6b53ce73252d70a9_be_tent05.m2"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_55ad6b53ce73252d70a9_be_tent0500.skin",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "35d6de1de5382aa2453f44724e6557d5110eeb4a0657c5ab76fe42533bb2cc3d",
+      "source": "shared/Character/Custom/HighElfMap/he_55ad6b53ce73252d70a9_be_tent0500.skin"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_55db3dc7142898fe8ab3_highelfhousevarianta.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "f8c30821b7eaf160f51ce5f3fc3c695f473ff58cb8136f193f29703a188406ef",
+      "source": "shared/Character/Custom/HighElfMap/he_55db3dc7142898fe8ab3_highelfhousevarianta.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_55db3dc7142898fe8ab3_highelfhousevarianta_000.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "14c28c2f0eb0949afa7865c6af7a9dbc987f8effe626279ac3987c77b38b9439",
+      "source": "shared/Character/Custom/HighElfMap/he_55db3dc7142898fe8ab3_highelfhousevarianta_000.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_55db3dc7142898fe8ab3_highelfhousevarianta_001.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "4c7f825bc440762fd995e5c6f11784a31e46b5ecc2996f99fbf801ca462c1bff",
+      "source": "shared/Character/Custom/HighElfMap/he_55db3dc7142898fe8ab3_highelfhousevarianta_001.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_58590df6f9fa339d9594_higheltreeskin.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "98c4ad198166487317f670c044a1a847de5d53b29e78217877ab3c782b66fa8f",
+      "source": "shared/Character/Custom/HighElfMap/he_58590df6f9fa339d9594_higheltreeskin.blp"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_5a6ddbfe1e13d721452b_highelf_windowbtm.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "74608a52c0a6401f6cf9b5d29a0f1b0e8e360cb65283ba92e19eb66be7d10bb6",
+      "source": "shared/Character/Custom/HighElfMap/he_5a6ddbfe1e13d721452b_highelf_windowbtm.blp"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_5ef074a93ff00372b09b_he_arch.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "beb173cce6e6c36efd8b8b6e409e60670b24ba27a59fbdd6c22769d04670a303",
+      "source": "shared/Character/Custom/HighElfMap/he_5ef074a93ff00372b09b_he_arch.blp"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_60349bfbf077449e1511_highelfhousevariantd.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "b5c9c529eb7a3c47e9eee54880610ac112bb3ef0e39760efc5fdf20741f142ac",
+      "source": "shared/Character/Custom/HighElfMap/he_60349bfbf077449e1511_highelfhousevariantd.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_60349bfbf077449e1511_highelfhousevariantd_000.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "35b6cd736c58cda67bf97f63e21a7fdbb86514981a48e71e64f0952e23ff1ec4",
+      "source": "shared/Character/Custom/HighElfMap/he_60349bfbf077449e1511_highelfhousevariantd_000.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_60349bfbf077449e1511_highelfhousevariantd_001.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "e0032419eb4abb91a9d00193318b28c42e775ed27823d63f3a0c171cf38cf3a9",
+      "source": "shared/Character/Custom/HighElfMap/he_60349bfbf077449e1511_highelfhousevariantd_001.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_6db0c842da765194d787_highelfhousevariantg.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "d5b262bc34907bffd4abee9852b2717be5a11ba6f36e8ac3a1af9e17afba9949",
+      "source": "shared/Character/Custom/HighElfMap/he_6db0c842da765194d787_highelfhousevariantg.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_6db0c842da765194d787_highelfhousevariantg_000.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "0702946ac9f41dedd93dcb74402270a61e4e3ee164b79b9a1ea060a2983a6eea",
+      "source": "shared/Character/Custom/HighElfMap/he_6db0c842da765194d787_highelfhousevariantg_000.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_6db0c842da765194d787_highelfhousevariantg_001.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "cd9188e00cf7a7ea4b6e2de7a0990c6fb95acddb3a46aa452090e0efa08d19ba",
+      "source": "shared/Character/Custom/HighElfMap/he_6db0c842da765194d787_highelfhousevariantg_001.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_7fd21d78411159fba0b4_high1elf_inn.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "54c546c829c3000efeb740ea4f7f059456893e6247b576749f38c24a121fa9d1",
+      "source": "shared/Character/Custom/HighElfMap/he_7fd21d78411159fba0b4_high1elf_inn.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_7fd21d78411159fba0b4_high1elf_inn_000.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "d781a87e24888696a332729f37b121dfc25943b691e2faf0457088110b03b871",
+      "source": "shared/Character/Custom/HighElfMap/he_7fd21d78411159fba0b4_high1elf_inn_000.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_8034bfbbd1194e786b59_mm_cavewall_09.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "4d6226828fcf958e91fc88859cfac70140eaca3134c170aaf9c5a07f3275f7de",
+      "source": "shared/Character/Custom/HighElfMap/he_8034bfbbd1194e786b59_mm_cavewall_09.blp"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_8373ff6a248f2472af2f_higheltree.m2",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "ca6c35e32decf50bbe7c60fbf9fe3a88d4a9f3d3503090cd3054d79d2efce4d4",
+      "source": "shared/Character/Custom/HighElfMap/he_8373ff6a248f2472af2f_higheltree.m2"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_8373ff6a248f2472af2f_higheltree00.skin",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "cb91f40693801c45cae0a403fc3721565472d9641ec8ce079bb211a4a8bf6a3b",
+      "source": "shared/Character/Custom/HighElfMap/he_8373ff6a248f2472af2f_higheltree00.skin"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_846e2efc83989526f7b9_highelfhousevariantf.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "4ef44d788f270fdf46177c338cbc03ff443f37ccea03af3639515d67e64729cc",
+      "source": "shared/Character/Custom/HighElfMap/he_846e2efc83989526f7b9_highelfhousevariantf.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_846e2efc83989526f7b9_highelfhousevariantf_000.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "cd207f1a8940c0997892ce343539a614dde67647c5b3d9e8d4d8a747db645813",
+      "source": "shared/Character/Custom/HighElfMap/he_846e2efc83989526f7b9_highelfhousevariantf_000.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_846e2efc83989526f7b9_highelfhousevariantf_001.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "8ec5d93b46b21b99c3f66f98f6541c23391d1d390ac9c083cc74f2b6cb1a82d1",
+      "source": "shared/Character/Custom/HighElfMap/he_846e2efc83989526f7b9_highelfhousevariantf_001.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_899ef979d75432fbfb82_high1elf_micro.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "52f6d8d185c120f11a1b61ac432a077321cbef5b4f4e457a949ff2b4c3a015d8",
+      "source": "shared/Character/Custom/HighElfMap/he_899ef979d75432fbfb82_high1elf_micro.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_899ef979d75432fbfb82_high1elf_micro_000.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "7e5ce84ba8b15f547eada991320b130585226c76329a14aa5586a1fb49ddee9b",
+      "source": "shared/Character/Custom/HighElfMap/he_899ef979d75432fbfb82_high1elf_micro_000.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_8b5d7663e9cabfff1b52_highelfcommand.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "0be00c70cc07cc7874c522bc74e3540cc699d35672dbc01673d6f7b31cd1b594",
+      "source": "shared/Character/Custom/HighElfMap/he_8b5d7663e9cabfff1b52_highelfcommand.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_8b5d7663e9cabfff1b52_highelfcommand_000.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "80c84f5a584de877dbb4b50fbf0cf65782a080268ce0d8d7dec9f34e3a6e2b47",
+      "source": "shared/Character/Custom/HighElfMap/he_8b5d7663e9cabfff1b52_highelfcommand_000.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_8b5d7663e9cabfff1b52_highelfcommand_001.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "b080cf4a7da3cb070f22d5d48de359483fd6fdd586533182b76651a4c94a1535",
+      "source": "shared/Character/Custom/HighElfMap/he_8b5d7663e9cabfff1b52_highelfcommand_001.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_8c59a2975a2cd4b1f6d6_high1elf_stairs04.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "639c2da0d5e4be502d31c3f548f48070e58d85d6e20f1894e43caf9767d1ebb1",
+      "source": "shared/Character/Custom/HighElfMap/he_8c59a2975a2cd4b1f6d6_high1elf_stairs04.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_8c59a2975a2cd4b1f6d6_high1elf_stairs04_000.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "0dab1ed13887b700b1e4e3a49fac665e101a9f53f1b7f424cff3538365d7d581",
+      "source": "shared/Character/Custom/HighElfMap/he_8c59a2975a2cd4b1f6d6_high1elf_stairs04_000.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_8e0af9b816c1890e6d0c_jlo_high1elf_red_roof.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "3b91a59f434e12784339621af31dadabc8df145e409b08722ae04ea3c2258339",
+      "source": "shared/Character/Custom/HighElfMap/he_8e0af9b816c1890e6d0c_jlo_high1elf_red_roof.blp"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_8fed230b6b765b75f9d4_high1elf_smallgazebo01.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "069d24f16aadca1fe0b4796f8a961f0df5f4f3649e5c025c659f8c05c302f4d0",
+      "source": "shared/Character/Custom/HighElfMap/he_8fed230b6b765b75f9d4_high1elf_smallgazebo01.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_8fed230b6b765b75f9d4_high1elf_smallgazebo01_000.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "dc58fb72ff5729771d446ddeb13408742b63f306352199b54e563da073fdd547",
+      "source": "shared/Character/Custom/HighElfMap/he_8fed230b6b765b75f9d4_high1elf_smallgazebo01_000.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_95cbfe5993cd28f83279_mm_minefront_01.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "3ee46834ae770372240270b6c2bed3dedd6a4bd6abda355b4ac50465df5fafda",
+      "source": "shared/Character/Custom/HighElfMap/he_95cbfe5993cd28f83279_mm_minefront_01.blp"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_9aa572b77e4df347a971_jlo_high1elf_wallwindow_01.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "8e77fd183a5e575b9f325ff77d4a0e79475020d60860a232d7c892df410a3baf",
+      "source": "shared/Character/Custom/HighElfMap/he_9aa572b77e4df347a971_jlo_high1elf_wallwindow_01.blp"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_9c787d0256546bef0231_jlo_high1elf_windows.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "2679f8ef1f2e68e3f18a3e695de4e4a0195dd1781b8921610c969f044dd40dff",
+      "source": "shared/Character/Custom/HighElfMap/he_9c787d0256546bef0231_jlo_high1elf_windows.blp"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_a06151ce177cc5dcc742_he_gravestones.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "1b5d315444d5023d72e45fe8c287d670ad155613dde85a4a58c230c9e809ce96",
+      "source": "shared/Character/Custom/HighElfMap/he_a06151ce177cc5dcc742_he_gravestones.blp"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_a361c17657b4390dbe96_he_merchantstand.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "295597e79e1fcd1aa6dd384367d230ce4c3b672398e39c521fc905200c7d909e",
+      "source": "shared/Character/Custom/HighElfMap/he_a361c17657b4390dbe96_he_merchantstand.blp"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_afd545e1f2b2de1b849b_mm_minebeam_03.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "26c570efe3b8325ad6b9f621a176ee802bd15f88952acbe6a21ce29a53b1c85f",
+      "source": "shared/Character/Custom/HighElfMap/he_afd545e1f2b2de1b849b_mm_minebeam_03.blp"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_b2ad61cb3bd6a7c5a2d1_jlo_high1elf_pillar_01.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "8c290a495116ab279dc149eba0bff255a64ff006d82474778806c906f4a2a90c",
+      "source": "shared/Character/Custom/HighElfMap/he_b2ad61cb3bd6a7c5a2d1_jlo_high1elf_pillar_01.blp"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_b899778daea34c472da1_be_banner05.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "32944a9b73fafec030fe04decf837d4c9c1726e2040a0cab1987a9510e20e9a8",
+      "source": "shared/Character/Custom/HighElfMap/he_b899778daea34c472da1_be_banner05.blp"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_bd1b6dac7f21b9ed5600_jlo_high1elf_roof_02.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "be53d98d035e40d139860f777bc2aab89ceb1464c0aa5b44b7c449d25aaab080",
+      "source": "shared/Character/Custom/HighElfMap/he_bd1b6dac7f21b9ed5600_jlo_high1elf_roof_02.blp"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_c2d5d345cabaa7309fa2_mm_minebeam_01.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "7fda3457002613172ba1d12cb2f4ea3419c2be6de76aa357893fda263e976f00",
+      "source": "shared/Character/Custom/HighElfMap/he_c2d5d345cabaa7309fa2_mm_minebeam_01.blp"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_c45903a1d724ca95b749_heltreetop01.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "aae64fd988e47289fab8693ad26a235735c174d7bbd84725ef116f77955e91d1",
+      "source": "shared/Character/Custom/HighElfMap/he_c45903a1d724ca95b749_heltreetop01.blp"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_cc5c3e1891da98cbd396_jlo_high1elf_doortrim_01.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "01dbec511597b73c1ea6b06dca9b0371b92f281f00f689489a97d44067099319",
+      "source": "shared/Character/Custom/HighElfMap/he_cc5c3e1891da98cbd396_jlo_high1elf_doortrim_01.blp"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_cdb586f16bca4664b605_elvenlands_arch_01.m2",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "1648b422d71156a2fef0b571144d858929a49edf27ea0c523e22419bca17181f",
+      "source": "shared/Character/Custom/HighElfMap/he_cdb586f16bca4664b605_elvenlands_arch_01.m2"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_cdb586f16bca4664b605_elvenlands_arch_0100.skin",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "e0fdcd1e9cac20d7261e0162aff0fc2f6795c3f72c57dc946b450cf5829ea104",
+      "source": "shared/Character/Custom/HighElfMap/he_cdb586f16bca4664b605_elvenlands_arch_0100.skin"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_d3631bc63cd449c4d0f3_mm_minestep_01.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "f07513ccf92a92c226a8dcc3c49cca2ba6a5e562a0b618d75615365191c82327",
+      "source": "shared/Character/Custom/HighElfMap/he_d3631bc63cd449c4d0f3_mm_minestep_01.blp"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_dd1618040a45eec4d4ee_higheltreeparticleleaf2.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "6e7c2ef22a4424531266c50b77e47b8c7238e793bfd9e4328b5a2734a5d84c2a",
+      "source": "shared/Character/Custom/HighElfMap/he_dd1618040a45eec4d4ee_higheltreeparticleleaf2.blp"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_dfc6a574c4c4ad2900e2_mm_minerocks_01.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "bb04f58d30c2a31657563e3f45e51063e19f779e3ae34658c352f9683b780b6e",
+      "source": "shared/Character/Custom/HighElfMap/he_dfc6a574c4c4ad2900e2_mm_minerocks_01.blp"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_dff6bf8f106ce7be4362_high1elf_arcane_sanctum.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "ccf9b2c76d7a74a9b3ebd6f6a5071607add3e07eae23545d7d8671741a550fdc",
+      "source": "shared/Character/Custom/HighElfMap/he_dff6bf8f106ce7be4362_high1elf_arcane_sanctum.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_dff6bf8f106ce7be4362_high1elf_arcane_sanctum_000.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "5cc7576b48aacb05330e24a25707d4a21a4dcbbaf93ee7cec7170dd43efd11bd",
+      "source": "shared/Character/Custom/HighElfMap/he_dff6bf8f106ce7be4362_high1elf_arcane_sanctum_000.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_e5bb2cbcb0943b34bc41_highelfhouseroundvariantb.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "453c1827a54b3ba8c4632b336f27391bd721163bb59931e4e10508f80c267afe",
+      "source": "shared/Character/Custom/HighElfMap/he_e5bb2cbcb0943b34bc41_highelfhouseroundvariantb.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_e5bb2cbcb0943b34bc41_highelfhouseroundvariantb_000.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "2d8bf5986c27172da5f71a11cc8e76cc2d2a0af0c4ab9c1692f0acf43ec5deae",
+      "source": "shared/Character/Custom/HighElfMap/he_e5bb2cbcb0943b34bc41_highelfhouseroundvariantb_000.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_e5bb2cbcb0943b34bc41_highelfhouseroundvariantb_001.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "3e2bcae0412ebe5689d6c815e93c886b63a29237cb89f9dbe888ed0ced16c4e8",
+      "source": "shared/Character/Custom/HighElfMap/he_e5bb2cbcb0943b34bc41_highelfhouseroundvariantb_001.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_ee017411e092c0a44cdf_be_tnt2.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "929e917a078aae4961514ad14bdb80f106e72abdcc1220630782a0c69a4884b3",
+      "source": "shared/Character/Custom/HighElfMap/he_ee017411e092c0a44cdf_be_tnt2.blp"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_ff65b84a6e86080a93b9_nethermicro_03.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "aae422c2da179aefe82f2159bd07739839c046a24d636fd2898558a5f25e3bfe",
+      "source": "shared/Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_ff65b84a6e86080a93b9_nethermicro_03_000.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "f6951863bab1a9827e0925539f18ee2a7df30a7db3d8f687d5b1f20cd50b40b1",
+      "source": "shared/Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_000.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_ff65b84a6e86080a93b9_nethermicro_03_001.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "88d09fa4a9e3888226c600731b30ba41d70118ca6a24c41df6ea0c975987a4f4",
+      "source": "shared/Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_001.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_ff65b84a6e86080a93b9_nethermicro_03_002.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "9bf0ab7994b79b1fbdcd65be07d8d6e4757c461566fa559534c6490fa1a478c2",
+      "source": "shared/Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_002.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_ff65b84a6e86080a93b9_nethermicro_03_003.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "2d3a8b180ae84bc35889eebbee8bdc4de4bf4f79b7ebdaa11da850fff2cdea7c",
+      "source": "shared/Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_003.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_ff65b84a6e86080a93b9_nethermicro_03_004.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "d88d48d6516f60929aed5b5890d858c45bf62258cf51e44a0c7b8764ff994e1f",
+      "source": "shared/Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_004.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_ff65b84a6e86080a93b9_nethermicro_03_005.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "80d39088df2971e8fa7fe64be1275bb2305f1d7abe73d4eadf3050f1fe0de868",
+      "source": "shared/Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_005.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_ff65b84a6e86080a93b9_nethermicro_03_006.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "8e93d84dfcb461c108e8992c897aa825c68188f2c193ec6f15e93b053238f13c",
+      "source": "shared/Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_006.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_ff65b84a6e86080a93b9_nethermicro_03_007.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "5bc4f6add5626f0515d7787f5ed31ce7f92cd4ca69a8e4f6f2f3c0fe9e39011f",
+      "source": "shared/Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_007.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_ff65b84a6e86080a93b9_nethermicro_03_008.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "c8a90f4e86c0084c8ac96907a2c23e2ef7fac5b7de26000f718b42d95b2098eb",
+      "source": "shared/Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_008.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_ff65b84a6e86080a93b9_nethermicro_03_009.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "6d6120c8f4498a7f4c96199c22dbb0fd5032f75406abb988371ff2aeaa7e5519",
+      "source": "shared/Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_009.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_ff65b84a6e86080a93b9_nethermicro_03_010.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "be31d4c1dd474e4427dcad1f2e2e9b812762dbf41a97595f21f17bfb52d2cec7",
+      "source": "shared/Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_010.wmo"
+    },
+    {
+      "member": "Character\\Custom\\HighElfMap\\he_ff65b84a6e86080a93b9_nethermicro_03_011.wmo",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "ae5fb8465808337fd59121a430dcbe2e9512a2a9615e981b2474489dc25b930a",
+      "source": "shared/Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_011.wmo"
+    },
+    {
+      "member": "Interface\\WorldMap\\AlahThalas\\AlahThalas1.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "6f4c6228767be1d2edd9b8f2801a421e2d4838f2f77c04ca0215548f3cfe344c",
+      "source": "shared/Interface/WorldMap/AlahThalas/AlahThalas1.blp"
+    },
+    {
+      "member": "Interface\\WorldMap\\AlahThalas\\AlahThalas10.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "d08a4e92109748145a3bda421d1de23c701cbed22257a2d73c87b0fbaf7afb1d",
+      "source": "shared/Interface/WorldMap/AlahThalas/AlahThalas10.blp"
+    },
+    {
+      "member": "Interface\\WorldMap\\AlahThalas\\AlahThalas11.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "e1389523e2851d9bfc0cafa4ec05a18e63bb185482bafd5dec070d2054ecaf6d",
+      "source": "shared/Interface/WorldMap/AlahThalas/AlahThalas11.blp"
+    },
+    {
+      "member": "Interface\\WorldMap\\AlahThalas\\AlahThalas12.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "dabbd5a680eb569706cd07cdcdad057a034c1ff4fb9564c4dd9c80050a32eb54",
+      "source": "shared/Interface/WorldMap/AlahThalas/AlahThalas12.blp"
+    },
+    {
+      "member": "Interface\\WorldMap\\AlahThalas\\AlahThalas2.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "2ed7408569594ce5ac5e3ce344d9f770059dc03156470cadca4eaadea2161e01",
+      "source": "shared/Interface/WorldMap/AlahThalas/AlahThalas2.blp"
+    },
+    {
+      "member": "Interface\\WorldMap\\AlahThalas\\AlahThalas3.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "1d7a36dbd7f23a67ae892fc7cd11f899983d1b5f0d0dd2e01398f2c9b4579449",
+      "source": "shared/Interface/WorldMap/AlahThalas/AlahThalas3.blp"
+    },
+    {
+      "member": "Interface\\WorldMap\\AlahThalas\\AlahThalas4.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "99f9c0aafaec043913d537dda6fde6df88f939c44e572f520b0cecdbf650ba7c",
+      "source": "shared/Interface/WorldMap/AlahThalas/AlahThalas4.blp"
+    },
+    {
+      "member": "Interface\\WorldMap\\AlahThalas\\AlahThalas5.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "08d651d39876facae6b0f078cb762019a072e89c5e91665c5f37b3713e20e1bc",
+      "source": "shared/Interface/WorldMap/AlahThalas/AlahThalas5.blp"
+    },
+    {
+      "member": "Interface\\WorldMap\\AlahThalas\\AlahThalas6.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "ace1592bf0b4896cad838fcd4cdec155078f02e07d2963daa2274b91740d0897",
+      "source": "shared/Interface/WorldMap/AlahThalas/AlahThalas6.blp"
+    },
+    {
+      "member": "Interface\\WorldMap\\AlahThalas\\AlahThalas7.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "b122405cdda8dde82da820405d501c019a46913d24082942f97d3cdfa93fbd9c",
+      "source": "shared/Interface/WorldMap/AlahThalas/AlahThalas7.blp"
+    },
+    {
+      "member": "Interface\\WorldMap\\AlahThalas\\AlahThalas8.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "cd7425adf9b66760ddcd902c3168cde881aa7665cca3bf7b7792ac6ff8f4b83b",
+      "source": "shared/Interface/WorldMap/AlahThalas/AlahThalas8.blp"
+    },
+    {
+      "member": "Interface\\WorldMap\\AlahThalas\\AlahThalas9.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "12b39d6190d3f0dbb01655c3c6fdc790cb73a6ccea169881501546269af7bfab",
+      "source": "shared/Interface/WorldMap/AlahThalas/AlahThalas9.blp"
+    },
+    {
+      "member": "interface\\worldmap\\alahthalas\\alahthalashighlight.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "b26cebea1d8afafcfbfbb27bc9d74ad6d87b5f091863b844ad3a3a44dac42b6e",
+      "source": "shared/interface/worldmap/alahthalas/alahthalashighlight.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\alahthalas1.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "94726b36fcf1305bb8511b4fe32cbc3babfa13595ade398a0979942e6941a7ba",
+      "source": "shared/interface/worldmap/thalassianhighlands/alahthalas1.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\alahthalas2.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "3fc15e96909859e2bf9e29b60dc26637d076a5253ba42adce155097495dc3d3e",
+      "source": "shared/interface/worldmap/thalassianhighlands/alahthalas2.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\alahthalas3.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "a02473143ccdc448aa21ecd218d1ff85e4ef47bdae0c57f8c663d225c8628be2",
+      "source": "shared/interface/worldmap/thalassianhighlands/alahthalas3.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\alahthalas4.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "ec2a6e1cac476424e8bfb837de9cd6520fcf14ecc1f6dfac109e7438b00354a6",
+      "source": "shared/interface/worldmap/thalassianhighlands/alahthalas4.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\alahthalas5.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "d2782e91e7403d3f014ccb63df902670df5ed3586f8dbba17291bbe9590860b4",
+      "source": "shared/interface/worldmap/thalassianhighlands/alahthalas5.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\alahthalas6.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "b090e335a282f0e58ef7683234e2a4bb96481e8273848ca6d6f39afe9b7eade2",
+      "source": "shared/interface/worldmap/thalassianhighlands/alahthalas6.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\anasterianpark1.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "0dc3951eff7d72e39a9ae1e1cf639f6009bf4149167d98d73f3099008a4ac5be",
+      "source": "shared/interface/worldmap/thalassianhighlands/anasterianpark1.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\anasterianpark2.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "d816c504e7e9aa9f3c81acef6206ceacfc88679f67cda508ab628f66013a04ef",
+      "source": "shared/interface/worldmap/thalassianhighlands/anasterianpark2.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\anasterianpark3.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "4442ea66a645ba8db1923467a8511560700258c0c2175b879bd9d1d1ddac7f97",
+      "source": "shared/interface/worldmap/thalassianhighlands/anasterianpark3.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\anasterianpark4.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "5fed34819c575f5f745902c6ab7a312ecfbbc51934f2121d98879c94db41a792",
+      "source": "shared/interface/worldmap/thalassianhighlands/anasterianpark4.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\brinthilien1.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "8c9f2402ec4f67b72ae6560eb9d071a5cfc6ecf74fc0ccaf2c2064cec3677743",
+      "source": "shared/interface/worldmap/thalassianhighlands/brinthilien1.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\brinthilien2.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "567240e4826f4fd0f7e3ef127eb85c27be8bd288e1c077be00912687147ff97c",
+      "source": "shared/interface/worldmap/thalassianhighlands/brinthilien2.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\brinthilien3.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "2e3d48a2bc3551571181be339f6cdc6510f7c26948956bfad6b8ff949a9ccb74",
+      "source": "shared/interface/worldmap/thalassianhighlands/brinthilien3.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\brinthilien4.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "9b12d8b6e0988983e67a6e2d68c2d557f11746058033166cb1657567be50796b",
+      "source": "shared/interface/worldmap/thalassianhighlands/brinthilien4.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\felstriderretreat1.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "02e0eefa23e22bc52a7cb85b8c30dbe53816d3496819eab191be14619a23c8df",
+      "source": "shared/interface/worldmap/thalassianhighlands/felstriderretreat1.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\felstriderretreat2.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "11f8ba6666edb153057df813517bd036603aa49a1a0a91e78ed0ac470ea5ca8f",
+      "source": "shared/interface/worldmap/thalassianhighlands/felstriderretreat2.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\felstriderretreat3.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "b4353c680096fee4175210db3731aa2fcdd3c4cf1af40c1d204588b970b8fcda",
+      "source": "shared/interface/worldmap/thalassianhighlands/felstriderretreat3.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\felstriderretreat4.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "dc2a7da95d2f98c7ec527470b772eeda4c046248b6648a8b6a8a9b1dee3b0933",
+      "source": "shared/interface/worldmap/thalassianhighlands/felstriderretreat4.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\isleofeternalautumn1.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "9e1e13d434ea538e8d89169f5efd178646710cd8cb54a421da42414005163f3d",
+      "source": "shared/interface/worldmap/thalassianhighlands/isleofeternalautumn1.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\isleofeternalautumn2.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "e1fc69f32b106fd836a52b0162d5779bd9aad57b20bd9defefa44b7ff0c1a9cb",
+      "source": "shared/interface/worldmap/thalassianhighlands/isleofeternalautumn2.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\isleofeternalautumn3.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "f1abd6e63372557e728dc1fb47185a87b3ef5ae34f36932676f2c560ac181102",
+      "source": "shared/interface/worldmap/thalassianhighlands/isleofeternalautumn3.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\isleofeternalautumn4.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "ad374d2b45a54ade2a53f615006464181a684e1e763dcbae350b640695e78c40",
+      "source": "shared/interface/worldmap/thalassianhighlands/isleofeternalautumn4.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\ruinsofnashalaran1.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "97c602c8ff8ee1da8541a393edbcd9c430821bf09e1c97e86e60d279b0fa1d66",
+      "source": "shared/interface/worldmap/thalassianhighlands/ruinsofnashalaran1.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\ruinsofnashalaran2.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "61fde160080beb13ed0afc4f350c10d730e61e10539078dd68e24386118218b3",
+      "source": "shared/interface/worldmap/thalassianhighlands/ruinsofnashalaran2.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\ruinsofnashalaran3.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "2199639b271c2f596621fa39f3fda014bc933c2fd64cb9997c5b76daf699cdbf",
+      "source": "shared/interface/worldmap/thalassianhighlands/ruinsofnashalaran3.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\ruinsofnashalaran4.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "14d98338e869d43d83ae985549575c75dd52943d6b803e838fa09851e05c4be8",
+      "source": "shared/interface/worldmap/thalassianhighlands/ruinsofnashalaran4.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\silversunmine1.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "9b16de4904e7eb3e407727cfd7478a3355149367212779035cbd395628de100c",
+      "source": "shared/interface/worldmap/thalassianhighlands/silversunmine1.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\silversunmine2.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "6748c4a746ccdc9ffd2315e66b57bc003cbc4611bb3281d59e20c3ba7f47d1cd",
+      "source": "shared/interface/worldmap/thalassianhighlands/silversunmine2.blp"
+    },
+    {
+      "member": "Interface\\WorldMap\\ThalassianHighlands\\ThalassianHighlands1.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "1565a69ab7fc35099eb112c86522b60d7b8c07055881398d8c0baa6a0c7a4969",
+      "source": "shared/Interface/WorldMap/ThalassianHighlands/ThalassianHighlands1.blp"
+    },
+    {
+      "member": "Interface\\WorldMap\\ThalassianHighlands\\ThalassianHighlands10.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "59c0be05d78ddeece745736067434e0d9c6ba0e3faf305de20f5a6f23048cff7",
+      "source": "shared/Interface/WorldMap/ThalassianHighlands/ThalassianHighlands10.blp"
+    },
+    {
+      "member": "Interface\\WorldMap\\ThalassianHighlands\\ThalassianHighlands11.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "4d7d63a034ea656c8d5a82719e3be5a845497ee58e238d716e563ae890e7bfe7",
+      "source": "shared/Interface/WorldMap/ThalassianHighlands/ThalassianHighlands11.blp"
+    },
+    {
+      "member": "Interface\\WorldMap\\ThalassianHighlands\\ThalassianHighlands12.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "1d704238d726672a0f6f66c3bf3b14914d347a80956c0a430742d976b05a4afa",
+      "source": "shared/Interface/WorldMap/ThalassianHighlands/ThalassianHighlands12.blp"
+    },
+    {
+      "member": "Interface\\WorldMap\\ThalassianHighlands\\ThalassianHighlands2.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "3f231e30f80771493c3ec90c08ef1dfeba49bd08c482758b62c4abeb39c91e6a",
+      "source": "shared/Interface/WorldMap/ThalassianHighlands/ThalassianHighlands2.blp"
+    },
+    {
+      "member": "Interface\\WorldMap\\ThalassianHighlands\\ThalassianHighlands3.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "509131594e35400afc5731f42dab0898e0d896b14f50074cecc96c187e528805",
+      "source": "shared/Interface/WorldMap/ThalassianHighlands/ThalassianHighlands3.blp"
+    },
+    {
+      "member": "Interface\\WorldMap\\ThalassianHighlands\\ThalassianHighlands4.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "6574ababacebf195dc582d94d4eb94fef5655c50a122d7da5539e0454d70cf1f",
+      "source": "shared/Interface/WorldMap/ThalassianHighlands/ThalassianHighlands4.blp"
+    },
+    {
+      "member": "Interface\\WorldMap\\ThalassianHighlands\\ThalassianHighlands5.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "bf5fa9e7c223c70049b617e4cf605d8c3f27b3c83bc7f13c8d252b29340cba7c",
+      "source": "shared/Interface/WorldMap/ThalassianHighlands/ThalassianHighlands5.blp"
+    },
+    {
+      "member": "Interface\\WorldMap\\ThalassianHighlands\\ThalassianHighlands6.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "a467aa1bbc356e848bc499f17966b855ce8ef2a4d675cc3e62cc38e6a50f090a",
+      "source": "shared/Interface/WorldMap/ThalassianHighlands/ThalassianHighlands6.blp"
+    },
+    {
+      "member": "Interface\\WorldMap\\ThalassianHighlands\\ThalassianHighlands7.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "d78c46b43217eaaf184e6acf2cb4f921c98ec79b15e0cb3d97b4904b0e6c82d6",
+      "source": "shared/Interface/WorldMap/ThalassianHighlands/ThalassianHighlands7.blp"
+    },
+    {
+      "member": "Interface\\WorldMap\\ThalassianHighlands\\ThalassianHighlands8.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "8a8943253aa330000f608fdb559b65d18da32ae78220007ca60d9b67a6d60d0c",
+      "source": "shared/Interface/WorldMap/ThalassianHighlands/ThalassianHighlands8.blp"
+    },
+    {
+      "member": "Interface\\WorldMap\\ThalassianHighlands\\ThalassianHighlands9.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "a0bcc957f03b166b54a00ff0944efc850d6c57541832e50695c7f8eed3c45707",
+      "source": "shared/Interface/WorldMap/ThalassianHighlands/ThalassianHighlands9.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\thalassianhighlandshighlight.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "ada1d39428f817644d0c3b6284147543fde09c0a69bf9b04d0d70ebbed4f554c",
+      "source": "shared/interface/worldmap/thalassianhighlands/thalassianhighlandshighlight.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\thefarstride1.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "612dcb4812f2a0d462bdd983e9d236a7586784e081b878394393bfbb5d45adb6",
+      "source": "shared/interface/worldmap/thalassianhighlands/thefarstride1.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\thefarstride2.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "23ed689f445bf4dd05de5a0c5b9338cd0bb91ce699730d28f349b1ce6fc4bde6",
+      "source": "shared/interface/worldmap/thalassianhighlands/thefarstride2.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\thefarstride3.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "fa8c4b4651429107185e4bb997d121fb182010f3f5c5a2962905b512a4336f36",
+      "source": "shared/interface/worldmap/thalassianhighlands/thefarstride3.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\thefarstride4.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "42859e6c4edf50125cab4979359798298fcab5c9cb4939060e073e9e1257cd20",
+      "source": "shared/interface/worldmap/thalassianhighlands/thefarstride4.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\thelastrunestone1.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "4b071fe0b20371a7fcc8b2caa682978ebd415b52d857e455fe366541dc3fac7d",
+      "source": "shared/interface/worldmap/thalassianhighlands/thelastrunestone1.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\thelastrunestone2.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "4a15eefe2e91afb35e62cb026fb344e01a923fde16ea41742e62132e74d27fe7",
+      "source": "shared/interface/worldmap/thalassianhighlands/thelastrunestone2.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\thelastrunestone3.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "9ce1d8860c996e36920ac1aa417593f702342545ff74b180da4e0e31265d988f",
+      "source": "shared/interface/worldmap/thalassianhighlands/thelastrunestone3.blp"
+    },
+    {
+      "member": "interface\\worldmap\\thalassianhighlands\\thelastrunestone4.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "305f967fa0c66677be94cb8724c2b12511a9f9ef4db137fee7f1c28734988e35",
+      "source": "shared/interface/worldmap/thalassianhighlands/thelastrunestone4.blp"
+    },
+    {
+      "member": "Textures\\Minimap\\hemap_1821f60aa9a663487745d82e3f00033a1b99d91617a279c70e03149580ea1575.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "1821f60aa9a663487745d82e3f00033a1b99d91617a279c70e03149580ea1575",
+      "source": "shared/Textures/Minimap/hemap_1821f60aa9a663487745d82e3f00033a1b99d91617a279c70e03149580ea1575.blp"
+    },
+    {
+      "member": "Textures\\Minimap\\hemap_196c67c5e8253882d7819afa142fdaa7fe7833d8de1fe11b01be35fd2b209c13.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "196c67c5e8253882d7819afa142fdaa7fe7833d8de1fe11b01be35fd2b209c13",
+      "source": "shared/Textures/Minimap/hemap_196c67c5e8253882d7819afa142fdaa7fe7833d8de1fe11b01be35fd2b209c13.blp"
+    },
+    {
+      "member": "Textures\\Minimap\\hemap_1fc6f66a37fad11777728a2289d233941c8425655f9809385b3b49aeaccbf1ed.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "1fc6f66a37fad11777728a2289d233941c8425655f9809385b3b49aeaccbf1ed",
+      "source": "shared/Textures/Minimap/hemap_1fc6f66a37fad11777728a2289d233941c8425655f9809385b3b49aeaccbf1ed.blp"
+    },
+    {
+      "member": "Textures\\Minimap\\hemap_235776484918cfc3dd912056ff92e830cc2f61690ff4e3bee76d056b65ad84aa.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "235776484918cfc3dd912056ff92e830cc2f61690ff4e3bee76d056b65ad84aa",
+      "source": "shared/Textures/Minimap/hemap_235776484918cfc3dd912056ff92e830cc2f61690ff4e3bee76d056b65ad84aa.blp"
+    },
+    {
+      "member": "Textures\\Minimap\\hemap_2a085ee6233a4770b5ca30ec77f9e24125a8f36ee06ff47b488b236ab64c99fd.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "2a085ee6233a4770b5ca30ec77f9e24125a8f36ee06ff47b488b236ab64c99fd",
+      "source": "shared/Textures/Minimap/hemap_2a085ee6233a4770b5ca30ec77f9e24125a8f36ee06ff47b488b236ab64c99fd.blp"
+    },
+    {
+      "member": "Textures\\Minimap\\hemap_2b2e51f66cf5c734be23305329a3dbfc1ea3c59dbef97dbaf76d189ae32dbd07.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "2b2e51f66cf5c734be23305329a3dbfc1ea3c59dbef97dbaf76d189ae32dbd07",
+      "source": "shared/Textures/Minimap/hemap_2b2e51f66cf5c734be23305329a3dbfc1ea3c59dbef97dbaf76d189ae32dbd07.blp"
+    },
+    {
+      "member": "Textures\\Minimap\\hemap_2bf0d5231086c18d5948051c929452e7f88652f35660ec0e4263d74c020d2829.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "2bf0d5231086c18d5948051c929452e7f88652f35660ec0e4263d74c020d2829",
+      "source": "shared/Textures/Minimap/hemap_2bf0d5231086c18d5948051c929452e7f88652f35660ec0e4263d74c020d2829.blp"
+    },
+    {
+      "member": "Textures\\Minimap\\hemap_2dce0185d3ab48428fecb63adb799275ea31b398fd2c6e09604b2247b2b70e6e.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "2dce0185d3ab48428fecb63adb799275ea31b398fd2c6e09604b2247b2b70e6e",
+      "source": "shared/Textures/Minimap/hemap_2dce0185d3ab48428fecb63adb799275ea31b398fd2c6e09604b2247b2b70e6e.blp"
+    },
+    {
+      "member": "Textures\\Minimap\\hemap_2dd046f665535a3ee9a1ae48eca94c8edceb52c760d1bbabad65d7e3470bcb94.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "2dd046f665535a3ee9a1ae48eca94c8edceb52c760d1bbabad65d7e3470bcb94",
+      "source": "shared/Textures/Minimap/hemap_2dd046f665535a3ee9a1ae48eca94c8edceb52c760d1bbabad65d7e3470bcb94.blp"
+    },
+    {
+      "member": "Textures\\Minimap\\hemap_4267f6377bbec2277cde11931abddd6adbc94c5c2cbc6bee85e58607ec6f84f7.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "4267f6377bbec2277cde11931abddd6adbc94c5c2cbc6bee85e58607ec6f84f7",
+      "source": "shared/Textures/Minimap/hemap_4267f6377bbec2277cde11931abddd6adbc94c5c2cbc6bee85e58607ec6f84f7.blp"
+    },
+    {
+      "member": "Textures\\Minimap\\hemap_43426d931ae0d8a57062751c4d1002b5605ae08e1d1fd8aa52a8e049618fbc39.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "43426d931ae0d8a57062751c4d1002b5605ae08e1d1fd8aa52a8e049618fbc39",
+      "source": "shared/Textures/Minimap/hemap_43426d931ae0d8a57062751c4d1002b5605ae08e1d1fd8aa52a8e049618fbc39.blp"
+    },
+    {
+      "member": "Textures\\Minimap\\hemap_4e76f10b1fc4162d9546898def5ac85ee155c98183f28306dccfb57100c54ecf.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "4e76f10b1fc4162d9546898def5ac85ee155c98183f28306dccfb57100c54ecf",
+      "source": "shared/Textures/Minimap/hemap_4e76f10b1fc4162d9546898def5ac85ee155c98183f28306dccfb57100c54ecf.blp"
+    },
+    {
+      "member": "Textures\\Minimap\\hemap_4f98368876c92e99d427aa75c73fa02678a2c6523f635c9e8150ca16e4dec32c.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "4f98368876c92e99d427aa75c73fa02678a2c6523f635c9e8150ca16e4dec32c",
+      "source": "shared/Textures/Minimap/hemap_4f98368876c92e99d427aa75c73fa02678a2c6523f635c9e8150ca16e4dec32c.blp"
+    },
+    {
+      "member": "Textures\\Minimap\\hemap_7c1c8002b338878be8a208400b4cd716a76baed93cbb7d588946dcbf3a50f898.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "7c1c8002b338878be8a208400b4cd716a76baed93cbb7d588946dcbf3a50f898",
+      "source": "shared/Textures/Minimap/hemap_7c1c8002b338878be8a208400b4cd716a76baed93cbb7d588946dcbf3a50f898.blp"
+    },
+    {
+      "member": "Textures\\Minimap\\hemap_7da6b5575706ccb02572185912d03135144d24156dbfa7aa62156afcc5d5f738.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "7da6b5575706ccb02572185912d03135144d24156dbfa7aa62156afcc5d5f738",
+      "source": "shared/Textures/Minimap/hemap_7da6b5575706ccb02572185912d03135144d24156dbfa7aa62156afcc5d5f738.blp"
+    },
+    {
+      "member": "Textures\\Minimap\\hemap_8be379e06eed86ffa1e30dfdee4e5f71b61391059baf719c99a4ca3343b5f520.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "8be379e06eed86ffa1e30dfdee4e5f71b61391059baf719c99a4ca3343b5f520",
+      "source": "shared/Textures/Minimap/hemap_8be379e06eed86ffa1e30dfdee4e5f71b61391059baf719c99a4ca3343b5f520.blp"
+    },
+    {
+      "member": "Textures\\Minimap\\hemap_8f92d25ce8a9d01c8a7e0961f099e17c8ad707e2de32db931679c326df1f5cd9.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "8f92d25ce8a9d01c8a7e0961f099e17c8ad707e2de32db931679c326df1f5cd9",
+      "source": "shared/Textures/Minimap/hemap_8f92d25ce8a9d01c8a7e0961f099e17c8ad707e2de32db931679c326df1f5cd9.blp"
+    },
+    {
+      "member": "Textures\\Minimap\\hemap_8fa9d926687449d45a9b0a878b49b90c759a12b192cebb1ee6d1680b22faf190.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "8fa9d926687449d45a9b0a878b49b90c759a12b192cebb1ee6d1680b22faf190",
+      "source": "shared/Textures/Minimap/hemap_8fa9d926687449d45a9b0a878b49b90c759a12b192cebb1ee6d1680b22faf190.blp"
+    },
+    {
+      "member": "Textures\\Minimap\\hemap_90f45ffc7450e9131ee2bdbc1dab2b765659c7d61a0163ecd39dbd17236d5154.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "90f45ffc7450e9131ee2bdbc1dab2b765659c7d61a0163ecd39dbd17236d5154",
+      "source": "shared/Textures/Minimap/hemap_90f45ffc7450e9131ee2bdbc1dab2b765659c7d61a0163ecd39dbd17236d5154.blp"
+    },
+    {
+      "member": "Textures\\Minimap\\hemap_a7539db336fbc532d3b82ba7db375c7c7be858651ecc1948d966ac8c3453f431.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "a7539db336fbc532d3b82ba7db375c7c7be858651ecc1948d966ac8c3453f431",
+      "source": "shared/Textures/Minimap/hemap_a7539db336fbc532d3b82ba7db375c7c7be858651ecc1948d966ac8c3453f431.blp"
+    },
+    {
+      "member": "Textures\\Minimap\\hemap_abf788244bc36ebd594e9d2fe5fa3f6fd574bead5502d15ad2e78d20d85179df.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "abf788244bc36ebd594e9d2fe5fa3f6fd574bead5502d15ad2e78d20d85179df",
+      "source": "shared/Textures/Minimap/hemap_abf788244bc36ebd594e9d2fe5fa3f6fd574bead5502d15ad2e78d20d85179df.blp"
+    },
+    {
+      "member": "Textures\\Minimap\\hemap_b113b406a1e198c6a048785af80ea67de24f66461ca14139c64bfaa1604b16f2.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "b113b406a1e198c6a048785af80ea67de24f66461ca14139c64bfaa1604b16f2",
+      "source": "shared/Textures/Minimap/hemap_b113b406a1e198c6a048785af80ea67de24f66461ca14139c64bfaa1604b16f2.blp"
+    },
+    {
+      "member": "Textures\\Minimap\\hemap_b461e8b8f5e5d0788386576ed57d42211782a58f6795b9f5855132bb85e71914.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "b461e8b8f5e5d0788386576ed57d42211782a58f6795b9f5855132bb85e71914",
+      "source": "shared/Textures/Minimap/hemap_b461e8b8f5e5d0788386576ed57d42211782a58f6795b9f5855132bb85e71914.blp"
+    },
+    {
+      "member": "Textures\\Minimap\\hemap_cd1cb7ae3060d2c98f035c8272102067f0d96f6060c0ff7bdd4c56cba86218a2.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "cd1cb7ae3060d2c98f035c8272102067f0d96f6060c0ff7bdd4c56cba86218a2",
+      "source": "shared/Textures/Minimap/hemap_cd1cb7ae3060d2c98f035c8272102067f0d96f6060c0ff7bdd4c56cba86218a2.blp"
+    },
+    {
+      "member": "Textures\\Minimap\\hemap_d6e46bf32b51d3ca308f7eb76ab3bfd4846267841f66f60f176870d8824bd7f2.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "d6e46bf32b51d3ca308f7eb76ab3bfd4846267841f66f60f176870d8824bd7f2",
+      "source": "shared/Textures/Minimap/hemap_d6e46bf32b51d3ca308f7eb76ab3bfd4846267841f66f60f176870d8824bd7f2.blp"
+    },
+    {
+      "member": "Textures\\Minimap\\hemap_da441fef0441f2bce811175a6f5809cdfffeff25436542180fbb4db6fc528bd3.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "da441fef0441f2bce811175a6f5809cdfffeff25436542180fbb4db6fc528bd3",
+      "source": "shared/Textures/Minimap/hemap_da441fef0441f2bce811175a6f5809cdfffeff25436542180fbb4db6fc528bd3.blp"
+    },
+    {
+      "member": "Textures\\Minimap\\hemap_dfbec26f9792d226bb12450c81ac9f6fe915419bfce120e9f16bb9fb3b1c3232.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "dfbec26f9792d226bb12450c81ac9f6fe915419bfce120e9f16bb9fb3b1c3232",
+      "source": "shared/Textures/Minimap/hemap_dfbec26f9792d226bb12450c81ac9f6fe915419bfce120e9f16bb9fb3b1c3232.blp"
+    },
+    {
+      "member": "Textures\\Minimap\\hemap_ed9b0302f10139d1e69bfdb2c315ac07dc8625c5e285a18f5c1610389e602e31.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "ed9b0302f10139d1e69bfdb2c315ac07dc8625c5e285a18f5c1610389e602e31",
+      "source": "shared/Textures/Minimap/hemap_ed9b0302f10139d1e69bfdb2c315ac07dc8625c5e285a18f5c1610389e602e31.blp"
+    },
+    {
+      "member": "Textures\\Minimap\\hemap_f66d91e8802596f6d0ae7f7dc2a0661f6d73b74d66cc63e06ea26d9116652e0c.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "f66d91e8802596f6d0ae7f7dc2a0661f6d73b74d66cc63e06ea26d9116652e0c",
+      "source": "shared/Textures/Minimap/hemap_f66d91e8802596f6d0ae7f7dc2a0661f6d73b74d66cc63e06ea26d9116652e0c.blp"
+    },
+    {
+      "member": "Textures\\Minimap\\hemap_ff5eef5b64a948887abc72ae6fdef3b21d7065891570246d3ba3b1e00bfa5d8d.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "ff5eef5b64a948887abc72ae6fdef3b21d7065891570246d3ba3b1e00bfa5d8d",
+      "source": "shared/Textures/Minimap/hemap_ff5eef5b64a948887abc72ae6fdef3b21d7065891570246d3ba3b1e00bfa5d8d.blp"
+    },
+    {
+      "member": "Textures\\Minimap\\hemap_ff623d55559c0317bac58584e59f806544426625fc12c8677f04462985f44eab.blp",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "ff623d55559c0317bac58584e59f806544426625fc12c8677f04462985f44eab",
+      "source": "shared/Textures/Minimap/hemap_ff623d55559c0317bac58584e59f806544426625fc12c8677f04462985f44eab.blp"
+    },
+    {
+      "member": "Textures\\Minimap\\md5translate.trs",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": "8bbe150b8477348ca54c483dc8389162889f8974d185a0dd649fd8dec2022087",
+      "result_sha256": "ad75f298bc0353a50740381541be9e974dc675b21c66546fec8c5900e1c74386",
+      "source": "shared/Textures/Minimap/md5translate.trs"
+    },
+    {
+      "member": "World\\Maps\\Azeroth\\Azeroth_33_22.adt",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "6246dd603208d77732800b4dbabc40be8b78c22da53ddecffb44d9cecfb826d5",
+      "source": "shared/World/Maps/Azeroth/Azeroth_33_22.adt"
+    },
+    {
+      "member": "World\\Maps\\Azeroth\\Azeroth_33_23.adt",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "fb618822712d30d97da3c4c5407fab3ed989027ab1621d11b76435c851485a9f",
+      "source": "shared/World/Maps/Azeroth/Azeroth_33_23.adt"
+    },
+    {
+      "member": "World\\Maps\\Azeroth\\Azeroth_33_24.adt",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "5abdfa149daf600f5af76a483f8e7fefd198433d1a65c7c63af4fd168f863220",
+      "source": "shared/World/Maps/Azeroth/Azeroth_33_24.adt"
+    },
+    {
+      "member": "World\\Maps\\Azeroth\\Azeroth_33_25.adt",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "6322658fd7da773fa7444afb36bc98a7610bd26f94677ac6d4e854c5607e4c4a",
+      "source": "shared/World/Maps/Azeroth/Azeroth_33_25.adt"
+    },
+    {
+      "member": "World\\Maps\\Azeroth\\Azeroth_34_23.adt",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "a594c17c914e6b14a934179d12f0fc8608146b7cfd412095611e7c76f72a7465",
+      "source": "shared/World/Maps/Azeroth/Azeroth_34_23.adt"
+    },
+    {
+      "member": "World\\Maps\\Azeroth\\Azeroth_34_24.adt",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "b4bb3029570379822edbe9caf078154e3dda148ed61ce1f241219d22eb41be1a",
+      "source": "shared/World/Maps/Azeroth/Azeroth_34_24.adt"
+    },
+    {
+      "member": "World\\Maps\\Azeroth\\Azeroth_34_25.adt",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "2b61fef4831250d1a6820b83f84e4ed475fc1bfc972b1dcb66f38b3cbdf4d2db",
+      "source": "shared/World/Maps/Azeroth/Azeroth_34_25.adt"
+    },
+    {
+      "member": "World\\Maps\\Azeroth\\Azeroth_35_23.adt",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "31de7ca07ba0589afd65f4fce6cd4f08f00d5bb352ee7a689c0f87c545de3df5",
+      "source": "shared/World/Maps/Azeroth/Azeroth_35_23.adt"
+    },
+    {
+      "member": "World\\Maps\\Azeroth\\Azeroth_35_24.adt",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "795c1a736c672b639dbed0a4a9693e428b73ab8796a7f7529067e19d31ed8a1e",
+      "source": "shared/World/Maps/Azeroth/Azeroth_35_24.adt"
+    },
+    {
+      "member": "World\\Maps\\Azeroth\\Azeroth_35_25.adt",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "d63c1bf02354e4a1a1559bf46c30647fb1673a000ac66e7f2bbaa0b77b6c7100",
+      "source": "shared/World/Maps/Azeroth/Azeroth_35_25.adt"
+    },
+    {
+      "member": "World\\Maps\\Azeroth\\Azeroth_35_26.adt",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "cb75a68ef583e02622be56bdf6e40ec380f4e57977396cdee46d8f4c3f067740",
+      "source": "shared/World/Maps/Azeroth/Azeroth_35_26.adt"
+    },
+    {
+      "member": "World\\Maps\\Azeroth\\Azeroth_36_22.adt",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "5a42fcb3b11641c113ce06808ff713b2e24bdfc3e2ba46512cc70b18e171c5bb",
+      "source": "shared/World/Maps/Azeroth/Azeroth_36_22.adt"
+    },
+    {
+      "member": "World\\Maps\\Azeroth\\Azeroth_36_23.adt",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "2854b68262b9b5c7e7650f4ec8d56f607dd5f91b60e130b8df8651a50f11bc2c",
+      "source": "shared/World/Maps/Azeroth/Azeroth_36_23.adt"
+    },
+    {
+      "member": "World\\Maps\\Azeroth\\Azeroth_36_24.adt",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "6619543fd38122cb75e57e7dfc4e093a0c7f0bebe6a82646f557576b3cba863e",
+      "source": "shared/World/Maps/Azeroth/Azeroth_36_24.adt"
+    },
+    {
+      "member": "World\\Maps\\Azeroth\\Azeroth_36_25.adt",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "d88174ef06ff29a12abb1cd947feb4d61d3ccb8be4aa89c7222f0ceedc7adb25",
+      "source": "shared/World/Maps/Azeroth/Azeroth_36_25.adt"
+    },
+    {
+      "member": "World\\Maps\\Azeroth\\Azeroth_36_26.adt",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "bfe7a92aed73eb0bc2898b6fcf080cf3f5c40ef9744a20ef424aad3221b0537a",
+      "source": "shared/World/Maps/Azeroth/Azeroth_36_26.adt"
+    },
+    {
+      "member": "World\\Maps\\Azeroth\\Azeroth_37_22.adt",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "53442cfaac970c879885e15e3079b5544a7b0ce3414b4e7b4e18a0055d19299c",
+      "source": "shared/World/Maps/Azeroth/Azeroth_37_22.adt"
+    },
+    {
+      "member": "World\\Maps\\Azeroth\\Azeroth_37_23.adt",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "6819190007dcdb065fbcb9a27f2f41571ade009ae023bb4718bdbfbc1ec9db64",
+      "source": "shared/World/Maps/Azeroth/Azeroth_37_23.adt"
+    },
+    {
+      "member": "World\\Maps\\Azeroth\\Azeroth_37_24.adt",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "7e9c79d073dd9ea6b170b0c309817b31d3a88b7cf79935766eb2db90fe5e7911",
+      "source": "shared/World/Maps/Azeroth/Azeroth_37_24.adt"
+    },
+    {
+      "member": "World\\Maps\\Azeroth\\Azeroth_37_25.adt",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "10b66ee9a7bbbc0b830a86c83d84fde3a5064d08a67451882cc23938548b242c",
+      "source": "shared/World/Maps/Azeroth/Azeroth_37_25.adt"
+    },
+    {
+      "member": "World\\Maps\\Azeroth\\Azeroth_37_26.adt",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "0cbbe8b4f7f3ab153a7580017944edc714888e40a432778d99c38f73f82a4a22",
+      "source": "shared/World/Maps/Azeroth/Azeroth_37_26.adt"
+    },
+    {
+      "member": "World\\Maps\\Azeroth\\Azeroth_38_22.adt",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "8e10a86d5e1fc2fa1c8a1dfbd33fc5429984e96e16927035971d9c3ca71f7d93",
+      "source": "shared/World/Maps/Azeroth/Azeroth_38_22.adt"
+    },
+    {
+      "member": "World\\Maps\\Azeroth\\Azeroth_38_23.adt",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "40f49d102fba0aa62761e72dfa5087515ce70844e1002e357523a50bd4fc3ea3",
+      "source": "shared/World/Maps/Azeroth/Azeroth_38_23.adt"
+    },
+    {
+      "member": "World\\Maps\\Azeroth\\Azeroth_38_24.adt",
+      "package": "regular_client/Data/patch-T.MPQ",
+      "previous_sha256": null,
+      "result_sha256": "aa767a5c54ed134b4baa4c34718c4c1d197606c6a00c19d1cca2d779cc72fd51",
+      "source": "shared/World/Maps/Azeroth/Azeroth_38_24.adt"
+    },
+    {
+      "baseline": "baselines/enUS/WorldMapArea.dbc",
+      "delta": "deltas/WorldMapArea.dbc",
+      "diff": {
+        "added": [
+          "509",
+          "513"
+        ],
+        "changed": [],
+        "preserved": 213,
+        "removed": []
+      },
+      "member": "DBFilesClient\\WorldMapArea.dbc",
+      "package": "regular_client/Data/patch-Z.mpq",
+      "previous_sha256": "c82f66fd9c1154aee9d3805bf6b13c5eb1c26babdc2f27e61e0a298b97f623d1",
+      "result_sha256": "cd894f193233110912b88c45b02389254434ae453366de1d14e69885448d05e7",
+      "table": "WorldMapArea"
+    },
+    {
+      "baseline": "baselines/enUS/WorldMapOverlay.dbc",
+      "delta": "deltas/WorldMapOverlay.dbc",
+      "diff": {
+        "added": [
+          "60000",
+          "60001",
+          "60002",
+          "60003",
+          "60004",
+          "60005",
+          "60006",
+          "60007",
+          "60008"
+        ],
+        "changed": [],
+        "preserved": 988,
+        "removed": []
+      },
+      "member": "DBFilesClient\\WorldMapOverlay.dbc",
+      "package": "regular_client/Data/patch-Z.mpq",
+      "previous_sha256": null,
+      "result_sha256": "a21a92a0262a559562921716e2e8f655af15d9dfad26dafa2bb5975f04fc656b",
+      "table": "WorldMapOverlay"
+    }
+  ],
+  "files": {
+    "baselines/enUS/AreaTable.dbc": {
+      "member": "DBFilesClient/AreaTable.dbc",
+      "sha256": "eef247d1cb9ffa34d7d78d958c17e0c8c613a1c3182589c83e80c833c78235f9",
+      "size": 367140
+    },
+    "baselines/enUS/WMOAreaTable.dbc": {
+      "member": "DBFilesClient/WMOAreaTable.dbc",
+      "sha256": "ba36633b10518d438ce5af207f1b10278019505026aba7364a142362eecfbeca",
+      "size": 2540951
+    },
+    "baselines/enUS/WorldMapArea.dbc": {
+      "member": "DBFilesClient/WorldMapArea.dbc",
+      "sha256": "c82f66fd9c1154aee9d3805bf6b13c5eb1c26babdc2f27e61e0a298b97f623d1",
+      "size": 12302
+    },
+    "baselines/enUS/WorldMapOverlay.dbc": {
+      "member": "DBFilesClient/WorldMapOverlay.dbc",
+      "sha256": "afd7b71415fe0406e6817c3a15ab2f8ba173d58de9f118d8f4ea4f4ed6b19650",
+      "size": 79710
+    },
+    "baselines/esES/AreaTable.dbc": {
+      "member": "DBFilesClient/AreaTable.dbc",
+      "sha256": "250c3e335b7a9e0f0f4a3607455fb8d190e0027283b35361b2e630c1ca490292",
+      "size": 373762
+    },
+    "baselines/esES/WMOAreaTable.dbc": {
+      "member": "DBFilesClient/WMOAreaTable.dbc",
+      "sha256": "ccc2303d0dcafbb4f3ea9342bf202f35cb19e591e17db59f140132b733e5a951",
+      "size": 2543592
+    },
+    "deltas/AreaTable.dbc": {
+      "member": "DBFilesClient/AreaTable.dbc",
+      "sha256": "191ad5ff1c59cf0cef9c1adf35456aad66ac5770b28f08bfda41f451f13a6e3a",
+      "size": 5914
+    },
+    "deltas/WMOAreaTable.dbc": {
+      "member": "DBFilesClient/WMOAreaTable.dbc",
+      "sha256": "e7c52ffc6aa292762e4cb0accec6524b46650b456fd34ee2eff244d1c2bd27d8",
+      "size": 2470
+    },
+    "deltas/WorldMapArea.dbc": {
+      "member": "DBFilesClient/WorldMapArea.dbc",
+      "sha256": "4bdfede627f977d3f004ea86159dc23a1096571cbf2589cfe32a8d2ab82290a3",
+      "size": 140
+    },
+    "deltas/WorldMapOverlay.dbc": {
+      "member": "DBFilesClient/WorldMapOverlay.dbc",
+      "sha256": "cc7230a7ae8d14e1486d15ba89f0266c3b56fc74f00e130f8b13c9fda2949419",
+      "size": 771
+    },
+    "evidence/assets-manifest.json": {
+      "sha256": "973f3fcb932278615ceb5d49cf2a58e2acda933279c896b008e690f795025c5c",
+      "size": 5055035
+    },
+    "evidence/cartography-manifest.json": {
+      "sha256": "b67f1f9b6264d7bc40732729d3bf64cfaf14f0c4905db25646f8adc3c700b927",
+      "size": 532570
+    },
+    "evidence/terrain-manifest.json": {
+      "sha256": "eea041ecfe8ef62cd599ec761e8d338e3641cb9501b935ec434c6c76c97740f1",
+      "size": 493250
+    },
+    "results/enUS/AreaTable.dbc": {
+      "member": "DBFilesClient/AreaTable.dbc",
+      "sha256": "576b6e673eca73a553293a7954b958b4bf3598ffb0af8aa6ac978f5df47a6439",
+      "size": 373033
+    },
+    "results/enUS/WMOAreaTable.dbc": {
+      "member": "DBFilesClient/WMOAreaTable.dbc",
+      "sha256": "899b4e0defbb2c06a774d5d22a270f4b4c7da0792a9ec746b7c3c71d12630648",
+      "size": 2543400
+    },
+    "results/enUS/WorldMapArea.dbc": {
+      "member": "DBFilesClient/WorldMapArea.dbc",
+      "sha256": "cd894f193233110912b88c45b02389254434ae453366de1d14e69885448d05e7",
+      "size": 12421
+    },
+    "results/enUS/WorldMapOverlay.dbc": {
+      "member": "DBFilesClient/WorldMapOverlay.dbc",
+      "sha256": "a21a92a0262a559562921716e2e8f655af15d9dfad26dafa2bb5975f04fc656b",
+      "size": 80460
+    },
+    "results/esES/AreaTable.dbc": {
+      "member": "DBFilesClient/AreaTable.dbc",
+      "sha256": "406f12cad6c3129083010d23788033ef99acda9e0d541b6f26f7e6d85790f3f8",
+      "size": 379655
+    },
+    "results/esES/WMOAreaTable.dbc": {
+      "member": "DBFilesClient/WMOAreaTable.dbc",
+      "sha256": "57b27055533f42759167661d307d2101bb18698993d610a32d3908e115757158",
+      "size": 2546041
+    },
+    "shared/Character/Custom/HighElfMap/he_0a74710d1fed286c825a_highelfhousevariantc.wmo": {
+      "member": "Character/Custom/HighElfMap/he_0a74710d1fed286c825a_highelfhousevariantc.wmo",
+      "sha256": "9803b745060d1c3980bd277270b4603cf60ca66ee7d50deebc9a29e3215bcd7f",
+      "size": 17429
+    },
+    "shared/Character/Custom/HighElfMap/he_0a74710d1fed286c825a_highelfhousevariantc_000.wmo": {
+      "member": "Character/Custom/HighElfMap/he_0a74710d1fed286c825a_highelfhousevariantc_000.wmo",
+      "sha256": "1e72fef4086094af1883e4c1f200dff0a90996bf2597862fe5ca201441a2db2b",
+      "size": 117106
+    },
+    "shared/Character/Custom/HighElfMap/he_0a74710d1fed286c825a_highelfhousevariantc_001.wmo": {
+      "member": "Character/Custom/HighElfMap/he_0a74710d1fed286c825a_highelfhousevariantc_001.wmo",
+      "sha256": "991935f776336dcd4d94f87796f69783f2de3fcf527925a8736261954ca743df",
+      "size": 71962
+    },
+    "shared/Character/Custom/HighElfMap/he_0e103f440566d2e93257_mm_mineplanks_01.blp": {
+      "member": "Character/Custom/HighElfMap/he_0e103f440566d2e93257_mm_mineplanks_01.blp",
+      "sha256": "26c2b73e2297fc4813d1ca7546cf3e2c9b81091da677f044f30276b6d0e055f0",
+      "size": 44876
+    },
+    "shared/Character/Custom/HighElfMap/he_101396c5347accbd7b8d_higheltreeparticleleaf.blp": {
+      "member": "Character/Custom/HighElfMap/he_101396c5347accbd7b8d_higheltreeparticleleaf.blp",
+      "sha256": "a7dc0d74761738be9b4a5f178a5773c3051bbe1a86bf3118350b6968e282079b",
+      "size": 2564
+    },
+    "shared/Character/Custom/HighElfMap/he_10f3439f9ea12d3343d6_highelfdock.wmo": {
+      "member": "Character/Custom/HighElfMap/he_10f3439f9ea12d3343d6_highelfdock.wmo",
+      "sha256": "5b6e11d82fcf25fb3c23c563afa7794e7884c915e1c3be4e420e1f4f6cd69389",
+      "size": 8138
+    },
+    "shared/Character/Custom/HighElfMap/he_10f3439f9ea12d3343d6_highelfdock_000.wmo": {
+      "member": "Character/Custom/HighElfMap/he_10f3439f9ea12d3343d6_highelfdock_000.wmo",
+      "sha256": "b98f0d8eb6eaa8b3d72061319d4b6e5f9bb61f7d9dcc076c906d552f3d6d366a",
+      "size": 173458
+    },
+    "shared/Character/Custom/HighElfMap/he_17e8a2ec8c1f1d515d0b_highelf_platform.wmo": {
+      "member": "Character/Custom/HighElfMap/he_17e8a2ec8c1f1d515d0b_highelf_platform.wmo",
+      "sha256": "88e0c53b95e9e7915117603ff0af6ace3a2d3c45e7f0229d410d3a5ada2a9306",
+      "size": 713
+    },
+    "shared/Character/Custom/HighElfMap/he_17e8a2ec8c1f1d515d0b_highelf_platform_000.wmo": {
+      "member": "Character/Custom/HighElfMap/he_17e8a2ec8c1f1d515d0b_highelf_platform_000.wmo",
+      "sha256": "989b166b0171e713318d106c643c87e2f2ea2edf4fd21cf7876cd45f703632d9",
+      "size": 35228
+    },
+    "shared/Character/Custom/HighElfMap/he_195a0a632bd23cea9a73_highelfhousevariantb.wmo": {
+      "member": "Character/Custom/HighElfMap/he_195a0a632bd23cea9a73_highelfhousevariantb.wmo",
+      "sha256": "5bfc7366d44011492b8a3f2e17681f8e3f80d695f62a8bd437eef42a50c84754",
+      "size": 21283
+    },
+    "shared/Character/Custom/HighElfMap/he_195a0a632bd23cea9a73_highelfhousevariantb_000.wmo": {
+      "member": "Character/Custom/HighElfMap/he_195a0a632bd23cea9a73_highelfhousevariantb_000.wmo",
+      "sha256": "ae6a0f76627b667492ca0b1af0a8b9826e8b9a1dfe72d7acde482c5e11dc634a",
+      "size": 133734
+    },
+    "shared/Character/Custom/HighElfMap/he_195a0a632bd23cea9a73_highelfhousevariantb_001.wmo": {
+      "member": "Character/Custom/HighElfMap/he_195a0a632bd23cea9a73_highelfhousevariantb_001.wmo",
+      "sha256": "989c82d5471f1c6fb4eceeef10ebb04e78680179d2a1f585a73d78c5896755e8",
+      "size": 72090
+    },
+    "shared/Character/Custom/HighElfMap/he_1e51eb721c6d82cffbb8_mm_minewall_support_03.blp": {
+      "member": "Character/Custom/HighElfMap/he_1e51eb721c6d82cffbb8_mm_minewall_support_03.blp",
+      "sha256": "97b7a0e5f2ebea23113af4ef93ae5f5023a0506e719949200c36b046b34b5cfa",
+      "size": 44876
+    },
+    "shared/Character/Custom/HighElfMap/he_21eac7049509767827ec_highelfhouseroundvarianta.wmo": {
+      "member": "Character/Custom/HighElfMap/he_21eac7049509767827ec_highelfhouseroundvarianta.wmo",
+      "sha256": "d2c44195de7c920bb279c9f89f370229c7b5a7350baec25ae082e7a3d7492a85",
+      "size": 49094
+    },
+    "shared/Character/Custom/HighElfMap/he_21eac7049509767827ec_highelfhouseroundvarianta_000.wmo": {
+      "member": "Character/Custom/HighElfMap/he_21eac7049509767827ec_highelfhouseroundvarianta_000.wmo",
+      "sha256": "585acb36b33a516a179459512a64d81c7ed773830fa948fbc9a5888faa14a028",
+      "size": 122282
+    },
+    "shared/Character/Custom/HighElfMap/he_21eac7049509767827ec_highelfhouseroundvarianta_001.wmo": {
+      "member": "Character/Custom/HighElfMap/he_21eac7049509767827ec_highelfhouseroundvarianta_001.wmo",
+      "sha256": "c8aa8304273a16fbaaf49b65593bf69c6b959cd75768086d50825d63b863d1f6",
+      "size": 105578
+    },
+    "shared/Character/Custom/HighElfMap/he_24c9759d5d8e186a8bdd_mm_cavefloor_03.blp": {
+      "member": "Character/Custom/HighElfMap/he_24c9759d5d8e186a8bdd_mm_cavefloor_03.blp",
+      "sha256": "7e649ae11e33e71dbf33943e754cb143a47b827f75091f7e81b0e57c77ce315b",
+      "size": 44876
+    },
+    "shared/Character/Custom/HighElfMap/he_254487834342d7418697_highelf_windowtop.blp": {
+      "member": "Character/Custom/HighElfMap/he_254487834342d7418697_highelf_windowtop.blp",
+      "sha256": "5a652b3198d7d2c7f387ce9c63b77253ed7cbb429afa81e68c45c4f943820e33",
+      "size": 88580
+    },
+    "shared/Character/Custom/HighElfMap/he_27c11def21e9869d6d5d_mm_minewall_support_02.blp": {
+      "member": "Character/Custom/HighElfMap/he_27c11def21e9869d6d5d_mm_minewall_support_02.blp",
+      "sha256": "0f72841540b5429b898f0f3f91e9812b65cef2428a65e83088148c537e7400a5",
+      "size": 44876
+    },
+    "shared/Character/Custom/HighElfMap/he_2a3c6315ee925efaf5d1_mm_cavewall_08 copy.blp": {
+      "member": "Character/Custom/HighElfMap/he_2a3c6315ee925efaf5d1_mm_cavewall_08 copy.blp",
+      "sha256": "81c8071a1d6a6047174ba7110a0dc1eb06e4cef68b6a514c926dfa9127048e16",
+      "size": 44876
+    },
+    "shared/Character/Custom/HighElfMap/he_2c5e76d5c52dd94d8deb_highelf_ship.wmo": {
+      "member": "Character/Custom/HighElfMap/he_2c5e76d5c52dd94d8deb_highelf_ship.wmo",
+      "sha256": "f54de684bd4a2c9edc17a980de5c4d333463f6560347f4086720dd8d7202a2e3",
+      "size": 2212
+    },
+    "shared/Character/Custom/HighElfMap/he_2c5e76d5c52dd94d8deb_highelf_ship_000.wmo": {
+      "member": "Character/Custom/HighElfMap/he_2c5e76d5c52dd94d8deb_highelf_ship_000.wmo",
+      "sha256": "1a5ab096b95901bde92757a97a28681c6bbafcfd0d056d9b4bc78287a937bca2",
+      "size": 282898
+    },
+    "shared/Character/Custom/HighElfMap/he_2c5e76d5c52dd94d8deb_highelf_ship_001.wmo": {
+      "member": "Character/Custom/HighElfMap/he_2c5e76d5c52dd94d8deb_highelf_ship_001.wmo",
+      "sha256": "3281653231dfd5e7561f06fac1361b140f266966b934dfee05785fed32472ed0",
+      "size": 38152
+    },
+    "shared/Character/Custom/HighElfMap/he_2cc85a7b1eebcf2d1f48_mm_minebeam_02.blp": {
+      "member": "Character/Custom/HighElfMap/he_2cc85a7b1eebcf2d1f48_mm_minebeam_02.blp",
+      "sha256": "d68d15a3f091e78bec9a719ffc29a497b95e25b9a59bd8172ad93c917aec53b8",
+      "size": 12108
+    },
+    "shared/Character/Custom/HighElfMap/he_36b5ad2a967d9e5be7ca_jlo_high1elf_trims_01.blp": {
+      "member": "Character/Custom/HighElfMap/he_36b5ad2a967d9e5be7ca_jlo_high1elf_trims_01.blp",
+      "sha256": "121ffce4ff9235975772db491aea9de420f6f594b21ed2573df32b5400086c73",
+      "size": 88580
+    },
+    "shared/Character/Custom/HighElfMap/he_3adca19a174dbdec561c_highelf_smallhouse03.wmo": {
+      "member": "Character/Custom/HighElfMap/he_3adca19a174dbdec561c_highelf_smallhouse03.wmo",
+      "sha256": "fc46230a40a7bfc94eab090443681e3e80038666729a00ca60ea30295e288fb0",
+      "size": 11486
+    },
+    "shared/Character/Custom/HighElfMap/he_3adca19a174dbdec561c_highelf_smallhouse03_000.wmo": {
+      "member": "Character/Custom/HighElfMap/he_3adca19a174dbdec561c_highelf_smallhouse03_000.wmo",
+      "sha256": "548b60ca2602f7dacbe9685b5f7ad76a12a5e408f0ef03329d1272aef244c5f3",
+      "size": 58570
+    },
+    "shared/Character/Custom/HighElfMap/he_3adca19a174dbdec561c_highelf_smallhouse03_001.wmo": {
+      "member": "Character/Custom/HighElfMap/he_3adca19a174dbdec561c_highelf_smallhouse03_001.wmo",
+      "sha256": "631acd1e08ebc4a66bcae9678a770ba3cd879627ba3c4a3f105d04443e24f854",
+      "size": 62516
+    },
+    "shared/Character/Custom/HighElfMap/he_43f15bd3ed176b624003_heltrunk03.blp": {
+      "member": "Character/Custom/HighElfMap/he_43f15bd3ed176b624003_heltrunk03.blp",
+      "sha256": "78c7b202d4858fbe7f3e344445d0ecad055509be028bde4301ab87ffddd5152e",
+      "size": 44900
+    },
+    "shared/Character/Custom/HighElfMap/he_47e470113a9b0f260766_he_scrying_tower.wmo": {
+      "member": "Character/Custom/HighElfMap/he_47e470113a9b0f260766_he_scrying_tower.wmo",
+      "sha256": "7f8c43905835cd2dd5634395b8067d6f0c1aae4f48a6e3e616d29bbadf339a97",
+      "size": 26055
+    },
+    "shared/Character/Custom/HighElfMap/he_47e470113a9b0f260766_he_scrying_tower_000.wmo": {
+      "member": "Character/Custom/HighElfMap/he_47e470113a9b0f260766_he_scrying_tower_000.wmo",
+      "sha256": "6c04c41c3527edfe2d830b00c5e9e6b4aac0782806e147b346f859a762ef3310",
+      "size": 323762
+    },
+    "shared/Character/Custom/HighElfMap/he_47e470113a9b0f260766_he_scrying_tower_001.wmo": {
+      "member": "Character/Custom/HighElfMap/he_47e470113a9b0f260766_he_scrying_tower_001.wmo",
+      "sha256": "15cd69b652d844a281beefa55bb8ebce03cc95b4514dc972b2ebc7c8f728c6c4",
+      "size": 72674
+    },
+    "shared/Character/Custom/HighElfMap/he_4a6cd842cd76ea22149c_hightelventree02.m2": {
+      "member": "Character/Custom/HighElfMap/he_4a6cd842cd76ea22149c_hightelventree02.m2",
+      "sha256": "d03aeac25133d57a4dfe6a91d938045f734c262db3f554df06b4884500d54114",
+      "size": 29610
+    },
+    "shared/Character/Custom/HighElfMap/he_4a6cd842cd76ea22149c_hightelventree0200.skin": {
+      "member": "Character/Custom/HighElfMap/he_4a6cd842cd76ea22149c_hightelventree0200.skin",
+      "sha256": "1a7ad921afca01af81d7cf1af76cb84b1667aa8d5c357aebe668e1eb10e0954d",
+      "size": 1794
+    },
+    "shared/Character/Custom/HighElfMap/he_4a99854ba70261175cd1_jlo_high1elf_floor_01.blp": {
+      "member": "Character/Custom/HighElfMap/he_4a99854ba70261175cd1_jlo_high1elf_floor_01.blp",
+      "sha256": "9c29fc5a3feca9536923b9e92e3d293ac68957363f9ac87a82dd80358df557db",
+      "size": 88580
+    },
+    "shared/Character/Custom/HighElfMap/he_55ad6b53ce73252d70a9_be_tent05.m2": {
+      "member": "Character/Custom/HighElfMap/he_55ad6b53ce73252d70a9_be_tent05.m2",
+      "sha256": "eacf058e899608f968455c02df2294c0f73cda0819af1d37c6ec4d086ac03999",
+      "size": 50285
+    },
+    "shared/Character/Custom/HighElfMap/he_55ad6b53ce73252d70a9_be_tent0500.skin": {
+      "member": "Character/Custom/HighElfMap/he_55ad6b53ce73252d70a9_be_tent0500.skin",
+      "sha256": "35d6de1de5382aa2453f44724e6557d5110eeb4a0657c5ab76fe42533bb2cc3d",
+      "size": 6720
+    },
+    "shared/Character/Custom/HighElfMap/he_55db3dc7142898fe8ab3_highelfhousevarianta.wmo": {
+      "member": "Character/Custom/HighElfMap/he_55db3dc7142898fe8ab3_highelfhousevarianta.wmo",
+      "sha256": "f8c30821b7eaf160f51ce5f3fc3c695f473ff58cb8136f193f29703a188406ef",
+      "size": 20768
+    },
+    "shared/Character/Custom/HighElfMap/he_55db3dc7142898fe8ab3_highelfhousevarianta_000.wmo": {
+      "member": "Character/Custom/HighElfMap/he_55db3dc7142898fe8ab3_highelfhousevarianta_000.wmo",
+      "sha256": "14c28c2f0eb0949afa7865c6af7a9dbc987f8effe626279ac3987c77b38b9439",
+      "size": 132942
+    },
+    "shared/Character/Custom/HighElfMap/he_55db3dc7142898fe8ab3_highelfhousevarianta_001.wmo": {
+      "member": "Character/Custom/HighElfMap/he_55db3dc7142898fe8ab3_highelfhousevarianta_001.wmo",
+      "sha256": "4c7f825bc440762fd995e5c6f11784a31e46b5ecc2996f99fbf801ca462c1bff",
+      "size": 72094
+    },
+    "shared/Character/Custom/HighElfMap/he_58590df6f9fa339d9594_higheltreeskin.blp": {
+      "member": "Character/Custom/HighElfMap/he_58590df6f9fa339d9594_higheltreeskin.blp",
+      "sha256": "98c4ad198166487317f670c044a1a847de5d53b29e78217877ab3c782b66fa8f",
+      "size": 350724
+    },
+    "shared/Character/Custom/HighElfMap/he_5a6ddbfe1e13d721452b_highelf_windowbtm.blp": {
+      "member": "Character/Custom/HighElfMap/he_5a6ddbfe1e13d721452b_highelf_windowbtm.blp",
+      "sha256": "74608a52c0a6401f6cf9b5d29a0f1b0e8e360cb65283ba92e19eb66be7d10bb6",
+      "size": 88580
+    },
+    "shared/Character/Custom/HighElfMap/he_5ef074a93ff00372b09b_he_arch.blp": {
+      "member": "Character/Custom/HighElfMap/he_5ef074a93ff00372b09b_he_arch.blp",
+      "sha256": "beb173cce6e6c36efd8b8b6e409e60670b24ba27a59fbdd6c22769d04670a303",
+      "size": 88580
+    },
+    "shared/Character/Custom/HighElfMap/he_60349bfbf077449e1511_highelfhousevariantd.wmo": {
+      "member": "Character/Custom/HighElfMap/he_60349bfbf077449e1511_highelfhousevariantd.wmo",
+      "sha256": "b5c9c529eb7a3c47e9eee54880610ac112bb3ef0e39760efc5fdf20741f142ac",
+      "size": 24504
+    },
+    "shared/Character/Custom/HighElfMap/he_60349bfbf077449e1511_highelfhousevariantd_000.wmo": {
+      "member": "Character/Custom/HighElfMap/he_60349bfbf077449e1511_highelfhousevariantd_000.wmo",
+      "sha256": "35b6cd736c58cda67bf97f63e21a7fdbb86514981a48e71e64f0952e23ff1ec4",
+      "size": 176858
+    },
+    "shared/Character/Custom/HighElfMap/he_60349bfbf077449e1511_highelfhousevariantd_001.wmo": {
+      "member": "Character/Custom/HighElfMap/he_60349bfbf077449e1511_highelfhousevariantd_001.wmo",
+      "sha256": "e0032419eb4abb91a9d00193318b28c42e775ed27823d63f3a0c171cf38cf3a9",
+      "size": 78600
+    },
+    "shared/Character/Custom/HighElfMap/he_6db0c842da765194d787_highelfhousevariantg.wmo": {
+      "member": "Character/Custom/HighElfMap/he_6db0c842da765194d787_highelfhousevariantg.wmo",
+      "sha256": "d5b262bc34907bffd4abee9852b2717be5a11ba6f36e8ac3a1af9e17afba9949",
+      "size": 21132
+    },
+    "shared/Character/Custom/HighElfMap/he_6db0c842da765194d787_highelfhousevariantg_000.wmo": {
+      "member": "Character/Custom/HighElfMap/he_6db0c842da765194d787_highelfhousevariantg_000.wmo",
+      "sha256": "0702946ac9f41dedd93dcb74402270a61e4e3ee164b79b9a1ea060a2983a6eea",
+      "size": 100622
+    },
+    "shared/Character/Custom/HighElfMap/he_6db0c842da765194d787_highelfhousevariantg_001.wmo": {
+      "member": "Character/Custom/HighElfMap/he_6db0c842da765194d787_highelfhousevariantg_001.wmo",
+      "sha256": "cd9188e00cf7a7ea4b6e2de7a0990c6fb95acddb3a46aa452090e0efa08d19ba",
+      "size": 60320
+    },
+    "shared/Character/Custom/HighElfMap/he_7fd21d78411159fba0b4_high1elf_inn.wmo": {
+      "member": "Character/Custom/HighElfMap/he_7fd21d78411159fba0b4_high1elf_inn.wmo",
+      "sha256": "54c546c829c3000efeb740ea4f7f059456893e6247b576749f38c24a121fa9d1",
+      "size": 2285
+    },
+    "shared/Character/Custom/HighElfMap/he_7fd21d78411159fba0b4_high1elf_inn_000.wmo": {
+      "member": "Character/Custom/HighElfMap/he_7fd21d78411159fba0b4_high1elf_inn_000.wmo",
+      "sha256": "d781a87e24888696a332729f37b121dfc25943b691e2faf0457088110b03b871",
+      "size": 600980
+    },
+    "shared/Character/Custom/HighElfMap/he_8034bfbbd1194e786b59_mm_cavewall_09.blp": {
+      "member": "Character/Custom/HighElfMap/he_8034bfbbd1194e786b59_mm_cavewall_09.blp",
+      "sha256": "4d6226828fcf958e91fc88859cfac70140eaca3134c170aaf9c5a07f3275f7de",
+      "size": 44876
+    },
+    "shared/Character/Custom/HighElfMap/he_8373ff6a248f2472af2f_higheltree.m2": {
+      "member": "Character/Custom/HighElfMap/he_8373ff6a248f2472af2f_higheltree.m2",
+      "sha256": "ca6c35e32decf50bbe7c60fbf9fe3a88d4a9f3d3503090cd3054d79d2efce4d4",
+      "size": 892747
+    },
+    "shared/Character/Custom/HighElfMap/he_8373ff6a248f2472af2f_higheltree00.skin": {
+      "member": "Character/Custom/HighElfMap/he_8373ff6a248f2472af2f_higheltree00.skin",
+      "sha256": "cb91f40693801c45cae0a403fc3721565472d9641ec8ce079bb211a4a8bf6a3b",
+      "size": 17172
+    },
+    "shared/Character/Custom/HighElfMap/he_846e2efc83989526f7b9_highelfhousevariantf.wmo": {
+      "member": "Character/Custom/HighElfMap/he_846e2efc83989526f7b9_highelfhousevariantf.wmo",
+      "sha256": "4ef44d788f270fdf46177c338cbc03ff443f37ccea03af3639515d67e64729cc",
+      "size": 12082
+    },
+    "shared/Character/Custom/HighElfMap/he_846e2efc83989526f7b9_highelfhousevariantf_000.wmo": {
+      "member": "Character/Custom/HighElfMap/he_846e2efc83989526f7b9_highelfhousevariantf_000.wmo",
+      "sha256": "cd207f1a8940c0997892ce343539a614dde67647c5b3d9e8d4d8a747db645813",
+      "size": 137822
+    },
+    "shared/Character/Custom/HighElfMap/he_846e2efc83989526f7b9_highelfhousevariantf_001.wmo": {
+      "member": "Character/Custom/HighElfMap/he_846e2efc83989526f7b9_highelfhousevariantf_001.wmo",
+      "sha256": "8ec5d93b46b21b99c3f66f98f6541c23391d1d390ac9c083cc74f2b6cb1a82d1",
+      "size": 56618
+    },
+    "shared/Character/Custom/HighElfMap/he_899ef979d75432fbfb82_high1elf_micro.wmo": {
+      "member": "Character/Custom/HighElfMap/he_899ef979d75432fbfb82_high1elf_micro.wmo",
+      "sha256": "52f6d8d185c120f11a1b61ac432a077321cbef5b4f4e457a949ff2b4c3a015d8",
+      "size": 2326
+    },
+    "shared/Character/Custom/HighElfMap/he_899ef979d75432fbfb82_high1elf_micro_000.wmo": {
+      "member": "Character/Custom/HighElfMap/he_899ef979d75432fbfb82_high1elf_micro_000.wmo",
+      "sha256": "7e5ce84ba8b15f547eada991320b130585226c76329a14aa5586a1fb49ddee9b",
+      "size": 690098
+    },
+    "shared/Character/Custom/HighElfMap/he_8b5d7663e9cabfff1b52_highelfcommand.wmo": {
+      "member": "Character/Custom/HighElfMap/he_8b5d7663e9cabfff1b52_highelfcommand.wmo",
+      "sha256": "0be00c70cc07cc7874c522bc74e3540cc699d35672dbc01673d6f7b31cd1b594",
+      "size": 28228
+    },
+    "shared/Character/Custom/HighElfMap/he_8b5d7663e9cabfff1b52_highelfcommand_000.wmo": {
+      "member": "Character/Custom/HighElfMap/he_8b5d7663e9cabfff1b52_highelfcommand_000.wmo",
+      "sha256": "80c84f5a584de877dbb4b50fbf0cf65782a080268ce0d8d7dec9f34e3a6e2b47",
+      "size": 76362
+    },
+    "shared/Character/Custom/HighElfMap/he_8b5d7663e9cabfff1b52_highelfcommand_001.wmo": {
+      "member": "Character/Custom/HighElfMap/he_8b5d7663e9cabfff1b52_highelfcommand_001.wmo",
+      "sha256": "b080cf4a7da3cb070f22d5d48de359483fd6fdd586533182b76651a4c94a1535",
+      "size": 436084
+    },
+    "shared/Character/Custom/HighElfMap/he_8c59a2975a2cd4b1f6d6_high1elf_stairs04.wmo": {
+      "member": "Character/Custom/HighElfMap/he_8c59a2975a2cd4b1f6d6_high1elf_stairs04.wmo",
+      "sha256": "639c2da0d5e4be502d31c3f548f48070e58d85d6e20f1894e43caf9767d1ebb1",
+      "size": 651
+    },
+    "shared/Character/Custom/HighElfMap/he_8c59a2975a2cd4b1f6d6_high1elf_stairs04_000.wmo": {
+      "member": "Character/Custom/HighElfMap/he_8c59a2975a2cd4b1f6d6_high1elf_stairs04_000.wmo",
+      "sha256": "0dab1ed13887b700b1e4e3a49fac665e101a9f53f1b7f424cff3538365d7d581",
+      "size": 155380
+    },
+    "shared/Character/Custom/HighElfMap/he_8e0af9b816c1890e6d0c_jlo_high1elf_red_roof.blp": {
+      "member": "Character/Custom/HighElfMap/he_8e0af9b816c1890e6d0c_jlo_high1elf_red_roof.blp",
+      "sha256": "3b91a59f434e12784339621af31dadabc8df145e409b08722ae04ea3c2258339",
+      "size": 88580
+    },
+    "shared/Character/Custom/HighElfMap/he_8fed230b6b765b75f9d4_high1elf_smallgazebo01.wmo": {
+      "member": "Character/Custom/HighElfMap/he_8fed230b6b765b75f9d4_high1elf_smallgazebo01.wmo",
+      "sha256": "069d24f16aadca1fe0b4796f8a961f0df5f4f3649e5c025c659f8c05c302f4d0",
+      "size": 25854
+    },
+    "shared/Character/Custom/HighElfMap/he_8fed230b6b765b75f9d4_high1elf_smallgazebo01_000.wmo": {
+      "member": "Character/Custom/HighElfMap/he_8fed230b6b765b75f9d4_high1elf_smallgazebo01_000.wmo",
+      "sha256": "dc58fb72ff5729771d446ddeb13408742b63f306352199b54e563da073fdd547",
+      "size": 165924
+    },
+    "shared/Character/Custom/HighElfMap/he_95cbfe5993cd28f83279_mm_minefront_01.blp": {
+      "member": "Character/Custom/HighElfMap/he_95cbfe5993cd28f83279_mm_minefront_01.blp",
+      "sha256": "3ee46834ae770372240270b6c2bed3dedd6a4bd6abda355b4ac50465df5fafda",
+      "size": 44876
+    },
+    "shared/Character/Custom/HighElfMap/he_9aa572b77e4df347a971_jlo_high1elf_wallwindow_01.blp": {
+      "member": "Character/Custom/HighElfMap/he_9aa572b77e4df347a971_jlo_high1elf_wallwindow_01.blp",
+      "sha256": "8e77fd183a5e575b9f325ff77d4a0e79475020d60860a232d7c892df410a3baf",
+      "size": 88580
+    },
+    "shared/Character/Custom/HighElfMap/he_9c787d0256546bef0231_jlo_high1elf_windows.blp": {
+      "member": "Character/Custom/HighElfMap/he_9c787d0256546bef0231_jlo_high1elf_windows.blp",
+      "sha256": "2679f8ef1f2e68e3f18a3e695de4e4a0195dd1781b8921610c969f044dd40dff",
+      "size": 44876
+    },
+    "shared/Character/Custom/HighElfMap/he_a06151ce177cc5dcc742_he_gravestones.blp": {
+      "member": "Character/Custom/HighElfMap/he_a06151ce177cc5dcc742_he_gravestones.blp",
+      "sha256": "1b5d315444d5023d72e45fe8c287d670ad155613dde85a4a58c230c9e809ce96",
+      "size": 88580
+    },
+    "shared/Character/Custom/HighElfMap/he_a361c17657b4390dbe96_he_merchantstand.blp": {
+      "member": "Character/Custom/HighElfMap/he_a361c17657b4390dbe96_he_merchantstand.blp",
+      "sha256": "295597e79e1fcd1aa6dd384367d230ce4c3b672398e39c521fc905200c7d909e",
+      "size": 350724
+    },
+    "shared/Character/Custom/HighElfMap/he_afd545e1f2b2de1b849b_mm_minebeam_03.blp": {
+      "member": "Character/Custom/HighElfMap/he_afd545e1f2b2de1b849b_mm_minebeam_03.blp",
+      "sha256": "26c570efe3b8325ad6b9f621a176ee802bd15f88952acbe6a21ce29a53b1c85f",
+      "size": 44876
+    },
+    "shared/Character/Custom/HighElfMap/he_b2ad61cb3bd6a7c5a2d1_jlo_high1elf_pillar_01.blp": {
+      "member": "Character/Custom/HighElfMap/he_b2ad61cb3bd6a7c5a2d1_jlo_high1elf_pillar_01.blp",
+      "sha256": "8c290a495116ab279dc149eba0bff255a64ff006d82474778806c906f4a2a90c",
+      "size": 88580
+    },
+    "shared/Character/Custom/HighElfMap/he_b899778daea34c472da1_be_banner05.blp": {
+      "member": "Character/Custom/HighElfMap/he_b899778daea34c472da1_be_banner05.blp",
+      "sha256": "32944a9b73fafec030fe04decf837d4c9c1726e2040a0cab1987a9510e20e9a8",
+      "size": 88580
+    },
+    "shared/Character/Custom/HighElfMap/he_bd1b6dac7f21b9ed5600_jlo_high1elf_roof_02.blp": {
+      "member": "Character/Custom/HighElfMap/he_bd1b6dac7f21b9ed5600_jlo_high1elf_roof_02.blp",
+      "sha256": "be53d98d035e40d139860f777bc2aab89ceb1464c0aa5b44b7c449d25aaab080",
+      "size": 88580
+    },
+    "shared/Character/Custom/HighElfMap/he_c2d5d345cabaa7309fa2_mm_minebeam_01.blp": {
+      "member": "Character/Custom/HighElfMap/he_c2d5d345cabaa7309fa2_mm_minebeam_01.blp",
+      "sha256": "7fda3457002613172ba1d12cb2f4ea3419c2be6de76aa357893fda263e976f00",
+      "size": 12108
+    },
+    "shared/Character/Custom/HighElfMap/he_c45903a1d724ca95b749_heltreetop01.blp": {
+      "member": "Character/Custom/HighElfMap/he_c45903a1d724ca95b749_heltreetop01.blp",
+      "sha256": "aae64fd988e47289fab8693ad26a235735c174d7bbd84725ef116f77955e91d1",
+      "size": 88580
+    },
+    "shared/Character/Custom/HighElfMap/he_cc5c3e1891da98cbd396_jlo_high1elf_doortrim_01.blp": {
+      "member": "Character/Custom/HighElfMap/he_cc5c3e1891da98cbd396_jlo_high1elf_doortrim_01.blp",
+      "sha256": "01dbec511597b73c1ea6b06dca9b0371b92f281f00f689489a97d44067099319",
+      "size": 88580
+    },
+    "shared/Character/Custom/HighElfMap/he_cdb586f16bca4664b605_elvenlands_arch_01.m2": {
+      "member": "Character/Custom/HighElfMap/he_cdb586f16bca4664b605_elvenlands_arch_01.m2",
+      "sha256": "1648b422d71156a2fef0b571144d858929a49edf27ea0c523e22419bca17181f",
+      "size": 209916
+    },
+    "shared/Character/Custom/HighElfMap/he_cdb586f16bca4664b605_elvenlands_arch_0100.skin": {
+      "member": "Character/Custom/HighElfMap/he_cdb586f16bca4664b605_elvenlands_arch_0100.skin",
+      "sha256": "e0fdcd1e9cac20d7261e0162aff0fc2f6795c3f72c57dc946b450cf5829ea104",
+      "size": 9222
+    },
+    "shared/Character/Custom/HighElfMap/he_d3631bc63cd449c4d0f3_mm_minestep_01.blp": {
+      "member": "Character/Custom/HighElfMap/he_d3631bc63cd449c4d0f3_mm_minestep_01.blp",
+      "sha256": "f07513ccf92a92c226a8dcc3c49cca2ba6a5e562a0b618d75615365191c82327",
+      "size": 12108
+    },
+    "shared/Character/Custom/HighElfMap/he_dd1618040a45eec4d4ee_higheltreeparticleleaf2.blp": {
+      "member": "Character/Custom/HighElfMap/he_dd1618040a45eec4d4ee_higheltreeparticleleaf2.blp",
+      "sha256": "6e7c2ef22a4424531266c50b77e47b8c7238e793bfd9e4328b5a2734a5d84c2a",
+      "size": 2564
+    },
+    "shared/Character/Custom/HighElfMap/he_dfc6a574c4c4ad2900e2_mm_minerocks_01.blp": {
+      "member": "Character/Custom/HighElfMap/he_dfc6a574c4c4ad2900e2_mm_minerocks_01.blp",
+      "sha256": "bb04f58d30c2a31657563e3f45e51063e19f779e3ae34658c352f9683b780b6e",
+      "size": 44876
+    },
+    "shared/Character/Custom/HighElfMap/he_dff6bf8f106ce7be4362_high1elf_arcane_sanctum.wmo": {
+      "member": "Character/Custom/HighElfMap/he_dff6bf8f106ce7be4362_high1elf_arcane_sanctum.wmo",
+      "sha256": "ccf9b2c76d7a74a9b3ebd6f6a5071607add3e07eae23545d7d8671741a550fdc",
+      "size": 25397
+    },
+    "shared/Character/Custom/HighElfMap/he_dff6bf8f106ce7be4362_high1elf_arcane_sanctum_000.wmo": {
+      "member": "Character/Custom/HighElfMap/he_dff6bf8f106ce7be4362_high1elf_arcane_sanctum_000.wmo",
+      "sha256": "5cc7576b48aacb05330e24a25707d4a21a4dcbbaf93ee7cec7170dd43efd11bd",
+      "size": 356950
+    },
+    "shared/Character/Custom/HighElfMap/he_e5bb2cbcb0943b34bc41_highelfhouseroundvariantb.wmo": {
+      "member": "Character/Custom/HighElfMap/he_e5bb2cbcb0943b34bc41_highelfhouseroundvariantb.wmo",
+      "sha256": "453c1827a54b3ba8c4632b336f27391bd721163bb59931e4e10508f80c267afe",
+      "size": 21013
+    },
+    "shared/Character/Custom/HighElfMap/he_e5bb2cbcb0943b34bc41_highelfhouseroundvariantb_000.wmo": {
+      "member": "Character/Custom/HighElfMap/he_e5bb2cbcb0943b34bc41_highelfhouseroundvariantb_000.wmo",
+      "sha256": "2d8bf5986c27172da5f71a11cc8e76cc2d2a0af0c4ab9c1692f0acf43ec5deae",
+      "size": 110808
+    },
+    "shared/Character/Custom/HighElfMap/he_e5bb2cbcb0943b34bc41_highelfhouseroundvariantb_001.wmo": {
+      "member": "Character/Custom/HighElfMap/he_e5bb2cbcb0943b34bc41_highelfhouseroundvariantb_001.wmo",
+      "sha256": "3e2bcae0412ebe5689d6c815e93c886b63a29237cb89f9dbe888ed0ced16c4e8",
+      "size": 72094
+    },
+    "shared/Character/Custom/HighElfMap/he_ee017411e092c0a44cdf_be_tnt2.blp": {
+      "member": "Character/Custom/HighElfMap/he_ee017411e092c0a44cdf_be_tnt2.blp",
+      "sha256": "929e917a078aae4961514ad14bdb80f106e72abdcc1220630782a0c69a4884b3",
+      "size": 88580
+    },
+    "shared/Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03.wmo": {
+      "member": "Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03.wmo",
+      "sha256": "aae422c2da179aefe82f2159bd07739839c046a24d636fd2898558a5f25e3bfe",
+      "size": 11964
+    },
+    "shared/Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_000.wmo": {
+      "member": "Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_000.wmo",
+      "sha256": "f6951863bab1a9827e0925539f18ee2a7df30a7db3d8f687d5b1f20cd50b40b1",
+      "size": 117868
+    },
+    "shared/Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_001.wmo": {
+      "member": "Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_001.wmo",
+      "sha256": "88d09fa4a9e3888226c600731b30ba41d70118ca6a24c41df6ea0c975987a4f4",
+      "size": 52574
+    },
+    "shared/Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_002.wmo": {
+      "member": "Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_002.wmo",
+      "sha256": "9bf0ab7994b79b1fbdcd65be07d8d6e4757c461566fa559534c6490fa1a478c2",
+      "size": 64032
+    },
+    "shared/Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_003.wmo": {
+      "member": "Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_003.wmo",
+      "sha256": "2d3a8b180ae84bc35889eebbee8bdc4de4bf4f79b7ebdaa11da850fff2cdea7c",
+      "size": 106812
+    },
+    "shared/Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_004.wmo": {
+      "member": "Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_004.wmo",
+      "sha256": "d88d48d6516f60929aed5b5890d858c45bf62258cf51e44a0c7b8764ff994e1f",
+      "size": 189854
+    },
+    "shared/Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_005.wmo": {
+      "member": "Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_005.wmo",
+      "sha256": "80d39088df2971e8fa7fe64be1275bb2305f1d7abe73d4eadf3050f1fe0de868",
+      "size": 27452
+    },
+    "shared/Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_006.wmo": {
+      "member": "Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_006.wmo",
+      "sha256": "8e93d84dfcb461c108e8992c897aa825c68188f2c193ec6f15e93b053238f13c",
+      "size": 61656
+    },
+    "shared/Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_007.wmo": {
+      "member": "Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_007.wmo",
+      "sha256": "5bc4f6add5626f0515d7787f5ed31ce7f92cd4ca69a8e4f6f2f3c0fe9e39011f",
+      "size": 17460
+    },
+    "shared/Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_008.wmo": {
+      "member": "Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_008.wmo",
+      "sha256": "c8a90f4e86c0084c8ac96907a2c23e2ef7fac5b7de26000f718b42d95b2098eb",
+      "size": 174314
+    },
+    "shared/Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_009.wmo": {
+      "member": "Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_009.wmo",
+      "sha256": "6d6120c8f4498a7f4c96199c22dbb0fd5032f75406abb988371ff2aeaa7e5519",
+      "size": 39356
+    },
+    "shared/Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_010.wmo": {
+      "member": "Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_010.wmo",
+      "sha256": "be31d4c1dd474e4427dcad1f2e2e9b812762dbf41a97595f21f17bfb52d2cec7",
+      "size": 75240
+    },
+    "shared/Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_011.wmo": {
+      "member": "Character/Custom/HighElfMap/he_ff65b84a6e86080a93b9_nethermicro_03_011.wmo",
+      "sha256": "ae5fb8465808337fd59121a430dcbe2e9512a2a9615e981b2474489dc25b930a",
+      "size": 65572
+    },
+    "shared/Interface/WorldMap/AlahThalas/AlahThalas1.blp": {
+      "member": "Interface/WorldMap/AlahThalas/AlahThalas1.blp",
+      "sha256": "6f4c6228767be1d2edd9b8f2801a421e2d4838f2f77c04ca0215548f3cfe344c",
+      "size": 32916
+    },
+    "shared/Interface/WorldMap/AlahThalas/AlahThalas10.blp": {
+      "member": "Interface/WorldMap/AlahThalas/AlahThalas10.blp",
+      "sha256": "d08a4e92109748145a3bda421d1de23c701cbed22257a2d73c87b0fbaf7afb1d",
+      "size": 32916
+    },
+    "shared/Interface/WorldMap/AlahThalas/AlahThalas11.blp": {
+      "member": "Interface/WorldMap/AlahThalas/AlahThalas11.blp",
+      "sha256": "e1389523e2851d9bfc0cafa4ec05a18e63bb185482bafd5dec070d2054ecaf6d",
+      "size": 32916
+    },
+    "shared/Interface/WorldMap/AlahThalas/AlahThalas12.blp": {
+      "member": "Interface/WorldMap/AlahThalas/AlahThalas12.blp",
+      "sha256": "dabbd5a680eb569706cd07cdcdad057a034c1ff4fb9564c4dd9c80050a32eb54",
+      "size": 32916
+    },
+    "shared/Interface/WorldMap/AlahThalas/AlahThalas2.blp": {
+      "member": "Interface/WorldMap/AlahThalas/AlahThalas2.blp",
+      "sha256": "2ed7408569594ce5ac5e3ce344d9f770059dc03156470cadca4eaadea2161e01",
+      "size": 32916
+    },
+    "shared/Interface/WorldMap/AlahThalas/AlahThalas3.blp": {
+      "member": "Interface/WorldMap/AlahThalas/AlahThalas3.blp",
+      "sha256": "1d7a36dbd7f23a67ae892fc7cd11f899983d1b5f0d0dd2e01398f2c9b4579449",
+      "size": 32916
+    },
+    "shared/Interface/WorldMap/AlahThalas/AlahThalas4.blp": {
+      "member": "Interface/WorldMap/AlahThalas/AlahThalas4.blp",
+      "sha256": "99f9c0aafaec043913d537dda6fde6df88f939c44e572f520b0cecdbf650ba7c",
+      "size": 32916
+    },
+    "shared/Interface/WorldMap/AlahThalas/AlahThalas5.blp": {
+      "member": "Interface/WorldMap/AlahThalas/AlahThalas5.blp",
+      "sha256": "08d651d39876facae6b0f078cb762019a072e89c5e91665c5f37b3713e20e1bc",
+      "size": 32916
+    },
+    "shared/Interface/WorldMap/AlahThalas/AlahThalas6.blp": {
+      "member": "Interface/WorldMap/AlahThalas/AlahThalas6.blp",
+      "sha256": "ace1592bf0b4896cad838fcd4cdec155078f02e07d2963daa2274b91740d0897",
+      "size": 32916
+    },
+    "shared/Interface/WorldMap/AlahThalas/AlahThalas7.blp": {
+      "member": "Interface/WorldMap/AlahThalas/AlahThalas7.blp",
+      "sha256": "b122405cdda8dde82da820405d501c019a46913d24082942f97d3cdfa93fbd9c",
+      "size": 32916
+    },
+    "shared/Interface/WorldMap/AlahThalas/AlahThalas8.blp": {
+      "member": "Interface/WorldMap/AlahThalas/AlahThalas8.blp",
+      "sha256": "cd7425adf9b66760ddcd902c3168cde881aa7665cca3bf7b7792ac6ff8f4b83b",
+      "size": 32916
+    },
+    "shared/Interface/WorldMap/AlahThalas/AlahThalas9.blp": {
+      "member": "Interface/WorldMap/AlahThalas/AlahThalas9.blp",
+      "sha256": "12b39d6190d3f0dbb01655c3c6fdc790cb73a6ccea169881501546269af7bfab",
+      "size": 32916
+    },
+    "shared/Interface/WorldMap/ThalassianHighlands/ThalassianHighlands1.blp": {
+      "member": "Interface/WorldMap/ThalassianHighlands/ThalassianHighlands1.blp",
+      "sha256": "1565a69ab7fc35099eb112c86522b60d7b8c07055881398d8c0baa6a0c7a4969",
+      "size": 32916
+    },
+    "shared/Interface/WorldMap/ThalassianHighlands/ThalassianHighlands10.blp": {
+      "member": "Interface/WorldMap/ThalassianHighlands/ThalassianHighlands10.blp",
+      "sha256": "59c0be05d78ddeece745736067434e0d9c6ba0e3faf305de20f5a6f23048cff7",
+      "size": 32916
+    },
+    "shared/Interface/WorldMap/ThalassianHighlands/ThalassianHighlands11.blp": {
+      "member": "Interface/WorldMap/ThalassianHighlands/ThalassianHighlands11.blp",
+      "sha256": "4d7d63a034ea656c8d5a82719e3be5a845497ee58e238d716e563ae890e7bfe7",
+      "size": 32916
+    },
+    "shared/Interface/WorldMap/ThalassianHighlands/ThalassianHighlands12.blp": {
+      "member": "Interface/WorldMap/ThalassianHighlands/ThalassianHighlands12.blp",
+      "sha256": "1d704238d726672a0f6f66c3bf3b14914d347a80956c0a430742d976b05a4afa",
+      "size": 32916
+    },
+    "shared/Interface/WorldMap/ThalassianHighlands/ThalassianHighlands2.blp": {
+      "member": "Interface/WorldMap/ThalassianHighlands/ThalassianHighlands2.blp",
+      "sha256": "3f231e30f80771493c3ec90c08ef1dfeba49bd08c482758b62c4abeb39c91e6a",
+      "size": 32916
+    },
+    "shared/Interface/WorldMap/ThalassianHighlands/ThalassianHighlands3.blp": {
+      "member": "Interface/WorldMap/ThalassianHighlands/ThalassianHighlands3.blp",
+      "sha256": "509131594e35400afc5731f42dab0898e0d896b14f50074cecc96c187e528805",
+      "size": 32916
+    },
+    "shared/Interface/WorldMap/ThalassianHighlands/ThalassianHighlands4.blp": {
+      "member": "Interface/WorldMap/ThalassianHighlands/ThalassianHighlands4.blp",
+      "sha256": "6574ababacebf195dc582d94d4eb94fef5655c50a122d7da5539e0454d70cf1f",
+      "size": 32916
+    },
+    "shared/Interface/WorldMap/ThalassianHighlands/ThalassianHighlands5.blp": {
+      "member": "Interface/WorldMap/ThalassianHighlands/ThalassianHighlands5.blp",
+      "sha256": "bf5fa9e7c223c70049b617e4cf605d8c3f27b3c83bc7f13c8d252b29340cba7c",
+      "size": 32916
+    },
+    "shared/Interface/WorldMap/ThalassianHighlands/ThalassianHighlands6.blp": {
+      "member": "Interface/WorldMap/ThalassianHighlands/ThalassianHighlands6.blp",
+      "sha256": "a467aa1bbc356e848bc499f17966b855ce8ef2a4d675cc3e62cc38e6a50f090a",
+      "size": 32916
+    },
+    "shared/Interface/WorldMap/ThalassianHighlands/ThalassianHighlands7.blp": {
+      "member": "Interface/WorldMap/ThalassianHighlands/ThalassianHighlands7.blp",
+      "sha256": "d78c46b43217eaaf184e6acf2cb4f921c98ec79b15e0cb3d97b4904b0e6c82d6",
+      "size": 32916
+    },
+    "shared/Interface/WorldMap/ThalassianHighlands/ThalassianHighlands8.blp": {
+      "member": "Interface/WorldMap/ThalassianHighlands/ThalassianHighlands8.blp",
+      "sha256": "8a8943253aa330000f608fdb559b65d18da32ae78220007ca60d9b67a6d60d0c",
+      "size": 32916
+    },
+    "shared/Interface/WorldMap/ThalassianHighlands/ThalassianHighlands9.blp": {
+      "member": "Interface/WorldMap/ThalassianHighlands/ThalassianHighlands9.blp",
+      "sha256": "a0bcc957f03b166b54a00ff0944efc850d6c57541832e50695c7f8eed3c45707",
+      "size": 32916
+    },
+    "shared/Textures/Minimap/hemap_1821f60aa9a663487745d82e3f00033a1b99d91617a279c70e03149580ea1575.blp": {
+      "member": "Textures/Minimap/hemap_1821f60aa9a663487745d82e3f00033a1b99d91617a279c70e03149580ea1575.blp",
+      "sha256": "1821f60aa9a663487745d82e3f00033a1b99d91617a279c70e03149580ea1575",
+      "size": 17556
+    },
+    "shared/Textures/Minimap/hemap_196c67c5e8253882d7819afa142fdaa7fe7833d8de1fe11b01be35fd2b209c13.blp": {
+      "member": "Textures/Minimap/hemap_196c67c5e8253882d7819afa142fdaa7fe7833d8de1fe11b01be35fd2b209c13.blp",
+      "sha256": "196c67c5e8253882d7819afa142fdaa7fe7833d8de1fe11b01be35fd2b209c13",
+      "size": 33940
+    },
+    "shared/Textures/Minimap/hemap_1fc6f66a37fad11777728a2289d233941c8425655f9809385b3b49aeaccbf1ed.blp": {
+      "member": "Textures/Minimap/hemap_1fc6f66a37fad11777728a2289d233941c8425655f9809385b3b49aeaccbf1ed.blp",
+      "sha256": "1fc6f66a37fad11777728a2289d233941c8425655f9809385b3b49aeaccbf1ed",
+      "size": 33940
+    },
+    "shared/Textures/Minimap/hemap_235776484918cfc3dd912056ff92e830cc2f61690ff4e3bee76d056b65ad84aa.blp": {
+      "member": "Textures/Minimap/hemap_235776484918cfc3dd912056ff92e830cc2f61690ff4e3bee76d056b65ad84aa.blp",
+      "sha256": "235776484918cfc3dd912056ff92e830cc2f61690ff4e3bee76d056b65ad84aa",
+      "size": 33940
+    },
+    "shared/Textures/Minimap/hemap_2a085ee6233a4770b5ca30ec77f9e24125a8f36ee06ff47b488b236ab64c99fd.blp": {
+      "member": "Textures/Minimap/hemap_2a085ee6233a4770b5ca30ec77f9e24125a8f36ee06ff47b488b236ab64c99fd.blp",
+      "sha256": "2a085ee6233a4770b5ca30ec77f9e24125a8f36ee06ff47b488b236ab64c99fd",
+      "size": 33940
+    },
+    "shared/Textures/Minimap/hemap_2b2e51f66cf5c734be23305329a3dbfc1ea3c59dbef97dbaf76d189ae32dbd07.blp": {
+      "member": "Textures/Minimap/hemap_2b2e51f66cf5c734be23305329a3dbfc1ea3c59dbef97dbaf76d189ae32dbd07.blp",
+      "sha256": "2b2e51f66cf5c734be23305329a3dbfc1ea3c59dbef97dbaf76d189ae32dbd07",
+      "size": 9364
+    },
+    "shared/Textures/Minimap/hemap_2bf0d5231086c18d5948051c929452e7f88652f35660ec0e4263d74c020d2829.blp": {
+      "member": "Textures/Minimap/hemap_2bf0d5231086c18d5948051c929452e7f88652f35660ec0e4263d74c020d2829.blp",
+      "sha256": "2bf0d5231086c18d5948051c929452e7f88652f35660ec0e4263d74c020d2829",
+      "size": 33940
+    },
+    "shared/Textures/Minimap/hemap_2dce0185d3ab48428fecb63adb799275ea31b398fd2c6e09604b2247b2b70e6e.blp": {
+      "member": "Textures/Minimap/hemap_2dce0185d3ab48428fecb63adb799275ea31b398fd2c6e09604b2247b2b70e6e.blp",
+      "sha256": "2dce0185d3ab48428fecb63adb799275ea31b398fd2c6e09604b2247b2b70e6e",
+      "size": 33940
+    },
+    "shared/Textures/Minimap/hemap_2dd046f665535a3ee9a1ae48eca94c8edceb52c760d1bbabad65d7e3470bcb94.blp": {
+      "member": "Textures/Minimap/hemap_2dd046f665535a3ee9a1ae48eca94c8edceb52c760d1bbabad65d7e3470bcb94.blp",
+      "sha256": "2dd046f665535a3ee9a1ae48eca94c8edceb52c760d1bbabad65d7e3470bcb94",
+      "size": 33940
+    },
+    "shared/Textures/Minimap/hemap_4267f6377bbec2277cde11931abddd6adbc94c5c2cbc6bee85e58607ec6f84f7.blp": {
+      "member": "Textures/Minimap/hemap_4267f6377bbec2277cde11931abddd6adbc94c5c2cbc6bee85e58607ec6f84f7.blp",
+      "sha256": "4267f6377bbec2277cde11931abddd6adbc94c5c2cbc6bee85e58607ec6f84f7",
+      "size": 5268
+    },
+    "shared/Textures/Minimap/hemap_43426d931ae0d8a57062751c4d1002b5605ae08e1d1fd8aa52a8e049618fbc39.blp": {
+      "member": "Textures/Minimap/hemap_43426d931ae0d8a57062751c4d1002b5605ae08e1d1fd8aa52a8e049618fbc39.blp",
+      "sha256": "43426d931ae0d8a57062751c4d1002b5605ae08e1d1fd8aa52a8e049618fbc39",
+      "size": 5268
+    },
+    "shared/Textures/Minimap/hemap_4e76f10b1fc4162d9546898def5ac85ee155c98183f28306dccfb57100c54ecf.blp": {
+      "member": "Textures/Minimap/hemap_4e76f10b1fc4162d9546898def5ac85ee155c98183f28306dccfb57100c54ecf.blp",
+      "sha256": "4e76f10b1fc4162d9546898def5ac85ee155c98183f28306dccfb57100c54ecf",
+      "size": 9364
+    },
+    "shared/Textures/Minimap/hemap_4f98368876c92e99d427aa75c73fa02678a2c6523f635c9e8150ca16e4dec32c.blp": {
+      "member": "Textures/Minimap/hemap_4f98368876c92e99d427aa75c73fa02678a2c6523f635c9e8150ca16e4dec32c.blp",
+      "sha256": "4f98368876c92e99d427aa75c73fa02678a2c6523f635c9e8150ca16e4dec32c",
+      "size": 33940
+    },
+    "shared/Textures/Minimap/hemap_7c1c8002b338878be8a208400b4cd716a76baed93cbb7d588946dcbf3a50f898.blp": {
+      "member": "Textures/Minimap/hemap_7c1c8002b338878be8a208400b4cd716a76baed93cbb7d588946dcbf3a50f898.blp",
+      "sha256": "7c1c8002b338878be8a208400b4cd716a76baed93cbb7d588946dcbf3a50f898",
+      "size": 33940
+    },
+    "shared/Textures/Minimap/hemap_7da6b5575706ccb02572185912d03135144d24156dbfa7aa62156afcc5d5f738.blp": {
+      "member": "Textures/Minimap/hemap_7da6b5575706ccb02572185912d03135144d24156dbfa7aa62156afcc5d5f738.blp",
+      "sha256": "7da6b5575706ccb02572185912d03135144d24156dbfa7aa62156afcc5d5f738",
+      "size": 33940
+    },
+    "shared/Textures/Minimap/hemap_8be379e06eed86ffa1e30dfdee4e5f71b61391059baf719c99a4ca3343b5f520.blp": {
+      "member": "Textures/Minimap/hemap_8be379e06eed86ffa1e30dfdee4e5f71b61391059baf719c99a4ca3343b5f520.blp",
+      "sha256": "8be379e06eed86ffa1e30dfdee4e5f71b61391059baf719c99a4ca3343b5f520",
+      "size": 33940
+    },
+    "shared/Textures/Minimap/hemap_8f92d25ce8a9d01c8a7e0961f099e17c8ad707e2de32db931679c326df1f5cd9.blp": {
+      "member": "Textures/Minimap/hemap_8f92d25ce8a9d01c8a7e0961f099e17c8ad707e2de32db931679c326df1f5cd9.blp",
+      "sha256": "8f92d25ce8a9d01c8a7e0961f099e17c8ad707e2de32db931679c326df1f5cd9",
+      "size": 17556
+    },
+    "shared/Textures/Minimap/hemap_8fa9d926687449d45a9b0a878b49b90c759a12b192cebb1ee6d1680b22faf190.blp": {
+      "member": "Textures/Minimap/hemap_8fa9d926687449d45a9b0a878b49b90c759a12b192cebb1ee6d1680b22faf190.blp",
+      "sha256": "8fa9d926687449d45a9b0a878b49b90c759a12b192cebb1ee6d1680b22faf190",
+      "size": 9364
+    },
+    "shared/Textures/Minimap/hemap_90f45ffc7450e9131ee2bdbc1dab2b765659c7d61a0163ecd39dbd17236d5154.blp": {
+      "member": "Textures/Minimap/hemap_90f45ffc7450e9131ee2bdbc1dab2b765659c7d61a0163ecd39dbd17236d5154.blp",
+      "sha256": "90f45ffc7450e9131ee2bdbc1dab2b765659c7d61a0163ecd39dbd17236d5154",
+      "size": 9364
+    },
+    "shared/Textures/Minimap/hemap_a7539db336fbc532d3b82ba7db375c7c7be858651ecc1948d966ac8c3453f431.blp": {
+      "member": "Textures/Minimap/hemap_a7539db336fbc532d3b82ba7db375c7c7be858651ecc1948d966ac8c3453f431.blp",
+      "sha256": "a7539db336fbc532d3b82ba7db375c7c7be858651ecc1948d966ac8c3453f431",
+      "size": 33940
+    },
+    "shared/Textures/Minimap/hemap_abf788244bc36ebd594e9d2fe5fa3f6fd574bead5502d15ad2e78d20d85179df.blp": {
+      "member": "Textures/Minimap/hemap_abf788244bc36ebd594e9d2fe5fa3f6fd574bead5502d15ad2e78d20d85179df.blp",
+      "sha256": "abf788244bc36ebd594e9d2fe5fa3f6fd574bead5502d15ad2e78d20d85179df",
+      "size": 33940
+    },
+    "shared/Textures/Minimap/hemap_b113b406a1e198c6a048785af80ea67de24f66461ca14139c64bfaa1604b16f2.blp": {
+      "member": "Textures/Minimap/hemap_b113b406a1e198c6a048785af80ea67de24f66461ca14139c64bfaa1604b16f2.blp",
+      "sha256": "b113b406a1e198c6a048785af80ea67de24f66461ca14139c64bfaa1604b16f2",
+      "size": 9364
+    },
+    "shared/Textures/Minimap/hemap_b461e8b8f5e5d0788386576ed57d42211782a58f6795b9f5855132bb85e71914.blp": {
+      "member": "Textures/Minimap/hemap_b461e8b8f5e5d0788386576ed57d42211782a58f6795b9f5855132bb85e71914.blp",
+      "sha256": "b461e8b8f5e5d0788386576ed57d42211782a58f6795b9f5855132bb85e71914",
+      "size": 33940
+    },
+    "shared/Textures/Minimap/hemap_cd1cb7ae3060d2c98f035c8272102067f0d96f6060c0ff7bdd4c56cba86218a2.blp": {
+      "member": "Textures/Minimap/hemap_cd1cb7ae3060d2c98f035c8272102067f0d96f6060c0ff7bdd4c56cba86218a2.blp",
+      "sha256": "cd1cb7ae3060d2c98f035c8272102067f0d96f6060c0ff7bdd4c56cba86218a2",
+      "size": 17556
+    },
+    "shared/Textures/Minimap/hemap_d6e46bf32b51d3ca308f7eb76ab3bfd4846267841f66f60f176870d8824bd7f2.blp": {
+      "member": "Textures/Minimap/hemap_d6e46bf32b51d3ca308f7eb76ab3bfd4846267841f66f60f176870d8824bd7f2.blp",
+      "sha256": "d6e46bf32b51d3ca308f7eb76ab3bfd4846267841f66f60f176870d8824bd7f2",
+      "size": 33940
+    },
+    "shared/Textures/Minimap/hemap_da441fef0441f2bce811175a6f5809cdfffeff25436542180fbb4db6fc528bd3.blp": {
+      "member": "Textures/Minimap/hemap_da441fef0441f2bce811175a6f5809cdfffeff25436542180fbb4db6fc528bd3.blp",
+      "sha256": "da441fef0441f2bce811175a6f5809cdfffeff25436542180fbb4db6fc528bd3",
+      "size": 33940
+    },
+    "shared/Textures/Minimap/hemap_dfbec26f9792d226bb12450c81ac9f6fe915419bfce120e9f16bb9fb3b1c3232.blp": {
+      "member": "Textures/Minimap/hemap_dfbec26f9792d226bb12450c81ac9f6fe915419bfce120e9f16bb9fb3b1c3232.blp",
+      "sha256": "dfbec26f9792d226bb12450c81ac9f6fe915419bfce120e9f16bb9fb3b1c3232",
+      "size": 33940
+    },
+    "shared/Textures/Minimap/hemap_ed9b0302f10139d1e69bfdb2c315ac07dc8625c5e285a18f5c1610389e602e31.blp": {
+      "member": "Textures/Minimap/hemap_ed9b0302f10139d1e69bfdb2c315ac07dc8625c5e285a18f5c1610389e602e31.blp",
+      "sha256": "ed9b0302f10139d1e69bfdb2c315ac07dc8625c5e285a18f5c1610389e602e31",
+      "size": 33940
+    },
+    "shared/Textures/Minimap/hemap_f66d91e8802596f6d0ae7f7dc2a0661f6d73b74d66cc63e06ea26d9116652e0c.blp": {
+      "member": "Textures/Minimap/hemap_f66d91e8802596f6d0ae7f7dc2a0661f6d73b74d66cc63e06ea26d9116652e0c.blp",
+      "sha256": "f66d91e8802596f6d0ae7f7dc2a0661f6d73b74d66cc63e06ea26d9116652e0c",
+      "size": 17556
+    },
+    "shared/Textures/Minimap/hemap_ff5eef5b64a948887abc72ae6fdef3b21d7065891570246d3ba3b1e00bfa5d8d.blp": {
+      "member": "Textures/Minimap/hemap_ff5eef5b64a948887abc72ae6fdef3b21d7065891570246d3ba3b1e00bfa5d8d.blp",
+      "sha256": "ff5eef5b64a948887abc72ae6fdef3b21d7065891570246d3ba3b1e00bfa5d8d",
+      "size": 33940
+    },
+    "shared/Textures/Minimap/hemap_ff623d55559c0317bac58584e59f806544426625fc12c8677f04462985f44eab.blp": {
+      "member": "Textures/Minimap/hemap_ff623d55559c0317bac58584e59f806544426625fc12c8677f04462985f44eab.blp",
+      "sha256": "ff623d55559c0317bac58584e59f806544426625fc12c8677f04462985f44eab",
+      "size": 33940
+    },
+    "shared/Textures/Minimap/md5translate.trs": {
+      "member": "Textures/Minimap/md5translate.trs",
+      "sha256": "ad75f298bc0353a50740381541be9e974dc675b21c66546fec8c5900e1c74386",
+      "size": 1565607
+    },
+    "shared/World/Maps/Azeroth/Azeroth_33_22.adt": {
+      "member": "World/Maps/Azeroth/Azeroth_33_22.adt",
+      "sha256": "6246dd603208d77732800b4dbabc40be8b78c22da53ddecffb44d9cecfb826d5",
+      "size": 460992
+    },
+    "shared/World/Maps/Azeroth/Azeroth_33_23.adt": {
+      "member": "World/Maps/Azeroth/Azeroth_33_23.adt",
+      "sha256": "fb618822712d30d97da3c4c5407fab3ed989027ab1621d11b76435c851485a9f",
+      "size": 809016
+    },
+    "shared/World/Maps/Azeroth/Azeroth_33_24.adt": {
+      "member": "World/Maps/Azeroth/Azeroth_33_24.adt",
+      "sha256": "5abdfa149daf600f5af76a483f8e7fefd198433d1a65c7c63af4fd168f863220",
+      "size": 1661136
+    },
+    "shared/World/Maps/Azeroth/Azeroth_33_25.adt": {
+      "member": "World/Maps/Azeroth/Azeroth_33_25.adt",
+      "sha256": "6322658fd7da773fa7444afb36bc98a7610bd26f94677ac6d4e854c5607e4c4a",
+      "size": 1392129
+    },
+    "shared/World/Maps/Azeroth/Azeroth_34_23.adt": {
+      "member": "World/Maps/Azeroth/Azeroth_34_23.adt",
+      "sha256": "a594c17c914e6b14a934179d12f0fc8608146b7cfd412095611e7c76f72a7465",
+      "size": 1977216
+    },
+    "shared/World/Maps/Azeroth/Azeroth_34_24.adt": {
+      "member": "World/Maps/Azeroth/Azeroth_34_24.adt",
+      "sha256": "b4bb3029570379822edbe9caf078154e3dda148ed61ce1f241219d22eb41be1a",
+      "size": 2284439
+    },
+    "shared/World/Maps/Azeroth/Azeroth_34_25.adt": {
+      "member": "World/Maps/Azeroth/Azeroth_34_25.adt",
+      "sha256": "2b61fef4831250d1a6820b83f84e4ed475fc1bfc972b1dcb66f38b3cbdf4d2db",
+      "size": 1486217
+    },
+    "shared/World/Maps/Azeroth/Azeroth_35_23.adt": {
+      "member": "World/Maps/Azeroth/Azeroth_35_23.adt",
+      "sha256": "31de7ca07ba0589afd65f4fce6cd4f08f00d5bb352ee7a689c0f87c545de3df5",
+      "size": 2088389
+    },
+    "shared/World/Maps/Azeroth/Azeroth_35_24.adt": {
+      "member": "World/Maps/Azeroth/Azeroth_35_24.adt",
+      "sha256": "795c1a736c672b639dbed0a4a9693e428b73ab8796a7f7529067e19d31ed8a1e",
+      "size": 2272238
+    },
+    "shared/World/Maps/Azeroth/Azeroth_35_25.adt": {
+      "member": "World/Maps/Azeroth/Azeroth_35_25.adt",
+      "sha256": "d63c1bf02354e4a1a1559bf46c30647fb1673a000ac66e7f2bbaa0b77b6c7100",
+      "size": 2063744
+    },
+    "shared/World/Maps/Azeroth/Azeroth_35_26.adt": {
+      "member": "World/Maps/Azeroth/Azeroth_35_26.adt",
+      "sha256": "cb75a68ef583e02622be56bdf6e40ec380f4e57977396cdee46d8f4c3f067740",
+      "size": 1600761
+    },
+    "shared/World/Maps/Azeroth/Azeroth_36_22.adt": {
+      "member": "World/Maps/Azeroth/Azeroth_36_22.adt",
+      "sha256": "5a42fcb3b11641c113ce06808ff713b2e24bdfc3e2ba46512cc70b18e171c5bb",
+      "size": 1187351
+    },
+    "shared/World/Maps/Azeroth/Azeroth_36_23.adt": {
+      "member": "World/Maps/Azeroth/Azeroth_36_23.adt",
+      "sha256": "2854b68262b9b5c7e7650f4ec8d56f607dd5f91b60e130b8df8651a50f11bc2c",
+      "size": 2268556
+    },
+    "shared/World/Maps/Azeroth/Azeroth_36_24.adt": {
+      "member": "World/Maps/Azeroth/Azeroth_36_24.adt",
+      "sha256": "6619543fd38122cb75e57e7dfc4e093a0c7f0bebe6a82646f557576b3cba863e",
+      "size": 2199719
+    },
+    "shared/World/Maps/Azeroth/Azeroth_36_25.adt": {
+      "member": "World/Maps/Azeroth/Azeroth_36_25.adt",
+      "sha256": "d88174ef06ff29a12abb1cd947feb4d61d3ccb8be4aa89c7222f0ceedc7adb25",
+      "size": 2105857
+    },
+    "shared/World/Maps/Azeroth/Azeroth_36_26.adt": {
+      "member": "World/Maps/Azeroth/Azeroth_36_26.adt",
+      "sha256": "bfe7a92aed73eb0bc2898b6fcf080cf3f5c40ef9744a20ef424aad3221b0537a",
+      "size": 1833749
+    },
+    "shared/World/Maps/Azeroth/Azeroth_37_22.adt": {
+      "member": "World/Maps/Azeroth/Azeroth_37_22.adt",
+      "sha256": "53442cfaac970c879885e15e3079b5544a7b0ce3414b4e7b4e18a0055d19299c",
+      "size": 1858797
+    },
+    "shared/World/Maps/Azeroth/Azeroth_37_23.adt": {
+      "member": "World/Maps/Azeroth/Azeroth_37_23.adt",
+      "sha256": "6819190007dcdb065fbcb9a27f2f41571ade009ae023bb4718bdbfbc1ec9db64",
+      "size": 2222934
+    },
+    "shared/World/Maps/Azeroth/Azeroth_37_24.adt": {
+      "member": "World/Maps/Azeroth/Azeroth_37_24.adt",
+      "sha256": "7e9c79d073dd9ea6b170b0c309817b31d3a88b7cf79935766eb2db90fe5e7911",
+      "size": 2059459
+    },
+    "shared/World/Maps/Azeroth/Azeroth_37_25.adt": {
+      "member": "World/Maps/Azeroth/Azeroth_37_25.adt",
+      "sha256": "10b66ee9a7bbbc0b830a86c83d84fde3a5064d08a67451882cc23938548b242c",
+      "size": 2012369
+    },
+    "shared/World/Maps/Azeroth/Azeroth_37_26.adt": {
+      "member": "World/Maps/Azeroth/Azeroth_37_26.adt",
+      "sha256": "0cbbe8b4f7f3ab153a7580017944edc714888e40a432778d99c38f73f82a4a22",
+      "size": 1901471
+    },
+    "shared/World/Maps/Azeroth/Azeroth_38_22.adt": {
+      "member": "World/Maps/Azeroth/Azeroth_38_22.adt",
+      "sha256": "8e10a86d5e1fc2fa1c8a1dfbd33fc5429984e96e16927035971d9c3ca71f7d93",
+      "size": 824803
+    },
+    "shared/World/Maps/Azeroth/Azeroth_38_23.adt": {
+      "member": "World/Maps/Azeroth/Azeroth_38_23.adt",
+      "sha256": "40f49d102fba0aa62761e72dfa5087515ce70844e1002e357523a50bd4fc3ea3",
+      "size": 1806788
+    },
+    "shared/World/Maps/Azeroth/Azeroth_38_24.adt": {
+      "member": "World/Maps/Azeroth/Azeroth_38_24.adt",
+      "sha256": "aa767a5c54ed134b4baa4c34718c4c1d197606c6a00c19d1cca2d779cc72fd51",
+      "size": 854584
+    },
+    "shared/interface/worldmap/alahthalas/alahthalashighlight.blp": {
+      "member": "interface/worldmap/alahthalas/alahthalashighlight.blp",
+      "sha256": "b26cebea1d8afafcfbfbb27bc9d74ad6d87b5f091863b844ad3a3a44dac42b6e",
+      "size": 9364
+    },
+    "shared/interface/worldmap/thalassianhighlands/alahthalas1.blp": {
+      "member": "interface/worldmap/thalassianhighlands/alahthalas1.blp",
+      "sha256": "94726b36fcf1305bb8511b4fe32cbc3babfa13595ade398a0979942e6941a7ba",
+      "size": 65684
+    },
+    "shared/interface/worldmap/thalassianhighlands/alahthalas2.blp": {
+      "member": "interface/worldmap/thalassianhighlands/alahthalas2.blp",
+      "sha256": "3fc15e96909859e2bf9e29b60dc26637d076a5253ba42adce155097495dc3d3e",
+      "size": 65684
+    },
+    "shared/interface/worldmap/thalassianhighlands/alahthalas3.blp": {
+      "member": "interface/worldmap/thalassianhighlands/alahthalas3.blp",
+      "sha256": "a02473143ccdc448aa21ecd218d1ff85e4ef47bdae0c57f8c663d225c8628be2",
+      "size": 8340
+    },
+    "shared/interface/worldmap/thalassianhighlands/alahthalas4.blp": {
+      "member": "interface/worldmap/thalassianhighlands/alahthalas4.blp",
+      "sha256": "ec2a6e1cac476424e8bfb837de9cd6520fcf14ecc1f6dfac109e7438b00354a6",
+      "size": 8340
+    },
+    "shared/interface/worldmap/thalassianhighlands/alahthalas5.blp": {
+      "member": "interface/worldmap/thalassianhighlands/alahthalas5.blp",
+      "sha256": "d2782e91e7403d3f014ccb63df902670df5ed3586f8dbba17291bbe9590860b4",
+      "size": 66708
+    },
+    "shared/interface/worldmap/thalassianhighlands/alahthalas6.blp": {
+      "member": "interface/worldmap/thalassianhighlands/alahthalas6.blp",
+      "sha256": "b090e335a282f0e58ef7683234e2a4bb96481e8273848ca6d6f39afe9b7eade2",
+      "size": 66708
+    },
+    "shared/interface/worldmap/thalassianhighlands/anasterianpark1.blp": {
+      "member": "interface/worldmap/thalassianhighlands/anasterianpark1.blp",
+      "sha256": "0dc3951eff7d72e39a9ae1e1cf639f6009bf4149167d98d73f3099008a4ac5be",
+      "size": 65684
+    },
+    "shared/interface/worldmap/thalassianhighlands/anasterianpark2.blp": {
+      "member": "interface/worldmap/thalassianhighlands/anasterianpark2.blp",
+      "sha256": "d816c504e7e9aa9f3c81acef6206ceacfc88679f67cda508ab628f66013a04ef",
+      "size": 66708
+    },
+    "shared/interface/worldmap/thalassianhighlands/anasterianpark3.blp": {
+      "member": "interface/worldmap/thalassianhighlands/anasterianpark3.blp",
+      "sha256": "4442ea66a645ba8db1923467a8511560700258c0c2175b879bd9d1d1ddac7f97",
+      "size": 66708
+    },
+    "shared/interface/worldmap/thalassianhighlands/anasterianpark4.blp": {
+      "member": "interface/worldmap/thalassianhighlands/anasterianpark4.blp",
+      "sha256": "5fed34819c575f5f745902c6ab7a312ecfbbc51934f2121d98879c94db41a792",
+      "size": 66708
+    },
+    "shared/interface/worldmap/thalassianhighlands/brinthilien1.blp": {
+      "member": "interface/worldmap/thalassianhighlands/brinthilien1.blp",
+      "sha256": "8c9f2402ec4f67b72ae6560eb9d071a5cfc6ecf74fc0ccaf2c2064cec3677743",
+      "size": 65684
+    },
+    "shared/interface/worldmap/thalassianhighlands/brinthilien2.blp": {
+      "member": "interface/worldmap/thalassianhighlands/brinthilien2.blp",
+      "sha256": "567240e4826f4fd0f7e3ef127eb85c27be8bd288e1c077be00912687147ff97c",
+      "size": 66708
+    },
+    "shared/interface/worldmap/thalassianhighlands/brinthilien3.blp": {
+      "member": "interface/worldmap/thalassianhighlands/brinthilien3.blp",
+      "sha256": "2e3d48a2bc3551571181be339f6cdc6510f7c26948956bfad6b8ff949a9ccb74",
+      "size": 66708
+    },
+    "shared/interface/worldmap/thalassianhighlands/brinthilien4.blp": {
+      "member": "interface/worldmap/thalassianhighlands/brinthilien4.blp",
+      "sha256": "9b12d8b6e0988983e67a6e2d68c2d557f11746058033166cb1657567be50796b",
+      "size": 66708
+    },
+    "shared/interface/worldmap/thalassianhighlands/felstriderretreat1.blp": {
+      "member": "interface/worldmap/thalassianhighlands/felstriderretreat1.blp",
+      "sha256": "02e0eefa23e22bc52a7cb85b8c30dbe53816d3496819eab191be14619a23c8df",
+      "size": 65684
+    },
+    "shared/interface/worldmap/thalassianhighlands/felstriderretreat2.blp": {
+      "member": "interface/worldmap/thalassianhighlands/felstriderretreat2.blp",
+      "sha256": "11f8ba6666edb153057df813517bd036603aa49a1a0a91e78ed0ac470ea5ca8f",
+      "size": 66708
+    },
+    "shared/interface/worldmap/thalassianhighlands/felstriderretreat3.blp": {
+      "member": "interface/worldmap/thalassianhighlands/felstriderretreat3.blp",
+      "sha256": "b4353c680096fee4175210db3731aa2fcdd3c4cf1af40c1d204588b970b8fcda",
+      "size": 66708
+    },
+    "shared/interface/worldmap/thalassianhighlands/felstriderretreat4.blp": {
+      "member": "interface/worldmap/thalassianhighlands/felstriderretreat4.blp",
+      "sha256": "dc2a7da95d2f98c7ec527470b772eeda4c046248b6648a8b6a8a9b1dee3b0933",
+      "size": 66708
+    },
+    "shared/interface/worldmap/thalassianhighlands/isleofeternalautumn1.blp": {
+      "member": "interface/worldmap/thalassianhighlands/isleofeternalautumn1.blp",
+      "sha256": "9e1e13d434ea538e8d89169f5efd178646710cd8cb54a421da42414005163f3d",
+      "size": 65684
+    },
+    "shared/interface/worldmap/thalassianhighlands/isleofeternalautumn2.blp": {
+      "member": "interface/worldmap/thalassianhighlands/isleofeternalautumn2.blp",
+      "sha256": "e1fc69f32b106fd836a52b0162d5779bd9aad57b20bd9defefa44b7ff0c1a9cb",
+      "size": 66708
+    },
+    "shared/interface/worldmap/thalassianhighlands/isleofeternalautumn3.blp": {
+      "member": "interface/worldmap/thalassianhighlands/isleofeternalautumn3.blp",
+      "sha256": "f1abd6e63372557e728dc1fb47185a87b3ef5ae34f36932676f2c560ac181102",
+      "size": 66708
+    },
+    "shared/interface/worldmap/thalassianhighlands/isleofeternalautumn4.blp": {
+      "member": "interface/worldmap/thalassianhighlands/isleofeternalautumn4.blp",
+      "sha256": "ad374d2b45a54ade2a53f615006464181a684e1e763dcbae350b640695e78c40",
+      "size": 66708
+    },
+    "shared/interface/worldmap/thalassianhighlands/ruinsofnashalaran1.blp": {
+      "member": "interface/worldmap/thalassianhighlands/ruinsofnashalaran1.blp",
+      "sha256": "97c602c8ff8ee1da8541a393edbcd9c430821bf09e1c97e86e60d279b0fa1d66",
+      "size": 65684
+    },
+    "shared/interface/worldmap/thalassianhighlands/ruinsofnashalaran2.blp": {
+      "member": "interface/worldmap/thalassianhighlands/ruinsofnashalaran2.blp",
+      "sha256": "61fde160080beb13ed0afc4f350c10d730e61e10539078dd68e24386118218b3",
+      "size": 4244
+    },
+    "shared/interface/worldmap/thalassianhighlands/ruinsofnashalaran3.blp": {
+      "member": "interface/worldmap/thalassianhighlands/ruinsofnashalaran3.blp",
+      "sha256": "2199639b271c2f596621fa39f3fda014bc933c2fd64cb9997c5b76daf699cdbf",
+      "size": 66708
+    },
+    "shared/interface/worldmap/thalassianhighlands/ruinsofnashalaran4.blp": {
+      "member": "interface/worldmap/thalassianhighlands/ruinsofnashalaran4.blp",
+      "sha256": "14d98338e869d43d83ae985549575c75dd52943d6b803e838fa09851e05c4be8",
+      "size": 66708
+    },
+    "shared/interface/worldmap/thalassianhighlands/silversunmine1.blp": {
+      "member": "interface/worldmap/thalassianhighlands/silversunmine1.blp",
+      "sha256": "9b16de4904e7eb3e407727cfd7478a3355149367212779035cbd395628de100c",
+      "size": 65684
+    },
+    "shared/interface/worldmap/thalassianhighlands/silversunmine2.blp": {
+      "member": "interface/worldmap/thalassianhighlands/silversunmine2.blp",
+      "sha256": "6748c4a746ccdc9ffd2315e66b57bc003cbc4611bb3281d59e20c3ba7f47d1cd",
+      "size": 66708
+    },
+    "shared/interface/worldmap/thalassianhighlands/thalassianhighlandshighlight.blp": {
+      "member": "interface/worldmap/thalassianhighlands/thalassianhighlandshighlight.blp",
+      "sha256": "ada1d39428f817644d0c3b6284147543fde09c0a69bf9b04d0d70ebbed4f554c",
+      "size": 9364
+    },
+    "shared/interface/worldmap/thalassianhighlands/thefarstride1.blp": {
+      "member": "interface/worldmap/thalassianhighlands/thefarstride1.blp",
+      "sha256": "612dcb4812f2a0d462bdd983e9d236a7586784e081b878394393bfbb5d45adb6",
+      "size": 65684
+    },
+    "shared/interface/worldmap/thalassianhighlands/thefarstride2.blp": {
+      "member": "interface/worldmap/thalassianhighlands/thefarstride2.blp",
+      "sha256": "23ed689f445bf4dd05de5a0c5b9338cd0bb91ce699730d28f349b1ce6fc4bde6",
+      "size": 66708
+    },
+    "shared/interface/worldmap/thalassianhighlands/thefarstride3.blp": {
+      "member": "interface/worldmap/thalassianhighlands/thefarstride3.blp",
+      "sha256": "fa8c4b4651429107185e4bb997d121fb182010f3f5c5a2962905b512a4336f36",
+      "size": 66708
+    },
+    "shared/interface/worldmap/thalassianhighlands/thefarstride4.blp": {
+      "member": "interface/worldmap/thalassianhighlands/thefarstride4.blp",
+      "sha256": "42859e6c4edf50125cab4979359798298fcab5c9cb4939060e073e9e1257cd20",
+      "size": 66708
+    },
+    "shared/interface/worldmap/thalassianhighlands/thelastrunestone1.blp": {
+      "member": "interface/worldmap/thalassianhighlands/thelastrunestone1.blp",
+      "sha256": "4b071fe0b20371a7fcc8b2caa682978ebd415b52d857e455fe366541dc3fac7d",
+      "size": 65684
+    },
+    "shared/interface/worldmap/thalassianhighlands/thelastrunestone2.blp": {
+      "member": "interface/worldmap/thalassianhighlands/thelastrunestone2.blp",
+      "sha256": "4a15eefe2e91afb35e62cb026fb344e01a923fde16ea41742e62132e74d27fe7",
+      "size": 66708
+    },
+    "shared/interface/worldmap/thalassianhighlands/thelastrunestone3.blp": {
+      "member": "interface/worldmap/thalassianhighlands/thelastrunestone3.blp",
+      "sha256": "9ce1d8860c996e36920ac1aa417593f702342545ff74b180da4e0e31265d988f",
+      "size": 66708
+    },
+    "shared/interface/worldmap/thalassianhighlands/thelastrunestone4.blp": {
+      "member": "interface/worldmap/thalassianhighlands/thelastrunestone4.blp",
+      "sha256": "305f967fa0c66677be94cb8724c2b12511a9f9ef4db137fee7f1c28734988e35",
+      "size": 66708
+    }
+  },
+  "limitations": [
+    "Candidate only: geographic/terrain/assets stages retain their own unresolved gates.",
+    "No continent WDL replacement: native distant horizon may omit the new region; regional WDL merge remains pending.",
+    "Full source 2D minimap images include native-retained cells in mixed tiles, including 37_26; this does not modify geometry.",
+    "Native positional lighting retained; custom light chains not imported. Native-only audio replaces unknown custom references.",
+    "No source music, FrameXML, WDT, ADT, geometry or continent artwork replacement.",
+    "World map player dot, overlays, WMO floor routing, minimap alignment and ambience require in-game validation.",
+    "Locale DBC outputs are separate alternatives on independent baselines; root artwork/TRS is shared."
+  ],
+  "native_source_lock_sha256": "3cb0fa0c41655399d5aae1de7818c5c4a51fcefe6e9b1014a3e15a9cb5a3d137",
+  "previous_regional_source_lock_sha256": "ddb40796321fb59400260fe71a6fbee1119cb95c1a0c6dc424c1e993e624aa34",
+  "trs_changed_keys": [
+    "azeroth\\map33_22.blp",
+    "azeroth\\map33_23.blp",
+    "azeroth\\map33_24.blp",
+    "azeroth\\map33_25.blp",
+    "azeroth\\map34_23.blp",
+    "azeroth\\map34_24.blp",
+    "azeroth\\map34_25.blp",
+    "azeroth\\map35_23.blp",
+    "azeroth\\map35_24.blp",
+    "azeroth\\map35_25.blp",
+    "azeroth\\map35_26.blp",
+    "azeroth\\map36_22.blp",
+    "azeroth\\map36_23.blp",
+    "azeroth\\map36_24.blp",
+    "azeroth\\map36_25.blp",
+    "azeroth\\map36_26.blp",
+    "azeroth\\map37_22.blp",
+    "azeroth\\map37_23.blp",
+    "azeroth\\map37_24.blp",
+    "azeroth\\map37_25.blp",
+    "azeroth\\map37_26.blp",
+    "azeroth\\map38_22.blp",
+    "azeroth\\map38_23.blp",
+    "azeroth\\map38_24.blp"
+  ],
+  "version": 1
+}

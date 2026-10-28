@@ -1,9 +1,11 @@
 # Migración Turtle WoW — índice
 
 Objetivo a largo plazo: todo el contenido custom de Turtle sobre WotLK335,
-preservando lo nativo y lo propio. El trabajo probado hasta ahora es el piloto
-geográfico Karazhan Crypt, aceptado de forma práctica por el usuario; no equivale
-a una migración completa ni a navegación exhaustiva.
+preservando lo nativo y lo propio. Karazhan Crypt tiene aceptación geográfica
+práctica del usuario. Highlands/Alah'Thalas en mapa0 tiene composición,
+publicación regular e instalación servidor comprobadas; el usuario confirmó el
+acceso y la corrección de líquidos. Hay pruebas acotadas de render, minimapas y
+clic continental en cliente real, no de todo el gameplay ni de todas las rutas.
 
 ## Empezar aquí
 
@@ -18,11 +20,19 @@ a una migración completa ni a navegación exhaustiva.
 - **[Guía de migración](migration-guide.md)**: procedimiento vigente, fuentes,
   herramientas, paquetes, integración, pruebas, rollback y límites reales de
   reconstrucción. Es la receta curada, no la cronología de ensayos.
+- **[Skill `turtle-zone-import`](../../.opencode/skills/turtle-zone-import/SKILL.md)**:
+  flujo para importar otra región o reparar un port, con
+  [plantilla de contrato regional](../../.opencode/skills/turtle-zone-import/references/region-contract-template.md).
+  La guía sigue siendo el procedimiento canónico; la skill evita omitir etapas.
 - **[Hoja de ruta](roadmap.md)**: evolución hasta todo el contenido custom y
   próximo hito recomendado: viabilidad de Tel'Abim y merge continental húmedo.
 
 ## Referencias técnicas y evidencia
 
+- [`high-elf-maps.md`](high-elf-maps.md) — contrato geográfico Highlands/Alah'Thalas:
+  terreno/agua, assets, source lock, entrega regular y límites de fidelidad.
+- [`high-elf-server-data.md`](high-elf-server-data.md) — extracción mapa0, cierre
+  VMap completo, MMaps regionales/halo y soporte de instalación schema2 existente.
 - [`new-races-client.md`](new-races-client.md) — Altos Elfos22/Goblins23 aditivos:
   contrato del candidato y corrección de texturas aceptada por el usuario para22
   masculino/23 femenino. Preview consolidado regular enUS/esES observado PASS en

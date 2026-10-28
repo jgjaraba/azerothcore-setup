@@ -83,8 +83,10 @@ results remain unresolved, not evidence for a named zone or unused tile. See
 
 The following bounds are **source WorldMapArea footprints in world coordinates**,
 not precise ADT merge extents or proof that all tiles inside are custom. Source
-area IDs are not assigned destination IDs; compare modified/common native tiles
-as well as additions before selecting a region's merge set.
+area IDs are not assigned destination IDs for pending regions; the high-elf
+assignments are recorded in [id-mappings.md](id-mappings.md#altos-elfos-en-mapa0).
+Compare modified/common native tiles as well as additions before selecting a
+region's merge set.
 
 | Region | Map | Area ID | Bounding box (world coords) | Type | State |
 |---|---|---|---|---|---|
@@ -95,8 +97,8 @@ as well as additions before selecting a region's merge set.
 | Blackstone Island | Kalimdor (1) | 5536 | (-866,-8746)–(799,-6274) | new island | inventariada |
 | Gilneas | Azeroth (0) | 5179 | (-2801,-413)–(-359,3253) | new open zone | inventariada |
 | Gilneas City | Azeroth (0)/map 815 | 5208 | map 815 interior | new city/instance | inventariada |
-| Thalassian Highlands | Azeroth (0) | 5225 | (2891,-4087)–(4952,-1005) | new open zone | inventariada |
-| Alah'Thalas | Azeroth (0) | 2040 | (3931,-3637)–(4907,-2169) | new settlement | inventariada |
+| Thalassian Highlands | Azeroth (0) | 5225 | (2891,-4087)–(4952,-1005) | new open zone | [integrada regular/servidor; validación estructural, no visual/gameplay](high-elf-maps.md) |
+| Alah'Thalas | Azeroth (0) | 2040 | (3931,-3637)–(4907,-2169) | new settlement | [integrada regular/servidor; validación estructural, no visual/gameplay](high-elf-maps.md) |
 | Gillijim's Isle | Azeroth (0) | 408 | (-14576,1344)–(-12529,4436) | new island | inventariada |
 | Island of Lapidis | Azeroth (0) | 409 | (-12959,2032)–(-11043,4933) | new island | inventariada |
 | Grim Reaches | Azeroth (0) | 5602 | (-6488,-7459)–(-2904,-2072) | new coast | inventariada |
@@ -175,8 +177,10 @@ root and group000. Acquiring and auditing that complete family and its transitiv
 dependencies is follow-up work. Availability in the source does not prove
 destination compatibility. These findings do not establish the whole island's
 perimeter/halo, actual end-to-end MPQ precedence, asset fidelity or merge readiness.
-Before any wet-map conversion, address the documented MHDR index defect and
-unimplemented ADT water conversion described in [compatibility](compatibility.md).
+MHDR is now corrected. Validate Tel'Abim's liquid types, masks/heights and
+client/server behavior independently: high-elf source-MH2O preservation is not
+proof of Tel'Abim MCLQ rendering or a general MCLQ→MH2O converter. See
+[compatibility](compatibility.md).
 
 ## Open questions / next audit steps
 
