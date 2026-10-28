@@ -2,3 +2,5 @@ UPDATE `item_template` SET `stat_type3` = 3, `stat_value3` = 11 WHERE (`entry` =
 UPDATE `item_template` SET `stat_type3` = 3, `stat_value3` = 11 WHERE (`entry` = 6976);
 UPDATE `item_template` SET `stat_type3` = 3, `stat_value3` = 11 WHERE (`entry` = 6977);
 UPDATE `item_template` SET `Quality` = 3, `ItemLevel` = 48, `stat_value1` = 8, `stat_value3` = 5 WHERE (`entry` = 4430);
+UPDATE `item_template` SET `stat_value2` = 7, `stat_type3` = 3, `stat_value3` = 7 WHERE (`entry` = 12544);
+UPDATE `item_template` SET `stat_value1` = 7, `stat_value2` = 8 WHERE (`entry` = 12545);
